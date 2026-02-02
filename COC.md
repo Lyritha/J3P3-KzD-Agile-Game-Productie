@@ -22,11 +22,11 @@
 
 ## Code: 
 1. Voordat je pusht naar develop test de game in unity.
-2. Eerst merge develop naar jouw huidig branch voordat jij naar develop merged. 
+2. Merge develop eerst naar jouw huidige branch voordat jij naar develop merged. 
 3. Gebruik AI alleen om informatie te verzamelen, korte stukjes code te maken of als hulp bij documentatie. 
-4. Geen code van andere aanpassen zonder toestemming, als je aanpast vraag het bij de originele auteur van de code nog even een keer na. 
+4. Geen code van anderen aanpassen zonder toestemming, als je aanpast vraag het bij de originele auteur van de code nog even een keer na. 
 5. Geef elkaar de kans om te groeien, neem niet zomaar taken over.
-6. Wanneer je vastloopt, vraag om hulp. 
+6. Wanneer je vastloopt, vraag om hulp. (niet alleen van chatGPT)
 
 
 ## Andere regels: 
