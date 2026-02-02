@@ -12,7 +12,7 @@
 1. Behandel elkaar met respect. 
 2. Je spreekt elkaar altijd aan op onwenselijk/afleidend gedrag.
 3. Zorg dat je niet wordt afgeleid door dingen als sociaal-media, Netflix en games. 
-4. Je bent op tijd aanwezig op school, zo niet bespreek dit dan een kwartiertje.
+4. Je bent op tijd aanwezig op school, zo niet bespreek dit dan een kwartiertje van ten voren.
 5. Als je ziek bent, stuur hier dan even een berichtje over. 
 6. Wanneer je een taak aanneemt rond deze optijd af, zo niet communiceer dit tijdig.
 7. Kritiek en feedback richt je op het product/werk en niet op de persoon. 
