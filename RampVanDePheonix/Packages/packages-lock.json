@@ -1,7 +1,16 @@
 {
   "dependencies": {
+    "com.domybest.mybox": {
+      "version": "https://github.com/Deadcows/MyBox.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "afba2388773b7eeb9fec8ae9841c6db34969a54b"
+    },
     "com.unity.2d.animation": {
-      "version": "12.0.2",
+      "version": "12.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -14,7 +23,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.aseprite": {
-      "version": "2.0.1",
+      "version": "2.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -40,7 +49,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.psdimporter": {
-      "version": "11.0.1",
+      "version": "11.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -57,7 +66,7 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "12.0.1",
+      "version": "12.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -77,7 +86,7 @@
       }
     },
     "com.unity.2d.tilemap.extras": {
-      "version": "5.0.1",
+      "version": "5.0.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -124,7 +133,7 @@
       "dependencies": {}
     },
     "com.unity.ide.rider": {
-      "version": "3.0.36",
+      "version": "3.0.39",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -133,11 +142,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.23",
+      "version": "2.0.27",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.9"
+        "com.unity.test-framework": "1.1.33"
       },
       "url": "https://packages.unity.com"
     },
@@ -252,7 +261,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.8.9",
+      "version": "1.8.10",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -273,7 +282,7 @@
       }
     },
     "com.unity.visualscripting": {
-      "version": "1.9.7",
+      "version": "1.9.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
