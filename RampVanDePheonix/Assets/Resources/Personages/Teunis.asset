@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166c512a2f52a22419a39cb8b10ba7eb, type: 3}
+  m_Name: Teunis
+  m_EditorClassIdentifier: Assembly-CSharp::Personage
+  id: 0
+  name: Teunis
+  baseKapitaal: 1
+  baseBouwkunde: 0
+  baseLeervermogen: 1
+  baseSociaal: 0
+  baseAanpassingvermogen: 0
+  woonplaats: Harreveld
+  beroep: Landbouwer
+  loreDrop: Je vrouw is gestorven in het kraambed. Jullie hadden veel geld gespaard
+    en een mooi leven in Nederland in het vooruitzicht. Je wilt niet langer aan het
+    ooit zo gelukkige leven in Nederland herinnerd worden en wilt een nieuwe start
+    maken.
+  portrait: {fileID: 21300000, guid: 52b982355091a7948b6bb2dc7b5128e2, type: 3}

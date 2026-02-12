@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166c512a2f52a22419a39cb8b10ba7eb, type: 3}
+  m_Name: Berend Willem
+  m_EditorClassIdentifier: Assembly-CSharp::Personage
+  id: 2
+  name: Berend Willem
+  baseKapitaal: 0
+  baseBouwkunde: 1
+  baseLeervermogen: 0
+  baseSociaal: 1
+  baseAanpassingvermogen: 0
+  woonplaats: Winterswijk
+  beroep: Boerenzoon
+  loreDrop: "Je bent een vrolijke jongen die goed voor zijn zusje Janna Aleida zorgt.
+    Je werkt hard en je vindt alles dat met het boerenleven te maken heeft leuk.
+    Je mag \xE9\xE9n stuk gereedschap meenemen, anders wordt de tas te zwaar. Je
+    kiest natuurlijk voor de beitel die je van opa gekregen hebt."
+  portrait: {fileID: 21300000, guid: 6aedb7f98b3dc9f49a7d529cafd5e5b1, type: 3}
