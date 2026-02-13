@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Willemina
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 4
-  name: Willemina
+  characterName: Willemina
   baseKapitaal: 0
   baseBouwkunde: 0
   baseLeervermogen: 0
   baseSociaal: 2
-  baseAanpassingvermogen: 0
+  baseAanpassingsvermogen: 0
   woonplaats: Winterswijk
   beroep: Werkte als voedvrouw
   loreDrop: Je werk als vroedvrouw doe je allang niet meer. Je helpt mee in het huishouden

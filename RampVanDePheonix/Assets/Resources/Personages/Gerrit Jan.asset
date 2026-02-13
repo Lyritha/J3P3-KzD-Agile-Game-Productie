@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Gerrit Jan
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 6
-  name: Gerrit Jan
+  characterName: Gerrit Jan
   baseKapitaal: 0
   baseBouwkunde: 0
   baseLeervermogen: 1
   baseSociaal: 1
-  baseAanpassingvermogen: 0
+  baseAanpassingsvermogen: 0
   woonplaats: Winterswijk
   beroep: Voerman
   loreDrop: Zolang je je kunt heugen, heb je een oogje op Christina. Je hebt vernomen

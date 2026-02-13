@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Albertus
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 1
-  name: Albertus
+  characterName: Albertus
   baseKapitaal: 1
   baseBouwkunde: 0
   baseLeervermogen: 0
   baseSociaal: 2
-  baseAanpassingvermogen: 0
+  baseAanpassingsvermogen: 0
   woonplaats: Ommen
   beroep: Dominee
   loreDrop: Samen met een groep gelovigen emigreerde Albertus, als voorganger, naar
