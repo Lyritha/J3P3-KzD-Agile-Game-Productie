@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Hendrikus
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 7
-  name: Hendrikus
+  characterName: Hendrikus
   baseKapitaal: 0
   baseBouwkunde: 0
   baseLeervermogen: 0
   baseSociaal: 0
-  baseAanpassingvermogen: 0
+  baseAanpassingsvermogen: 0
   woonplaats: Wierden-Enter
   beroep: Wever
   loreDrop: Het weversvak zit in je bloed. Je hebt het van je vader geleerd en hij

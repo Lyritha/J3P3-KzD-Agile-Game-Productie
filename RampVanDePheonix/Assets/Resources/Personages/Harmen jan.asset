@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Harmen jan
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 5
-  name: Hermen Jan
+  characterName: Harmen Jan
   baseKapitaal: 0
   baseBouwkunde: 0
   baseLeervermogen: 0
   baseSociaal: 0
-  baseAanpassingvermogen: 1
+  baseAanpassingsvermogen: 0
   woonplaats: Neede
   beroep: Werkloos
   loreDrop: Geen geld en weinig eten, het leven in Nederland vind je verschrikkelijk.

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Janna Aleida
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 3
-  name: Janna Aleida
+  characterName: Janna Aleida
   baseKapitaal: 0
   baseBouwkunde: 0
   baseLeervermogen: 0
   baseSociaal: 1
-  baseAanpassingvermogen: 1
+  baseAanpassingsvermogen: 0
   woonplaats: Winterswijk
   beroep: Boerendochter
   loreDrop: Jouw vader zei dat je jezelf groot moet houden en dankbaar moet zijn.

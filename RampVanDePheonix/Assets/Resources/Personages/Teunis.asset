@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Teunis
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 0
-  name: Teunis
+  characterName: Teunis
   baseKapitaal: 1
   baseBouwkunde: 0
   baseLeervermogen: 1
   baseSociaal: 0
-  baseAanpassingvermogen: 0
+  baseAanpassingsvermogen: 0
   woonplaats: Harreveld
   beroep: Landbouwer
   loreDrop: Je vrouw is gestorven in het kraambed. Jullie hadden veel geld gespaard

@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Berend Willem
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 2
-  name: Berend Willem
+  characterName: Berend Willem
   baseKapitaal: 0
   baseBouwkunde: 1
   baseLeervermogen: 0
   baseSociaal: 1
-  baseAanpassingvermogen: 0
+  baseAanpassingsvermogen: 0
   woonplaats: Winterswijk
   beroep: Boerenzoon
   loreDrop: "Je bent een vrolijke jongen die goed voor zijn zusje Janna Aleida zorgt.

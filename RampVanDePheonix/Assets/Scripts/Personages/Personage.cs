@@ -7,14 +7,14 @@ public class Personage : ScriptableObject
     public int id;
 
     [Header("Name")]
-    public string name;
+    public string characterName;
 
     [Header("Vaardigheden")]
     public int baseKapitaal;
     public int baseBouwkunde;
     public int baseLeervermogen;
     public int baseSociaal;
-    public int baseAanpassingvermogen;
+    public int baseAanpassingsvermogen;
 
     [Header("Lore")]
     public string woonplaats;
