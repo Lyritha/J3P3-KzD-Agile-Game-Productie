@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166c512a2f52a22419a39cb8b10ba7eb, type: 3}
+  m_Name: Willemina
+  m_EditorClassIdentifier: Assembly-CSharp::Personage
+  id: 4
+  name: Willemina
+  baseKapitaal: 0
+  baseBouwkunde: 0
+  baseLeervermogen: 0
+  baseSociaal: 2
+  baseAanpassingvermogen: 0
+  woonplaats: Winterswijk
+  beroep: Werkte als voedvrouw
+  loreDrop: Je werk als vroedvrouw doe je allang niet meer. Je helpt mee in het huishouden
+    van Aaltje. Zij besluit met haar gezin naar Amerika te vertrekken. Je gaat mee.
+    Op je oude dag wil je er nog steeds het beste van maken, avonturen en uitdagingen
+    ben je nog nooit uit de weg gegaan.
+  portrait: {fileID: 21300000, guid: 9e7afcfe84b1a24498334685a9ba3eb9, type: 3}
