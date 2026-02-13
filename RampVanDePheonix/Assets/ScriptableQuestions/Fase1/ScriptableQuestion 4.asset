@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 4
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Een van de wielen van de kar is er onderweg afgevallen! '
+  answers:
+  - action: Het zelf repareren
+    result: 'verlies 1 Honger en verdien 1 Bouwkunde. '
+    change: []
+  - action: Iemand van een dorp in de buurt inhuren om het wiel te repareren
+    result: 'verlies 1 Kapitaal en krijg 1 Socialiteit. '
+    change: []
+  - action: Een wiel stelen van een geparkeerde kar bij het dorp
+    result: 'verlies 2 Sociaal en krijg 2 Aanpassingsvermogen. '
+    change: []
