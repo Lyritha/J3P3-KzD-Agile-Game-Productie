@@ -7,9 +7,15 @@ public class BrickSpawner : MonoBehaviour
     Vector3 original;
     Vector2 dir;
     float threshold = 3;
+
+    [Header("Movement")]
     [SerializeField] Transform target;
+
+    [Header("BrickDropping")]
+    [SerializeField] GameObject brickPrefab;
     void Start()
     {
+        InputManager.OnSpacePressed += DropBrick;
         rb = GetComponent<Rigidbody2D>();
         original = rb.transform.position;
     }
@@ -18,7 +24,11 @@ public class BrickSpawner : MonoBehaviour
     {
         MoveSpawner();
     }
-
+    
+    void DropBrick()
+    {
+        Instantiate(brickPrefab,rb.transform);
+    }
 
     void MoveSpawner()
     {
