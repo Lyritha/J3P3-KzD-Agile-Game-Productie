@@ -3323,6 +3323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011051029103252121}
+  - component: {fileID: 1617885649708643833}
   - component: {fileID: 4441969112870837958}
   - component: {fileID: 1407822432797458928}
   - component: {fileID: 1303247454800655014}
@@ -3359,6 +3360,29 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1617885649708643833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468825232485569848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d44f03dc85d5240bc1129136166ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDisplay
+  displayNaam: {fileID: 1575701702478516396}
+  displaySprite: {fileID: 8615823053046499540}
+  infoNaam: {fileID: 5519636163988133877}
+  infoSprite: {fileID: 6195214503846763431}
+  infoBeroep: {fileID: 255514003307195162}
+  infoWoonplaats: {fileID: 6553808716772912794}
+  infoLore: {fileID: 8502724776301240051}
+  bouwkundeSlider: {fileID: 5865610150130657659}
+  leervermogenSlider: {fileID: 1803370012786334457}
+  aanpassingsvermogenSlider: {fileID: 4296737471680528873}
+  sociaalSlider: {fileID: 5519337658592519667}
 --- !u!222 &4441969112870837958
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PartyGen : MonoBehaviour
 {
-    List<Personage> party = new List<Personage>();
+    public List<Personage> party = new List<Personage>();
     void Start()
     {
         Personage[] personages = Resources.LoadAll<Personage>("Personages");
