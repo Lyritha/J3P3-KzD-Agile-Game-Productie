@@ -1,5 +1,7 @@
+using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class BrickSpawner : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class BrickSpawner : MonoBehaviour
 
     [Header("BrickDropping")]
     [SerializeField] GameObject brickPrefab;
+    public List<GameObject> spawnedBricks = new List<GameObject>();
     void Start()
     {
         InputManager.OnSpacePressed += DropBrick;
@@ -27,7 +30,9 @@ public class BrickSpawner : MonoBehaviour
     
     void DropBrick()
     {
-        Instantiate(brickPrefab,rb.transform);
+        GameObject current = Instantiate(brickPrefab);
+        current.transform.position = rb.transform.position;
+        spawnedBricks.Add(current);
     }
 
     void MoveSpawner()
