@@ -14,19 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Er staat een flinke rij voor de kassa om een kaartje te kopen naar Amerika. '
   answers:
-  - action: Rustig in de rij wachten tot je een kaart mag kopen
+  - skillNeeded: []
+    action: Rustig in de rij wachten tot je een kaart mag kopen
     result: 'verlies 1 Honger, verdien 2 Aanpassingsvermogen. '
     change:
     - skillToBeChanged: 0
       changeAmount: 2
-  - action: Probeer voor te kruipen om eerder een ticket te krijgen
+    - skillToBeChanged: 6
+      changeAmount: -1
+  - skillNeeded: []
+    action: Probeer voor te kruipen om eerder een ticket te krijgen
     result: 'verlies 1 Socialiteit, verdien 2 Aanpassingsvermogen. '
     change:
     - skillToBeChanged: 3
       changeAmount: -1
     - skillToBeChanged: 0
       changeAmount: 2
-  - action: Probeer anderen in de rij om te kopen om jou voor te laten
+  - skillNeeded: []
+    action: Probeer anderen in de rij om te kopen om jou voor te laten
     result: 'verlies 1 Kapitaal, verdien 1 Aanpassingsvermogen. '
     change:
     - skillToBeChanged: 1

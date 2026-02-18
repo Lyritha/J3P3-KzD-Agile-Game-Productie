@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Het is de nacht van 21 november 1847, de lichtjes aan de kust van Sheboygan
+    zijn in zicht. De stoomketels van de zwabberladen Phoenix raken oververhit en
+    de geur van rook en smeulend hout wordt steeds erger. De Phoenix staat in brand! '
+  answers:
+  - skillNeeded: []
+    action: 'Spring in het water om het vuur te ontsnappen. '
+    result: Je overleeft de sprong in het water niet, karakter gaat dood.
+    change: []
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 5
+    action: '(Aanpassingsvermogen > 5?)   Vindt materiaal om op te drijven. '
+    result: 'Je overleeft het vuur maar net, maar door de paniek verlies al je kapitaal. '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -100000
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 5
+    action: '(Sociaal > 5?) (kind)   Probeer iemand op de reddingsboot over te halen
+      om van plaats te wisselen. '
+    result: 'Je overleeft het vuur maar net, maar iemand anders heeft wel hun leven
+      voor je opgeofferd, verlies 5 sociaal. '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -5

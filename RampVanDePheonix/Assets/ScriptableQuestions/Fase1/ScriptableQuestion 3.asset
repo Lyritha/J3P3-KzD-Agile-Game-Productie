@@ -15,7 +15,8 @@ MonoBehaviour:
   question: 'De oogst dit jaar ging niet zoals gehoopt, en je zit nu zonder genoeg
     eten om tot de volgende oogst te overleven, wat zou je nu doen? '
   answers:
-  - action: Bedelen bij vrienden, familie en in het dorp
+  - skillNeeded: []
+    action: Bedelen bij vrienden, familie en in het dorp
     result: 'verlies 2 Socialiteit, krijg 1 Aanpassingsvermogen en verdient 1 Honger
       per karakter. '
     change:
@@ -23,12 +24,18 @@ MonoBehaviour:
       changeAmount: -2
     - skillToBeChanged: 0
       changeAmount: 1
-  - action: Zelf eten kopen van je opgespaarde geld
+    - skillToBeChanged: 6
+      changeAmount: 1
+  - skillNeeded: []
+    action: Zelf eten kopen van je opgespaarde geld
     result: 'verlies 2 Kapitaal en verdien 3 Honger per karakter. '
     change:
     - skillToBeChanged: 1
       changeAmount: -2
-  - action: Inbreken bij je buurman en eten stelen
+    - skillToBeChanged: 6
+      changeAmount: 3
+  - skillNeeded: []
+    action: Inbreken bij je buurman en eten stelen
     result: 'verlies 2 Socialiteit, krijg 1 Bouwkunde, 1 Aanpassingsvermogen en verdien
       2 Honger per karakter. '
     change:
@@ -38,10 +45,15 @@ MonoBehaviour:
       changeAmount: 1
     - skillToBeChanged: 0
       changeAmount: 1
-  - action: Er doorheen duwen en de laatste beetjes eten verdelen
+    - skillToBeChanged: 6
+      changeAmount: 2
+  - skillNeeded: []
+    action: Er doorheen duwen en de laatste beetjes eten verdelen
     result: 'verlies 1 Honger per karakter, verdien 2 Aanpassingsvermogen en 1 Kapitaal. '
     change:
     - skillToBeChanged: 0
       changeAmount: 2
     - skillToBeChanged: 1
       changeAmount: 1
+    - skillToBeChanged: 6
+      changeAmount: -1

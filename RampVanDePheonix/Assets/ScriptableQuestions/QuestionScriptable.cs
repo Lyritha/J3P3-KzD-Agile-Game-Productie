@@ -8,6 +8,7 @@ using UnityEngine;
 public class QuestionScriptable : ScriptableObject
 {
     [TextArea]
+ 
     public string question;
     public Answer[] answers;
 }
@@ -15,6 +16,7 @@ public class QuestionScriptable : ScriptableObject
 [Serializable]
 public struct Answer
 {
+    public SkillNeededForAnswer[] skillNeeded;
     //an action that the player can choose
     public string action;
     //the result of the chosen action
@@ -30,11 +32,20 @@ public enum Skillset
     Kapitaal,
     Bouwkunde,
     Socialiteit,
-    Leervermogen
+    Leervermogen,
+    FoodStorage,
+    HungerPerPerson
 }
 [Serializable]
 public struct SkillsetChange
 {
     public Skillset skillToBeChanged;
     public int changeAmount;
+}
+
+[Serializable]
+public struct SkillNeededForAnswer
+{
+    public Skillset skillType;
+    public int skillAmountNeeded;
 }
