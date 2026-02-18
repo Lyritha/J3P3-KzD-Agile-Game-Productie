@@ -18,7 +18,11 @@ MonoBehaviour:
   answers:
   - action: Een gloednieuwe zaag
     result: 'verdien 2 Bouwkunde '
-    change: []
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
   - action: Een zakje geld
     result: 'verdien 2 Kapitaal. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2

@@ -16,7 +16,13 @@ MonoBehaviour:
   answers:
   - action: Koop nieuw eten bij het volgende dorp
     result: 'verlies 2 Kapitaal, verdien 1 Honger per karakter en 1 Aanpassingsvermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -2
+    - skillToBeChanged: 0
+      changeAmount: 1
   - action: (5 Aanpassingsvermogen nodig) Jaag een dier onderweg
     result: 'verdien 2 honger per karakter en 1 Leervermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 1

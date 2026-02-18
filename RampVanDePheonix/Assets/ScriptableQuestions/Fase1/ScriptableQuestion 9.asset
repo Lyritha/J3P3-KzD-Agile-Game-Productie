@@ -17,7 +17,11 @@ MonoBehaviour:
   answers:
   - action: (5 Socialiteit nodig) Het is je gelukt om ze te overtuigen
     result: 'ze helpen mee met het financieren van de reis, je verdient 3 Kapitaal. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 3
   - action: Je bent net niet overtuigend genoeg, maar ze waarderen je moeite
     result: ' maar ze waarderen je moeite, verdien 1 Socialiteit. '
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1

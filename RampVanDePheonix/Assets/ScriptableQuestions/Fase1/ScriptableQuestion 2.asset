@@ -17,11 +17,23 @@ MonoBehaviour:
   answers:
   - action: Ja klinkt wel gezellig, ook al zijn de drankjes wel wat prijzig
     result: 'verlies 2 Kapitaal en krijg 2 Socialiteit. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2
+    - skillToBeChanged: 3
+      changeAmount: 2
   - action: Ik denk dat ik mijn geld ga opsparen en een rustig avondje thuisblijf
     result: 'verlies 1 Socialiteit en krijg 1 Kapitaal. '
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1
+    - skillToBeChanged: 1
+      changeAmount: 1
   - action: In plaats van bij de kroeg nodig je ze thuis uit, is even gezellig en
       ook goedkoper
     result: 'krijg 1 Socialiteit en 1 Aanpassingsvermogen '
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1
+    - skillToBeChanged: 0
+      changeAmount: 1

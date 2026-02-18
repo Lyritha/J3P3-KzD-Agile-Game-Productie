@@ -16,7 +16,11 @@ MonoBehaviour:
   answers:
   - action: Je accepteert voor wat extra werkervaring
     result: ' verdien 2 Bouwkunde. '
-    change: []
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
   - action: Je accepteert vooral voor de loon
     result: 'verdien 2 Kapitaal. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2

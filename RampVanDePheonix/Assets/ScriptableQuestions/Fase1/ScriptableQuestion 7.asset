@@ -17,7 +17,11 @@ MonoBehaviour:
   answers:
   - action: Je koopt wat extra gereedschap
     result: 'verdien 2 Bouwkunde. '
-    change: []
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
   - action: Je oefent je Engels om makkelijker met anderen te overleggen
     result: 'verdien 2 Leervermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 2

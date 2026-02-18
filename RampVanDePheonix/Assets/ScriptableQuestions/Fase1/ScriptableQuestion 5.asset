@@ -17,10 +17,20 @@ MonoBehaviour:
   answers:
   - action: Geef hem wat geld
     result: 'verlies 1 Kapitaal en verdien 2 Socialiteit. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -1
+    - skillToBeChanged: 3
+      changeAmount: 2
   - action: De man negeren
     result: 'verlies 1 Socialiteit en verdien 1 Aanpassingsvermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -1
+    - skillToBeChanged: 0
+      changeAmount: 1
   - action: 'De man netjes afwijzen. '
     result: 'De man netjes afwijzen. '
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1

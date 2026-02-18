@@ -18,13 +18,21 @@ MonoBehaviour:
   answers:
   - action: Wat oude Engelstalige boeken die hij op zijn zolder had gevonden
     result: 'krijg 2 Leervermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 2
   - action: Een grote gereedschapskist met roestige gereedschap,
     result: 'krijg 2 Bouwkunde. '
-    change: []
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
   - action: Een pakje kaarten en wat dobbelstenen
     result: 'krijg 2 Socialiteit. '
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
   - action: Een oude koffer met een versleten portemonnee
     result: 'krijg 1 Kapitaal. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 1

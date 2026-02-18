@@ -17,10 +17,20 @@ MonoBehaviour:
   answers:
   - action: Je gereedschapskist
     result: 'verlies 1 Bouwkunde en krijg 1 Kapitaal. '
-    change: []
+    change:
+    - skillToBeChanged: 2
+      changeAmount: -1
+    - skillToBeChanged: 1
+      changeAmount: 1
   - action: Je Engelstalige boeken
     result: 'verlies 1 Leervermogen en krijg 1 Kapitaal. '
-    change: []
+    change:
+    - skillToBeChanged: 4
+      changeAmount: -1
+    - skillToBeChanged: 1
+      changeAmount: 1
   - action: 'Bij nader inzien hoef ik niet echt iets te verkopen. '
-    result: niks
-    change: []
+    result: er word niks verkocht
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 0

@@ -16,13 +16,21 @@ MonoBehaviour:
   answers:
   - action: Een Encyclopedia
     result: 'verdien 2 Leervermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 2
   - action: Een boek over houtbewerking
     result: 'verdien 2 Bouwkunde. '
-    change: []
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
   - action: De krant
     result: verdien 2 Socialiteit
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
   - action: Een studie bijbel
     result: 'verdien 2 Aanpassingsvermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 0
+      changeAmount: 2

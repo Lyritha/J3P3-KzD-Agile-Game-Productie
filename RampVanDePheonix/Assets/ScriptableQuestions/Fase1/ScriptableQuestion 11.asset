@@ -16,10 +16,20 @@ MonoBehaviour:
   answers:
   - action: Rustig in de rij wachten tot je een kaart mag kopen
     result: 'verlies 1 Honger, verdien 2 Aanpassingsvermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 0
+      changeAmount: 2
   - action: Probeer voor te kruipen om eerder een ticket te krijgen
     result: 'verlies 1 Socialiteit, verdien 2 Aanpassingsvermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -1
+    - skillToBeChanged: 0
+      changeAmount: 2
   - action: Probeer anderen in de rij om te kopen om jou voor te laten
     result: 'verlies 1 Kapitaal, verdien 1 Aanpassingsvermogen. '
-    change: []
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -1
+    - skillToBeChanged: 0
+      changeAmount: 1
