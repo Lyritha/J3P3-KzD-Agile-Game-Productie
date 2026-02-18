@@ -16,6 +16,8 @@ public class VaardigheidsManager : MonoBehaviour
     [SerializeField] int bouwKunde = 0;
     [SerializeField] int socialiteit = 0;
 
+    public bool canChange = true;
+
     void Start()
     {
         leerVermogen = 0;
@@ -27,6 +29,11 @@ public class VaardigheidsManager : MonoBehaviour
 
     public void AddVaardigheden(VaardigType type, int amount)
     {
+        if (!canChange)
+        {
+            return;
+        }
+
         switch (type)
         {
             case VaardigType.Leer:
@@ -43,6 +50,33 @@ public class VaardigheidsManager : MonoBehaviour
                 break;
             case VaardigType.Sociaal:
                 socialiteit += amount;
+                break;
+        }
+    }
+
+    public void RemoveVaardigheden(VaardigType type, int amount)
+    {
+        if (!canChange)
+        {
+            return;
+        }
+
+        switch (type)
+        {
+            case VaardigType.Leer:
+                leerVermogen -= amount;
+                break;
+            case VaardigType.Kapitaal:
+                kapitaal -= amount;
+                break;
+            case VaardigType.Aanpas:
+                aanpassingsVermogen -= amount;
+                break;
+            case VaardigType.Bouw:
+                bouwKunde -= amount;
+                break;
+            case VaardigType.Sociaal:
+                socialiteit -= amount;
                 break;
         }
     }
