@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 166c512a2f52a22419a39cb8b10ba7eb, type: 3}
+  m_Name: Gerrit Jan
+  m_EditorClassIdentifier: Assembly-CSharp::Personage
+  id: 6
+  characterName: Gerrit Jan
+  baseKapitaal: 0
+  baseBouwkunde: 0
+  baseLeervermogen: 1
+  baseSociaal: 1
+  baseAanpassingsvermogen: 0
+  woonplaats: Winterswijk
+  beroep: Voerman
+  loreDrop: Zolang je je kunt heugen, heb je een oogje op Christina. Je hebt vernomen
+    dat ze de reis naar Amerika alleen gaat maken. Je wilt haar vergezellen en laat
+    alles achter. De liefde achterna!
+  portrait: {fileID: 21300000, guid: b01a9cd0cce3e9b4e9bb426a3f37232e, type: 3}
