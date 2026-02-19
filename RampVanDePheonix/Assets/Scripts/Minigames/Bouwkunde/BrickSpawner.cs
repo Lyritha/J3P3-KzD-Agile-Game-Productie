@@ -1,0 +1,57 @@
+using NUnit.Framework;
+using UnityEditor;
+using UnityEngine;
+using System.Collections.Generic;
+
+public class BrickSpawner : MonoBehaviour
+{
+    Rigidbody2D rb;
+    Vector3 original;
+    Vector2 dir;
+    float threshold = 3;
+
+    [Header("Movement")]
+    [SerializeField] Transform target;
+
+    [Header("BrickDropping")]
+    [SerializeField] GameObject brickPrefab;
+    void Start()
+    {
+        InputManager.OnSpacePressed += DropBrick;
+        rb = GetComponent<Rigidbody2D>();
+        original = rb.transform.position;
+    }
+
+    void Update()
+    {
+        MoveSpawner();
+    }
+    GameObject current;
+    void DropBrick()
+    {
+        current = Instantiate(brickPrefab);
+        current.transform.position = rb.transform.position;
+    }
+
+    void MoveSpawner()
+    {
+        if (Vector3.Distance(rb.transform.position, original) < threshold)
+        {
+            dir = Vector2.right;
+        }
+        else if (Vector3.Distance(rb.transform.position, target.position) < threshold)
+        {
+            dir = Vector2.left;
+        }
+
+
+        if (dir == Vector2.left)
+        {
+            rb.transform.position = Vector3.Lerp(rb.transform.position, original, Time.deltaTime * .5f);
+        }
+        else if (dir == Vector2.right)
+        {
+            rb.transform.position = Vector3.Lerp(rb.transform.position, target.position, Time.deltaTime * .5f);
+        }
+    }
+}
