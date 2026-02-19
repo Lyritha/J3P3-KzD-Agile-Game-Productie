@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacteListDisplay : MonoBehaviour
+public class CharacterListDisplay : MonoBehaviour
 {
     public List<CharacterDisplay> Characters { get; private set; } = new();
     
@@ -11,8 +11,11 @@ public class CharacteListDisplay : MonoBehaviour
     [SerializeField]
     private RectTransform characterParent;
 
+    [SerializeField]
+    private CapitalDisplay capitalDisplay;
 
-    [ContextMenu("Add Manual Characters")]
+
+    [ContextMenu("Add Manual Characters")]  
     private void AddManualCharacters()
     {
         PartyGen partyGen = FindAnyObjectByType<PartyGen>();
@@ -22,18 +25,22 @@ public class CharacteListDisplay : MonoBehaviour
     public void AddCharacters(List<Personage> characters) => AddCharacters(characters.ToArray());
     public void AddCharacters(Personage[] characters)
     {
-        foreach (var character in characters)
+        ClearCharacters();
+
+        foreach (Personage character in characters)
             AddCharacter(character);
+
+        capitalDisplay.AddCapitalItems(characters);
     }
 
-    public void AddCharacter(Personage character)
+    private void AddCharacter(Personage character)
     {
         CharacterDisplay display = Instantiate(characterPrefab, characterParent);
         Characters.Add(display);
         display.SetUI(character);
     }
 
-    public void ClearCharacters()
+    private void ClearCharacters()
     {
         foreach (Transform child in characterParent)
             Destroy(child.gameObject);

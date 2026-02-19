@@ -32,6 +32,8 @@ public class CharacterDisplay : MonoBehaviour
     private Slider aanpassingsvermogenSlider;
     [SerializeField]
     private Slider sociaalSlider;
+    [SerializeField]
+    private TMP_Text kapitaalText;
 
     // dunno about hunger yet uwu
 
@@ -69,6 +71,7 @@ public class CharacterDisplay : MonoBehaviour
         leervermogenSlider.value = character.baseLeervermogen;
         aanpassingsvermogenSlider.value = character.baseAanpassingsvermogen;
         sociaalSlider.value = character.baseSociaal;
+        kapitaalText.text = character.baseKapitaal.ToString();
 
         infoLore.text = character.loreDrop;
     }
