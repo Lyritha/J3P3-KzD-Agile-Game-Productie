@@ -1,7 +1,8 @@
 using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class BrickSpawner : MonoBehaviour
 {
@@ -10,16 +11,19 @@ public class BrickSpawner : MonoBehaviour
     Vector2 dir;
     float threshold = 3;
 
+
     [Header("Movement")]
     [SerializeField] Transform target;
 
     [Header("BrickDropping")]
     [SerializeField] GameObject brickPrefab;
+    public bool allowDrop = true;
     void Start()
     {
         InputManager.OnSpacePressed += DropBrick;
         rb = GetComponent<Rigidbody2D>();
         original = rb.transform.position;
+        StartCoroutine(AllowDropping());
     }
 
     void Update()
@@ -29,10 +33,13 @@ public class BrickSpawner : MonoBehaviour
     GameObject current;
     void DropBrick()
     {
-        current = Instantiate(brickPrefab);
-        current.transform.position = rb.transform.position;
+        if (allowDrop)
+        {
+            current = Instantiate(brickPrefab);
+            current.transform.position = rb.transform.position;
+            allowDrop = false;
+        }
     }
-
     void MoveSpawner()
     {
         if (Vector3.Distance(rb.transform.position, original) < threshold)
@@ -54,4 +61,15 @@ public class BrickSpawner : MonoBehaviour
             rb.transform.position = Vector3.Lerp(rb.transform.position, target.position, Time.deltaTime * .5f);
         }
     }
+    IEnumerator AllowDropping()
+    {
+        yield return null;
+
+        allowDrop = true;
+
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(AllowDropping());
+    }
+    
 }
