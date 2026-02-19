@@ -15,11 +15,5 @@ public class PartyGen : MonoBehaviour
             //if (!party.Contains(personages[randomNum])) party.Add(new Personage(personages[randomNum].id, personages[randomNum].name, personages[randomNum].baseKapitaal, personages[randomNum].baseBouwkunde, personages[randomNum].baseLeervermogen, personages[randomNum].baseSociaal, personages[randomNum].baseAanpassingsvermogen, personages[randomNum].woonplaats, personages[randomNum].beroep, personages[randomNum].loreDrop, personages[randomNum].portrait));
 
         } while (party.Count < 4);
-
-        foreach(Personage personage in party)
-        {
-            personage.characterName = "patat";
-            print(personage.characterName);
-        }
     }
 }
