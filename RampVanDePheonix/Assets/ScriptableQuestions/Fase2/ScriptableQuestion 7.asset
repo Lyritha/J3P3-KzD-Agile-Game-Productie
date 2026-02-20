@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 7
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Rijke mensen hebben de hele wereld, toch? Je mag een persoon uit het
+    reisgezelschap in veiligheid brengen.  '
+  answers:
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 5
+    action: '(Kapitaal > 5) Gebruik je geld om jezelf veilig te stellen. '
+    result: 'Je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid
+      punten verdienen. '
+    change: []
+  - skillNeeded:
+    - skillType: 5
+      skillAmountNeeded: 7
+    action: '(Voedselopslag > 7) Gebruik voedsel om je positie op de boot veilig
+      te stellen  '
+    result: 'Je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid
+      punten verdienen. '
+    change: []
+  - skillNeeded: []
+    action: 'Stel niemand veilig     '
+    result: 'Je hebt de keuze gemaakt om op de boot te blijven. '
+    change: []

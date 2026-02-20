@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Personage", menuName = "Scriptable Objects/Personages")]
 public class Personage : ScriptableObject
 {
+    public event Action OnChanged;
+
     [Header("ID")]
     public int id;
 
@@ -23,4 +26,6 @@ public class Personage : ScriptableObject
 
     [Header("Sprite")]
     public Sprite portrait;
+
+    public void NotifyChanged() => OnChanged?.Invoke();
 }

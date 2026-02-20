@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Je buurman is ook van plan om de reis te naar Amerika te starten, hij
+    heeft niet genoeg ruimte om al zijn spul mee te nemen, hij geeft je een optie
+    om wat gratis spullen te krijgen. '
+  answers:
+  - action: Wat oude Engelstalige boeken die hij op zijn zolder had gevonden
+    result: 'krijg 2 Leervermogen. '
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 2
+  - action: Een grote gereedschapskist met roestige gereedschap,
+    result: 'krijg 2 Bouwkunde. '
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
+  - action: Een pakje kaarten en wat dobbelstenen
+    result: 'krijg 2 Socialiteit. '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
+  - action: Een oude koffer met een versleten portemonnee
+    result: 'krijg 1 Kapitaal. '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 1
