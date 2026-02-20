@@ -1,72 +1,91 @@
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 //SPS staat voor Steen Papier Schaar btw
 public class SPSManager : MonoBehaviour
 {
     [SerializeField] private GameObject allPrefabs;
-    [SerializeField] private Transform SpawnPoint;
+    [SerializeField] private TMP_Text winLoseText;
+    [SerializeField] private TMP_Text scoreText;
+
     [SerializeField] public Animator playerAnimator;
     [SerializeField] public Animator aiAnimator;
+
     [SerializeField] public GameObject playerHand;
     [SerializeField] public GameObject aiHand;
     [SerializeField] public GameObject buttons;
 
+    [SerializeField] private int textTimer;
     private int randomInt;
     private string aiChoice;
     private string gameResult;
+    public int score;
 
     void Start()
     {
+        score = 0;
+        ResetGame();
+    }
+
+    void ResetGame()
+    {
+        winLoseText.gameObject.SetActive(false);
         buttons.SetActive(true);
         playerHand.SetActive(false);
         aiHand.SetActive(false);
     }
 
-    public void ProcessChoice(string choice)
+    public async Task ProcessChoice(string choice)
     {
         AiChooses();
 
         if (aiChoice == choice)
         {
-            gameResult = "draw";
-            print(gameResult);
+            gameResult = "Gelijkspel.";
+            winLoseText.text = gameResult;
         }
 
         else if (aiChoice == "steen" && choice == "papier")
         {
-            gameResult = "Player Wins";
-            print(gameResult);
+            score++;
+            gameResult = "Jij Wint!";
+            winLoseText.text = gameResult;
         }
 
         else if (aiChoice == "steen" && choice == "schaar")
         {
-            gameResult = "AI Win";
-            print(gameResult);
+            gameResult = "Tegenstander Wint...";
+            winLoseText.text = gameResult;
         }
 
         else if (aiChoice == "papier" && choice == "steen")
         {
-            gameResult = "AI Win";
-            print(gameResult);
+            gameResult = "Tegenstander Wint...";
+            winLoseText.text = gameResult;
         }
 
         else if (aiChoice == "papier" && choice == "schaar")
         {
-            gameResult = "Player Wins";
-            print(gameResult);
+            score++;
+            gameResult = "Jij Wint!";
+            winLoseText.text = gameResult;
         }
 
         else if (aiChoice == "schaar" && choice == "papier")
         {
-            gameResult = "AI Win";
-            print(gameResult);
+            gameResult = "Tegenstander Wint...";
+            winLoseText.text = gameResult;
         }
 
         else if (aiChoice == "schaar" && choice == "steen")
         {
-            gameResult = "Player Wins";
-            print(gameResult);
+            score++;
+            gameResult = "Jij Wint!";
+            winLoseText.text = gameResult;
         }
+
+        Invoke(nameof(ShowResults), textTimer);
     }
 
     private void AiChooses()
@@ -88,5 +107,12 @@ public class SPSManager : MonoBehaviour
                 aiChoice = "schaar";
                 break;
         }
+    }
+
+    private void ShowResults()
+    {
+        scoreText.text = "Score: " + score;
+        winLoseText.gameObject.SetActive(true);
+        Invoke(nameof(ResetGame), 1);
     }
 }
