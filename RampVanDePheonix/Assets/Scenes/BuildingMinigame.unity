@@ -1007,6 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12368a97ac0b5749870a6a26ca2a774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartyGen
+  party: []
 --- !u!4 &1342517566
 Transform:
   m_ObjectHideFlags: 0
