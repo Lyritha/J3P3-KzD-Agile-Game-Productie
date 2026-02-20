@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 11
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'De Achterhoekers gaan aan boord van de Phoenix, het laatste transportmiddel
+    naar hun eindbestemming. Vlak voor de haven van Sheboygan steekt een zware storm
+    op. De kapitein besluit de storm af te wachten, terwijl de bemanning van boord
+    gaat en een biertje drinkt in de kroeg. '
+  answers:
+  - skillNeeded: []
+    action: 'Je meldt aan de kapitein dat de bemanning dronken is. '
+    result: 'De kapitein is je dankbaar en wilt je belonen, maar de bemanning niet.
+      Je verdient 2 kapitaal, verliest 2 sociaal. '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2
+    - skillToBeChanged: 3
+      changeAmount: -2
+  - skillNeeded: []
+    action: 'Je vertrouwt op de kapitein en wacht af.     '
+    result: 'Je vertrouwt dat de bemanning gewoon weer goed aan het werk gaat hierna.
+      Er gebeurt niets. Geen effect. '
+    change: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 5
+    action: '(Kapitaal > 5) Je sluit je aan bij de bemanning in de kroeg. '
+    result: 'Je doet leuk mee met de bemanning en drinkt wat mee. Je verliest 5 kapitaal,
+      je verdient 5 sociaal. '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -5
+    - skillToBeChanged: 3
+      changeAmount: 5

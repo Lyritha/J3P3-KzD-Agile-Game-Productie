@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 1
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Eenmaal aangekomen in New York ben je nog niet op je eindbestemming.
+    Om je weg te vervolgen moet je geld verdienen en een baan is lastig te vinden.  '
+  answers:
+  - skillNeeded: []
+    action: 'Je vindt via vrienden een goede deal. '
+    result: 'Je maakt vrienden en sluit een deal. Je verdient 5 sociaal, 5 kapitaal '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 5
+    - skillToBeChanged: 3
+      changeAmount: 5
+  - skillNeeded:
+    - skillType: 2
+      skillAmountNeeded: 5
+    action: '(Bouwkunde > 5?)  Vind tijdelijk werk in de haven. '
+    result: 'Het werk is zwaar, maar verdient goed. Je verdient 5 kapitaal, maar
+      verliest 5 honger. '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 5

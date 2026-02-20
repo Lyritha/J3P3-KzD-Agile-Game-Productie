@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 14
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Voordat je weggaat maak je nog een rondje rondom het dorp waar je bent
+    opgegroeid, velen gaan je missen, een oude vriend geeft je nog een kleine keus
+    voor een cadeau. '
+  answers:
+  - action: Een gloednieuwe zaag
+    result: 'verdien 2 Bouwkunde '
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
+  - action: Een zakje geld
+    result: 'verdien 2 Kapitaal. '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2

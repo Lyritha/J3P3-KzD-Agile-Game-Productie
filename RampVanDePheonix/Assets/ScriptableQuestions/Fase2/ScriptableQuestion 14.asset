@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 14
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: ' Een groot deel van het voedsel aan boord is bedorven en niet meer veilig
+    om te eten. '
+  answers:
+  - skillNeeded:
+    - skillType: 4
+      skillAmountNeeded: 10
+    action: '(Leervermogen > 10) Onderzoek welk voedsel nog eetbaar is '
+    result: 'Je redt een deel van de voorraden. Je verdient 5 voedsel. '
+    change:
+    - skillToBeChanged: 5
+      changeAmount: 5
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 5
+    action: '(Kapitaal > 5) Koop voedsel bij een handelaar in de volgende haven. '
+    result: 'Je verliest 5 Kapitaal, verdient 5 voedsel. '
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -5
+  - skillNeeded: []
+    action: 'Negeer het probleem     '
+    result: 'Meerdere mensen krijgen honger. Je verliest 1 Honger op elke karakter
+      en 3 opgeslagen voedsel. '
+    change:
+    - skillToBeChanged: 6
+      changeAmount: -1
+    - skillToBeChanged: 5
+      changeAmount: -3
