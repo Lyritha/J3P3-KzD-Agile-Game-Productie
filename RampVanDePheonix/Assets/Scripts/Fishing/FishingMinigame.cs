@@ -1,39 +1,46 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FishingMinigame : MonoBehaviour
 {
     [Header("World References")]
-    public Transform fish;
-    public Transform catchZone;
+    [SerializeField] Transform fish;
+    [SerializeField] Transform catchZone;
 
     [Header("UI")]
-    public Slider catchSlider;
+    [SerializeField] Slider catchSlider;
+    [SerializeField] TMP_Text resultText;
 
-    [Header("Fish Settings")]
-    public float fishMoveSpeed = 4f;
-    public float fishChangeInterval = 1f;
+    [Header("Score")]
+    int score = 0;
+    [SerializeField] TMP_Text scoreText;
 
-    [Header("Bar Settings")]
-    public float barForce = 15f;
-    public float gravity = 25f;
-    public float maxBarSpeed = 10f;
+    float resultDisplayTime = 1.5f;
+    bool isResolving = false;
 
-    [Header("Catch Settings")]
-    public float catchRate = 0.8f;
-    public float loseRate = 0.6f;
+    float fishMoveSpeed = 4f;
+    float fishChangeInterval = 1f;
 
-    private float barVelocity;
-    private float progress = 0.5f;
+    float barForce = 15f;
+    float gravity = 25f;
+    float maxBarSpeed = 10f;
 
-    private float minY = -3f;
-    private float maxY = 3f;
+    float catchRate = 0.8f;
+    float loseRate = 0.6f;
 
-    private float fishTargetY;
-    private float fishTimer;
+    float barVelocity;
+    float progress = 0.5f;
+
+    float minY = -3f;
+    float maxY = 3f;
+
+    float fishTargetY;
+    float fishTimer;
 
     void Start()
     {
+        scoreText.text = "Score: " + score.ToString();
         catchSlider.value = progress;
         SetNewFishTarget();
     }
@@ -89,9 +96,10 @@ public class FishingMinigame : MonoBehaviour
             barVelocity = 0f;
     }
 
-
     void CheckCatch()
     {
+        if (isResolving) return;
+
         float distance = Mathf.Abs(fish.position.y - catchZone.position.y);
 
         if (distance < 0.8f)
@@ -103,9 +111,84 @@ public class FishingMinigame : MonoBehaviour
         catchSlider.value = progress;
 
         if (progress >= 1f)
-            Debug.Log("Caught!");
+        {
+            StartCoroutine(HandleResult(true));
+        }
+        else if (progress <= 0f)
+        {
+            StartCoroutine(HandleResult(false));
+        }
+    }
 
-        if (progress <= 0f)
-            Debug.Log("Escaped!");
+    void CatchFish()
+    {
+        score += 1;
+        Debug.Log("Caught! Score: " + score);
+
+        if (scoreText != null)
+            scoreText.text = "Score: " + score;
+
+        ResetFishing();
+    }
+
+    void EscapeFish()
+    {
+        Debug.Log("Escaped!");
+
+        ResetFishing();
+    }
+
+    void ResetFishing()
+    {
+        progress = 0.5f;
+        catchSlider.value = progress;
+
+        barVelocity = 0f;
+
+        catchZone.position = new Vector3(
+            catchZone.position.x,
+            0f,
+            catchZone.position.z
+        );
+
+        fish.position = new Vector3(
+        fish.position.x,
+        Random.Range(minY, maxY),
+        fish.position.z
+        );
+
+        SetNewFishTarget();
+    }
+
+    System.Collections.IEnumerator HandleResult(bool caught)
+    {
+        isResolving = true;
+
+        barVelocity = 0f;
+
+        resultText.gameObject.SetActive(true);
+
+        if (caught)
+        {
+            resultText.text = "Caught!";
+            resultText.color = Color.green;
+            score += 1;
+
+            if (scoreText != null)
+                scoreText.text = "Score: " + score;
+        }
+        else
+        {
+            resultText.color = Color.red;
+            resultText.text = "Escaped!";
+        }
+
+        yield return new WaitForSeconds(resultDisplayTime);
+
+        resultText.gameObject.SetActive(false);
+
+        ResetFishing();
+
+        isResolving = false;
     }
 }
