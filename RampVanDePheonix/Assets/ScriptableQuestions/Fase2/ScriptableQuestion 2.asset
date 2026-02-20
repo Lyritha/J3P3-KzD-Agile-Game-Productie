@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 2
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: ' Je bent aan boord van de Phoenix, samen met landverhuizers uit de Achterhoek.
+    Om iedereen beter te leren kennen, vraag je naar hun beweegredenen om te emigreren.
+    Welke actie onderneem je om hun verhalen te achterhalen? '
+  answers:
+  - skillNeeded: []
+    action: 'Vraag rond naar armoede en werkloosheid in hun dorp. '
+    result: 'Je leert mensen kennen, ze vertrouwen je meer. Je verdient 5 Sociaal  '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 5
+  - skillNeeded:
+    - skillType: 4
+      skillAmountNeeded: 5
+    action: '(Leervermogen > 5?) Vraag naar religieuze of politieke redenen om te
+      vertrekken. '
+    result: 'Je leert mensen kennen, ze vertrouwen je meer. Je verdient 10 Sociaal  '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 10
+  - skillNeeded: []
+    action: 'Deel je eigen dromen en verlangens naar een nieuw leven. '
+    result: 'Je bouwt een band op via openheid. Je verdient 5 sociaal '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 5
+  - skillNeeded: []
+    action: 'Observeer stilletjes wie met wie praat en probeer conclusies te trekken. '
+    result: 'De mensen merken dat je stil aan het mee luistert bent. Je verliest
+      5 sociaal '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -5

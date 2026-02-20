@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: ScriptableQuestion 6
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Iemands hond gaat overboord tijdens een hevige storm. Er zouden 2 mensen
+    nodig zijn om hem te redden. '
+  answers:
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 10
+    action: '(Aanpassingsvermogen > 10) Spring het water in om de hond te redden '
+    result: 'Je redt de hond, de eigenaar geeft je kapitaal voor het redden, maar
+      Een karakter gaat dood, Je verdient 5 sociaal en 15 kapitaal '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 5
+    - skillToBeChanged: 1
+      changeAmount: 15
+  - skillNeeded: []
+    action: 'Probeer de hond met een touw of plank te bereiken. '
+    result: 'De hond wordt bijna gered, maar Een karakter gaat dood. '
+    change: []
+  - skillNeeded: []
+    action: 'Niets doen     '
+    result: 'De hond gaat dood. Geen karakters verliezen hun leven. Je verliest 5
+      sociaal '
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -5
