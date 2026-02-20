@@ -17,6 +17,7 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
 
     float resultDisplayTime = 1.5f;
+    float resetTime = 1f;
     bool isResolving = false;
 
     float fishMoveSpeed = 4f;
@@ -102,7 +103,7 @@ public class FishingMinigame : MonoBehaviour
 
         float distance = Mathf.Abs(fish.position.y - catchZone.position.y);
 
-        if (distance < 0.8f)
+        if (distance < 0.9f)
             progress += catchRate * Time.deltaTime;
         else
             progress -= loseRate * Time.deltaTime;
@@ -118,24 +119,6 @@ public class FishingMinigame : MonoBehaviour
         {
             StartCoroutine(HandleResult(false));
         }
-    }
-
-    void CatchFish()
-    {
-        score += 1;
-        Debug.Log("Caught! Score: " + score);
-
-        if (scoreText != null)
-            scoreText.text = "Score: " + score;
-
-        ResetFishing();
-    }
-
-    void EscapeFish()
-    {
-        Debug.Log("Escaped!");
-
-        ResetFishing();
     }
 
     void ResetFishing()
@@ -188,6 +171,8 @@ public class FishingMinigame : MonoBehaviour
         resultText.gameObject.SetActive(false);
 
         ResetFishing();
+
+        yield return new WaitForSeconds(resetTime);
 
         isResolving = false;
     }
