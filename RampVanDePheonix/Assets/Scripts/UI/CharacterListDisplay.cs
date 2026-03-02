@@ -15,12 +15,12 @@ public class CharacterListDisplay : MonoBehaviour
     private CapitalDisplay capitalDisplay;
 
 
-    [ContextMenu("Add Manual Characters")]  
-    private void AddManualCharacters()
-    {
-        PartyGen partyGen = FindAnyObjectByType<PartyGen>();
-        if (partyGen != null) AddCharacters(partyGen.party);
-    }
+    //[ContextMenu("Add Manual Characters")]  
+    //private void AddManualCharacters()
+    //{
+    //    PartyGen partyGen = FindAnyObjectByType<PartyGen>();
+    //    if (partyGen != null) AddCharacters(partyGen.party);
+    //}
 
     public void AddCharacters(List<Personage> characters) => AddCharacters(characters.ToArray());
     public void AddCharacters(Personage[] characters)

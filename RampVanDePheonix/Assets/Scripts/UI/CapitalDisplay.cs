@@ -38,7 +38,7 @@ public class CapitalDisplay : MonoBehaviour
         foreach (CapitalItemDisplay item in CapitalItemDisplay)
             if (item.Character != null) number += item.Character.baseKapitaal;
 
-        capitalNumber.text = $"{number}.";
+        capitalNumber.text = $"{number}";
     }
 
     private void AddCapitalItem(Personage character, int index)
