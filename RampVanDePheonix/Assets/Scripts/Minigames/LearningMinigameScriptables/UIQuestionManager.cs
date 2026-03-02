@@ -1,19 +1,26 @@
 using MyBox;
 using NUnit.Framework;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
+//pls do not open this script as a code example
 
 public class UIQuestionManager : MonoBehaviour
 {
     [SerializeField] GameObject UIcardAnswerPrefab;
     [SerializeField] GameObject UIcardQuestionPrefab;
-    [SerializeField] Canvas Canvas;
+    [SerializeField] RectTransform UIPointsCardPrefab;
+    [SerializeField] RectTransform Canvas;
     [SerializeField] TMP_Text AmountOfPointsText;
-    [SerializeField] RectTransform answerParent;
+    [SerializeField] RectTransform answerPanel;
     [SerializeField] RectTransform questionParent;
+    [SerializeField] RectTransform answerParent;
 
     BaseScriptable[] questionsForBoat;
     BaseScriptable[] questionsForAmerica;
@@ -21,6 +28,7 @@ public class UIQuestionManager : MonoBehaviour
     public Fases currentFase = Fases.Boat;
 
     int currentAmountOfPoints = 0;
+    int amountOfPointsPerQuestion = 1;
 
     //get the actual player stat from the player and place it in this variable pls, this value is just for testing
     public int testPlayerStat = 5;
@@ -30,8 +38,6 @@ public class UIQuestionManager : MonoBehaviour
 
     List<RectTransform> activeCards;
 
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -39,11 +45,13 @@ public class UIQuestionManager : MonoBehaviour
         questionsForBoat = Resources.LoadAll<BaseScriptable>("FaseBoatQuestions");
         questionsForAmerica = Resources.LoadAll<BaseScriptable>("FaseAmericaQuestions");
         activeCards = new List<RectTransform>();
-        NewQuestion();
+        NewQuestion(0);
+        InitialiseWorld(); //work on this if characters, scenery etc are done
     }
 
     //read scriptable > create new UI element > create cards.
 
+    //gets a random new question
     void NewQuestion()
     {
         switch (currentFase)
@@ -58,11 +66,32 @@ public class UIQuestionManager : MonoBehaviour
         EmptyActiveList();
         SpawnNewCards(currentQuestion);
     }
-
+    //get a chosen new question (not random)
+    void NewQuestion(int questionNumber)
+    {
+        switch (currentFase)
+        {
+            case Fases.Boat:
+                ReadNewScriptable(questionsForBoat, questionNumber);
+                break;
+            case Fases.America:
+                ReadNewScriptable(questionsForAmerica, questionNumber);
+                break;
+        }
+        EmptyActiveList();
+        SpawnNewCards(currentQuestion);
+    }
+    //reads a random scriptable object
     void ReadNewScriptable(BaseScriptable[] chosenFase)
     {
         int randomNumber = UnityEngine.Random.Range(0, chosenFase.Length);
         currentQuestion = chosenFase[randomNumber];
+    }
+
+    //reads a chosen scriptable object
+    void ReadNewScriptable(BaseScriptable[] chosenFase, int Number)
+    {
+        currentQuestion = chosenFase[Number];
     }
     void SpawnNewCards(BaseScriptable currentQuestion)
     {
@@ -88,7 +117,7 @@ public class UIQuestionManager : MonoBehaviour
         {
             answer currentAnswer = allPossibleAnswers[i];
             RectTransform newCard = Instantiate(UIcardAnswerPrefab).GetComponent<RectTransform>();
-            newCard.SetParent(answerParent);
+            newCard.SetParent(answerPanel);
             newCard.GetComponentInChildren<TMP_Text>().text = currentAnswer.anAnswer;
 
             Button button = newCard.gameObject.GetComponent<Button>();
@@ -103,23 +132,22 @@ public class UIQuestionManager : MonoBehaviour
     {
         if (answer.isCorrect == true)
         {
-            AddPoints();
+            ChangePoints(amountOfPointsPerQuestion);
         }
         else
         {
-            RemovePoints();
+            ChangePoints(-amountOfPointsPerQuestion);
         }
         SetTextToCanvas(currentAmountOfPoints);
-        NewQuestion();
+        EmptyActiveList();
+        PlacePlayerChosenAnswerCard(answer);
+        StartCoroutine(ActivateNewQuestion());
     }
 
-    void AddPoints()
+    void ChangePoints(int amountToChange)
     {
-        currentAmountOfPoints++;
-    }
-    void RemovePoints()
-    {
-        currentAmountOfPoints--;
+        currentAmountOfPoints+= amountToChange;
+        StartCoroutine(ShowQuickPointChange(amountToChange));
     }
     void EmptyActiveList()
     {
@@ -128,6 +156,15 @@ public class UIQuestionManager : MonoBehaviour
             Destroy(benjaminNetanyahu.gameObject);
         }
         activeCards.Clear();
+    }
+
+    void PlacePlayerChosenAnswerCard(answer answer)
+    {
+        RectTransform questionGameObject = Instantiate(UIcardQuestionPrefab).GetComponent<RectTransform>();
+        questionGameObject.GetComponent<Button>().enabled = false;
+        questionGameObject.SetParent(answerParent, false);
+        questionGameObject.GetComponentInChildren<TMP_Text>().text = answer.anAnswer;
+        activeCards.Add(questionGameObject);
     }
     public enum Fases
     {
@@ -151,7 +188,7 @@ public class UIQuestionManager : MonoBehaviour
         for (int i = 0; i < RemoveAmountOfWords; i++)
         {
             //colling code, makes new string with "*" char with the lenght of the original word
-            int currentRandom = Random.Range(1, words.Length);
+            int currentRandom = UnityEngine.Random.Range(1, words.Length);
             string output = "";
             output += new string('*', words[currentRandom].Length);
             words[currentRandom] = output;
@@ -171,4 +208,43 @@ public class UIQuestionManager : MonoBehaviour
         string extraText = $"je hebt nu {currentAmountOfPoints} punten";
         AmountOfPointsText.text = extraText;
     }
+
+    IEnumerator ActivateNewQuestion()
+    {
+        //waiting a few seconds after answering
+        yield return new WaitForSeconds(3);
+        NewQuestion();
+    }
+
+    IEnumerator ShowQuickPointChange(int amountOfPoints)
+    {
+        RectTransform pointCard = Instantiate(UIPointsCardPrefab);
+        pointCard.SetParent(Canvas, false);
+        int amountIterations = 180;
+        float secondsActive = 2f;
+        TMP_Text cardTMP = pointCard.GetComponent<TMP_Text>();
+        cardTMP.color = Color.red;
+        if (amountOfPoints > 0)
+        {
+            cardTMP.color = Color.green;
+        }
+        cardTMP.text = amountOfPoints.ToString();
+
+        for (int i = 0; i < amountIterations; i++)
+        {
+            Vector3 currentPos = pointCard.transform.position;
+            currentPos.y += 7;
+            pointCard.transform.position = currentPos;
+            yield return new WaitForSeconds((secondsActive/amountIterations));
+        }
+        GameObject.Destroy(pointCard.gameObject);
+    }
+
+    void InitialiseWorld()
+    {
+        //set background
+        //set characters
+        //get fase (america or boat)
+    }
 }
+
