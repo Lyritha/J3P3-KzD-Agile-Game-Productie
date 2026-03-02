@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FishingMinigame : MonoBehaviour
 {
@@ -15,6 +16,23 @@ public class FishingMinigame : MonoBehaviour
     [Header("Score")]
     int score = 0;
     [SerializeField] TMP_Text scoreText;
+
+    [Header("Timer")]
+    [SerializeField] float gameDuration = 60f;
+    float timer;
+    bool gameEnded = false;
+    [SerializeField] TMP_Text timerText;
+
+    [Header("End Screen")]
+    [SerializeField] GameObject endPanel;
+    [SerializeField] TMP_Text finalScoreText;
+
+    [Header("dingen die op inactive moeten")]
+    [SerializeField] GameObject mainCanvas;
+    [SerializeField] GameObject fishVisual;
+    [SerializeField] GameObject catchZoneVisual;
+    [SerializeField] GameObject background;
+
 
     float resultDisplayTime = 1.5f;
     float resetTime = 1f;
@@ -41,16 +59,36 @@ public class FishingMinigame : MonoBehaviour
 
     void Start()
     {
+        timer = gameDuration;
         scoreText.text = "Score: " + score.ToString();
         catchSlider.value = progress;
         SetNewFishTarget();
+        endPanel.SetActive(false);
     }
 
     void Update()
     {
+        if (gameEnded) return;
+
+        UpdateTimer();
         MoveFish();
         MoveBar();
         CheckCatch();
+    }
+
+    void UpdateTimer()
+    {
+        timer -= Time.deltaTime;
+
+        if (timer < 0)
+            timer = 0;
+
+        timerText.text = "Time: " + Mathf.Ceil(timer).ToString();
+
+        if (timer <= 0)
+        {
+            EndGame();
+        }
     }
 
     void MoveFish()
@@ -175,5 +213,23 @@ public class FishingMinigame : MonoBehaviour
         yield return new WaitForSeconds(resetTime);
 
         isResolving = false;
+    }
+
+    void EndGame()
+    {
+        gameEnded = true;
+
+        finalScoreText.text = "Final Score: " + score;
+
+        endPanel.SetActive(true);
+        mainCanvas.SetActive(false);
+        fishVisual.SetActive(false);
+        catchZoneVisual.SetActive(false);
+        background.SetActive(false);
+    }
+
+    public void ReturnToMainGame()
+    {
+        SceneManager.LoadScene("MainGame");
     }
 }
