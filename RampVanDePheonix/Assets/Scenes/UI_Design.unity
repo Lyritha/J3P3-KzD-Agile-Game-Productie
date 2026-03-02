@@ -2524,7 +2524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbeff8ceeca9714e83f6e0d3e260c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  characterPrefab: {fileID: 1617885649708643833, guid: b3783399ccfed3844a00d3865da47464, type: 3}
+  characterPrefab: {fileID: 8293284080978554166, guid: b3783399ccfed3844a00d3865da47464, type: 3}
   characterParent: {fileID: 1333307178}
   capitalDisplay: {fileID: 114137744}
 --- !u!1 &1364856196
