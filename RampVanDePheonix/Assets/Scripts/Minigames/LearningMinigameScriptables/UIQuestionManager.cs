@@ -1,6 +1,7 @@
 using MyBox;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,12 @@ public class UIQuestionManager : MonoBehaviour
     public Fases currentFase = Fases.Boat;
 
     int currentAmountOfPoints = 0;
+
+    //get the actual player stat from the player and place it in this variable pls, this value is just for testing
+    public int testPlayerStat = 5;
+
+    int maxRemoveWord = 3;
+    int maxStat = 5;
 
     List<RectTransform> activeCards;
 
@@ -68,7 +75,8 @@ public class UIQuestionManager : MonoBehaviour
         RectTransform questionGameObject = Instantiate(UIcardQuestionPrefab).GetComponent<RectTransform>();
         questionGameObject.GetComponent<Button>().enabled = false;
         questionGameObject.SetParent(questionParent, false);
-        questionGameObject.GetComponentInChildren<TMP_Text>().text = currentQuestion.AmericanManSays;
+
+        questionGameObject.GetComponentInChildren<TMP_Text>().text = ReplaceWords(currentQuestion.AmericanManSays, testPlayerStat);
         return questionGameObject;
     }
     List<RectTransform> PlaceAnswerCards(BaseScriptable currentQuestion)
@@ -101,7 +109,7 @@ public class UIQuestionManager : MonoBehaviour
         {
             RemovePoints();
         }
-        AmountOfPointsText.text = currentAmountOfPoints.ToString();
+        SetTextToCanvas(currentAmountOfPoints);
         NewQuestion();
     }
 
@@ -125,5 +133,42 @@ public class UIQuestionManager : MonoBehaviour
     {
         Boat,
         America
+    }
+
+    string ReplaceWords(string question, int playerLearnStat)
+    {
+        string endString = "";
+        //calculates the % of words that the player knows (kinda simulated)
+        float playerKnowledge = (playerLearnStat + 1) / maxStat * 100;
+        float unknownWordPercentage = 100 - playerKnowledge;
+
+        //calculates how many words need to be removed according to Player stat (higher learn ability means less words removed)
+        int RemoveAmountOfWords = (int)((unknownWordPercentage / 100) * maxRemoveWord);
+        //split the sentence in words
+        string[] words = question.Split(' ');
+
+        //gets random word out of the sentence and "writes" over them
+        for (int i = 0; i < RemoveAmountOfWords; i++)
+        {
+            //colling code, makes new string with "*" char with the lenght of the original word
+            int currentRandom = Random.Range(1, words.Length);
+            string output = "";
+            output += new string('*', words[currentRandom].Length);
+            words[currentRandom] = output;
+        }
+
+        //rebuild sentence
+        foreach (string word in words)
+        {
+            //get each word and place it in the endstring
+            endString += word + " ";
+        }
+        return endString;
+    }
+
+    void SetTextToCanvas(int currentPoints)
+    {
+        string extraText = $"je hebt nu {currentAmountOfPoints} punten";
+        AmountOfPointsText.text = extraText;
     }
 }
