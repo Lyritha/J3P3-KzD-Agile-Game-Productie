@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0a6f5685910d842ab82b0440caa272, type: 3}
+  m_Name: MinigameQuestion 2
+  m_EditorClassIdentifier: Assembly-CSharp::BaseScriptable
+  AmericanManSays: Are you traveling to New York as well?
+  allAnswers:
+  - anAnswer: are we New York?
+    isCorrect: 0
+  - anAnswer: why, my luggage is quite heavy
+    isCorrect: 0
+  - anAnswer: Yes, that is my destination
+    isCorrect: 1
+  - anAnswer: Uhh nieuw yurk dus...
+    isCorrect: 1
