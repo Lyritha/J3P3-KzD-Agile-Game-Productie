@@ -858,7 +858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Honger:'
+  m_text: 'Eten:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
   m_sharedMaterial: {fileID: 8326081265682717870, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
@@ -3610,6 +3610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character
   characterDisplay: {fileID: 1617885649708643833}
   characterFood: {fileID: 3129143194288746739}
+  borderImage: {fileID: 1987294643385601463}
 --- !u!114 &1617885649708643833
 MonoBehaviour:
   m_ObjectHideFlags: 0
