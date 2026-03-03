@@ -23,7 +23,7 @@ public class PhaseDisplayer : MonoBehaviour
     [Foldout("Border", true), SerializeField]
     private Image border;
 
-    private Phase currentPhase;
+    private Fases currentPhase;
     private int phaseProgress = 0;
 
     Color32 borderColor;
@@ -47,14 +47,14 @@ public class PhaseDisplayer : MonoBehaviour
     [ContextMenu("Increment Phase")]
     public void IncrementPhase()
     {
-        if (currentPhase < Phase.Amerika)
+        if (currentPhase < Fases.Amerika)
         {
             currentPhase++;
             SetPhase(currentPhase, 10);
         }
     }
 
-    public void SetPhase(Phase phase, int phaseLength)
+    public void SetPhase(Fases phase, int phaseLength)
     {
         phaseProgressSlider.maxValue = phaseLength;
 
@@ -64,25 +64,25 @@ public class PhaseDisplayer : MonoBehaviour
         SetPhaseInfo(phase);
     }
 
-    private void SetPhaseInfo(Phase phase)
+    private void SetPhaseInfo(Fases phase)
     {
         string phaseName;
 
         switch (phase)
         {
-            case Phase.DeAchterhoek:
+            case Fases.Achterhoek:
                 phaseName = "De Achterhoek";
                 borderColor = new Color32(119, 127, 112, 255);
                 fillColor = new Color32(96, 165, 174, 255);
                 break;
 
-            case Phase.DeOvertocht:
+            case Fases.Pheonix:
                 phaseName = "De Overtocht";
                 borderColor = new Color32(96, 165, 174, 255);
                 fillColor = new Color32(145, 91, 81, 255);
                 break;
 
-            case Phase.Amerika:
+            case Fases.Amerika:
                 phaseName = "Amerika";
                 borderColor = new Color32(145, 91, 81, 255);
                 fillColor = new Color32(243, 65, 46, 255);
@@ -143,13 +143,5 @@ public class PhaseDisplayer : MonoBehaviour
         }
 
         phaseProgressSlider.value = targetValue;
-    }
-
-    public enum Phase
-    {
-        None,
-        DeAchterhoek,
-        DeOvertocht,
-        Amerika
     }
 }
