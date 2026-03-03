@@ -54,8 +54,7 @@ public class StateMachine : MonoBehaviour
 
     void EventState()
     {
-        Debug.Log("choose random event");
-        SetState(State.FinishEvent);
+        // uhhh
     }
 
     void FinishEventState()
