@@ -24,13 +24,14 @@ public class FaseManager : MonoBehaviour
     [SerializeField] GameObject winScreen;
 
     PhaseDisplayer display;
+    ParallaxSwapper swapper;
     Fases currentFase;
     int progress = 0;
     int maxProgress = 10;
     private void Start()
     {
         display = FindAnyObjectByType<PhaseDisplayer>();
-
+        swapper = FindAnyObjectByType<ParallaxSwapper>();  
         SwapFase(Fases.Achterhoek); 
     }
 
@@ -62,6 +63,7 @@ public class FaseManager : MonoBehaviour
                 break;
         }
         display.SetPhase(currentFase,10);
+        swapper.SetGrounds(currentFase);
     }
 
     void FillList(List<QuestionScriptable> incomingEvents)
