@@ -18,7 +18,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
     private static readonly Color highlightedBorderColor = new Color32(0xB0, 0x94, 0x62, 0xFF);
 
     public bool IsAlive { get; private set; } = true;
-
+    public bool IsOnLifeBoat { get; private set; } = false;
     public void Initialize(Personage personage, CharacterListDisplay parent)
     {
         characterFood.Initialize(this);
@@ -40,12 +40,25 @@ public class Character : MonoBehaviour, IPointerClickHandler
         Debug.Log($"Character {personage.characterName} has died. Reason: {reason}");
         characterDisplay.ShowDeathScreen();
         parent.ReportCharacterDied();
+        ToggleSelected();
+    }
+
+    public void Safe(string reason = "No reason given")
+    {
+        IsOnLifeBoat = true;
+        Debug.Log($"Character {personage.characterName} has been saved. Reason: {reason}");
+        characterDisplay.ShowSafeScreen();
+        ToggleSelected();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!IsAlive) return;
+        if (!IsAlive || IsOnLifeBoat) return;
+        ToggleSelected();
+    }
 
+    private void ToggleSelected()
+    {
         parent.SetSelectedCharacter(
             parent.SelectedCharacter == this ? null : this
         );

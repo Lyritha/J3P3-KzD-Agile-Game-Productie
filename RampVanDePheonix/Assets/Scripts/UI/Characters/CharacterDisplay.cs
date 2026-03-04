@@ -39,6 +39,8 @@ public class CharacterDisplay : MonoBehaviour
     private ShowOnHover showOnHover;
     [SerializeField]
     private RectTransform deathScreen;
+    [SerializeField]
+    private RectTransform safeScreen;
 
     // dunno about hunger yet uwu
 
@@ -84,6 +86,12 @@ public class CharacterDisplay : MonoBehaviour
     public void ShowDeathScreen()
     {
         deathScreen.gameObject.SetActive(true);
+        showOnHover.SetEnabled(false);
+    }
+
+    public void ShowSafeScreen()
+    {
+        safeScreen.gameObject.SetActive(true);
         showOnHover.SetEnabled(false);
     }
 }
