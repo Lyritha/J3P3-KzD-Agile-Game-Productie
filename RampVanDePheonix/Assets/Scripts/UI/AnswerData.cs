@@ -6,6 +6,8 @@ public class AnswerData : MonoBehaviour
     public TMP_Text answerText;
     public int answerIndex;
 
+    StateMachine stateMachine;
+
     public void AnswerEffect()
     {
         AnswerData[] answers = FindObjectsByType<AnswerData>(FindObjectsSortMode.None);
@@ -13,5 +15,10 @@ public class AnswerData : MonoBehaviour
         {
             Destroy(question.gameObject);
         }
+
+        FindAnyObjectByType<EventVisualiser>().gameObject.SetActive(false);
+
+        //stateMachine.SetState(State.FinishEvent);
+
     }
 }
