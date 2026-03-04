@@ -8,6 +8,10 @@ public class AnswerData : MonoBehaviour
 
     public void AnswerEffect()
     {
-        Destroy(FindAnyObjectByType<EventVisualiser>().gameObject);
+        AnswerData[] answers = FindObjectsByType<AnswerData>(FindObjectsSortMode.None);
+        foreach(AnswerData question in answers)
+        {
+            Destroy(question.gameObject);
+        }
     }
 }
