@@ -16,6 +16,8 @@ public class StateMachine : MonoBehaviour
 {
     State state;
 
+    [SerializeField] EventManager eventManager;
+
     private void Start()
     {
         SetState(State.Walking);
@@ -54,7 +56,14 @@ public class StateMachine : MonoBehaviour
 
     void EventState()
     {
-        // uhhh
+        QuestionScriptable randomEvent = eventManager.GetRandomEvent();
+
+        Debug.Log(randomEvent.question);
+
+        foreach (var answer in randomEvent.answers)
+        {
+            Debug.Log("Option: " + answer.action);
+        }
     }
 
     void FinishEventState()
