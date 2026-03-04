@@ -14,11 +14,21 @@ public class ShowOnHover : MonoBehaviour,
     private CanvasGroup showOnHoverElement;
 
     private Coroutine fadeRoutine;
+    private bool isEnabled = true;
 
     private void Awake() => Hide();
 
+    public void SetEnabled(bool enabled)
+    {
+        isEnabled = enabled;
+        if (!isEnabled) Hide();
+    }
 
-    public void OnPointerEnter(PointerEventData eventData) => Show();
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (isEnabled) Show();
+    }
+
     public void OnPointerExit(PointerEventData eventData) => Hide();
 
 

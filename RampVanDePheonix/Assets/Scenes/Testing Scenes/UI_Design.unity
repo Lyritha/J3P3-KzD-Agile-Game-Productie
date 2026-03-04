@@ -409,9 +409,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 114137737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a256001646d3ede4088506c79229a353, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ff4e90887462b544bebc2e6a64d941a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::Capital
   capitalItemPrefab: {fileID: 317532854632943131, guid: 0919cea5800ef0a41bc1fec26f6a0dfe, type: 3}
   capitalParent: {fileID: 1199193522}
   capitalNumber: {fileID: 1868292036}
@@ -2524,7 +2524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbeff8ceeca9714e83f6e0d3e260c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  characterPrefab: {fileID: 1617885649708643833, guid: b3783399ccfed3844a00d3865da47464, type: 3}
+  characterPrefab: {fileID: 8293284080978554166, guid: b3783399ccfed3844a00d3865da47464, type: 3}
   characterParent: {fileID: 1333307178}
   capitalDisplay: {fileID: 114137744}
 --- !u!1 &1364856196
@@ -2763,6 +2763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8adeb962036de16458d4ac1fa129fad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  foodText: {fileID: 2138966279}
+  foodBorder: {fileID: 747554674}
+  startingFood: 3
   foodIcons:
   - {fileID: 1903450857}
   - {fileID: 688503184}
@@ -2784,7 +2787,6 @@ MonoBehaviour:
   - {fileID: 463035014}
   - {fileID: 1026376031}
   - {fileID: 1256908293}
-  currentFood: 0
 --- !u!1 &1563576170
 GameObject:
   m_ObjectHideFlags: 0

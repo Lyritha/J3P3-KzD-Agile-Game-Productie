@@ -36,7 +36,7 @@ public class SPSManager : MonoBehaviour
         aiHand.SetActive(false);
     }
 
-    public async Task ProcessChoice(string choice)
+    public void ProcessChoice(string choice)
     {
         AiChooses();
 
