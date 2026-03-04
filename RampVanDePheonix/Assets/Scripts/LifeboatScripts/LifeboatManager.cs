@@ -29,4 +29,9 @@ public class LifeboatManager : MonoBehaviour
     {
         //get character script and set it to "is safe" (need to change the character script)
     }
+
+    void PlaceCharacterInOpenSeat()
+    {
+
+    }
 }
