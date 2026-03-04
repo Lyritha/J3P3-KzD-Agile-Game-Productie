@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    public static FoodStorage Instance { get; private set; }
+
     [SerializeField]
     private TMP_Text foodText;
     [SerializeField]
@@ -16,8 +18,8 @@ public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField]
     private List<Image> foodIcons = new();
 
-    private int maxFood = 5;
-    private int currentFood = 0;
+    public int MaxFood { get; private set; } = 5;
+    public int CurrentFood { get; private set; } = 0;
 
     private static readonly Color EmptyColor = Color.black;
     private static readonly Color FilledColor = Color.red;
@@ -31,24 +33,42 @@ public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public bool GivingFood { get; private set; } = false;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     void Start()
     {
-        maxFood = foodIcons.Count;
-        currentFood = startingFood;
+        MaxFood = foodIcons.Count;
+        CurrentFood = startingFood;
         UpdateDisplay();
     }
 
-    public void AddFood()
+    /// <summary>
+    /// Adds food to the storage.
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <returns>true if at least 1 food can be added</returns>
+    public bool TryAddFood(int amount)
     {
-        if (currentFood >= maxFood) return;
-        currentFood++;
+        if (CurrentFood >= MaxFood) return false;
+
+        CurrentFood += amount;
         UpdateDisplay();
+
+        return true;
     }
 
     public void RemoveFood()
     {
-        if (currentFood <= 0) return;
-        currentFood--;
+        if (CurrentFood <= 0) return;
+        CurrentFood--;
         UpdateDisplay();
     }
 
@@ -56,7 +76,7 @@ public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void UpdateDisplay()
     {
         for (int i = 0; i < foodIcons.Count; i++)
-            foodIcons[i].color = i < currentFood ? FilledColor : EmptyColor;
+            foodIcons[i].color = i < CurrentFood ? FilledColor : EmptyColor;
     }
 
     public void ToggleGivingFood()
@@ -67,13 +87,13 @@ public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
 
 
-    public void OnPointerEnter(PointerEventData eventData) => foodText.text = currentFood > 0 ? foodAvailableHover : foodUnavailableHover;
+    public void OnPointerEnter(PointerEventData eventData) => foodText.text = CurrentFood > 0 ? foodAvailableHover : foodUnavailableHover;
 
     public void OnPointerExit(PointerEventData eventData) => foodText.text = baseFoodText;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (currentFood > 0 || GivingFood)
+        if (CurrentFood > 0 || GivingFood)
             ToggleGivingFood();
     }
 }
