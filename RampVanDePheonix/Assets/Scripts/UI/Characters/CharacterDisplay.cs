@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class CharacterDisplay : MonoBehaviour
 {
-    [SerializeField]
-    private int maxSliderValue = 10;
 
     [Foldout("Small display", true), SerializeField]
     private TMP_Text displayNaam;
@@ -14,6 +12,8 @@ public class CharacterDisplay : MonoBehaviour
     private Image displaySprite;
 
     [Foldout("Info dropdown", true), SerializeField]
+    private int maxSliderValue = 5;
+    [SerializeField]
     private TMP_Text infoNaam;
     [SerializeField]
     private Image infoSprite;
@@ -34,6 +34,11 @@ public class CharacterDisplay : MonoBehaviour
     private Slider sociaalSlider;
     [SerializeField]
     private TMP_Text kapitaalText;
+
+    [Foldout("Death display", true), SerializeField]
+    private ShowOnHover showOnHover;
+    [SerializeField]
+    private RectTransform deathScreen;
 
     // dunno about hunger yet uwu
 
@@ -74,5 +79,11 @@ public class CharacterDisplay : MonoBehaviour
         kapitaalText.text = character.baseKapitaal.ToString();
 
         infoLore.text = character.loreDrop;
+    }
+
+    public void ShowDeathScreen()
+    {
+        deathScreen.gameObject.SetActive(true);
+        showOnHover.SetEnabled(false);
     }
 }
