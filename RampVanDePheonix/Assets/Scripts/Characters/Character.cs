@@ -11,18 +11,20 @@ public class Character : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Image borderImage;
 
-    private Personage personage;
     private CharacterListDisplay parent;
 
     private static readonly Color borderColor = new Color32(0x8C, 0x73, 0x49, 0xFF);
     private static readonly Color highlightedBorderColor = new Color32(0xB0, 0x94, 0x62, 0xFF);
 
+    public Personage Personage { get; private set; }
     public bool IsAlive { get; private set; } = true;
     public bool IsOnLifeBoat { get; private set; } = false;
+    public bool IsSelectable => IsAlive && !IsOnLifeBoat;
+
     public void Initialize(Personage personage, CharacterListDisplay parent)
     {
         characterFood.Initialize(this);
-        this.personage = personage;
+        this.Personage = personage;
         characterDisplay.SetUI(personage);
         this.parent = parent;
     }
@@ -37,30 +39,31 @@ public class Character : MonoBehaviour, IPointerClickHandler
     public void Die(string reason = "No reason given")
     {
         IsAlive = false;
-        Debug.Log($"Character {personage.characterName} has died. Reason: {reason}");
+        Debug.Log($"Character {Personage.characterName} has died. Reason: {reason}");
         characterDisplay.ShowDeathScreen();
         parent.ReportCharacterDied();
-        ToggleSelected();
+        ToggleSelected(true, false);
     }
 
     public void Safe(string reason = "No reason given")
     {
         IsOnLifeBoat = true;
-        Debug.Log($"Character {personage.characterName} has been saved. Reason: {reason}");
+        Debug.Log($"Character {Personage.characterName} has been saved. Reason: {reason}");
         characterDisplay.ShowSafeScreen();
-        ToggleSelected();
+        ToggleSelected(true, false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!IsAlive || IsOnLifeBoat) return;
+        if (!IsSelectable) return;
+        characterFood.GiveFood();
         ToggleSelected();
     }
 
-    private void ToggleSelected()
+    private void ToggleSelected(bool forceState = false, bool forcedState = false)
     {
         parent.SetSelectedCharacter(
-            parent.SelectedCharacter == this ? null : this
+            forceState ? (forcedState ? this : null) : (parent.SelectedCharacter == this ? null : this)
         );
     }
 
