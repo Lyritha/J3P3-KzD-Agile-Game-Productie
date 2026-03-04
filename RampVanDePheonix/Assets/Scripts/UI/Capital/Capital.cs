@@ -1,19 +1,17 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
-public class CapitalDisplay : MonoBehaviour
+public class Capital : MonoBehaviour
 {
-    public List<CapitalItemDisplay> CapitalItemDisplay { get; private set; } = new();
-
     [SerializeField]
     private CapitalItemDisplay capitalItemPrefab;
     [SerializeField]
     private RectTransform capitalParent;
     [SerializeField]
     private TMP_Text capitalNumber;
+
+    private List<CapitalItemDisplay> capitalItemDisplay = new();
 
     public void AddCapitalItems(List<Personage> characters) => AddCapitalItems(characters.ToArray());
     public void AddCapitalItems(Personage[] characters)
@@ -35,7 +33,7 @@ public class CapitalDisplay : MonoBehaviour
     {
         int number = 0;
 
-        foreach (CapitalItemDisplay item in CapitalItemDisplay)
+        foreach (CapitalItemDisplay item in capitalItemDisplay)
             if (item.Character != null) number += item.Character.baseKapitaal;
 
         capitalNumber.text = $"{number}";
@@ -44,7 +42,7 @@ public class CapitalDisplay : MonoBehaviour
     private void AddCapitalItem(Personage character, int index)
     {
         CapitalItemDisplay display = Instantiate(capitalItemPrefab, capitalParent);
-        CapitalItemDisplay.Add(display);
+        capitalItemDisplay.Add(display);
         display.SetUI(character, index);
     }
 
@@ -53,7 +51,7 @@ public class CapitalDisplay : MonoBehaviour
         foreach (Transform child in capitalParent)
             Destroy(child.gameObject);
     
-        CapitalItemDisplay.Clear();
+        capitalItemDisplay.Clear();
     }
 
 
