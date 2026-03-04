@@ -2936,6 +2936,7 @@ GameObject:
   - component: {fileID: 1070750703}
   - component: {fileID: 1070750705}
   - component: {fileID: 1070750704}
+  - component: {fileID: 1070750706}
   m_Layer: 5
   m_Name: Brenda
   m_TagString: Untagged
@@ -3000,6 +3001,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070750702}
   m_CullTransparentMesh: 1
+--- !u!114 &1070750706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070750702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad7367fca331654585bdd858e18c7a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BrendaFlip
 --- !u!1 &1197164472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5384,6 +5397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 372497157}
     m_Modifications:
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: placeholderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4010508775647281392, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: m_Name
       value: QuestionCard
