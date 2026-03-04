@@ -17,13 +17,14 @@ public class StateMachine : MonoBehaviour
     State state;
 
     [SerializeField] EventManager eventManager;
+    [SerializeField] EventVisualiser eventVisualiser;
 
     private void Start()
     {
         SetState(State.Walking);
     }
 
-    void SetState(State newState)
+    public void SetState(State newState)
     {
         state = newState;
 
@@ -57,13 +58,8 @@ public class StateMachine : MonoBehaviour
     void EventState()
     {
         QuestionScriptable randomEvent = eventManager.GetRandomEvent();
-
-        Debug.Log(randomEvent.question);
-
-        foreach (var answer in randomEvent.answers)
-        {
-            Debug.Log("Option: " + answer.action);
-        }
+        
+        eventVisualiser.FillEventInfo(randomEvent);
     }
 
     void FinishEventState()
