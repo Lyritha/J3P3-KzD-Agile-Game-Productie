@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 10
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Je hebt geen zin in het leven op het platteland. Je denkt erover na
+    om te verhuizen naar Milwaukee of Grand Rapids.  '
   answers: []

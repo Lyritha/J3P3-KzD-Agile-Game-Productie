@@ -8,6 +8,11 @@ public class AnswerData : MonoBehaviour
 
     StateMachine stateMachine;
 
+    private void Start()
+    {
+        stateMachine = FindAnyObjectByType<StateMachine>();
+    }
+
     public void AnswerEffect()
     {
         AnswerData[] answers = FindObjectsByType<AnswerData>(FindObjectsSortMode.None);
@@ -18,7 +23,6 @@ public class AnswerData : MonoBehaviour
 
         FindAnyObjectByType<EventVisualiser>().gameObject.SetActive(false);
 
-        //stateMachine.SetState(State.FinishEvent);
-
+        stateMachine.SetState(State.FinishEvent);
     }
 }

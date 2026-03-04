@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 7
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: Nu je eindelijk in Amerika bent besluit je hier ook een baan te gaan
+    zoeken zodat je je familie kan voorzien van eten en onderdak.
   answers: []

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 8
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Je hebt inmiddels een fijne vriendenkring in Amerika die hier al langer
+    woont. Je vraagt hen hulp met het opbouwen van je nieuwe leven. '
   answers: []

@@ -10,17 +10,11 @@ public class EventVisualiser : MonoBehaviour
     [SerializeField] GameObject answerButton;
     [SerializeField] GameObject answerField;
 
-    [SerializeField] QuestionScriptable current; //GET RID OF SERIALIEZFIELD WHEN DONE
-    public bool placeholderMode;
-
-    private void Start()
-    {
-        if(placeholderMode) FillEventInfo(current); // PLACEHOLDER
-    }
+    QuestionScriptable current;
 
     public void FillEventInfo(QuestionScriptable currentEvent)
     {
-        currentEvent = current;
+        current = currentEvent;
 
         questionInfo.gameObject.SetActive(true);
 

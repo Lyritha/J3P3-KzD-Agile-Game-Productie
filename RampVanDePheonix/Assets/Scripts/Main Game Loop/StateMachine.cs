@@ -16,19 +16,24 @@ public class StateMachine : MonoBehaviour
 {
     State state;
 
+    [SerializeField] EventManager eventManager;
+    [SerializeField] EventVisualiser eventVisualiser;
+    [SerializeField] GameObject eventQuestion;
+
     private void Start()
     {
+        eventQuestion.SetActive(false);
         SetState(State.Walking);
     }
 
-    void SetState(State newState)
+    public void SetState(State newState)
     {
         state = newState;
 
         switch (state)
         {
             case State.Walking:
-                StartCoroutine(WalkingState(10));
+                StartCoroutine(WalkingState(2));
                 break;
             case State.Event:
                 EventState();
@@ -48,14 +53,15 @@ public class StateMachine : MonoBehaviour
     IEnumerator WalkingState(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        Debug.Log(":3");
+        eventQuestion.SetActive(true);
         SetState(State.Event);
     }
 
     void EventState()
     {
-        Debug.Log("choose random event");
-        SetState(State.FinishEvent);
+        QuestionScriptable randomEvent = eventManager.GetRandomEvent();
+        print(randomEvent.question);
+        eventVisualiser.FillEventInfo(randomEvent);
     }
 
     void FinishEventState()

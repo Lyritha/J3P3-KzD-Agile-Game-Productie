@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 6
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Je zoekt je familie en oude vrienden in Amerika op. Zij wonen in Sheboygan.
+    Je denkt erover na of je je eigen leven in Iowa wil opbouwen of toch bij je familie
+    en vrienden te blijven. '
   answers: []
