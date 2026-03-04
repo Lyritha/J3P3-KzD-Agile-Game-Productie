@@ -405,6 +405,11 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!1 &123906130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4010508775647281392, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+  m_PrefabInstance: {fileID: 302205181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &202677663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,7 +2112,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
   m_PrefabInstance: {fileID: 302205181}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 123906130}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f84f72a78cbc9c4faabbbb1179740e9, type: 3}
@@ -3739,6 +3744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
   eventManager: {fileID: 1347684267}
   eventVisualiser: {fileID: 788719948}
+  eventQuestion: {fileID: 123906130}
 --- !u!4 &1530623481
 Transform:
   m_ObjectHideFlags: 0

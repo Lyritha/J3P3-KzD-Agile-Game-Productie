@@ -33,7 +33,7 @@ public class StateMachine : MonoBehaviour
         switch (state)
         {
             case State.Walking:
-                StartCoroutine(WalkingState(2));
+                StartCoroutine(WalkingState(10));
                 break;
             case State.Event:
                 EventState();
