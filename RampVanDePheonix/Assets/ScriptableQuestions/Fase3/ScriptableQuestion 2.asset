@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Je vestigt je in Wisconsin, een bosrijk gebied. Je koopt een stuk land
+    en moet hard werken om er bouwgrond van te maken. Van de gekapte bomen maak je
+    je uiteindelijke huis. '
   answers: []

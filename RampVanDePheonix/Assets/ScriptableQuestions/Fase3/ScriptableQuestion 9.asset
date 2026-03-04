@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 9
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Je bent je vrouw en zes kinderen verloren. Na de herdenking moet je
+    de moeilijke keuze maken om verder te gaan in het leven of vast te blijven hangen
+    in het verleden. '
   answers: []

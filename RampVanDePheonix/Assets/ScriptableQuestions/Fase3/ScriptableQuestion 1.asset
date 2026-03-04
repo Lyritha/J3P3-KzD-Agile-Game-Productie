@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 1
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Je vindt een partner, trouwt en krijgt een handvol kinderen. Je hebt
+    je plek in Amerika helemaal gevonden. Je denkt erover na om je familie en vrienden
+    te vragen of ze ook de reis naar Amerika willen maken.  '
   answers: []

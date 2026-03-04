@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 4
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'In 1847, het jaar van de Phoenixramp, was Wisconsin officieel nog geen
+    staat. De bevolking groeide in die jaren enorm en dat kwam door de emigranten.
+    De oorspronkelijke bewoners, de native Americans, kwamen oog in oog te staan
+    met de Achterhoekse landverhuizers. '
   answers: []

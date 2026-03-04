@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 12
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Je huis is in brand gestoken door Amerikanen die de emigranten niet
+    in hun stad willen hebben. Je hebt je huis uiteindelijk gered van het vuur maar
+    de schade blijft. '
   answers: []

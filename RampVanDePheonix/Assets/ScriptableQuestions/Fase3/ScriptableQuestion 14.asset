@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 14
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'In Amerika hebben ze veel strengere winters dan je gewend bent in de
+    achterhoek. Je was hier niet op voorbereid en de oogst is verpest. '
   answers: []

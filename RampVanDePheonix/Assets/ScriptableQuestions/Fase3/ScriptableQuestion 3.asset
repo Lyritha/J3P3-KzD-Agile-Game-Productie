@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 3
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: Je hebt de overtocht betaald en de Phoenix overleefd, maar helaas heb
+    je niet genoeg reserves meer om land te kopen of een huis te bouwen.
   answers: []

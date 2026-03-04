@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 5
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 
+  question: 'Wat een fantastische plek om te wonen! Je voelt je al helemaal thuis
+    in Amerika, je moet alleen nog een cursus doen voor je Amerikaanse burgerschap.
+    Hier leer je onder andere de Engelse taal, het volkslied en wat er in de grondwet
+    staat. '
   answers: []
