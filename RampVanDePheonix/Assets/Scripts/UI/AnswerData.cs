@@ -7,13 +7,11 @@ public class AnswerData : MonoBehaviour
     public int answerIndex;
     QuestionScriptable current;
 
-    StateMachine stateMachine;
     CharacterListDisplay selector;
     EventVisualiser visualiser;
 
     private void Start()
     {
-        stateMachine = FindAnyObjectByType<StateMachine>();
         visualiser = FindAnyObjectByType<EventVisualiser>();
         selector = FindAnyObjectByType<CharacterListDisplay>();
     }
@@ -24,11 +22,19 @@ public class AnswerData : MonoBehaviour
         //check of een personage selected is
         if (selector.SelectedCharacter != null)
         {
-            print("selected character is not null");
             //check of benodigde vaardigheden genoeg zijn
-            if(CheckSkills()) ChangeSkills();
-            //laat uitkomst zien met gebruik van tooltip
-            ResetObject();
+            if (current.answers[answerIndex].skillNeeded.Length > 0)
+            {
+                if (CheckSkills()) ChangeSkills(false);
+                else
+                {
+                    ChangeSkills(true);
+                }
+            }
+            else
+            {
+                ChangeSkills(false);
+            }            
         }
         else
         {
@@ -38,7 +44,7 @@ public class AnswerData : MonoBehaviour
     }
     bool CheckSkills()
     {
-        foreach(var skill in current.answers[answerIndex].skillNeeded)
+        foreach (var skill in current.answers[answerIndex].skillNeeded)
         {
             switch (skill.skillType)
             {
@@ -61,39 +67,62 @@ public class AnswerData : MonoBehaviour
         }
         return false;
     }
-    void ChangeSkills()
+    void ChangeSkills(bool failed)
     {
-        print("entered method to chaneg skills");
-        foreach (var change in current.answers[answerIndex].change)
+        if (!failed)
         {
-            switch (change.skillToBeChanged)
+            foreach (var change in current.answers[answerIndex].change)
             {
-                case Skillset.Kapitaal:
-                    print("changing kapitaal");
-                    selector.SelectedCharacter.Personage.baseKapitaal += change.changeAmount;
-                    break;
-                case Skillset.Bouwkunde:
-                    print("changing bouwkunde");
-                    selector.SelectedCharacter.Personage.baseBouwkunde += change.changeAmount;
-                    break;
-                case Skillset.Socialiteit:
-                    print("changing socialiteit");
-                    selector.SelectedCharacter.Personage.baseSociaal += change.changeAmount;
-                    break;
-                case Skillset.AanpassingsVermogen:
-                    print("changing aanpassingsvermogen");
-                    selector.SelectedCharacter.Personage.baseAanpassingsvermogen += change.changeAmount;
-                    break;
-                case Skillset.Leervermogen:
-                    print("changing leervermogen");
-                    selector.SelectedCharacter.Personage.baseLeervermogen += change.changeAmount;
-                    break;
+                switch (change.skillToBeChanged)
+                {
+                    case Skillset.Kapitaal:
+                        selector.SelectedCharacter.Personage.baseKapitaal += change.changeAmount;
+                        break;
+                    case Skillset.Bouwkunde:
+                        selector.SelectedCharacter.Personage.baseBouwkunde += change.changeAmount;
+                        break;
+                    case Skillset.Socialiteit:
+                        selector.SelectedCharacter.Personage.baseSociaal += change.changeAmount;
+                        break;
+                    case Skillset.AanpassingsVermogen:
+                        selector.SelectedCharacter.Personage.baseAanpassingsvermogen += change.changeAmount;
+                        break;
+                    case Skillset.Leervermogen:
+                        selector.SelectedCharacter.Personage.baseLeervermogen += change.changeAmount;
+                        break;
+                }
+            }
+        }
+        else if (failed)
+        {
+            foreach (var change in current.answers[answerIndex].changeFailed)
+            {
+                switch (change.skillToBeChanged)
+                {
+                    case Skillset.Kapitaal:
+                        selector.SelectedCharacter.Personage.baseKapitaal += change.changeAmount;
+                        break;
+                    case Skillset.Bouwkunde:
+                        selector.SelectedCharacter.Personage.baseBouwkunde += change.changeAmount;
+                        break;
+                    case Skillset.Socialiteit:
+                        selector.SelectedCharacter.Personage.baseSociaal += change.changeAmount;
+                        break;
+                    case Skillset.AanpassingsVermogen:
+                        selector.SelectedCharacter.Personage.baseAanpassingsvermogen += change.changeAmount;
+                        break;
+                    case Skillset.Leervermogen:
+                        selector.SelectedCharacter.Personage.baseLeervermogen += change.changeAmount;
+                        break;
+                }
             }
         }
         selector.SelectedCharacter.Personage.NotifyChanged();
+        if (failed) ResetObject(current.answers[answerIndex].resultFailed);
+        else if (!failed) ResetObject(current.answers[answerIndex].result); 
     }
 
-    void ResetObject()
+    void ResetObject(string uitkomst)
     {
         AnswerData[] answers = FindObjectsByType<AnswerData>(FindObjectsSortMode.None);
         foreach (AnswerData question in answers)
@@ -101,8 +130,8 @@ public class AnswerData : MonoBehaviour
             Destroy(question.gameObject);
         }
 
-        FindAnyObjectByType<EventVisualiser>().gameObject.SetActive(false);
-
-        stateMachine.SetState(State.FinishEvent);
+        GameObject currentObject = FindAnyObjectByType<UitslagText>().gameObject;
+        currentObject.SetActive(true);
+        currentObject.GetComponent<UitslagText>().ShowText(uitkomst);
     }
 }

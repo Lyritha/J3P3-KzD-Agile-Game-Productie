@@ -22,7 +22,10 @@ public struct Answer
     //the result of the chosen action
     [TextArea]
     public string result;
+    [TextArea]
+    public string resultFailed;
     public SkillsetChange[] change;
+    public SkillsetChange[] changeFailed;
 }
 
 

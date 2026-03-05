@@ -17,15 +17,26 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 3
-      skillAmountNeeded: 2
-    action: Het is je gelukt om ze te overtuigen
-    result: 'ze helpen mee met het financieren van de reis, je verdient 3 Kapitaal. '
+      skillAmountNeeded: 200
+    action: Je probeert je best te doen om je familie te overtuigen
+    result: Het is je gelukt om ze te overtuigen! Ze komen mee naar de reis en helpen
+      met het betalen!.
+    resultFailed: Helaas hebben ze besloten om in de achterhoek te blijven. Je laat
+      je familie achter in de Achterhoek.
     change:
     - skillToBeChanged: 1
-      changeAmount: 3
+      changeAmount: 1
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
   - skillNeeded: []
-    action: Je bent net niet overtuigend genoeg, maar ze waarderen je moeite
-    result: ' maar ze waarderen je moeite, verdien 1 Socialiteit. '
+    action: Je besluit om toch niet je vrienden over te halen, omdat je bang bent
+      voor de moeilijke reis.
+    result: Je laat je vrienden achter in de Achterhoek en maakt de reis zonder hun.
+    resultFailed: 
     change:
     - skillToBeChanged: 3
-      changeAmount: 1
+      changeAmount: -1
+    changeFailed: []
