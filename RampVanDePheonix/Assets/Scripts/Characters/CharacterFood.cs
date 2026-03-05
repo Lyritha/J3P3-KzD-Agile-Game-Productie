@@ -47,15 +47,16 @@ public class CharacterFood : MonoBehaviour
         UpdateFoodUI(shouldDie);
     }
 
-    public void GiveFood()
+    public bool TryGiveFood()
     {
-        if (!foodStorage.GivingFood || currentFood + 1 > maxFood) return;
+        if (!foodStorage.GivingFood || currentFood + 1 > maxFood) return false;
 
         currentFood++;
         foodStorage.RemoveFood();
-        foodStorage.ToggleGivingFood();
 
         UpdateFoodUI();
+
+        return true;
     }
 
     private void UpdateFoodUI(bool disableUI = false)
