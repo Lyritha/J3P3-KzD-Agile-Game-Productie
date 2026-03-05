@@ -22,6 +22,8 @@ public class Personage : ScriptableObject
     [Header("Lore")]
     public string woonplaats;
     public string beroep;
+    public string description;
+    [TextArea(5, 10)]
     public string loreDrop;
 
     [Header("Sprite")]
