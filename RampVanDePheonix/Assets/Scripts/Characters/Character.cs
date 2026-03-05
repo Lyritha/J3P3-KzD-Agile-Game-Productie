@@ -31,8 +31,8 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
     public void UpdateCharacterState()
     {
-        // for now 50% chance to consume food, can be changed to something more complex later
-        bool shouldEat = Random.value < 0.5f;
+        // for now 1/3 chance to consume food, can be changed to something more complex later
+        bool shouldEat = Random.value < 0.33f;
         if (shouldEat) characterFood.EatFood();
     }
 

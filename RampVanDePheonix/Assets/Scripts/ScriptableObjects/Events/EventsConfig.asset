@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5d0543871423e4493df95b783b5737, type: 3}
+  m_Name: EventsConfig
+  m_EditorClassIdentifier: Assembly-CSharp::EventsConfig
+  achterhoekEvents:
+  - {fileID: 11400000, guid: 7073fcc4936282745bbad423905995b3, type: 2}
+  - {fileID: 11400000, guid: 380c3b735212ebb469dae8795d1083d6, type: 2}
+  - {fileID: 11400000, guid: 9425bc8df9f7bed428292ae3321ba069, type: 2}
+  - {fileID: 11400000, guid: e7ee041b280cb554996fa50e7d5f4543, type: 2}
+  - {fileID: 11400000, guid: 3273091d1b41f1442b5afd1b2edd3710, type: 2}
+  - {fileID: 11400000, guid: ddc9c447e831458458f97cf9bc4ae97a, type: 2}
+  - {fileID: 11400000, guid: d7a584a298a03fa4cb79b786402ac15f, type: 2}
+  - {fileID: 11400000, guid: dba0b1eb328f62541beffe8324966e8e, type: 2}
+  - {fileID: 11400000, guid: 14d33cc686dd8d749a311ba4553d0498, type: 2}
+  - {fileID: 11400000, guid: 6964ee422b8f4ec4cb0b9dc2ae1dfe19, type: 2}
+  - {fileID: 11400000, guid: 4436c4c467fb1f44cbf896461aacc383, type: 2}
+  - {fileID: 11400000, guid: b3193e74b71c2464aad17751477a9273, type: 2}
+  - {fileID: 11400000, guid: 10b9a3f89cd68f64cad5df2a6439b811, type: 2}
+  - {fileID: 11400000, guid: 3031af4b1e9eed34e9bfcfb199a0174a, type: 2}
+  - {fileID: 11400000, guid: 565f5a59aa860a24e9485fdd615342c1, type: 2}
+  pheonixEvents:
+  - {fileID: 11400000, guid: 68d0be0b6ef0fe34bb845222dfa911c0, type: 2}
+  - {fileID: 11400000, guid: 637113a71c832d74c988619bf4ec39c1, type: 2}
+  - {fileID: 11400000, guid: ef3415e663bf26f4682e9b95974d4f4f, type: 2}
+  - {fileID: 11400000, guid: 24b5f424ca215c64e8f72dff12eb6a2d, type: 2}
+  - {fileID: 11400000, guid: 04f3308954872f14082cd17896cf01a4, type: 2}
+  - {fileID: 11400000, guid: 152664048332dc1448d3939e60e95b17, type: 2}
+  - {fileID: 11400000, guid: 5730e67f56217184aa2bfc48ef7a3165, type: 2}
+  - {fileID: 11400000, guid: 8b98cea62775b9d4f800b18ac98f49a7, type: 2}
+  - {fileID: 11400000, guid: 288c365151fc7ee47afb25b295acee78, type: 2}
+  - {fileID: 11400000, guid: 4b5f31a6be12bda459edf23d879f7786, type: 2}
+  - {fileID: 11400000, guid: a083d700c7e1c9f47b3978a739a2c978, type: 2}
+  - {fileID: 11400000, guid: 1cb41d75e1e18444cbe1f04bec8fa009, type: 2}
+  - {fileID: 11400000, guid: 0a77b76b82f9aa6448a283f85a84bb27, type: 2}
+  - {fileID: 11400000, guid: 0a89c65bde990464aa8f6546eb6ab681, type: 2}
+  - {fileID: 11400000, guid: 0eda010f2b5a8d649b59dae2079039d1, type: 2}
+  amerikaEvents:
+  - {fileID: 11400000, guid: b4d073aa00da8fe4a90c48e37318a595, type: 2}
+  - {fileID: 11400000, guid: c16a0f7e4b3dad049866a202437d8c01, type: 2}
+  - {fileID: 11400000, guid: d1ac8e0fe3df6d646b62d99d43630457, type: 2}
+  - {fileID: 11400000, guid: 414f1d9c72387a14d8d8c2905fd2acfa, type: 2}
+  - {fileID: 11400000, guid: 5fc82c113906a994bbef29ee28ba4e14, type: 2}
+  - {fileID: 11400000, guid: eac50d18b10dcc748abed86da7f923f8, type: 2}
+  - {fileID: 11400000, guid: 026d063a1ed7e0b4f9b2554f09a2cb59, type: 2}
+  - {fileID: 11400000, guid: 7e61163de03373e438fdcdfe46e02290, type: 2}
+  - {fileID: 11400000, guid: 535d5f4a608a7db4c8c7196755be4f5e, type: 2}
+  - {fileID: 11400000, guid: e95dfcda5018cb94f9e33bcf97fe33ea, type: 2}
+  - {fileID: 11400000, guid: 5ac0be1f1b405124b825d7a3f0cd620f, type: 2}
+  - {fileID: 11400000, guid: e6bac739df77a0f439d573223bbe23a4, type: 2}
+  - {fileID: 11400000, guid: 0f8fabe9ad85a0240b6eed32676e1ec5, type: 2}
+  - {fileID: 11400000, guid: 3b3fe4dce89b5ec4e9ee95dcaa76a17f, type: 2}
+  - {fileID: 11400000, guid: c17b2dd82303b29418d7427de88ba0a2, type: 2}
+  - {fileID: 11400000, guid: 614aa3a3d04f6b84bbb94cd6206b476a, type: 2}

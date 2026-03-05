@@ -4,42 +4,86 @@ using UnityEngine.UI;
 
 public class BrendaFlip : MonoBehaviour
 {
+    [Header("Audio")]
     [SerializeField] private AudioClip[] flipSounds;
     [SerializeField] private AudioSource audioSource;
+
+    [Header("Flash")]
     [SerializeField] private Image fadeInOutImg;
     [SerializeField] private float fadeDuration = 0.25f;
     private Coroutine fadeRoutine;
 
+    [Header("Idle Movement")]
+    [SerializeField] private float sineAmplitude = 50f;
+    [SerializeField] private float sineFrequency = 5f;
+
+    [Header("Flip")]
+    [SerializeField] private float flipSpeed = 720f;
+    [SerializeField] private float flipHeight = 120f;
+
+    [Header("UI")]
+    [SerializeField] private RectTransform rect;
+
     private int currentSoundIndex = 0;
     private float lastFlipTime = -10f;
-
-    float flipSpeed = 720f;
 
     private bool isFlipping = false;
     private float rotatedAmount = 0f;
     private Quaternion startRotation;
 
+    private float baseX;
+    private float baseY;
+
+    void Start()
+    {
+        baseX = rect.anchoredPosition.x;
+        baseY = rect.anchoredPosition.y;
+    }
+
     void Update()
     {
+        HandleMovement();
+
         if (Input.GetKeyDown(KeyCode.Space) && !isFlipping)
         {
             StartFlip();
         }
 
+        HandleFlip();
+    }
+
+    void HandleMovement()
+    {
+        // Continuous side-to-side sway
+        float x = baseX + Mathf.Sin(Time.time * sineFrequency) * sineAmplitude;
+
+        float y = baseY;
+
+        // Jump arc while flipping
         if (isFlipping)
         {
-            float rotationThisFrame = flipSpeed * Time.deltaTime;
-
-            if (rotatedAmount + rotationThisFrame >= 360f)
-            {
-                transform.rotation = startRotation;
-                isFlipping = false;
-                return;
-            }
-
-            transform.Rotate(Vector3.back * rotationThisFrame);
-            rotatedAmount += rotationThisFrame;
+            float flipProgress = rotatedAmount / 360f;
+            y += Mathf.Sin(flipProgress * Mathf.PI) * flipHeight;
         }
+
+        rect.anchoredPosition = new Vector2(x, y);
+    }
+
+    void HandleFlip()
+    {
+        if (!isFlipping) return;
+
+        float rotationThisFrame = flipSpeed * Time.deltaTime;
+
+        if (rotatedAmount + rotationThisFrame >= 360f)
+        {
+            transform.rotation = startRotation;
+            isFlipping = false;
+            return;
+        }
+
+        transform.Rotate(Vector3.forward * rotationThisFrame);
+        rotatedAmount += rotationThisFrame;
     }
 
     void StartFlip()
@@ -49,7 +93,7 @@ public class BrendaFlip : MonoBehaviour
 
         fadeRoutine = StartCoroutine(FadeFlash());
 
-        // Reset sound combo if more than 2 seconds passed
+        // Reset combo if too slow
         if (Time.time - lastFlipTime > 1.5f)
         {
             currentSoundIndex = 0;
@@ -58,7 +102,7 @@ public class BrendaFlip : MonoBehaviour
         // Play sound
         audioSource.PlayOneShot(flipSounds[currentSoundIndex]);
 
-        // Increase index but keep inside array
+        // Advance combo
         currentSoundIndex = Mathf.Min(currentSoundIndex + 1, flipSounds.Length - 1);
 
         lastFlipTime = Time.time;
@@ -72,7 +116,6 @@ public class BrendaFlip : MonoBehaviour
     {
         Color c = fadeInOutImg.color;
 
-        // Fade in
         float t = 0f;
         while (t < fadeDuration)
         {
@@ -82,7 +125,6 @@ public class BrendaFlip : MonoBehaviour
             yield return null;
         }
 
-        // Fade out
         t = 0f;
         while (t < fadeDuration)
         {
