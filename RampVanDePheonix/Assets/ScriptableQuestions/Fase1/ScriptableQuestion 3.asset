@@ -17,8 +17,8 @@ MonoBehaviour:
   answers:
   - skillNeeded: []
     action: Bedelen bij vrienden, familie en in het dorp
-    result: 'verlies 2 Socialiteit, krijg 1 Aanpassingsvermogen en verdient 1 Honger
-      per karakter. '
+    result: verlies 2 Socialiteit, krijg 1 Aanpassingsvermogen.
+    resultFailed: 
     change:
     - skillToBeChanged: 3
       changeAmount: -2
@@ -26,18 +26,23 @@ MonoBehaviour:
       changeAmount: 1
     - skillToBeChanged: 6
       changeAmount: 1
-  - skillNeeded: []
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 2
     action: Zelf eten kopen van je opgespaarde geld
-    result: 'verlies 2 Kapitaal en verdien 3 Honger per karakter. '
+    result: verlies 2 Kapitaal.
+    resultFailed: Je hebt niet genoeg kapitaal.
     change:
     - skillToBeChanged: 1
       changeAmount: -2
     - skillToBeChanged: 6
       changeAmount: 3
+    changeFailed: []
   - skillNeeded: []
     action: Inbreken bij je buurman en eten stelen
-    result: 'verlies 2 Socialiteit, krijg 1 Bouwkunde, 1 Aanpassingsvermogen en verdien
-      2 Honger per karakter. '
+    result: verlies 2 Socialiteit, krijg 1 Bouwkunde, 1 Aanpassingsvermogen.
+    resultFailed: 
     change:
     - skillToBeChanged: 3
       changeAmount: -2
@@ -47,9 +52,11 @@ MonoBehaviour:
       changeAmount: 1
     - skillToBeChanged: 6
       changeAmount: 2
+    changeFailed: []
   - skillNeeded: []
     action: Er doorheen duwen en de laatste beetjes eten verdelen
     result: 'verlies 1 Honger per karakter, verdien 2 Aanpassingsvermogen en 1 Kapitaal. '
+    resultFailed: 
     change:
     - skillToBeChanged: 0
       changeAmount: 2
@@ -57,3 +64,4 @@ MonoBehaviour:
       changeAmount: 1
     - skillToBeChanged: 6
       changeAmount: -1
+    changeFailed: []

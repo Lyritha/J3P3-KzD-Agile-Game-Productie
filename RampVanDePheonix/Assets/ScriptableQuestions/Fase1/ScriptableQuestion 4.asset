@@ -14,27 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Een van de wielen van de kar is er onderweg afgevallen! '
   answers:
-  - skillNeeded: []
+  - skillNeeded:
+    - skillType: 2
+      skillAmountNeeded: 1
     action: Het zelf repareren
-    result: 'verlies 1 Honger en verdien 1 Bouwkunde. '
+    result: "Het is gelukt! \nverdien 1 bouwkunde."
+    resultFailed: "Het is niet gelukt. \nVerlies 1 aanpassingsvermogen"
     change:
     - skillToBeChanged: 2
       changeAmount: 1
-    - skillToBeChanged: 6
+    changeFailed:
+    - skillToBeChanged: 0
       changeAmount: -1
   - skillNeeded: []
     action: Iemand van een dorp in de buurt inhuren om het wiel te repareren
     result: 'verlies 1 Kapitaal en krijg 1 Socialiteit. '
+    resultFailed: 
     change:
     - skillToBeChanged: 1
       changeAmount: -1
     - skillToBeChanged: 3
       changeAmount: 1
+    changeFailed: []
   - skillNeeded: []
     action: Een wiel stelen van een geparkeerde kar bij het dorp
     result: 'verlies 2 Sociaal en krijg 2 Aanpassingsvermogen. '
+    resultFailed: 
     change:
     - skillToBeChanged: 3
       changeAmount: -2
     - skillToBeChanged: 0
       changeAmount: 2
+    changeFailed: []

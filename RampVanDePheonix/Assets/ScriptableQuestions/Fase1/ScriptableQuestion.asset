@@ -15,22 +15,40 @@ MonoBehaviour:
   question: 'Je bent van plan om wat spullen te verkopen om de reis naar Amerika
     te financieren, wat verkoop je? '
   answers:
-  - action: Je gereedschapskist
-    result: 'verlies 1 Bouwkunde en krijg 1 Kapitaal. '
+  - skillNeeded:
+    - skillType: 2
+      skillAmountNeeded: 1
+    action: Je besluit om je gereedschapskist te verkopen.
+    result: 'Je hoopt om in Amerika een nieuwe gereedschapskist te kunnen krijgen.
+
+
+      verlies
+      1 Bouwkunde en krijg 1 Kapitaal. '
+    resultFailed: Je hebt niet genoeg gereedschap om te verkopen.
     change:
     - skillToBeChanged: 2
       changeAmount: -1
     - skillToBeChanged: 1
       changeAmount: 1
-  - action: Je Engelstalige boeken
-    result: 'verlies 1 Leervermogen en krijg 1 Kapitaal. '
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 4
+      skillAmountNeeded: 0
+    action: Je besluit je engelstalige boeken te verkopen.
+    result: "Het is nu een stuk moeilijker om de engelse taal te leren. \n\nverlies
+      1 Leervermogen en krijg 1 Kapitaal. "
+    resultFailed: Je hebt niet genoeg engelstalige boeken om te verkopen.
     change:
     - skillToBeChanged: 4
       changeAmount: -1
     - skillToBeChanged: 1
       changeAmount: 1
-  - action: 'Bij nader inzien hoef ik niet echt iets te verkopen. '
-    result: er word niks verkocht
+    changeFailed: []
+  - skillNeeded: []
+    action: 'Bij nader inzien hoef ik niet echt iets te verkopen. '
+    result: Je verkoopt niks en krijgt hierbij ook geen extra geld.
+    resultFailed: 
     change:
     - skillToBeChanged: 1
       changeAmount: 0
+    changeFailed: []

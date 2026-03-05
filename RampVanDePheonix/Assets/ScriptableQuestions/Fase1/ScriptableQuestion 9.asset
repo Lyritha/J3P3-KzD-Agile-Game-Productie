@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 3
-      skillAmountNeeded: 200
+      skillAmountNeeded: 2
     action: Je probeert je best te doen om je familie te overtuigen
     result: Het is je gelukt om ze te overtuigen! Ze komen mee naar de reis en helpen
       met het betalen!.

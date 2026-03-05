@@ -15,17 +15,31 @@ MonoBehaviour:
   question: 'Onderweg kom je een bedelaar tegen die vraagt voor geld om ook een ticket
     naar Amerika te kopen. '
   answers:
-  - skillNeeded: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
     action: Geef hem wat geld
     result: 'verlies 1 Kapitaal en verdien 2 Socialiteit. '
+    resultFailed: 'Je hebt zelf ook geen kapitaal.
+
+      Je besluit om naast de
+      man te zitten en ook te bedelen.
+
+
+      Verdien 1 kapitaal.'
     change:
     - skillToBeChanged: 1
       changeAmount: -1
     - skillToBeChanged: 3
       changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 1
+      changeAmount: 1
   - skillNeeded: []
     action: De man negeren
     result: verlies 1 Socialiteit
+    resultFailed: 
     change:
     - skillToBeChanged: 3
       changeAmount: -1
+    changeFailed: []

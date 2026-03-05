@@ -14,23 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Je gaat langs de bibliotheek om wat boeken te halen voor de reis. '
   answers:
-  - action: Een Encyclopedia
-    result: 'verdien 2 Leervermogen. '
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
+    action: Een Encyclopedia
+    result: verdien 2 Leervermogen. verlies 1 kapitaal.
+    resultFailed: Je hebt niet genoeg geld om het boek te betalen.
     change:
     - skillToBeChanged: 4
       changeAmount: 2
-  - action: Een boek over houtbewerking
-    result: 'verdien 2 Bouwkunde. '
+    - skillToBeChanged: 1
+      changeAmount: -1
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
+    action: Een boek over houtbewerking
+    result: verdien 2 Bouwkunde. Verlies 1 kapitaal.
+    resultFailed: Je hebt niet genoeg geld om het boek te betalen.
     change:
     - skillToBeChanged: 2
       changeAmount: 2
-  - action: De krant
-    result: verdien 2 Socialiteit
-    change:
-    - skillToBeChanged: 3
+    - skillToBeChanged: 2
       changeAmount: 2
-  - action: Een studie bijbel
+    - skillToBeChanged: 1
+      changeAmount: -1
+    changeFailed: []
+  - skillNeeded: []
+    action: Een studie bijbel
     result: 'verdien 2 Aanpassingsvermogen. '
+    resultFailed: 
     change:
     - skillToBeChanged: 0
       changeAmount: 2
+    changeFailed: []

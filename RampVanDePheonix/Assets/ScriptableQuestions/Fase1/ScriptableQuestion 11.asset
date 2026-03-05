@@ -16,25 +16,31 @@ MonoBehaviour:
   answers:
   - skillNeeded: []
     action: Rustig in de rij wachten tot je een kaart mag kopen
-    result: 'verlies 1 Honger, verdien 2 Aanpassingsvermogen. '
+    result: 'verdien 2 Aanpassingsvermogen. '
+    resultFailed: 
     change:
     - skillToBeChanged: 0
       changeAmount: 2
-    - skillToBeChanged: 6
-      changeAmount: -1
+    changeFailed: []
   - skillNeeded: []
     action: Probeer voor te kruipen om eerder een ticket te krijgen
     result: 'verlies 1 Socialiteit, verdien 2 Aanpassingsvermogen. '
+    resultFailed: 
     change:
     - skillToBeChanged: 3
       changeAmount: -1
     - skillToBeChanged: 0
       changeAmount: 2
-  - skillNeeded: []
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
     action: Probeer anderen in de rij om te kopen om jou voor te laten
     result: 'verlies 1 Kapitaal, verdien 1 Aanpassingsvermogen. '
+    resultFailed: Je had niet genoeg kapitaal om ze om te kopen.
     change:
     - skillToBeChanged: 1
       changeAmount: -1
     - skillToBeChanged: 0
       changeAmount: 1
+    changeFailed: []

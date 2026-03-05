@@ -13,7 +13,7 @@ public class UitslagText : MonoBehaviour
     {
         uitslagText.gameObject.SetActive(true);
         uitslagText.text = text;
-        Invoke("ResetText", 3);
+        Invoke("ResetText", 5);
     }
 
     void ResetText()

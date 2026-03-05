@@ -16,23 +16,50 @@ MonoBehaviour:
     heeft niet genoeg ruimte om al zijn spul mee te nemen, hij geeft je een optie
     om wat gratis spullen te krijgen. '
   answers:
-  - action: Wat oude Engelstalige boeken die hij op zijn zolder had gevonden
-    result: 'krijg 2 Leervermogen. '
+  - skillNeeded: []
+    action: Je kiest voor wat oude engelstalige boeken.
+    result: 'Je krijgt de engelstalige boeken van je buurman en hij wenst je sucess
+      met de taal te leren.
+
+
+      krijg 2 Leervermogen. '
+    resultFailed: 
     change:
     - skillToBeChanged: 4
       changeAmount: 2
-  - action: Een grote gereedschapskist met roestige gereedschap,
-    result: 'krijg 2 Bouwkunde. '
+    changeFailed: []
+  - skillNeeded: []
+    action: Je kiest voor een grote gereedschapskist.
+    result: 'Met deze kist kan je je een stuk beter redden rond gereedschap.
+
+
+      krijg
+      2 Bouwkunde. '
+    resultFailed: 
     change:
     - skillToBeChanged: 2
       changeAmount: 2
-  - action: Een pakje kaarten en wat dobbelstenen
-    result: 'krijg 2 Socialiteit. '
+    changeFailed: []
+  - skillNeeded: []
+    action: Je kiest voor een oud pak kaarten en een paar dobbelstenen
+    result: 'Met deze voorwerpen kan je je beter vermaken tijdens de reis en meer
+      vrienden maken onderweg.
+
+
+      Je verdient 2 Socialiteit.
+
+'
+    resultFailed: 
     change:
     - skillToBeChanged: 3
       changeAmount: 2
-  - action: Een oude koffer met een versleten portemonnee
-    result: 'krijg 1 Kapitaal. '
+    changeFailed: []
+  - skillNeeded: []
+    action: Een oude koffer met een versleten portemonnee
+    result: "Wat een geluk! je vind wat kapitaal in de koffer en neemt dit mee voor
+      de reis. \n\nKrijg 1 kapitaal"
+    resultFailed: 
     change:
     - skillToBeChanged: 1
       changeAmount: 1
+    changeFailed: []

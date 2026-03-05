@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Onderweg naar de boot raakt het eten op! '
   answers:
-  - skillNeeded: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 2
     action: Koop nieuw eten bij het volgende dorp
-    result: 'verlies 2 Kapitaal, verdien 1 Honger per karakter en 1 Aanpassingsvermogen. '
+    result: 'verlies 2 Kapitaal en 1 Aanpassingsvermogen. '
+    resultFailed: Je hebt niet genoeg geld om het eten te kopen.
     change:
     - skillToBeChanged: 1
       changeAmount: -2
@@ -24,13 +27,17 @@ MonoBehaviour:
       changeAmount: 1
     - skillToBeChanged: 6
       changeAmount: 1
+    changeFailed: []
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 5
-    action: (5 Aanpassingsvermogen nodig) Jaag een dier onderweg
-    result: 'verdien 2 honger per karakter en 1 Leervermogen. '
+      skillAmountNeeded: 2
+    action: jaag een dier onderweg.
+    result: verdien 1 aanpassingsvermogen.
+    resultFailed: het lukt je niet om het dier te jagen. Het dier kijkt je raar aan
+      en loopt verder.
     change:
-    - skillToBeChanged: 4
+    - skillToBeChanged: 0
       changeAmount: 1
     - skillToBeChanged: 6
       changeAmount: 2
+    changeFailed: []
