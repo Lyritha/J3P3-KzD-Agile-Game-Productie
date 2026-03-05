@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 public enum Fases
 {
     Achterhoek,
@@ -19,9 +20,6 @@ public class FaseManager : MonoBehaviour
 
     [Header("Current Events (dont touch)")]
     public List<QuestionScriptable> currentEvents = new List<QuestionScriptable>();
-
-    [Header("WinScreenPrefab")]
-    [SerializeField] GameObject winScreen;
 
     PhaseDisplayer display;
     ParallaxSwapper swapper;
@@ -59,9 +57,10 @@ public class FaseManager : MonoBehaviour
                 FillList(amerikaEvents);
                 break;
             case Fases.EndScreen:
-                Instantiate(winScreen);
+                SceneManager.LoadScene("EndScreen_Win");
                 break;
         }
+
         display.SetPhase(currentFase,10);
         swapper.SetGrounds(currentFase);
     }

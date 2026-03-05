@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterListDisplay : MonoBehaviour
 {
@@ -82,6 +83,7 @@ public class CharacterListDisplay : MonoBehaviour
 
         // show game over screen or something similar here
         Debug.Log("All characters have died. Game Over.");
+        SceneManager.LoadScene("EndScreen_Lose");
     }
 
 

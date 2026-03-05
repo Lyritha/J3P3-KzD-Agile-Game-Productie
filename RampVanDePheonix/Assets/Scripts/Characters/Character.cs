@@ -56,7 +56,11 @@ public class Character : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!IsSelectable) return;
-        characterFood.GiveFood();
+
+        // avoid toggling character if you can give them food.
+        if (characterFood.TryGiveFood()) return;
+
+        // toggles selected state in parent object.
         ToggleSelected();
     }
 
