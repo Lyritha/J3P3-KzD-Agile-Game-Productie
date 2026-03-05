@@ -15,14 +15,16 @@ MonoBehaviour:
   question: 'De Dominee komt langs de deur om te vragen voor een vrije gift voor
     de kerk, omdat de kerk nooit genoeg geld heeft. '
   answers:
-  - action: Natuurlijk! Ik zou graag willen helpen
+  - skillNeeded: []
+    action: Natuurlijk! Ik zou graag willen helpen
     result: 'verlies 1 Kapitaal en verdien 2 Socialiteit. '
     change:
     - skillToBeChanged: 1
       changeAmount: -1
     - skillToBeChanged: 3
       changeAmount: 2
-  - action: 'Voor een extra gift krijg je ook nog een bijbel erbij! '
+  - skillNeeded: []
+    action: 'Voor een extra gift krijg je ook nog een bijbel erbij! '
     result: 'Verlies 2 Kapitaal, verdien 2 Socialiteit en 2 Leervaardigheid. '
     change:
     - skillToBeChanged: 1
@@ -31,10 +33,9 @@ MonoBehaviour:
       changeAmount: 2
     - skillToBeChanged: 4
       changeAmount: 2
-  - action: Geld is een beetje krap momenteel
-    result: 'verlies 1 Socialiteit en verdien 1 Aanpassingsvermogen. '
+  - skillNeeded: []
+    action: Geld is een beetje krap momenteel
+    result: verlies 1 Socialiteit.
     change:
     - skillToBeChanged: 3
       changeAmount: -1
-    - skillToBeChanged: 0
-      changeAmount: 1

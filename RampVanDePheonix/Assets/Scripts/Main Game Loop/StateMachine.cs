@@ -20,8 +20,11 @@ public class StateMachine : MonoBehaviour
     [SerializeField] EventVisualiser eventVisualiser;
     [SerializeField] GameObject eventQuestion;
 
+    FaseManager faseManager;
+
     private void Start()
     {
+        faseManager = FindAnyObjectByType<FaseManager>();
         eventQuestion.SetActive(false);
         SetState(State.Walking);
     }
@@ -60,13 +63,13 @@ public class StateMachine : MonoBehaviour
     void EventState()
     {
         QuestionScriptable randomEvent = eventManager.GetRandomEvent();
-        print(randomEvent.question);
         eventVisualiser.FillEventInfo(randomEvent);
     }
 
     void FinishEventState()
     {
         Debug.Log("apply stat changes");
+        faseManager.AddProgress();
         SetState(State.Walking);
     }
 

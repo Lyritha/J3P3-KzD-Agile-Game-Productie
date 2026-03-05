@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class EventVisualiser : MonoBehaviour
 {
@@ -36,4 +37,10 @@ public class EventVisualiser : MonoBehaviour
         }
         //SET PREVIOUS UI ELEMENTS INACTIVE AND SET NEW ONES ACTIVE
     }
+
+    public QuestionScriptable GetCurrentEvent()
+    {
+        return current;
+    }
+
 }

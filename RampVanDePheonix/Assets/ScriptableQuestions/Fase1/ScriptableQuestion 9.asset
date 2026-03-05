@@ -15,12 +15,16 @@ MonoBehaviour:
   question: 'Je probeert buren en vrienden te overtuigen om ook de reis te wagen
     naar Amerika. '
   answers:
-  - action: (5 Socialiteit nodig) Het is je gelukt om ze te overtuigen
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 2
+    action: Het is je gelukt om ze te overtuigen
     result: 'ze helpen mee met het financieren van de reis, je verdient 3 Kapitaal. '
     change:
     - skillToBeChanged: 1
       changeAmount: 3
-  - action: Je bent net niet overtuigend genoeg, maar ze waarderen je moeite
+  - skillNeeded: []
+    action: Je bent net niet overtuigend genoeg, maar ze waarderen je moeite
     result: ' maar ze waarderen je moeite, verdien 1 Socialiteit. '
     change:
     - skillToBeChanged: 3

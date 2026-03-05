@@ -16,17 +16,15 @@ MonoBehaviour:
     van plan om in Amerika te wisselen naar de Gereformeerde kerk, hoe ga je hier
     mee om? '
   answers:
-  - action: Alvast wat Engelse woorden leren voor wanneer je bent verhuisd
+  - skillNeeded: []
+    action: Alvast wat Engelse woorden leren voor wanneer je bent verhuisd
     result: 'verdien 2 Leervermogen. '
     change:
     - skillToBeChanged: 4
       changeAmount: 2
-  - action: Verwoest een paar standbeelden van de Hervormde kerk als wraak
-    result: 'verlies 2 Socialiteit, verdien 2 Bouwkunde en 1 Aanpassingsvermogen. '
+  - skillNeeded: []
+    action: Verwoest een paar standbeelden van de Hervormde kerk als wraak
+    result: verlies 2 Socialiteit.
     change:
     - skillToBeChanged: 3
       changeAmount: -2
-    - skillToBeChanged: 2
-      changeAmount: 2
-    - skillToBeChanged: 0
-      changeAmount: 1
