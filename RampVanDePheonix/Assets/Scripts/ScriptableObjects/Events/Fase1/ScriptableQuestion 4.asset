@@ -12,37 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 4
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Een van de wielen van de kar is er onderweg afgevallen! '
+  question: Er is opeens een wiel van de kar afgevallen! De reis word een stuk moeilijker
+    als je dit niet kan oplossen.
   answers:
   - skillNeeded:
     - skillType: 2
       skillAmountNeeded: 1
-    action: Het zelf repareren
-    result: "Het is gelukt! \nverdien 1 bouwkunde."
-    resultFailed: "Het is niet gelukt. \nVerlies 1 aanpassingsvermogen"
+    action: Je doet je best om de kar zelf te repareren.
+    result: 'Je hebt je innerlijke timmerman naar buiten gehaald en de kar gerepareerd.
+
+      Verdien
+      1 bouwkunde.'
+    resultFailed: Het is je niet gelukt om de kar te repareren. Gelukkig vond een
+      dorpsgenoot je en heeft hij je geholpen.
     change:
     - skillToBeChanged: 2
       changeAmount: 1
     changeFailed:
     - skillToBeChanged: 0
       changeAmount: -1
-  - skillNeeded: []
-    action: Iemand van een dorp in de buurt inhuren om het wiel te repareren
-    result: 'verlies 1 Kapitaal en krijg 1 Socialiteit. '
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
+    action: Je besluit om iemand uit het dorp in te huren om de kar te repareren.
+    result: De timmerman die je hebt ingehuurd
     resultFailed: 
     change:
     - skillToBeChanged: 1
       changeAmount: -1
     - skillToBeChanged: 3
       changeAmount: 1
-    changeFailed: []
-  - skillNeeded: []
-    action: Een wiel stelen van een geparkeerde kar bij het dorp
-    result: 'verlies 2 Sociaal en krijg 2 Aanpassingsvermogen. '
-    resultFailed: 
-    change:
-    - skillToBeChanged: 3
-      changeAmount: -2
-    - skillToBeChanged: 0
-      changeAmount: 2
     changeFailed: []

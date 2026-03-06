@@ -15,53 +15,34 @@ MonoBehaviour:
   question: 'De oogst dit jaar ging niet zoals gehoopt, en je zit nu zonder genoeg
     eten om tot de volgende oogst te overleven, wat zou je nu doen? '
   answers:
-  - skillNeeded: []
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 1
     action: Bedelen bij vrienden, familie en in het dorp
-    result: verlies 2 Socialiteit, krijg 1 Aanpassingsvermogen.
-    resultFailed: 
+    result: 'Je familie vind het goed om je wat geld te geven voor eten.
+
+
+      Verdien
+      1 kapitaal'
+    resultFailed: Je familie vind dat je zelf de reis moet betalen en geeft je geen
+      kapitaal.
     change:
-    - skillToBeChanged: 3
-      changeAmount: -2
-    - skillToBeChanged: 0
-      changeAmount: 1
-    - skillToBeChanged: 6
+    - skillToBeChanged: 1
       changeAmount: 1
     changeFailed: []
   - skillNeeded:
-    - skillType: 1
+    - skillType: 0
       skillAmountNeeded: 2
-    action: Zelf eten kopen van je opgespaarde geld
-    result: verlies 2 Kapitaal.
-    resultFailed: Je hebt niet genoeg kapitaal.
+    - skillType: 2
+      skillAmountNeeded: 1
+    action: Inbreken bij je buurman en eten stelen
+    result: "Het is je gelukt om in te breken! Je pakt zijn geld en rent de deur
+      uit!. \n\nVerden 3 kapitaal."
+    resultFailed: Je probeerde in te breken, maar de buurman was thuis. Hij gooit
+      je het huis uit en scheld je uit voor het hele dorp.
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
-    - skillToBeChanged: 6
       changeAmount: 3
-    changeFailed: []
-  - skillNeeded: []
-    action: Inbreken bij je buurman en eten stelen
-    result: verlies 2 Socialiteit, krijg 1 Bouwkunde, 1 Aanpassingsvermogen.
-    resultFailed: 
-    change:
+    changeFailed:
     - skillToBeChanged: 3
       changeAmount: -2
-    - skillToBeChanged: 2
-      changeAmount: 1
-    - skillToBeChanged: 0
-      changeAmount: 1
-    - skillToBeChanged: 6
-      changeAmount: 2
-    changeFailed: []
-  - skillNeeded: []
-    action: Er doorheen duwen en de laatste beetjes eten verdelen
-    result: 'verlies 1 Honger per karakter, verdien 2 Aanpassingsvermogen en 1 Kapitaal. '
-    resultFailed: 
-    change:
-    - skillToBeChanged: 0
-      changeAmount: 2
-    - skillToBeChanged: 1
-      changeAmount: 1
-    - skillToBeChanged: 6
-      changeAmount: -1
-    changeFailed: []
