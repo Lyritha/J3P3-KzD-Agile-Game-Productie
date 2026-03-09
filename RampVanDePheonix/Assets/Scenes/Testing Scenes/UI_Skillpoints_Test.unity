@@ -572,6 +572,50 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Capital
+      value: 
+      objectReference: {fileID: 3886443268029631212, guid: 7066b407ea751234782c2724837dd77d, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Build
+      value: 
+      objectReference: {fileID: -3455646865302844012, guid: be3bbf6ae76c157489b4fb0ddc3a7dfa, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Learn
+      value: 
+      objectReference: {fileID: 8978081399347971845, guid: 600bb60717605e64bbcb60823c6b97e2, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Social
+      value: 
+      objectReference: {fileID: 540466650818201984, guid: 446138d8f45095241a1cf709ccab0746, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icons.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Adaptability
+      value: 
+      objectReference: {fileID: -8438991044599738072, guid: 536ee7ce9322cec42abf1a390096d82f, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: 'Icons.Array.data[0]'
+      value: 
+      objectReference: {fileID: -8438991044599738072, guid: 536ee7ce9322cec42abf1a390096d82f, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: 'Icons.Array.data[1]'
+      value: 
+      objectReference: {fileID: 540466650818201984, guid: 446138d8f45095241a1cf709ccab0746, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: 'Icons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3886443268029631212, guid: 7066b407ea751234782c2724837dd77d, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: 'Icons.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8978081399347971845, guid: 600bb60717605e64bbcb60823c6b97e2, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: 'Icons.Array.data[4]'
+      value: 
+      objectReference: {fileID: -3455646865302844012, guid: be3bbf6ae76c157489b4fb0ddc3a7dfa, type: 3}
     - target: {fileID: 3446686558404428956, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
