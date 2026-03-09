@@ -17,14 +17,28 @@ MonoBehaviour:
     mee om? '
   answers:
   - skillNeeded: []
-    action: Alvast wat Engelse woorden leren voor wanneer je bent verhuisd
-    result: 'verdien 2 Leervermogen. '
+    action: Je besluit om alvast wat engelse woorden te leren om makkelijker de overgang
+      te nemen.
+    result: 'Je hebt een stuk meer engelse woorden geleerd! Hiermee red je jezelf
+      beter in Amerika en bij de Gereformeerde kerk.
+
+
+      Verdien 2 leervermogen.'
+    resultFailed: 
     change:
     - skillToBeChanged: 4
       changeAmount: 2
+    changeFailed: []
   - skillNeeded: []
     action: Verwoest een paar standbeelden van de Hervormde kerk als wraak
-    result: verlies 2 Socialiteit.
+    result: 'Je besluit om als wraak een paar standbeelden te verwoesten. De leden
+      van de Nederalndse Hervormde kerk komen erachter en geven dit door aan je dorpsgenoten.
+      Je familie en vrienden zijn erg teleurgesteld in je
+
+
+      Verlies 2 Socialitiet.'
+    resultFailed: 
     change:
     - skillToBeChanged: 3
       changeAmount: -2
+    changeFailed: []

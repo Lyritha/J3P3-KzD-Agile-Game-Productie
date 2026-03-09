@@ -35,11 +35,23 @@ MonoBehaviour:
     - skillType: 1
       skillAmountNeeded: 1
     action: Je besluit om iemand uit het dorp in te huren om de kar te repareren.
-    result: De timmerman die je hebt ingehuurd
-    resultFailed: 
+    result: 'De timmerman heeft succesvol de kar gerepareerd. Je geeft de man zijn
+      geld en als bedankje maak je nog even zijn klompen voor hem schoon.
+
+
+      Verlies
+      1 kapitaal, verdien 1 sociaal'
+    resultFailed: 'De timmerman heeft succesvol de kar gerepareerd, maar je had niet
+      genoeg kapitaal om hem te betalen. Je gaat snel verder met de kar voordat hij
+      erachter komt.
+
+
+      Verlies 1 sociaal'
     change:
     - skillToBeChanged: 1
       changeAmount: -1
     - skillToBeChanged: 3
       changeAmount: 1
-    changeFailed: []
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -1

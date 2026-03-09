@@ -37,7 +37,8 @@ MonoBehaviour:
       changeAmount: 1
   - skillNeeded: []
     action: De man negeren
-    result: verlies 1 Socialiteit
+    result: "Je besluit de man te negeren en je loopt verder. \nDe man begint je
+      uit te schelden met woorden die ik hier niet in mag typen.\n\nVerlies 1 sociaal."
     resultFailed: 
     change:
     - skillToBeChanged: 3
