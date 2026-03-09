@@ -37,10 +37,6 @@ public class EventAnswerButton : MonoBehaviour
                 ChangeSkills(true);
             }            
         }
-        else
-        {
-            //tooltip voor errors laten zien
-        }
 
     }
     bool CheckSkills()
@@ -73,8 +69,9 @@ public class EventAnswerButton : MonoBehaviour
     }
     void ChangeSkills(bool hasSkills)
     {
-        // get reference to personage to make rest more readable (and way more optimized)
         Personage personage = selector.SelectedCharacter.Personage;
+
+        personage.baseKapitaal = -5;
 
         if (hasSkills)
         {
@@ -100,7 +97,6 @@ public class EventAnswerButton : MonoBehaviour
                 }
             }
         }
-        // don't use else if here, saver to just do else to allow it to fall back to this
         else
         {
             foreach (var change in current.answers[answerIndex].changeFailed)
@@ -125,9 +121,18 @@ public class EventAnswerButton : MonoBehaviour
                 }
             }
         }
-
+        CheckForNegatives(personage);
         personage.NotifyChanged();
         string result = hasSkills ? current.answers[answerIndex].result : current.answers[answerIndex].resultFailed;
         parent.ShowResult(result);
+    }
+
+    void CheckForNegatives(Personage personage)
+    {
+        if(personage.baseKapitaal < 0) personage.baseKapitaal = 0;
+        if(personage.baseBouwkunde < 0) personage.baseBouwkunde = 0;
+        if(personage.baseSociaal < 0) personage.baseSociaal = 0;
+        if(personage.baseAanpassingsvermogen < 0) personage.baseAanpassingsvermogen = 0;
+        if(personage.baseLeervermogen < 0) personage.baseLeervermogen = 0;
     }
 }
