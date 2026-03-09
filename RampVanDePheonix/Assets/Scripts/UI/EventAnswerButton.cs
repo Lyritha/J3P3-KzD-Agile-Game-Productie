@@ -70,8 +70,8 @@ public class EventAnswerButton : MonoBehaviour
     void ChangeSkills(bool hasSkills)
     {
         Personage personage = selector.SelectedCharacter.Personage;
+        
 
-        personage.baseKapitaal = -5;
 
         if (hasSkills)
         {
@@ -93,6 +93,9 @@ public class EventAnswerButton : MonoBehaviour
                         break;
                     case Skillset.Leervermogen:
                         personage.baseLeervermogen += change.changeAmount;
+                        break;
+                    case Skillset.Death:
+                        selector.SelectedCharacter.Die("ebola");
                         break;
                 }
             }
@@ -117,6 +120,9 @@ public class EventAnswerButton : MonoBehaviour
                         break;
                     case Skillset.Leervermogen:
                         personage.baseLeervermogen += change.changeAmount;
+                        break;
+                    case Skillset.Death:
+                        selector.SelectedCharacter.Die("ebola");
                         break;
                 }
             }
