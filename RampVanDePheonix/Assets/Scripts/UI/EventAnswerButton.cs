@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +13,13 @@ public class EventAnswerButton : MonoBehaviour
     private EventVisualiser parent;
     CharacterListDisplay selector;
 
-    public void Initialize(string answer, int index, Event currentEvent, EventVisualiser parent)
+    //adding the 
+    [SerializeField]
+    Sprite iconSprite = null;
+    [SerializeField]
+    int iconValue;
+
+    public void Initialize(string answer, int index, Event currentEvent, EventVisualiser parent, EventVisualiser.IconValue[] iconValuePair)
     {
         selector = CharacterListDisplay.Instance;
         this.parent = parent;
@@ -20,6 +27,14 @@ public class EventAnswerButton : MonoBehaviour
 
         answerText.text = answer;
         answerIndex = index;
+        if (iconValuePair.Length > 0)
+        {
+            foreach (EventVisualiser.IconValue iconValuePairs in iconValuePair)
+            {
+                iconSprite = iconValuePairs.iconSprite;
+                iconValue = iconValuePairs.amountNeeded;
+            }
+        }
     }
 
     public void TriggerAnswer()
@@ -35,7 +50,7 @@ public class EventAnswerButton : MonoBehaviour
             else
             {
                 ChangeSkills(true);
-            }            
+            }
         }
         else
         {
