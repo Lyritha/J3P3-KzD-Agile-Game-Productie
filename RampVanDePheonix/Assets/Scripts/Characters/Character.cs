@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Character : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField]
+    private float chanceToEat = 0.33f;
     [SerializeField]
     private CharacterDisplay characterDisplay;
     [SerializeField]
@@ -13,8 +16,9 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
     private CharacterListDisplay parent;
 
+    private Coroutine blinkRoutine;
     private static readonly Color borderColor = new Color32(0x8C, 0x73, 0x49, 0xFF);
-    private static readonly Color highlightedBorderColor = new Color32(0xB0, 0x94, 0x62, 0xFF);
+    private static readonly Color highlightedBorderColor = new Color32(0xE6, 0xC9, 0x8A, 0xFF);
 
     public Personage Personage { get; private set; }
     public bool IsAlive { get; private set; } = true;
@@ -32,7 +36,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
     public void UpdateCharacterState()
     {
         // for now 1/3 chance to consume food, can be changed to something more complex later
-        bool shouldEat = Random.value < 0.33f;
+        bool shouldEat = Random.value < chanceToEat;
         if (shouldEat) characterFood.EatFood();
     }
 
@@ -71,5 +75,33 @@ public class Character : MonoBehaviour, IPointerClickHandler
         );
     }
 
-    public void SetSelected(bool isSelected) => borderImage.color = isSelected ? highlightedBorderColor : borderColor;
+    public void SetSelected(bool isSelected)
+    {
+        if (isSelected)
+        {
+            blinkRoutine ??= StartCoroutine(BlinkBorder());
+        }
+        else
+        {
+            if (blinkRoutine != null)
+            {
+                StopCoroutine(blinkRoutine);
+                blinkRoutine = null;
+            }
+
+            borderImage.color = borderColor;
+        }
+    }
+
+    private IEnumerator BlinkBorder()
+    {
+        float speed = 5f; // higher = faster blinking
+
+        while (true)
+        {
+            float t = (Mathf.Sin(Time.time * speed) + 1f) * 0.5f;
+            borderImage.color = Color.Lerp(borderColor, highlightedBorderColor, t);
+            yield return null;
+        }
+    }
 }
