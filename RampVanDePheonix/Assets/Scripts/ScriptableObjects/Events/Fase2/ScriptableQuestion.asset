@@ -16,25 +16,40 @@ MonoBehaviour:
     zijn in zicht. De stoomketels van de zwabberladen Phoenix raken oververhit en
     de geur van rook en smeulend hout wordt steeds erger. De Phoenix staat in brand! '
   answers:
-  - skillNeeded: []
-    action: 'Spring in het water om het vuur te ontsnappen. '
-    result: Je overleeft de sprong in het water niet, karakter gaat dood.
-    change: []
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 5
-    action: '(Aanpassingsvermogen > 5?)   Vindt materiaal om op te drijven. '
-    result: 'Je overleeft het vuur maar net, maar door de paniek verlies al je kapitaal. '
+      skillAmountNeeded: 1
+    action: 'Spring in het water om het vuur te ontsnappen. '
+    result: Je springt in het water om het vuur te ontsnappen. Wanneer het vuur is
+      uitgebrand word je nog op het nippertje uit het water gehaald voordat je doodvriest.
+    resultFailed: 'Je sprint in het water om het vuur te ontsnappen. Nadat het vuur
+      is uitgebrand lukt het je niet meer om terug op de boot te komen.
+
+
+      Je
+      karakter gaat dood.'
+    change: []
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 2
+    action: Probeer drijfhout te vinden om op te drijven.
+    result: 'Je springt het water in en vind een stuk hout om op te drijven. Zodra
+      het vuur is uitgebrand klim je terug de boot op. Je bent alleen in het water
+      je zak geld kwijt geraakt.
+
+
+      Verlies al je kapitaal.'
+    resultFailed: 'Je springt het water in maar je land op een groot stuk hout en
+      je breekt je nek.
+
+
+      Je karakter gaat dood.'
     change:
     - skillToBeChanged: 1
       changeAmount: -100000
-  - skillNeeded:
-    - skillType: 3
-      skillAmountNeeded: 5
-    action: '(Sociaal > 5?) (kind)   Probeer iemand op de reddingsboot over te halen
-      om van plaats te wisselen. '
-    result: 'Je overleeft het vuur maar net, maar iemand anders heeft wel hun leven
-      voor je opgeofferd, verlies 5 sociaal. '
-    change:
-    - skillToBeChanged: 3
-      changeAmount: -5
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0

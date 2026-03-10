@@ -17,34 +17,64 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 10
-    action: '(Leervermogen > 10?) Doe onderzoek naar een oplossing '
-    result: 'Je helpt alle kinderen aan boord, sommige geven je geld voor je hulp.
-      Je verdient 5 kapitaal, verliest 5 honger. '
+      skillAmountNeeded: 2
+    action: Probeer het kind te helpen.
+    result: 'Je doet je best met je gelimiteerde kennis om de kinderen te helpen.
+      Uiteindelijk is het je gelukt om de kinderen te redden. een  paar ouders van
+      de kinderen geven je wat geld voor je hulp.
+
+
+      Verdien 2 kapitaal, verdien
+      2 sociaal.
+
+'
+    resultFailed: 'Je doet je best om de kinderen te helpen met je gelimiteerde kennis.
+      Helaas is het je niet gelukt om de kinderen te redden. Veel van de kinderen
+      overleven de ziekte niet.
+
+
+      Verlies  2 sociaal.'
     change:
     - skillToBeChanged: 1
-      changeAmount: 5
+      changeAmount: 2
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 5
-    action: '(Kapitaal > 5) Betaal voor medicatie '
-    result: 'Je koopt medicijnen voor het zieke kind. Je verliest 5 Kapitaal, verdient
-      5 Aanpassingsvermogen. '
+      skillAmountNeeded: 2
+    action: De kapitein heeft wat medicijen maar ze kosten aardig veel geld.
+    result: 'Je koopt medicijnen voor de kinderen. er waren alleen niet genoeg medicijnen
+      voor alle kinderen. een paar van de kinderen hebben de ziekte niet overleeft.
+      De ouders van de overlevende kinderen bedanken je erg.
+
+
+      Verlies 2 kapitaal,
+      Verdien 2 sociaal.'
+    resultFailed: 'Je doet je best om te onderhandelen met de kapitein, maar hij
+      past de prijs voor de medicijnen niet aan. De kinderen die getroffen waren
+      door de ziekte zijn overleden.
+
+
+      Verlies 2 sociaal.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -5
-    - skillToBeChanged: 0
-      changeAmount: 5
-  - skillNeeded: []
-    action: 'Isoleren en laten rusten, minimale verzorging. '
-    result: 'Je laat het kind rusten en verzorgt hem minimaal. Je verliest 5 Sociaal,
-      verliest 5 Honger (honger ziek). '
-    change:
+      changeAmount: -2
     - skillToBeChanged: 3
-      changeAmount: -5
-    - skillToBeChanged: 5
-      changeAmount: -5
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
   - skillNeeded: []
     action: 'Niets doen en hopen op het beste. '
-    result: 'Hopen werkt niet altijd. Karakter(kind) gaat dood '
+    result: 'Je hoopte dat de ziekte voorbij zou gaan maar helaas bleven de kinderen
+      ziek. De kinderen hebben het niet overleefd.
+
+
+      een kind uit jouw party
+      gaat dood. (nog niet werkend)'
+    resultFailed: 
     change: []
+    changeFailed: []

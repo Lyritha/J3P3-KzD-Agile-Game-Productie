@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 10
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Je gaat langs de bibliotheek om wat boeken te halen voor de reis. '
+  question: Je besluit om voor je vertrek nog even langs de bibliotheek te gaan om
+    een boek te halen. Welk boek kies je?
   answers:
   - skillNeeded:
     - skillType: 1
       skillAmountNeeded: 1
     action: Een Encyclopedia
-    result: verdien 2 Leervermogen. verlies 1 kapitaal.
-    resultFailed: Je hebt niet genoeg geld om het boek te betalen.
+    result: "Je kiest een encyclopedia om jouw kennis over het nieuwe leven te verbeteren.
+      \n\nVerdien 2 leervermogen, verlies 1 kapitaal."
+    resultFailed: Je hebt niet genoeg geld om het boek te betalen. de eigenaar van
+      de bibliotheek begint boos te worden en je rent snel weg voordat hij met boeken
+      begint te gooien.
     change:
     - skillToBeChanged: 4
       changeAmount: 2
@@ -30,21 +34,34 @@ MonoBehaviour:
     - skillType: 1
       skillAmountNeeded: 1
     action: Een boek over houtbewerking
-    result: verdien 2 Bouwkunde. Verlies 1 kapitaal.
-    resultFailed: Je hebt niet genoeg geld om het boek te betalen.
+    result: 'Je kiest voor een boek over houtbewerking in de hoop dat dit jouw bouwkunde
+      vaardigheden verbeterd.
+
+
+      Verdien 2 bouwkunde, verlies 1 kapitaal.'
+    resultFailed: Je hebt niet genoeg geld om het boek te betalen. de eigenaar van
+      de bibliotheek begint boos te worden en je rent snel weg voordat hij met boeken
+      begint te gooien.
     change:
-    - skillToBeChanged: 2
-      changeAmount: 2
     - skillToBeChanged: 2
       changeAmount: 2
     - skillToBeChanged: 1
       changeAmount: -1
     changeFailed: []
   - skillNeeded: []
-    action: Een studie bijbel
-    result: 'verdien 2 Aanpassingsvermogen. '
-    resultFailed: 
+    action: Een Amerikaanse bijbel.
+    result: 'Je kiest er voor om een Amerikaanse bijbel te kopen waarin je kan leren
+      over het Amerikaans Christelijke leven.
+
+
+      Verdien 2 aanpassingvermogen,
+      verlies 1 kapitaal.'
+    resultFailed: Je hebt niet genoeg geld om het boek te betalen. de eigenaar van
+      de bibliotheek begint boos te worden en je rent snel weg voordat hij met boeken
+      begint te gooien.
     change:
     - skillToBeChanged: 0
       changeAmount: 2
+    - skillToBeChanged: 1
+      changeAmount: -1
     changeFailed: []

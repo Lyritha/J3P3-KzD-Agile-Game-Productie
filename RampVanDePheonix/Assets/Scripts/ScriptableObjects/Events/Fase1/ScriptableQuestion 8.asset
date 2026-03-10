@@ -19,7 +19,12 @@ MonoBehaviour:
     - skillType: 1
       skillAmountNeeded: 1
     action: Natuurlijk! Ik zou graag willen helpen
-    result: 'verlies 1 Kapitaal en verdien 2 Socialiteit. '
+    result: 'De dominee bedankt je voor je gift en verantwoord je dat jouw gift goed
+      gebruikt gaat worden en totaal niet in zijn eigen zak gedrukt word.
+
+
+      Verlies
+      1 kapitaal.'
     resultFailed: Je hebt niet genoeg kapitaal om te geven. De dominee kijkt je raar
       aan en loopt langzaam weg.
     change:
@@ -32,20 +37,34 @@ MonoBehaviour:
     - skillType: 1
       skillAmountNeeded: 2
     action: 'Voor een extra gift krijg je ook nog een bijbel erbij! '
-    result: 'Verlies 2 Kapitaal, verdien 2 Socialiteit en 2 Leervaardigheid. '
-    resultFailed: Je hebt niet genoeg kapitaal om te geven. De dominee kijkt je raar
-      aan en loopt langzaam weg. Hij pakt ook 1 bijbel van je af.
+    result: 'De dominee bedankt je en verteld je dat je bijbel binnen 3 tot 5 werkdagen
+      bezorgd word. Helaas ben je dan al op reis en ben je dus niet thuis om hem
+      te ontvangen.
+
+
+      Verlies 2 kapitaal, Verdien 2 sociaal.'
+    resultFailed: 'Je hebt niet genoeg kapitaal om te geven. De dominee kijkt je
+      raar aan en loopt langzaam weg. Hij pakt ook 1 bijbel van je af.
+
+
+      Verlies
+      1 leervermogen'
     change:
     - skillToBeChanged: 1
       changeAmount: -2
     - skillToBeChanged: 3
       changeAmount: 2
+    changeFailed:
     - skillToBeChanged: 4
-      changeAmount: 2
-    changeFailed: []
+      changeAmount: -1
   - skillNeeded: []
-    action: Geld is een beetje krap momenteel
-    result: verlies 1 Socialiteit.
+    action: Je hebt op dit moment niet het budget om een gift te geven
+    result: 'De dominee kijkt je raar aan en begint langzaam weg te lopen. De andere
+      dorpsgenoten beginnen je nu ook raar aan te kijken wanneer je langs loopt.
+
+
+      Verlies
+      1 sociaal'
     resultFailed: 
     change:
     - skillToBeChanged: 3

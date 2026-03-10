@@ -16,13 +16,28 @@ MonoBehaviour:
     opgegroeid, velen gaan je missen, een oude vriend geeft je nog een kleine keus
     voor een cadeau. '
   answers:
-  - action: Een gloednieuwe zaag
-    result: 'verdien 2 Bouwkunde '
+  - skillNeeded: []
+    action: Een gloednieuwe zaag
+    result: 'Je oude vriend geeft je een gloednieuwe zaag! hiermee kan je hopelijk
+      in Amerika een stuk beter je huis bouwen of je boerderij beginnen.
+
+
+      Verdien
+      2 bouwkunde.'
+    resultFailed: 
     change:
     - skillToBeChanged: 2
       changeAmount: 2
-  - action: Een zakje geld
-    result: 'verdien 2 Kapitaal. '
+    changeFailed: []
+  - skillNeeded: []
+    action: Een zakje geld
+    result: 'Je oude vriend geeft je een zakje met geld! Dit kan je goed gebruiken
+      om de reis naar amerika te betalen.
+
+
+      Veriden 2 kapitaal.'
+    resultFailed: 
     change:
     - skillToBeChanged: 1
       changeAmount: 2
+    changeFailed: []

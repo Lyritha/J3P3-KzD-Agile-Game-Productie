@@ -12,32 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 12
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Onderweg naar de boot raakt het eten op! '
+  question: Je bent onderweg naar de boot, maar uiteindelijk is je eten op geraakt!
+    Er is een dorp onderweg naar de boot maar de prijzen daar zijn heel hoog.
   answers:
   - skillNeeded:
     - skillType: 1
       skillAmountNeeded: 2
-    action: Koop nieuw eten bij het volgende dorp
-    result: 'verlies 2 Kapitaal en 1 Aanpassingsvermogen. '
-    resultFailed: Je hebt niet genoeg geld om het eten te kopen.
+    action: Koop eten bij het volgende dorp voor de hoge prijs.
+    result: 'Je besluit om bij het volgende dorp eten te kopen. Je bent niet blij
+      met de hoge prijzen, maar het zou maar moeten om de reis te overleven.
+
+
+      Verlies
+      2 kapitaal, verdien 2 voedselvoorraad'
+    resultFailed: Je hebt niet genoeg geld om het eten te kopen.  Je hoopt dat het
+      volgende dorp een betere prijs heeft voor het eten.
     change:
     - skillToBeChanged: 1
       changeAmount: -2
-    - skillToBeChanged: 0
-      changeAmount: 1
     - skillToBeChanged: 6
-      changeAmount: 1
+      changeAmount: 2
     changeFailed: []
   - skillNeeded:
     - skillType: 0
       skillAmountNeeded: 2
-    action: jaag een dier onderweg.
-    result: verdien 1 aanpassingsvermogen.
-    resultFailed: het lukt je niet om het dier te jagen. Het dier kijkt je raar aan
-      en loopt verder.
+    action: Probeer een dier te jagen onderweg.
+    result: 'Je vind een dier onderweg en hebt hem succesvol gejaagd. Je neemt hem
+      mee in je etensvoorraad.
+
+
+      Verdien 2 etensvoorraad, verdien 2 aanpassingsvermogen.'
+    resultFailed: 'het lukt je niet om het dier te jagen. Het dier steelt wat eten
+      van je en rent snel weg.
+
+
+      Verlies 1 etensvoorraad, verlies 1 aanpassingsvermogen.'
     change:
     - skillToBeChanged: 0
-      changeAmount: 1
+      changeAmount: 2
     - skillToBeChanged: 6
       changeAmount: 2
-    changeFailed: []
+    changeFailed:
+    - skillToBeChanged: 0
+      changeAmount: -1
+    - skillToBeChanged: 6
+      changeAmount: -1

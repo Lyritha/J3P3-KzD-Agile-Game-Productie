@@ -12,35 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 11
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Er staat een flinke rij voor de kassa om een kaartje te kopen naar Amerika. '
+  question: Er staat een flinke rij voor de slager, je hebt alleen aardig veel honger.
+    Je kan ervoor kiezen om voor te kruipen of je wacht het netjes af.
   answers:
   - skillNeeded: []
     action: Rustig in de rij wachten tot je een kaart mag kopen
-    result: 'verdien 2 Aanpassingsvermogen. '
-    resultFailed: 
-    change:
-    - skillToBeChanged: 0
-      changeAmount: 2
-    changeFailed: []
-  - skillNeeded: []
-    action: Probeer voor te kruipen om eerder een ticket te krijgen
-    result: 'verlies 1 Socialiteit, verdien 2 Aanpassingsvermogen. '
+    result: 'Ondanks de honger wacht je rustig in de rij tot het jouw beurt is. Uiteindelijk
+      is het jouw beurt en kom je erachter dat het goede vlees is uitverkocht.
+
+
+      verdien
+      2 sociaal.'
     resultFailed: 
     change:
     - skillToBeChanged: 3
-      changeAmount: -1
-    - skillToBeChanged: 0
       changeAmount: 2
     changeFailed: []
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 2
+    action: Probeer voor te kruipen om eerder aan de beurt te komen.
+    result: 'Het is je gelukt om voor te kruipen! je komt aan bij de slager en er
+      ligt nog genoeg goed vlees om uit te kiezen. Helaas ben je alleen je portemonnee
+      vergeten en kan je dus niks kopen.
+
+
+      Verdien 2 aanpassingsvermogen, verlies
+      1 sociaal.'
+    resultFailed: 'Je probeerde voor te kruipen, maar iemand anders in de rij houdt
+      je tegen en slaat je in elkaar.
+
+
+      Verlies 2 sociaal en verlies 1 aanpassingsvermogen.'
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1
+    - skillToBeChanged: 0
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
+    - skillToBeChanged: 0
+      changeAmount: -1
   - skillNeeded:
     - skillType: 1
       skillAmountNeeded: 1
     action: Probeer anderen in de rij om te kopen om jou voor te laten
-    result: 'verlies 1 Kapitaal, verdien 1 Aanpassingsvermogen. '
-    resultFailed: Je had niet genoeg kapitaal om ze om te kopen.
+    result: 'Het is je succesvol gelukt om mensen om te kopen en je bent voorin de
+      rij aangekomen. de slager merkte dit en stuurt je uit zijn slagerij.
+
+
+      Verlies
+      1 kapitaal, verlies 1 sociaal'
+    resultFailed: Je probeerd iemand om te kopen, maar je hebt geen kapitaal. de
+      persoon die je probeerde om te kopen lacht je uit en je besluit om weg te lopen.
     change:
     - skillToBeChanged: 1
       changeAmount: -1
-    - skillToBeChanged: 0
-      changeAmount: 1
+    - skillToBeChanged: 3
+      changeAmount: -1
     changeFailed: []

@@ -12,15 +12,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 13
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'De lokale melkboer biedt een tijdelijke baan aan voordat je gaat vertrekken. '
+  question: De lokale melkboer zoekt iemand om hem te helpen met zijn voorraad melk
+    te verhuizen naar zijn nieuwe locatie. Hij is willend om je te betalen als je
+    hem helpt.
   answers:
-  - action: Je accepteert voor wat extra werkervaring
-    result: ' verdien 2 Bouwkunde. '
-    change:
-    - skillToBeChanged: 2
-      changeAmount: 2
-  - action: Je accepteert vooral voor de loon
-    result: 'verdien 2 Kapitaal. '
+  - skillNeeded: []
+    action: Je accepteerd het werk en helpt de melkboer met zijn melk dragen.
+    result: 'De melkboer bedankt je voor je hulp met het dragen van zijn melk. Hij
+      betaald je gunstig voor de moeite en wenst je een fijne reis.
+
+
+      Verdien
+      2 kapitaal, verdien 1 sociaal.'
+    resultFailed: 
     change:
     - skillToBeChanged: 1
       changeAmount: 2
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 1
+    - skillType: 4
+      skillAmountNeeded: 1
+    action: De melkboer beroven en zijn melk doorverkopen voor een hogere prijs.
+    result: 'Het is je gelukt om de melkboer te beroven. Je rent snel weg met zijn
+      melk en brengt het naar het volgende dorp om door te verkopen.
+
+
+      Verdien
+      3 kapitaal, verdien 1 aanpassingsvermogen, verdien 1 leervermogen.'
+    resultFailed: 'Het is je niet gelukt om de melkboer te beroven, Hij slaat je
+      in elkaar en berooft je van je geld.
+
+
+      Verlies 3 kapitaal, verlies 2
+      sociaal.'
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 3
+    - skillToBeChanged: 0
+      changeAmount: 1
+    - skillToBeChanged: 4
+      changeAmount: 1
+    changeFailed:
+    - skillToBeChanged: 1
+      changeAmount: -3
+    - skillToBeChanged: 3
+      changeAmount: -2

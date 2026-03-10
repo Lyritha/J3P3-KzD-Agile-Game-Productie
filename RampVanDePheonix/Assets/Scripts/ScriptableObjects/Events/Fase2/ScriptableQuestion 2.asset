@@ -18,29 +18,39 @@ MonoBehaviour:
   answers:
   - skillNeeded: []
     action: 'Vraag rond naar armoede en werkloosheid in hun dorp. '
-    result: 'Je leert mensen kennen, ze vertrouwen je meer. Je verdient 5 Sociaal  '
+    result: 'De mensen beginnen te praten over hoeveel armoede er rond ging in hun
+      dorpen. Je realiseert je dat veel dorpen dezelfde problemen hebben.
+
+
+      Verdien
+      1 sociaal.'
+    resultFailed: 
     change:
     - skillToBeChanged: 3
-      changeAmount: 5
-  - skillNeeded:
-    - skillType: 4
-      skillAmountNeeded: 5
-    action: '(Leervermogen > 5?) Vraag naar religieuze of politieke redenen om te
-      vertrekken. '
-    result: 'Je leert mensen kennen, ze vertrouwen je meer. Je verdient 10 Sociaal  '
-    change:
-    - skillToBeChanged: 3
-      changeAmount: 10
+      changeAmount: 1
+    changeFailed: []
   - skillNeeded: []
     action: 'Deel je eigen dromen en verlangens naar een nieuw leven. '
-    result: 'Je bouwt een band op via openheid. Je verdient 5 sociaal '
+    result: 'De mensen waarmee je praat delen ook hun eigen dromen. Je maakt op deze
+      manier nieuwe vrienden.
+
+
+      Verdien 2 sociaal'
+    resultFailed: 
     change:
     - skillToBeChanged: 3
-      changeAmount: 5
+      changeAmount: 2
+    changeFailed: []
   - skillNeeded: []
     action: 'Observeer stilletjes wie met wie praat en probeer conclusies te trekken. '
-    result: 'De mensen merken dat je stil aan het mee luistert bent. Je verliest
-      5 sociaal '
+    result: 'De mensen op de boot realiseren dat je aan het meeluisteren bent en
+      vinden dit best raar. Wanneer je langs hun heen loopt beginnen ze over je te
+      roddelen.
+
+
+      Verlies 2 sociaal'
+    resultFailed: 
     change:
     - skillToBeChanged: 3
-      changeAmount: -5
+      changeAmount: -2
+    changeFailed: []
