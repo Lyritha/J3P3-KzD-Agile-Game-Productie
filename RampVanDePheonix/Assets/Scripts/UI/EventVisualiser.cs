@@ -52,7 +52,6 @@ public class EventVisualiser : MonoBehaviour
             List<IconValue> IconValuePairs = AddSkillIcon(currentObject, current.answers[i], current);
             currentObject.Initialize(current.answers[i].action, i, current, this, IconValuePairs.ToArray());
             currentButtons.Add(currentObject);
-            //add here skill requirements >>>>>>>>>>>>
         }
     }
     public void ShowResult(string result)
@@ -67,9 +66,15 @@ public class EventVisualiser : MonoBehaviour
         gameObject.SetActive(false);
         EventStateManager.Instance.SetState(State.FinishEvent);
     }
+
+    /// <summary>
+    /// method that creates the pair (icon and value) needed for the answer its reading
+    /// </summary>
     private List<IconValue> AddSkillIcon(EventAnswerButton thisButton, Answer currentAnwer, Event eventthing)
     {
         List<IconValue> pairs = new List<IconValue>();
+
+        //switch for determening which icon (image) it needs according to skillNeeded(enum) from the current answer
         for (int i = 0; i < currentAnwer.skillNeeded.Length; i++)
         {
             //switch to place in the thing
@@ -101,10 +106,15 @@ public class EventVisualiser : MonoBehaviour
             IconValue newvalue = new IconValue();
             newvalue.amountNeeded = skillAmountNeeded;
             newvalue.iconSprite = chosenSprite;
+
+            //adds the pair who is just created to the list
             pairs.Add(newvalue);
         }
+        //returns the whole list of pairs 
         return pairs;
     }
+
+    //struct for determening which items will be needed for an answer icon
     public struct IconValue
     {
         public Sprite iconSprite;

@@ -26,20 +26,11 @@ public class EventAnswerButton : MonoBehaviour
 
         answerText.text = answer;
         answerIndex = index;
-        //add the icon and value to the card
+
+        //checks if a question has atleast a requirement or more
         if (iconValuePair.Length > 0)
         {
-            foreach (EventVisualiser.IconValue item in iconValuePair)
-            {
-                GameObject newIcon = Instantiate(defaultImagePrefab);
-                newIcon.transform.parent = requirementPlaceholder.transform;
-
-                Image newiconImage = newIcon.GetComponent<Image>();
-                newiconImage.sprite = item.iconSprite;
-
-                TMP_Text textElement = newiconImage.GetComponentInChildren<TMP_Text>();
-                textElement.text = item.amountNeeded.ToString();
-            }
+            InitialiseIcons(iconValuePair);
         }
     }
 
@@ -60,6 +51,28 @@ public class EventAnswerButton : MonoBehaviour
         }
 
     }
+
+
+    /// <summary>
+    /// spawns in and sets the icon that the answer requires
+    /// </summary>
+    void InitialiseIcons(EventVisualiser.IconValue[] iconAndValue)
+    {
+
+        //foreach requirement it makes a new icon and fills in the values
+        foreach (EventVisualiser.IconValue item in iconAndValue)
+        {
+            GameObject newIcon = Instantiate(defaultImagePrefab);
+            newIcon.transform.parent = requirementPlaceholder.transform;
+
+            Image newiconImage = newIcon.GetComponent<Image>();
+            newiconImage.sprite = item.iconSprite;
+
+            TMP_Text textElement = newiconImage.GetComponentInChildren<TMP_Text>();
+            textElement.text = item.amountNeeded.ToString();
+        }
+    }
+
     bool CheckSkills()
     {
         // get reference to personage to make rest more readable (and way more optimized)
