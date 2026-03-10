@@ -58,10 +58,9 @@ public class EventVisualiser : MonoBehaviour
     {
         resultText.text = result;
         ToggleUI(2);
-        Invoke(nameof(HideAfterDelay), 2f);
     }
 
-    private void HideAfterDelay()
+    public void Hide()
     {
         gameObject.SetActive(false);
         EventStateManager.Instance.SetState(State.FinishEvent);
@@ -120,7 +119,6 @@ public class EventVisualiser : MonoBehaviour
         public Sprite iconSprite;
         public int amountNeeded;
     }
-
 
 
     // Method to clear existing buttons
