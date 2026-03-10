@@ -1,6 +1,6 @@
-using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EventAnswerButton : MonoBehaviour
 {
@@ -13,11 +13,10 @@ public class EventAnswerButton : MonoBehaviour
     private EventVisualiser parent;
     CharacterListDisplay selector;
 
-    //adding the 
+    //adding the the
     [SerializeField]
-    Sprite iconSprite = null;
-    [SerializeField]
-    int iconValue;
+    GameObject requirementPlaceholder;
+    [SerializeField] GameObject defaultImagePrefab;
 
     public void Initialize(string answer, int index, Event currentEvent, EventVisualiser parent, EventVisualiser.IconValue[] iconValuePair)
     {
@@ -27,12 +26,19 @@ public class EventAnswerButton : MonoBehaviour
 
         answerText.text = answer;
         answerIndex = index;
+        //add the icon and value to the card
         if (iconValuePair.Length > 0)
         {
-            foreach (EventVisualiser.IconValue iconValuePairs in iconValuePair)
+            foreach (EventVisualiser.IconValue item in iconValuePair)
             {
-                iconSprite = iconValuePairs.iconSprite;
-                iconValue = iconValuePairs.amountNeeded;
+                GameObject newIcon = Instantiate(defaultImagePrefab);
+                newIcon.transform.parent = requirementPlaceholder.transform;
+
+                Image newiconImage = newIcon.GetComponent<Image>();
+                newiconImage.sprite = item.iconSprite;
+
+                TMP_Text textElement = newiconImage.GetComponentInChildren<TMP_Text>();
+                textElement.text = item.amountNeeded.ToString();
             }
         }
     }
@@ -85,7 +91,7 @@ public class EventAnswerButton : MonoBehaviour
     void ChangeSkills(bool hasSkills)
     {
         Personage personage = selector.SelectedCharacter.Personage;
-        
+
 
 
         if (hasSkills)
@@ -150,10 +156,10 @@ public class EventAnswerButton : MonoBehaviour
 
     void CheckForNegatives(Personage personage)
     {
-        if(personage.baseKapitaal < 0) personage.baseKapitaal = 0;
-        if(personage.baseBouwkunde < 0) personage.baseBouwkunde = 0;
-        if(personage.baseSociaal < 0) personage.baseSociaal = 0;
-        if(personage.baseAanpassingsvermogen < 0) personage.baseAanpassingsvermogen = 0;
-        if(personage.baseLeervermogen < 0) personage.baseLeervermogen = 0;
+        if (personage.baseKapitaal < 0) personage.baseKapitaal = 0;
+        if (personage.baseBouwkunde < 0) personage.baseBouwkunde = 0;
+        if (personage.baseSociaal < 0) personage.baseSociaal = 0;
+        if (personage.baseAanpassingsvermogen < 0) personage.baseAanpassingsvermogen = 0;
+        if (personage.baseLeervermogen < 0) personage.baseLeervermogen = 0;
     }
 }
