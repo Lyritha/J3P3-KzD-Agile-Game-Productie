@@ -14,11 +14,6 @@ public class ButtonManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void OpenSettings()
-    {
-        print("desettingsmenuisnognietgemaaktdusgenietnunogmaarvandezeprachtigeprint");
-    }
-
     public void ToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
