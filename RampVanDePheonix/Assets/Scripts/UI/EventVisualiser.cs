@@ -3,6 +3,10 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using System;
+using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 
 public class EventVisualiser : MonoBehaviour
 {
@@ -11,8 +15,8 @@ public class EventVisualiser : MonoBehaviour
     [SerializeField] Sprite Icon_Adaptability;
     [SerializeField] Sprite Icon_Social;
     [SerializeField] Sprite Icon_Capital;
-
-
+    [SerializeField] Sprite Icon_Question;
+    bool canTriggerButtonChangeColor = true;
 
     [Header("Vraag")]
     [SerializeField] GameObject questionParent;
@@ -26,12 +30,23 @@ public class EventVisualiser : MonoBehaviour
     [SerializeField] GameObject resultParent;
     [SerializeField] TMP_Text resultText;
 
+    [Header("CharacterIcon")]
+    [SerializeField] Image characterImage;
+    [SerializeField] TMP_Text characterName;
+
 
     [Header("Object References")]
     [SerializeField] EventAnswerButton answerButtonPrefab;
 
+    Character lastSeenSelectedCharacter;
 
     private Event current;
+
+    private void Update()
+    {
+        //wait for a character to be selected
+        CheckCharacterSelect();
+    }
 
     public void ShowEvent(Event currentEvent)
     {
@@ -44,6 +59,15 @@ public class EventVisualiser : MonoBehaviour
     // builds the button ui
     public void ShowActions()
     {
+        if (CharacterListDisplay.Instance.SelectedCharacter == null)
+        {
+            if (canTriggerButtonChangeColor)
+            {
+                StartCoroutine(TemporaryChangeBackgroundColor(Color.red, 0.5f));
+            }
+            return;
+        }
+
         ToggleUI(1);
 
         for (int i = 0; i < current.answers.Length; i++)
@@ -154,4 +178,57 @@ public class EventVisualiser : MonoBehaviour
                 break;
         }
     }
+
+    void PlaceSelectedCharacterOnCanvas(Character selectedCharacter)
+    {
+        if (selectedCharacter != null)
+        {
+            characterImage.sprite = selectedCharacter.Personage.portrait;
+            characterName.text = selectedCharacter.Personage.characterName;
+        }
+        else
+        {
+            characterImage.sprite = Icon_Question;
+            characterName.text = "Kies een Character";
+        }
+
+    }
+    void CheckCharacterSelect()
+    {
+        //checks if a character has been selected
+        if (CharacterListDisplay.Instance.SelectedCharacter != null)
+        {
+            PlaceSelectedCharacterOnCanvas(CharacterListDisplay.Instance.SelectedCharacter);
+        }
+        else
+        {
+            PlaceSelectedCharacterOnCanvas(null);
+        }
+    }
+
+    IEnumerator TemporaryChangeBackgroundColor(Color changeToColor, float seconds)
+    {
+        int changeAmount = 7;
+        canTriggerButtonChangeColor = false;
+        //dont question it pls
+        Button buttonTest = questionParent.GetComponentInChildren<Button>();
+        Image imageding = buttonTest.GetComponent<Image>();
+        Color originalColor = imageding.color;
+        for (int i = 0; i < changeAmount; i++)
+        {
+            if (i % 2 == 0)
+            {
+                imageding.color = changeToColor;
+            }
+            else
+            {
+                imageding.color = originalColor;
+            }
+            yield return new WaitForSeconds(seconds / changeAmount);
+        }
+        imageding.color = originalColor;
+        canTriggerButtonChangeColor = true;
+        yield return new WaitForSeconds(0.1f);
+    }
 }
+
