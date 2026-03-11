@@ -38,7 +38,8 @@ public enum Skillset
     Socialiteit,
     Leervermogen,
     FoodStorage,
-    HungerPerPerson
+    HungerPerPerson,
+    Death
 }
 [Serializable]
 public struct SkillsetChange

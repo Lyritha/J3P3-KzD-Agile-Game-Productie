@@ -1,11 +1,19 @@
 using UnityEngine;
 using TMPro;
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class EventVisualiser : MonoBehaviour
 {
+    [SerializeField] Sprite Icon_Build;
+    [SerializeField] Sprite Icon_Learn;
+    [SerializeField] Sprite Icon_Adaptability;
+    [SerializeField] Sprite Icon_Social;
+    [SerializeField] Sprite Icon_Capital;
+
+
+
     [Header("Vraag")]
     [SerializeField] GameObject questionParent;
     [SerializeField] TMP_Text questionInfo;
@@ -41,7 +49,8 @@ public class EventVisualiser : MonoBehaviour
         for (int i = 0; i < current.answers.Length; i++)
         {
             EventAnswerButton currentObject = Instantiate(answerButtonPrefab, answerParent.transform);
-            currentObject.Initialize(current.answers[i].action, i, current, this);
+            List<IconValue> IconValuePairs = AddSkillIcon(currentObject, current.answers[i], current);
+            currentObject.Initialize(current.answers[i].action, i, current, this, IconValuePairs.ToArray());
             currentButtons.Add(currentObject);
         }
     }
@@ -49,13 +58,66 @@ public class EventVisualiser : MonoBehaviour
     {
         resultText.text = result;
         ToggleUI(2);
-        Invoke(nameof(HideAfterDelay), 2f);
     }
 
-    private void HideAfterDelay()
+    public void Hide()
     {
         gameObject.SetActive(false);
         EventStateManager.Instance.SetState(State.FinishEvent);
+    }
+
+    /// <summary>
+    /// method that creates the pair (icon and value) needed for the answer its reading
+    /// </summary>
+    private List<IconValue> AddSkillIcon(EventAnswerButton thisButton, Answer currentAnwer, Event eventthing)
+    {
+        List<IconValue> pairs = new List<IconValue>();
+
+        //switch for determening which icon (image) it needs according to skillNeeded(enum) from the current answer
+        for (int i = 0; i < currentAnwer.skillNeeded.Length; i++)
+        {
+            //switch to place in the thing
+            Sprite chosenSprite = null;
+            int skillAmountNeeded = currentAnwer.skillNeeded[i].skillAmountNeeded;
+            switch (currentAnwer.skillNeeded[i].skillType)
+            {
+                case Skillset.Socialiteit:
+                    chosenSprite = Icon_Social;
+                    break;
+                case Skillset.Kapitaal:
+                    chosenSprite = Icon_Capital;
+                    break;
+                case Skillset.Bouwkunde:
+                    chosenSprite = Icon_Learn;
+                    break;
+                case Skillset.AanpassingsVermogen:
+                    chosenSprite = Icon_Adaptability;
+                    break;
+                case Skillset.Leervermogen:
+                    chosenSprite = Icon_Learn;
+                    break;
+                default:
+                    chosenSprite = Icon_Capital;
+                    break;
+            }
+
+            //create the new value and set the sprite and value needed
+            IconValue newvalue = new IconValue();
+            newvalue.amountNeeded = skillAmountNeeded;
+            newvalue.iconSprite = chosenSprite;
+
+            //adds the pair who is just created to the list
+            pairs.Add(newvalue);
+        }
+        //returns the whole list of pairs 
+        return pairs;
+    }
+
+    //struct for determening which items will be needed for an answer icon
+    public struct IconValue
+    {
+        public Sprite iconSprite;
+        public int amountNeeded;
     }
 
 
