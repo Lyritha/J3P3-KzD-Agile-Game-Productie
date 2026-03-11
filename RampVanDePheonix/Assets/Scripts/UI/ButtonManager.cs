@@ -9,6 +9,11 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("MainGame");
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("MainGame_Tutorial");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

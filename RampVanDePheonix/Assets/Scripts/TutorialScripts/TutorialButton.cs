@@ -5,6 +5,11 @@ public class TutorialButton : MonoBehaviour
     [SerializeField]
     private string eventName;
 
+    public void SetTag(string tag)
+    {
+        eventName = tag;
+    }
+
     public void TriggerButtonNext()
     {
         MainGameTutorial.Instance.NextStep(eventName);

@@ -6,12 +6,12 @@ public class CharacterListDisplay : MonoBehaviour
 {
     public static CharacterListDisplay Instance { get; private set; }
 
-    [SerializeField] 
-    private Character characterPrefab;
     [SerializeField]
-    private RectTransform characterParent;
+    protected Character characterPrefab;
     [SerializeField]
-    private Capital capitalDisplay;
+    protected RectTransform characterParent;
+    [SerializeField]
+    protected Capital capitalDisplay;
 
     public Character SelectedCharacter { get; private set; }
     public List<Character> Characters { get; private set; } = new();
@@ -46,7 +46,7 @@ public class CharacterListDisplay : MonoBehaviour
 
     // handle adding characters to the list, uncluding UI
     public void AddCharacters(List<Personage> characters) => AddCharacters(characters.ToArray());
-    public void AddCharacters(Personage[] personages)
+    public virtual void AddCharacters(Personage[] personages)
     {
         ClearCharacters();
 
@@ -55,7 +55,7 @@ public class CharacterListDisplay : MonoBehaviour
 
         capitalDisplay.AddCapitalItems(personages);
     }
-    private void AddCharacter(Personage personage)
+    protected void AddCharacter(Personage personage)
     {
         Character character = Instantiate(characterPrefab, characterParent);
         Characters.Add(character);
@@ -87,7 +87,7 @@ public class CharacterListDisplay : MonoBehaviour
     }
 
 
-    private void ClearCharacters()
+    protected void ClearCharacters()
     {
         foreach (Transform child in characterParent)
             Destroy(child.gameObject);

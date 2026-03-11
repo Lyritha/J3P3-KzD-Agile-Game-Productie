@@ -14,7 +14,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Image borderImage;
 
-    private CharacterListDisplay parent;
+    protected CharacterListDisplay parent;
 
     private Coroutine blinkRoutine;
     private static readonly Color borderColor = new Color32(0x8C, 0x73, 0x49, 0xFF);
@@ -68,7 +68,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
         ToggleSelected();
     }
 
-    private void ToggleSelected(bool forceState = false, bool forcedState = false)
+    protected virtual void ToggleSelected(bool forceState = false, bool forcedState = false)
     {
         parent.SetSelectedCharacter(
             forceState ? (forcedState ? this : null) : (parent.SelectedCharacter == this ? null : this)

@@ -3837,7 +3837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011051029103252121}
-  - component: {fileID: 8293284080978554166}
+  - component: {fileID: 382708243727425952}
   - component: {fileID: 1617885649708643833}
   - component: {fileID: 3129143194288746739}
   - component: {fileID: 4441969112870837958}
@@ -3883,7 +3883,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8293284080978554166
+--- !u!114 &382708243727425952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3892,9 +3892,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5468825232485569848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7f6fb9a4c96d9b45a61fc3317c6d80c, type: 3}
+  m_Script: {fileID: 11500000, guid: ad1230fb2233a6648a2d852b66292c29, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterTut
   chanceToEat: 1
   characterDisplay: {fileID: 1617885649708643833}
   characterFood: {fileID: 3129143194288746739}
