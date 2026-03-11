@@ -3250,7 +3250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cf120fce9d62246a8b3bb052149ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterListDisplayTut
-  characterPrefab: {fileID: 382708243727425952, guid: a3286df54090e6b4f992589d1a0e38ae, type: 3}
+  characterPrefab: {fileID: -2826254129207186574, guid: ad829af8b094b2d4daf647701d49514b, type: 3}
   characterParent: {fileID: 1971001645}
   capitalDisplay: {fileID: 975773489}
 --- !u!1 &1987489418

@@ -35,6 +35,15 @@ public class CharacterDisplay : MonoBehaviour
     [SerializeField]
     private TMP_Text kapitaalText;
 
+    [Header("Slider"), SerializeField]
+    private TMP_Text bouwkundeText;
+    [SerializeField]
+    private TMP_Text leervermogenText;
+    [SerializeField]
+    private TMP_Text aanpassingsvermogenText;
+    [SerializeField]
+    private TMP_Text sociaalText;
+
     [Foldout("Death display", true), SerializeField]
     private ShowOnHover showOnHover;
     [SerializeField]
@@ -79,6 +88,11 @@ public class CharacterDisplay : MonoBehaviour
         aanpassingsvermogenSlider.value = character.baseAanpassingsvermogen;
         sociaalSlider.value = character.baseSociaal;
         kapitaalText.text = character.baseKapitaal.ToString();
+
+        bouwkundeText.text = $"{character.baseBouwkunde}/{maxSliderValue}";
+        leervermogenText.text = $"{character.baseLeervermogen}/{maxSliderValue}";
+        aanpassingsvermogenText.text = $"{character.baseAanpassingsvermogen}/{maxSliderValue}";
+        sociaalText.text = $"{character.baseSociaal}/{maxSliderValue}";
 
         infoLore.text = character.loreDrop;
     }
