@@ -12,6 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 10
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: ' Vrouwen en kinderen mogen eerst aan boord. Wie uit jouw reisgezelschap
-    stel je veilig? '
-  answers: []
+  question: De kapitein geeft jou de keuze om jezelf een plekje te geven op de reddingsboot
+    of de plek over te laten aan een zwangere vrouw die haar man onderweg is verloren.
+  answers:
+  - skillNeeded: []
+    action: je kiest ervoor om jezelf veilig te zetten.
+    result: 'De kapitein wijst je naar je plek op de reddingsboot. de zwangere vrouw
+      struikelt van de trap af en gaat dood.
+
+
+      Je karakter is veilig op de
+      reddingsboot.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 8
+      changeAmount: 0
+    changeFailed: []
+  - skillNeeded: []
+    action: Je kiest ervoor om de zwangere vrouw veilig te stellen.
+    result: De kapitein helpt de zwangere vrouw de reddingsboot op. Jij blijft zelf
+      op de boot en hoopt om later een plek op de reddingsboot te bemachtigen.
+    resultFailed: 
+    change: []
+    changeFailed: []

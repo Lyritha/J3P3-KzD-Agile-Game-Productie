@@ -13,20 +13,51 @@ MonoBehaviour:
   m_Name: ScriptableQuestion 8
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: " Vol is vol, er zijn veel te weinig reddingsboten en er is nog maar
-    \xE9\xE9n plekje over in de boot. "
+    \xE9\xE9n plekje over in de boot. Jij en een paar andere reizigers proberen het
+    laatste plekje te bemachtigen"
   answers:
-  - skillNeeded: []
-    action: 'Neem plaats in de reddingsboot. '
-    result: 'Je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid
-      punten verdienen. '
-    change: []
-  - skillNeeded: []
-    action: 'Maak de keuze om niet in te stappen. '
-    result: 'Je karakter gaat dood, maar de vaardigheden en kapitaal kan gegeven
-      worden aan een ander karakter (ook vrijgestelde) '
-    change: []
-  - skillNeeded: []
-    action: 'Gooi iemand extra uit de boot om 2 plekken te krijgen. '
-    result: 'Je maakt de keuze om iemand al in de boot eruit te duwen, 1 karakter
-      is veilig, 50% kans dat het andere karakter of doodgaat of veiliggesteld wordt. '
-    change: []
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 3
+    action: Overleg met de andere reizigers dat het plekje voor jou is.
+    result: 'De andere reizigers zijn het eens met je dat jij de laatste plek verdient.
+
+
+      Je
+      karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid punten
+      verdienen. '
+    resultFailed: 'De andere reizigers zijn het niet eens met je. Er breekt een gevecht
+      uit en uiteindelijk word je van de boot af gegooid door een andere reiziger.
+
+
+      Je
+      personage gaat dood.'
+    change:
+    - skillToBeChanged: 8
+      changeAmount: 0
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 3
+    action: Je betaald de andere reizigers om jou de laatste plek te geven op de
+      veiligheidsboot.
+    result: 'De andere reizigers nemen het geld aan en geven jou de laatste plek
+      op de reddingsboot.
+
+
+      Je karakter is veilig, deze kan geen acties meer
+      uitvoeren of vaardigheid punten verdienen. '
+    resultFailed: 'Je hebt niet genoeg kapitaal om de andere reizigers om te kopen.
+      Een van de reizigers vind het onacceptabel dat je hem probeerde om te kopen
+      en steekt je met een mes.
+
+
+      Je karakter gaat dood'
+    change:
+    - skillToBeChanged: 8
+      changeAmount: 0
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0

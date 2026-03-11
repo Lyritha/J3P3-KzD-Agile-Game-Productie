@@ -17,28 +17,60 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 10
-    action: '(Aanpassingsvermogen > 10) Spring in het water om het kind te redden '
-    result: 'Je redt het kind. Je verliest 2 Honger, verdient 5 Sociaal. '
+      skillAmountNeeded: 2
+    action: Probeer het water in te springen om he tkind uit het water te halen.
+    result: 'Je springt het water in en pakt het kind. Een paar andere reizigers
+      op de boot helpen je terug de boot op. Je hebt het kind succesvol gered.
+
+
+      Verdien
+      2 sociaal.'
+    resultFailed: 'Je springt het water in en probeert het kind het water uit te
+      halen. Helaas komt er een grote golf aan die je meeneemt onderwater. Je overleeft
+      het niet.
+
+
+      Je karakter gaat dood.'
     change:
     - skillToBeChanged: 3
-      changeAmount: 5
-    - skillToBeChanged: 6
-      changeAmount: -2
-  - skillNeeded: []
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 2
     action: 'Probeer het kind met een touw of plank te bereiken '
-    result: 'Je bereikt het kind bijna, maar het kost veel moeite. Je verdient 5
-      Aanpassingsvermogen, verliest 1 Honger. '
-    change:
-    - skillToBeChanged: 0
-      changeAmount: 5
-    - skillToBeChanged: 6
-      changeAmount: -1
-  - skillNeeded: []
-    action: 'Niets doen en wacht af '
-    result: 'Het kind gaat overboord en verdrinkt. Je veliest 5 sociaal en 2 aanpassingsvermogen '
+    result: 'Je gooit een touw naar beneden om het kind te proberen te helpen. Het
+      lukt het kind om het touw te pakken, en een paar andere reizigers helpen je
+      met het kind weer op de boot te trekken.
+
+
+      Verdien 2 sociaal.'
+    resultFailed: 'Je gooit een touw naar beneden om te proberen het kind terug te
+      trekken. Helaas mis je het touw en raak je het kind op hun hoofd, dit drukt
+      ze onderwater en komen ze niet meer boven water.
+
+
+      Verlies 2 sociaal.'
     change:
     - skillToBeChanged: 3
-      changeAmount: -5
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
+  - skillNeeded: []
+    action: Je doet niks en wacht het af.
+    result: 'Je ziet een paar andere reizigers hun best doen om het kind terug het
+      schip op te halen. Een van die reizigers vallen ook in het water. Geen van
+      hun overleeft.
+
+
+      Verlies 2 sociaal. Verlies 2 aanpassingsvermogen.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -2
     - skillToBeChanged: 0
       changeAmount: -2
+    changeFailed: []

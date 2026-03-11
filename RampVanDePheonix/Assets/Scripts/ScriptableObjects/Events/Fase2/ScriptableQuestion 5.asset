@@ -12,31 +12,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 5
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Een zwangere vrouw binnen jouw groep krijgt complicaties. Er is een
-    kans dat ze overlijdt. '
+  question: Op de boot is ook een zwangere vrouw. Het lijkt erop alsof de vrouw ernstig
+    ziek is geworden, ze heeft medicijnen nodig om te blijven leven.
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 5
-    action: '(Kapitaal > 5) Koop medische hulp. '
-    result: 'Je helpt de vrouw. Je verliest 5 kapitaal, verdient 5 Sociaal. '
+      skillAmountNeeded: 2
+    action: Koop medicijnen van de kapitein.
+    result: 'Je koopt medicijnen van de kapitein en geeft ze aan de vrouw. Ze bedankt
+      je voor de hulp en geeft je een hamer die eerst van haar overleden man was.
+
+
+      Verdien
+      2 sociaal, Verdien 1 bouwkunde'
+    resultFailed: 'De kapitein geeft je niet de medicijnen, omdat je niet genoeg
+      kapitaal hebt om het te betalen. Na een paar nachten overlijd de vrouw aan
+      haar ziekte.
+
+
+      Verlies 2 sociaal.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -5
-    - skillToBeChanged: 3
-      changeAmount: 5
-  - skillNeeded: []
-    action: 'Help haar met minimale middelen '
-    result: 'Met jou hulp overleeft ze het net, maar is ze wel zeer uitgeput. Je
-      verliest 5 Aanpassingsvermogen, 2 Honger, je verdient 5 sociaal. '
-    change:
-    - skillToBeChanged: 0
-      changeAmount: -5
-    - skillToBeChanged: 3
-      changeAmount: 5
-    - skillToBeChanged: 5
       changeAmount: -2
+    - skillToBeChanged: 3
+      changeAmount: 2
+    - skillToBeChanged: 2
+      changeAmount: 1
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
+  - skillNeeded:
+    - skillType: 4
+      skillAmountNeeded: 2
+    action: Je probeert de vrouw zo goed mogelijk te helpen zonder medicijnen
+    result: 'Dankzij jouw hulp overleefd de vrouw de ziekte. De vrouw bedankt jou
+      door je wat extra kapitaal te geven.
+
+
+      Verdien 2 sociaal, Verlies 1 etensvoorraad,
+      Verdien 1 kapitaal.'
+    resultFailed: 'Je doet je best om de vrouw zo goed mogelijk te helpen, maar helaas
+      is je kennis niet goed genoeg om haar succesvol te helpen. Uiteindelijk overlijd
+      de vrouw aan de ziekte.
+
+
+      Verlies 1 sociaal
+
+
+'
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
+    - skillToBeChanged: 5
+      changeAmount: -1
+    - skillToBeChanged: 1
+      changeAmount: 1
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -1
   - skillNeeded: []
-    action: 'Niets doen '
-    result: 'De vrouw overlijdt. Karakter gaat dood. '
-    change: []
+    action: Je wacht het uit en hoopt dat het beter gaat met de vrouw.
+    result: 'De vrouw overleid uiteindelijk aan de ziekte. De sfeer ligt voor de
+      rest van de reis heel laag.
+
+
+      Verlies 2 sociaal'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -2
+    changeFailed: []

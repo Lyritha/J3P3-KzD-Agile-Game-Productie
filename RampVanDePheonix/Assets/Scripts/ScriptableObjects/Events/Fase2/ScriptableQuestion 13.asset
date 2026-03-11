@@ -13,32 +13,41 @@ MonoBehaviour:
   m_Name: ScriptableQuestion 13
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: ' Schurft breekt uit aan boord. De jeuk is ondraaglijk en de ziekte verspreidt
-    zich snel onder de passagiers. '
+    zich snel onder de passagiers waaronder jij.'
   answers:
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 10
-    action: '(Leervermogen > 10?) Zoek naar een behandeling '
-    result: 'Je behandelt jezelf en meerdere Andere zieken. Je verdient 5 Sociaal
-      en 5 aanpassingsvermogen '
+      skillAmountNeeded: 3
+    action: Probeer jezelf te behandelen
+    result: 'Je behandelt jezelf met de kennis die jij hebt opgenomen over medicijnen.
+      Uiteindelijk lukt het om jezelf van schurft te genezen.
+
+
+      Verdien 1 leervermogen.
+      verdien 2 aanpassingsvermogen.'
+    resultFailed: 'Je had niet genoeg kennis om jezelf van de ziekte te genezen.
+      Jij en veel andere reizigers hebben de ziekte niet overleefd.
+
+
+      Je karakter
+      gaat dood.'
     change:
-    - skillToBeChanged: 3
-      changeAmount: 5
+    - skillToBeChanged: 4
+      changeAmount: 1
     - skillToBeChanged: 0
-      changeAmount: 5
-  - skillNeeded: []
-    action: 'Isoleer jezelf en vermijd contact '
-    result: "Je was al ziek, Je karakter gaat dood. \r\n\r"
-    change: []
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
   - skillNeeded: []
     action: je isoleert jezelf en vermijd contact met anderen
-    result: 'Door contact te vermijden ben je niet ziek geworden. Je verdient 5 aanpassingsvermogen. '
+    result: 'Door contact te vermijden ben je niet ziek geworden. Veel andere mensen
+      op de boot overlijden aan de ziekte.
+
+
+      Verdien 2 aanpassingsvermogen.'
+    resultFailed: 
     change:
     - skillToBeChanged: 0
-      changeAmount: 5
-  - skillNeeded: []
-    action: 'Negeer de klachten '
-    result: 'De ziekte verspreidt zich. Je karakter gaat dood. '
-    change:
-    - skillToBeChanged: 0
-      changeAmount: 5
+      changeAmount: 2
+    changeFailed: []

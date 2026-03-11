@@ -39,7 +39,8 @@ public enum Skillset
     Leervermogen,
     FoodStorage,
     HungerPerPerson,
-    Death
+    Death,
+    Reddingsboot
 }
 [Serializable]
 public struct SkillsetChange

@@ -12,28 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 6
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Iemands hond gaat overboord tijdens een hevige storm. Er zouden 2 mensen
-    nodig zijn om hem te redden. '
+  question: Iemands hond gaat overboord tijdens een hevige storm. Er zouden 2 mensen
+    nodig zijn om hem te redden. De eigenaar van de hond zoekt nog iemand om hem
+    te helpen.
   answers:
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 10
-    action: '(Aanpassingsvermogen > 10) Spring het water in om de hond te redden '
-    result: 'Je redt de hond, de eigenaar geeft je kapitaal voor het redden, maar
-      Een karakter gaat dood, Je verdient 5 sociaal en 15 kapitaal '
+      skillAmountNeeded: 2
+    action: 'Spring het water in om de hond te redden '
+    result: 'Jij en de eigenaar springen het water in om de hond te redden. Uiteindelijk
+      hebben jij en de eigeinaar de hond kunnen redden en terug kunnen brengen op
+      de boot. De eigenaar bedankt je en geeft je wat extra kapitaal.
+
+
+      Verdien
+      3 kapitaal, Verdien 2 sociaal.
+
+
+
+'
+    resultFailed: 'Jij en de eigenaar springen het water in om de hond te redden.
+      De hond en de eigenaar zijn terug op de boot gekomen, maar helaas overleef
+      jij het water niet.
+
+
+      Je karakter gaat dood'
     change:
     - skillToBeChanged: 3
-      changeAmount: 5
+      changeAmount: 2
     - skillToBeChanged: 1
-      changeAmount: 15
+      changeAmount: 3
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
   - skillNeeded: []
-    action: 'Probeer de hond met een touw of plank te bereiken. '
-    result: 'De hond wordt bijna gered, maar Een karakter gaat dood. '
-    change: []
-  - skillNeeded: []
-    action: 'Niets doen     '
-    result: 'De hond gaat dood. Geen karakters verliezen hun leven. Je verliest 5
-      sociaal '
+    action: Je helpt de eigenaar niet om de hond te redden.
+    result: 'De eigenaar probeert zelf nog de hond te redden. Het lukt de eigenaar
+      alleen niet om met de hond uit het water te halen. Ze overleven beiden het
+      water niet.
+
+
+      Verlies 1 sociaal.'
+    resultFailed: 
     change:
     - skillToBeChanged: 3
-      changeAmount: -5
+      changeAmount: -1
+    changeFailed: []

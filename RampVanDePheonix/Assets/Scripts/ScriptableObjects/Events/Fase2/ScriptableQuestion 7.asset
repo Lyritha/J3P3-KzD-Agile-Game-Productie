@@ -12,25 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 7
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Rijke mensen hebben de hele wereld, toch? Je mag een persoon uit het
-    reisgezelschap in veiligheid brengen.  '
+  question: De kapitein geeft je de kans om hem geld te geven zodat je een plek kan
+    bemachtigen op de reddingsboot.
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 5
-    action: '(Kapitaal > 5) Gebruik je geld om jezelf veilig te stellen. '
+      skillAmountNeeded: 3
+    action: Je betaald de kaptein zodat je veilig op de reddingsboot zit.
     result: 'Je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid
       punten verdienen. '
-    change: []
+    resultFailed: Je hebt niet genoeg kapitaal om je karakter veilig te stellen.
+    change:
+    - skillToBeChanged: 8
+      changeAmount: 0
+    - skillToBeChanged: 1
+      changeAmount: -3
+    changeFailed: []
   - skillNeeded:
-    - skillType: 5
-      skillAmountNeeded: 7
-    action: '(Voedselopslag > 7) Gebruik voedsel om je positie op de boot veilig
-      te stellen  '
-    result: 'Je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid
-      punten verdienen. '
-    change: []
+    - skillType: 3
+      skillAmountNeeded: 3
+    action: Probeer de kapitein te overtuigen om je een plek te geven
+    result: 'De haalt de kapitein over om je een plek te geven op de veiligheidsboot
+      je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid punten
+      verdienen. '
+    resultFailed: De kapitein lacht je uit en loopt weg om een andere reiziger te
+      vragen.
+    change:
+    - skillToBeChanged: 8
+      changeAmount: 0
+    changeFailed: []
   - skillNeeded: []
-    action: 'Stel niemand veilig     '
-    result: 'Je hebt de keuze gemaakt om op de boot te blijven. '
+    action: Je besluit om de plek over te laten aan een andere reiziger.
+    result: De kapitein vind het een nobele keuze en loopt door om de volgende persoon
+      te vragen.
+    resultFailed: 
     change: []
+    changeFailed: []

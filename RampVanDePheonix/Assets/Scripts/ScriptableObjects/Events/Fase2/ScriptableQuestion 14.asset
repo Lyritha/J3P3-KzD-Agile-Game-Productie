@@ -17,26 +17,39 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 10
-    action: '(Leervermogen > 10) Onderzoek welk voedsel nog eetbaar is '
-    result: 'Je redt een deel van de voorraden. Je verdient 5 voedsel. '
+      skillAmountNeeded: 2
+    action: Onderzoek welk eten nog eetbaar is.
+    result: 'Je komt erachter dat een groot deel van het eten nog wel eetbaar is.
+      Dit hou je apart en neem je mee voor je eigen voorraad.
+
+
+      Verdien 3 etensvoorraad.'
+    resultFailed: 'Je hebt geen flauw idee welk eten bedorven is en welk eten nog
+      goed te eten is. Hierdoor gooi een een deel van je niet bedorven eten weg.
+
+
+      Verlies
+      2 etensvoorraad.'
     change:
     - skillToBeChanged: 5
-      changeAmount: 5
+      changeAmount: 3
+    changeFailed:
+    - skillToBeChanged: 5
+      changeAmount: -2
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 5
-    action: '(Kapitaal > 5) Koop voedsel bij een handelaar in de volgende haven. '
-    result: 'Je verliest 5 Kapitaal, verdient 5 voedsel. '
+      skillAmountNeeded: 2
+    action: Koop eten vanuit de kapitein zijn voorraad.
+    result: 'Je koopt wat eten van de kapitein en voegt het toe aan je eigen etensvoorraad.
+
+
+      Verlies
+      2 kapitaal, Verdien 2 etensvoorraad.'
+    resultFailed: Je hebt niet genoeg kapitaal om extra eten te kopen. Je hoopt dat
+      je huidige etensvoorraad niet bedorven is geraakt.
     change:
     - skillToBeChanged: 1
-      changeAmount: -5
-  - skillNeeded: []
-    action: 'Negeer het probleem     '
-    result: 'Meerdere mensen krijgen honger. Je verliest 1 Honger op elke karakter
-      en 3 opgeslagen voedsel. '
-    change:
+      changeAmount: -2
     - skillToBeChanged: 6
-      changeAmount: -1
-    - skillToBeChanged: 5
-      changeAmount: -3
+      changeAmount: 2
+    changeFailed: []

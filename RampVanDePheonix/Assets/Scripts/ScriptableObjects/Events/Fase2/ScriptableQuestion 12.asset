@@ -12,15 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 12
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: Je verveelt je op het schip... neem je de tijd om engels te leren?
+  question: Je verveelt je op het schip... neem je de tijd om engels te leren? of
+    ga je bezig met wat bouwkundige boeken lezen
   answers:
   - skillNeeded: []
     action: ' Je leert wat Engelse woorden van Amerikaanse medereizigers. '
-    result: 'Je krijgt 5 leervermogen. '
+    result: "je opent je engels boek en leert wat extra woorden. \n\nVerdien 2 leervermogen."
+    resultFailed: 
     change:
     - skillToBeChanged: 4
-      changeAmount: 5
+      changeAmount: 2
+    changeFailed: []
   - skillNeeded: []
-    action: je besluit niks te doen
-    result: mmmm
+    action: Je leert wat nieuwe bouwkunde technieken.
+    result: 'Je opent je bouwkunde boek en leert wat nieuwe technieken.
+
+
+      Verdien
+      2 bouwkunde.'
+    resultFailed: 
     change: []
+    changeFailed: []

@@ -20,9 +20,22 @@ MonoBehaviour:
     result: 'Je probeerde te helpen, meer mensen konden bij de reddingsboot komen,
       ze hebben een plek overgehouden voor jou. Je karakter is veilig, deze kan geen
       acties meer uitvoeren of vaardigheid punten verdienen. '
-    change: []
-  - skillNeeded: []
+    resultFailed: 
+    change:
+    - skillToBeChanged: 8
+      changeAmount: 0
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 2
     action: 'Probeer het vuur te ontwijken en naar de boot te rennen     '
     result: 'Je ontsnapt aan het vuur. Je karakter is veilig, deze kan geen acties
       meer uitvoeren of vaardigheid punten verdienen. '
-    change: []
+    resultFailed: "Je ontnapt het vuur niet. Je komt vast te zitten in de slaapkamers
+      met overal om je heen vuur. \n\nje karakter gaat dood."
+    change:
+    - skillToBeChanged: 8
+      changeAmount: 0
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
