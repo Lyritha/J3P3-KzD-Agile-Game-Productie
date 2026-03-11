@@ -25,19 +25,22 @@ public class Character : MonoBehaviour, IPointerClickHandler
     public bool IsOnLifeBoat { get; private set; } = false;
     public bool IsSelectable => IsAlive && !IsOnLifeBoat;
 
-    public void Initialize(Personage personage, CharacterListDisplay parent)
+    public void Initialize(Personage personage)
     {
-        characterFood.Initialize(this);
+        if (characterFood != null)
+            characterFood.Initialize(this);
+
         this.Personage = personage;
         characterDisplay.SetUI(personage);
-        this.parent = parent;
+
+        this.parent = CharacterListDisplay.Instance;
     }
 
     public void UpdateCharacterState()
     {
         // for now 1/3 chance to consume food, can be changed to something more complex later
         bool shouldEat = Random.value < chanceToEat;
-        if (shouldEat) characterFood.EatFood();
+        if (shouldEat && characterFood != null) characterFood.EatFood();
     }
 
     public void Die(string reason = "No reason given")
@@ -62,7 +65,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
         if (!IsSelectable) return;
 
         // avoid toggling character if you can give them food.
-        if (characterFood.TryGiveFood()) return;
+        if (characterFood != null && characterFood.TryGiveFood()) return;
 
         // toggles selected state in parent object.
         ToggleSelected();

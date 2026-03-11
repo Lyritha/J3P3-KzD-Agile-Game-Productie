@@ -28,6 +28,13 @@ public class CharacterListDisplay : MonoBehaviour
     }
 
 
+    public void DeselectCharacter()
+    {
+        foreach (Character otherCharacter in Characters)
+            otherCharacter.SetSelected(false);
+
+        SelectedCharacter = null;
+    }
 
     // Handle setting the selected character
     public void SetSelectedCharacter(Character character)
@@ -59,7 +66,7 @@ public class CharacterListDisplay : MonoBehaviour
     {
         Character character = Instantiate(characterPrefab, characterParent);
         Characters.Add(character);
-        character.Initialize(personage, this);
+        character.Initialize(personage);
     }
 
 

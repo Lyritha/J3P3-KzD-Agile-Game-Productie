@@ -57,10 +57,14 @@ public class CharacterDisplay : MonoBehaviour
 
     public void SetUI(Personage character)
     {
-        bouwkundeSlider.maxValue = maxSliderValue;
-        leervermogenSlider.maxValue = maxSliderValue;
-        aanpassingsvermogenSlider.maxValue = maxSliderValue;
-        sociaalSlider.maxValue = maxSliderValue;
+        if (bouwkundeSlider != null)
+            bouwkundeSlider.maxValue = maxSliderValue;
+        if (leervermogenSlider != null)
+            leervermogenSlider.maxValue = maxSliderValue;
+        if (aanpassingsvermogenSlider != null)
+            aanpassingsvermogenSlider.maxValue = maxSliderValue;
+        if (sociaalSlider != null)
+            sociaalSlider.maxValue = maxSliderValue;
 
         // Unsubscribe from old one (important!)
         if (this.character != null) this.character.OnChanged -= RefreshUI;
@@ -76,6 +80,8 @@ public class CharacterDisplay : MonoBehaviour
     {
         displayNaam.text = character.characterName;
         displaySprite.sprite = character.portrait;
+
+        if (infoNaam == null) return;
 
         infoNaam.text = character.characterName;
         infoSprite.sprite = character.portrait;
@@ -99,13 +105,19 @@ public class CharacterDisplay : MonoBehaviour
 
     public void ShowDeathScreen()
     {
-        deathScreen.gameObject.SetActive(true);
-        showOnHover.SetEnabled(false);
+        if (deathScreen != null)
+            deathScreen.gameObject.SetActive(true);
+
+        if (showOnHover != null)
+            showOnHover.SetEnabled(false);
     }
 
     public void ShowSafeScreen()
     {
-        safeScreen.gameObject.SetActive(true);
-        showOnHover.SetEnabled(false);
+        if (safeScreen != null)
+            safeScreen.gameObject.SetActive(true);
+
+        if (showOnHover != null)
+            showOnHover.SetEnabled(false);
     }
 }

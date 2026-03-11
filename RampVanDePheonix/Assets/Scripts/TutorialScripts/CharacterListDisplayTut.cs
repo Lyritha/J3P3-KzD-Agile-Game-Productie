@@ -30,6 +30,6 @@ public class CharacterListDisplayTut : CharacterListDisplay
         button.onClick.AddListener(tutorialButton.TriggerButtonNext);
 
         Characters.Add(character);
-        character.Initialize(personage, this);
+        character.Initialize(personage);
     }
 }
