@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
+  m_Name: Event_Tut
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
+  question: 'Je buurman is ook van plan om de reis te naar Amerika te starten, hij
+    heeft niet genoeg ruimte om al zijn spul mee te nemen, hij geeft je een optie
+    om wat gratis spullen te krijgen. '
+  answers:
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 1
+    action: Je kiest voor wat oude engelstalige boeken.
+    result: 'Je krijgt de engelstalige boeken van je buurman en hij wenst je sucess
+      met de taal te leren.
+
+
+      krijg 2 Leervermogen. '
+    resultFailed: 
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded: []
+    action: Je kiest voor een grote gereedschapskist.
+    result: 'Met deze kist kan je je een stuk beter redden rond gereedschap.
+
+
+      krijg
+      2 Bouwkunde. '
+    resultFailed: 
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 4
+      skillAmountNeeded: 2
+    action: Je kiest voor een oud pak kaarten en een paar dobbelstenen
+    result: 'Met deze voorwerpen kan je je beter vermaken tijdens de reis en meer
+      vrienden maken onderweg.
+
+
+      Je verdient 2 Socialiteit.
+
+'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded: []
+    action: Een oude koffer met een versleten portemonnee
+    result: "Wat een geluk! je vind wat kapitaal in de koffer en neemt dit mee voor
+      de reis. \n\nKrijg 1 kapitaal"
+    resultFailed: 
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 1
+    changeFailed: []

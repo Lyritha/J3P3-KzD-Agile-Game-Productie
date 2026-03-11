@@ -119,6 +119,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &105021864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 915886556472865585, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+  m_PrefabInstance: {fileID: 493967284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &105021870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105021864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e348fdcf1a1e6429a698be8bc38ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialButton
+  eventName: Event resultaat
 --- !u!1 &105357997
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,9 +704,57 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Build
+      value: 
+      objectReference: {fileID: 21300000, guid: be3bbf6ae76c157489b4fb0ddc3a7dfa, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Learn
+      value: 
+      objectReference: {fileID: 21300000, guid: 600bb60717605e64bbcb60823c6b97e2, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Social
+      value: 
+      objectReference: {fileID: 21300000, guid: 446138d8f45095241a1cf709ccab0746, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Capital
+      value: 
+      objectReference: {fileID: 21300000, guid: 7066b407ea751234782c2724837dd77d, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: Icon_Adaptability
+      value: 
+      objectReference: {fileID: 21300000, guid: 536ee7ce9322cec42abf1a390096d82f, type: 3}
+    - target: {fileID: 2101422752305866404, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: answerButtonPrefab
       value: 
       objectReference: {fileID: 4002723891895178327, guid: 19f1988f78fbe944588118fb1bd61ed8, type: 3}
+    - target: {fileID: 2560719591178008797, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560719591178008797, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560719591178008797, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 105021870}
+    - target: {fileID: 2560719591178008797, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560719591178008797, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TriggerButtonNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560719591178008797, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TutorialButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560719591178008797, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3446686558404428956, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -836,6 +902,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7671631066087692561, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1819509129}
+    - targetCorrespondingSourceObject: {fileID: 915886556472865585, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 105021870}
   m_SourcePrefab: {fileID: 100100000, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
 --- !u!224 &493967285 stripped
 RectTransform:

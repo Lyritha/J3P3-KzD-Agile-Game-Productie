@@ -37,6 +37,5 @@ public class EventStateManagerTutorial : EventStateManager
         Debug.Log("apply stat changes");
         faseManager.AddProgress();
         CharacterListDisplay.Instance.UpdateCharacters();
-        MainGameTutorial.Instance.StartStep();
     }
 }
