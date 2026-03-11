@@ -24,16 +24,16 @@ public class EventStateManager : MonoBehaviour
 {
     public static EventStateManager Instance { get; private set; }
 
-    State currentState;
+    protected State currentState;
 
-    [SerializeField] EventVisualiser eventVisualiser;
-    [SerializeField] PhaseManager faseManager;
-    [SerializeField] SceneHider sceneHider;
-    [SerializeField] List<Minigame> minigames;
+    [SerializeField] protected EventVisualiser eventVisualiser;
+    [SerializeField] protected PhaseManager faseManager;
+    [SerializeField] protected SceneHider sceneHider;
+    [SerializeField] protected List<Minigame> minigames;
 
-    private Dictionary<int, Minigame> minigameTriggers = new();
+    protected Dictionary<int, Minigame> minigameTriggers = new();
 
-    private void Awake()
+    protected void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -44,7 +44,7 @@ public class EventStateManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    protected void Start()
     {
         List<Minigame> allowedMinigames = minigames.FindAll(m => (m.allowedPhase & faseManager.CurrentFase) != 0);
         if (allowedMinigames.Count == 0)
@@ -76,7 +76,7 @@ public class EventStateManager : MonoBehaviour
         SetState(State.Walking);
     }
 
-    public void SetState(State newState)
+    public virtual void SetState(State newState)
     {
         currentState = newState;
 
@@ -100,20 +100,20 @@ public class EventStateManager : MonoBehaviour
         }
     }
 
-    IEnumerator WalkingState(float waitTime)
+    protected IEnumerator WalkingState(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
         eventVisualiser.gameObject.SetActive(true);
         SetState(State.Event);
     }
 
-    void EventState()
+    protected virtual void EventState()
     {
         Event randomEvent = faseManager.GetRandomEvent();
         eventVisualiser.ShowEvent(randomEvent);
     }
 
-    void FinishEventState()
+    protected virtual void FinishEventState()
     {
         Debug.Log("apply stat changes");
         faseManager.AddProgress();
@@ -123,7 +123,7 @@ public class EventStateManager : MonoBehaviour
         SetState(State.Minigame);
     }
 
-    void MinigameState()
+    protected void MinigameState()
     {
         if (minigameTriggers.TryGetValue(faseManager.Progress, out Minigame selectedMinigame))
         {
@@ -136,7 +136,7 @@ public class EventStateManager : MonoBehaviour
         SetState(State.Walking);
     }
 
-    void ExitState()
+    protected void ExitState()
     {
         Debug.Log("exit loop");
     }

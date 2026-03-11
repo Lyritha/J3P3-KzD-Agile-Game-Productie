@@ -156,6 +156,7 @@ public class EventVisualiser : MonoBehaviour
 
     public void ToggleUI(int selector)
     {
+
         switch (selector)
         {
             case 0:

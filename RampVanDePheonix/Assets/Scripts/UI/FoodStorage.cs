@@ -65,11 +65,13 @@ public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         return true;
     }
 
-    public void RemoveFood()
+    public bool RemoveFood()
     {
-        if (CurrentFood <= 0) return;
+        if (CurrentFood <= 0) return false;
         CurrentFood--;
         UpdateDisplay();
+
+        return true;
     }
 
     [ContextMenu("Update Display")]
