@@ -14,4 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'In Amerika hebben ze veel strengere winters dan je gewend bent in de
     achterhoek. Je was hier niet op voorbereid en de oogst is verpest. '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 2
+    action: Je besluit om extra kapitaal uit te geven om meer eten te kopen
+    result: Je hebt genoeg kapitaal om het eten te halen bij de markt, je hebt je
+      voorraad mooi opgevuld.
+    resultFailed: Je hebt niet genoeg kapitaal om extra eten te halen, wat van je
+      opgeslagen voedsel van vorige oogst is ook bedorven gegaan.
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -2
+    - skillToBeChanged: 5
+      changeAmount: 5
+    changeFailed:
+    - skillToBeChanged: 5
+      changeAmount: -2
+  - skillNeeded:
+    - skillType: 5
+      skillAmountNeeded: 5
+    action: Je waagt het erop dat je genoeg voorraad hebt om de winter te overleven
+      en probeert het te doen met de voorraad die je nu hebt.
+    result: Je had genoeg voorraad om de winter te overleven, iedereen heeft meer
+      dan genoeg kunnen eten.
+    resultFailed: Je had niet genoeg eten op voorraad, Je hebt je best gedaan om
+      het overige eten netjes te verdelen, maar eidereen is wel zeer hongerig geworden.
+    change:
+    - skillToBeChanged: 5
+      changeAmount: -5
+    changeFailed:
+    - skillToBeChanged: 5
+      changeAmount: -5
+    - skillToBeChanged: 6
+      changeAmount: 2

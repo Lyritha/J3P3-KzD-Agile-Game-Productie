@@ -15,4 +15,49 @@ MonoBehaviour:
   question: 'Je huis is in brand gestoken door Amerikanen die de emigranten niet
     in hun stad willen hebben. Je hebt je huis uiteindelijk gered van het vuur maar
     de schade blijft. '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 1
+    action: Je besluit om de Amerikanen die je huis in brand hebben gestoken op te
+      zoeken en aan te spreken.
+    result: Ze beloven de schade te vergoeden of helpen met reparaties.
+    resultFailed: Het gesprek escaleert en ze worden agressief of dreigend, ze vallen
+      jou aan. Je gaat dood door je verwondingen.
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -1
+    - skillToBeChanged: 0
+      changeAmount: 1
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
+  - skillNeeded: []
+    action: Je besluit om de Amerikanen met rust te laten en je huis opnieuw op te
+      bouwen.
+    result: Je weet voldoende materialen te verzamelen om de schade aan je huis te
+      herstellen.
+    resultFailed: 
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 3
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 4
+    - skillType: 2
+      skillAmountNeeded: 1
+    action: Je eist wraak en besluit de Amerikanen op te zoeken en tot recht te brengen.
+      Je komt erachter waar ze wonen en hebt de lucifer klaarstaan.
+    result: Je blokkeert de uitgangen stil van buitenaf en gooit de brandende lucifer
+      door het raam. Het droge hout van de Amerikaanse villa vat direct vlam.
+    resultFailed: Terwijl je de lucifer afstrijkt, word je opgemerkt door een bewapende
+      bewoner. Je wordt neergeschoten voordat het vuur kan starten.
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 4
+    - skillToBeChanged: 3
+      changeAmount: -2
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
