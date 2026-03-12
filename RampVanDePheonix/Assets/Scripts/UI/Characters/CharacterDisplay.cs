@@ -35,6 +35,15 @@ public class CharacterDisplay : MonoBehaviour
     [SerializeField]
     private TMP_Text kapitaalText;
 
+    [Header("Slider"), SerializeField]
+    private TMP_Text bouwkundeText;
+    [SerializeField]
+    private TMP_Text leervermogenText;
+    [SerializeField]
+    private TMP_Text aanpassingsvermogenText;
+    [SerializeField]
+    private TMP_Text sociaalText;
+
     [Foldout("Death display", true), SerializeField]
     private ShowOnHover showOnHover;
     [SerializeField]
@@ -48,10 +57,14 @@ public class CharacterDisplay : MonoBehaviour
 
     public void SetUI(Personage character)
     {
-        bouwkundeSlider.maxValue = maxSliderValue;
-        leervermogenSlider.maxValue = maxSliderValue;
-        aanpassingsvermogenSlider.maxValue = maxSliderValue;
-        sociaalSlider.maxValue = maxSliderValue;
+        if (bouwkundeSlider != null)
+            bouwkundeSlider.maxValue = maxSliderValue;
+        if (leervermogenSlider != null)
+            leervermogenSlider.maxValue = maxSliderValue;
+        if (aanpassingsvermogenSlider != null)
+            aanpassingsvermogenSlider.maxValue = maxSliderValue;
+        if (sociaalSlider != null)
+            sociaalSlider.maxValue = maxSliderValue;
 
         // Unsubscribe from old one (important!)
         if (this.character != null) this.character.OnChanged -= RefreshUI;
@@ -68,6 +81,8 @@ public class CharacterDisplay : MonoBehaviour
         displayNaam.text = character.characterName;
         displaySprite.sprite = character.portrait;
 
+        if (infoNaam == null) return;
+
         infoNaam.text = character.characterName;
         infoSprite.sprite = character.portrait;
 
@@ -80,18 +95,29 @@ public class CharacterDisplay : MonoBehaviour
         sociaalSlider.value = character.baseSociaal;
         kapitaalText.text = character.baseKapitaal.ToString();
 
+        bouwkundeText.text = $"{character.baseBouwkunde}/{maxSliderValue}";
+        leervermogenText.text = $"{character.baseLeervermogen}/{maxSliderValue}";
+        aanpassingsvermogenText.text = $"{character.baseAanpassingsvermogen}/{maxSliderValue}";
+        sociaalText.text = $"{character.baseSociaal}/{maxSliderValue}";
+
         infoLore.text = character.loreDrop;
     }
 
     public void ShowDeathScreen()
     {
-        deathScreen.gameObject.SetActive(true);
-        showOnHover.SetEnabled(false);
+        if (deathScreen != null)
+            deathScreen.gameObject.SetActive(true);
+
+        if (showOnHover != null)
+            showOnHover.SetEnabled(false);
     }
 
     public void ShowSafeScreen()
     {
-        safeScreen.gameObject.SetActive(true);
-        showOnHover.SetEnabled(false);
+        if (safeScreen != null)
+            safeScreen.gameObject.SetActive(true);
+
+        if (showOnHover != null)
+            showOnHover.SetEnabled(false);
     }
 }

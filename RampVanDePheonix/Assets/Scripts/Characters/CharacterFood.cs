@@ -49,14 +49,14 @@ public class CharacterFood : MonoBehaviour
 
     public bool TryGiveFood()
     {
-        if (!foodStorage.GivingFood || currentFood + 1 > maxFood) return false;
+        if (currentFood < maxFood && foodStorage.GivingFood && foodStorage.RemoveFood())
+        {
+            currentFood++;
+            UpdateFoodUI();
+            return true;
+        }
 
-        currentFood++;
-        foodStorage.RemoveFood();
-
-        UpdateFoodUI();
-
-        return true;
+        return false;
     }
 
     private void UpdateFoodUI(bool disableUI = false)
