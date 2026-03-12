@@ -16,4 +16,63 @@ MonoBehaviour:
     staat. De bevolking groeide in die jaren enorm en dat kwam door de emigranten.
     De oorspronkelijke bewoners, de native Americans, kwamen oog in oog te staan
     met de Achterhoekse landverhuizers. '
-  answers: []
+  answers:
+  - skillNeeded: []
+    action: Je probeert de natives zo veel mogelijk te vermijden zodat je geen contact
+      met ze hoeft te maken.
+    result: 'Je besluit om de natives te vermijden en blijft contact opzoeken met
+      andere Achterhoekers. Je loopt langs een feest dat de natives geven, het ziet
+      er eigenlijk best gezellig uit maar je blijft ze vermijden en doet niet mee.
+
+
+      Verlies
+      2 sociaal'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -2
+    changeFailed: []
+  - skillNeeded: []
+    action: Je gaat vriendelijk met de natives om maar blijft wel je eigen, Achterhoekse
+      leven volgen.
+    result: 'Je praat met de natives op straat en komt erachter dat ze een typisch
+      Amerikaans feest gaan geven vanavond. Je besluit alleen om daar niet heen te
+      gaan en gezellig met je Achterhoekse vrienden te gaan koekhappen en spijkerpoepen.
+
+
+      Verdien
+      1 sociaal.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 2
+    - skillType: 3
+      skillAmountNeeded: 2
+    action: Je probeert zo veel mogelijk de natives bij de nieuwe gemeenschap te
+      betrekken zodat er een goede band ontstaat en zowel de natives als de achterhoekse
+      mensen van elkaar kunnen leren.
+    result: 'Je praat gezellig met de natives en komt erachter dat ze een typisch
+      amerikaans feest gaan geven vanavond. Je besluit om hier ook aan mee te doen
+      en nodigt de natives uit om de dag erna gezellig met je achterhoekse vrienden
+      te gaan koekhappen en spijkerpoepen.
+
+
+      Verdien 3 sociaal, Verdien 2 aanpassingsvermogen.'
+    resultFailed: 'Je probeert vriendelijk om te gaan met de natives en nodigt ze
+      uit om morgenavond te gaan koekhappen en spijkerpoepen. De natives hebben hier
+      alleen geen zin in en wijzen je uitnodiging af.
+
+
+      Verlies 2 sociaal'
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 3
+    - skillToBeChanged: 0
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2

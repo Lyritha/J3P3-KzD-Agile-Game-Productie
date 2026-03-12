@@ -14,4 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: Je hebt de overtocht betaald en de Phoenix overleefd, maar helaas heb
     je niet genoeg reserves meer om land te kopen of een huis te bouwen.
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 3
+    - skillType: 4
+      skillAmountNeeded: 1
+    action: Je vraagt een vreemdeling om wat kapitaal zodat je je leven verder op
+      kan bouwen
+    result: 'De vreemdeling vind het goed om je een lening van wat kapitaal te geven.
+      Hierdoor kon je een klein huis kopen. Na lang werken heb je de vreemdeling
+      zijn kapitaal terug betaald.
+
+
+      Verdien 2 sociaal.'
+    resultFailed: 'De vreemdling vind het onacceptabel dat je hem vraagt om te helpen.
+      Hij zegt dat hij ook alles zelf heeft moeten doen om een huis te kunnen bemachtigen.
+
+
+      Verlies
+      2 sociaal.'
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
+  - skillNeeded: []
+    action: Je besluit niet om hulp te vragen in de hoop dat je vanzelf het kapitaal
+      wel bij elkaar haalt.
+    result: "Je besluit om niet om hulp te vragen. Hierdoor is het geld krap en is
+      er minder budget om eten te kopen. \n\nVerlies 1 etensvoorraad."
+    resultFailed: 
+    change:
+    - skillToBeChanged: 6
+      changeAmount: -1
+    changeFailed: []

@@ -14,4 +14,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Je wordt onderweg naar je eindbestemming belaagd door een groep bandieten;
     ze dreigen met hun pistolen en eisen je geld en je spullen '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 2
+    action: Geef de bandieten wat kapitaal om ze weg te krijgen.
+    result: 'Je geeft de bandieten de kapitaal waar ze om vragen. De bandieten nemen
+      je geld af en lopen weg.
+
+
+      Verlies 2 kapitaal.'
+    resultFailed: 'Je hebt niet genoeg kapitaal om aan de bandieten te geven. De
+      bandieten accepteren dit niet en schieten je dood.
+
+
+      Je karakter gaat
+      dood.'
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -2
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
+  - skillNeeded:
+    - skillType: 0
+      skillAmountNeeded: 2
+    action: Probeer weg te rennen van de bandieten.
+    result: 'Je probeert snel met de kar weg te rennen van de bandieten. Een van
+      de bandieten zit nog recht achter je, maar hij struikelt over een struik en
+      valt. Je bent succesvol ontsnapt van de bandieten.
+
+
+      Verdien 2 aanpassingsvermogen.'
+    resultFailed: "Je probeert snel met de kar weg te rennen van de bandieten. Een
+      van de bandieten zit nog recht achter je uiteindelijk komt de bandiet te dichtbij
+      en schiet hij je dood. \n\nJe karakter gaat dood."
+    change:
+    - skillToBeChanged: 0
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0
+  - skillNeeded:
+    - skillType: 3
+      skillAmountNeeded: 2
+    action: Probeer de bandieten te overtuigen om je met rust te laten.
+    result: 'Je probeert te overleggen met de bandieten dat je al een lange reis
+      achter de rug hebt en dit niet verdient. De bandieten raken in tranen door
+      jouw verhaal en besluiten om je met rust te laten.
+
+
+      Verdien 2 sociaal.'
+    resultFailed: 'Je probeert de bandieten te overtuigen om je met rust te laten
+      door te praten over de lange reis die je al achter de rug hebt. Dit maakt de
+      bandieten alleen maar boos en ze schieten je dood.
+
+
+      Je karakter gaat
+      dood.'
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 7
+      changeAmount: 0

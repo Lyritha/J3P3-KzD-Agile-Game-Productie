@@ -15,4 +15,33 @@ MonoBehaviour:
   question: 'Je zoekt je familie en oude vrienden in Amerika op. Zij wonen in Sheboygan.
     Je denkt erover na of je je eigen leven in Iowa wil opbouwen of toch bij je familie
     en vrienden te blijven. '
-  answers: []
+  answers:
+  - skillNeeded: []
+    action: Je besluit bij je familie en vrienden in Sheboygan te wonen.
+    result: 'Je blijft bij je familie in Sheboygan. Je leeft je leven gezellig en
+      veilig bij je familie.
+
+
+      Verlies 2 aanpassingsvermogen, verdien 2 sociaal.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 0
+      changeAmount: -2
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded: []
+    action: Je wilt toch je eigen leven en huis bouwen en besluit naar Iowa te verhuizen.
+    result: 'Je besluit om je eigen leven te starten zonder de hulp van je familie.
+      Je verhuist naar Iowa en bouwt daar je eigen huis.
+
+
+      Verlies 2 sociaal,
+      Verdien 2 aanpassingsvermogen.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -2
+    - skillToBeChanged: 0
+      changeAmount: 2
+    changeFailed: []
