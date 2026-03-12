@@ -37,6 +37,7 @@ public class UIQuestionManager : MonoBehaviour
 
     int maxRemoveWord = 3;
     int maxStat = 5;
+    bool EventEnded = false;
 
     List<RectTransform> activeCards;
 
@@ -53,7 +54,10 @@ public class UIQuestionManager : MonoBehaviour
 
     private void Update()
     {
-        CheckIfTimerIsDone(TimerManager.GetComponent<Timer>());
+        if (EventEnded == false)
+        {
+            CheckIfTimerIsDone(TimerManager.GetComponent<Timer>());
+        }
     }
     //read scriptable > create new UI element > create cards.
 
@@ -226,12 +230,26 @@ public class UIQuestionManager : MonoBehaviour
     {
         if (timerScript.amountOfSeconds < 0)
         {
+
             EmptyActiveList();
+            print(TellEndScore().ToString());
+            EventEnded = true;
         }
     }
 
     //use this method to recieve the score
-    public int TellEndScore() => currentAmountOfPoints;
+    public int TellEndScore() => CalculateActualSkillPointIncrease(currentAmountOfPoints);
+
+    int CalculateActualSkillPointIncrease(int currentPoints)
+    {
+        int maxPointIncrease = 3;
+        int TargetForMaxPoint = 6;
+
+        float calculatedPoints = (float)((float)currentAmountOfPoints / (float)TargetForMaxPoint) * (float)maxPointIncrease;
+        int actualReturn = (calculatedPoints.RoundToInt()).Clamp(0, maxPointIncrease);
+
+        return actualReturn;
+    }
     IEnumerator ShowQuickPointChange(int amountOfPoints)
     {
         RectTransform pointCard = Instantiate(UIPointsCardPrefab);
