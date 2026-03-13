@@ -18,6 +18,7 @@ public struct Minigame
 {
     public Fases allowedPhase;
     public string sceneName;
+    public string minigameName;
 }
 
 public class EventStateManager : MonoBehaviour
@@ -30,6 +31,7 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] protected PhaseManager faseManager;
     [SerializeField] protected SceneHider sceneHider;
     [SerializeField] protected List<Minigame> minigames;
+    [SerializeField] private GameObject minigamePauseMenu;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
 
@@ -46,6 +48,7 @@ public class EventStateManager : MonoBehaviour
 
     protected void Start()
     {
+        minigamePauseMenu.SetActive(false);
         List<Minigame> allowedMinigames = minigames.FindAll(m => (m.allowedPhase & faseManager.CurrentFase) != 0);
         if (allowedMinigames.Count == 0)
         {
@@ -126,10 +129,13 @@ public class EventStateManager : MonoBehaviour
     protected void MinigameState()
     {
         if (minigameTriggers.TryGetValue(faseManager.Progress, out Minigame selectedMinigame))
-        {
+        { 
             Debug.Log("startMinigame");
-            sceneHider.HideMainScene();
-            SceneManager.LoadScene(selectedMinigame.sceneName, LoadSceneMode.Additive);
+            // menu openen
+            // menu.startMenu(selectedMinigame)
+            minigamePauseMenu.SetActive(true);
+            NextGameManager.Instance.StarMenu(selectedMinigame);
+            
             return;
         }
 
@@ -140,4 +146,5 @@ public class EventStateManager : MonoBehaviour
     {
         Debug.Log("exit loop");
     }
+
 }

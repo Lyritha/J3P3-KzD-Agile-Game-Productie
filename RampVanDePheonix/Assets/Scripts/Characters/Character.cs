@@ -35,6 +35,25 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
         this.parent = CharacterListDisplay.Instance;
     }
+    public void Initialize(Personage personage, bool isAlive, bool isOnLifeBoat)
+    {
+        if (characterFood != null)
+            characterFood.Initialize(this);
+
+        this.Personage = personage;
+        this.parent = CharacterListDisplay.Instance;
+
+        if (isOnLifeBoat)
+            Safe();
+
+        if (!isAlive)
+        {
+            Die();
+        }
+
+        characterDisplay.SetUI(personage);
+
+    }
 
     public void UpdateCharacterState()
     {
@@ -42,6 +61,9 @@ public class Character : MonoBehaviour, IPointerClickHandler
         bool shouldEat = Random.value < chanceToEat;
         if (shouldEat && characterFood != null) characterFood.EatFood();
     }
+
+    [ContextMenu("take m out back and shoot 'm")]
+    public void Die() => Die("No reason given");
 
     public void Die(string reason = "No reason given")
     {
