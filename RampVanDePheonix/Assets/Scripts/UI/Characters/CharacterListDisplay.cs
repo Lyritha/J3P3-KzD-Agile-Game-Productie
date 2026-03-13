@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +14,7 @@ public class CharacterListDisplay : MonoBehaviour
     [SerializeField]
     protected Capital capitalDisplay;
 
-    public Character SelectedCharacter { get; private set; }
+    public Character SelectedCharacter;
     public List<Character> Characters { get; private set; } = new();
 
     private void Awake()
@@ -30,8 +31,14 @@ public class CharacterListDisplay : MonoBehaviour
 
     public void DeselectCharacter()
     {
-        foreach (Character otherCharacter in Characters)
+        for (int i = 0; i < Characters.Count; i++)
+        {
+            Character otherCharacter = Characters[i];
             otherCharacter.SetSelected(false);
+
+            NextGameManager manager = FindFirstObjectByType<NextGameManager>();
+            if (manager != null) manager.UpdateSelected(i, false);
+        }
 
         SelectedCharacter = null;
     }
@@ -39,8 +46,15 @@ public class CharacterListDisplay : MonoBehaviour
     // Handle setting the selected character
     public void SetSelectedCharacter(Character character)
     {
-        foreach (Character otherCharacter in Characters)
-            otherCharacter.SetSelected(otherCharacter == character);
+        for(int i = 0; i < Characters.Count; i++)
+        {
+            Character otherCharacter = Characters[i];
+            bool isSelected = character != null && otherCharacter.Personage == character.Personage;
+            otherCharacter.SetSelected(isSelected);
+
+            NextGameManager manager = FindFirstObjectByType<NextGameManager>();
+            if (manager != null) manager.UpdateSelected(i, isSelected);
+        }
 
         SelectedCharacter = character;
     }
