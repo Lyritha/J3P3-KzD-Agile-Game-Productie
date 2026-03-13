@@ -10,7 +10,7 @@ public class Character : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private CharacterDisplay characterDisplay;
     [SerializeField]
-    private CharacterFood characterFood;
+    public CharacterFood characterFood;
     [SerializeField]
     private Image borderImage;
 

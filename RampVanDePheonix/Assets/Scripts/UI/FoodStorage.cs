@@ -65,6 +65,21 @@ public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         return true;
     }
 
+    /// <summary>
+    /// Removes food to the storage.
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <returns>true if at least 1 food can be added</returns>
+    public bool TryRemoveFood(int amount)
+    {
+        if (CurrentFood <= MaxFood) return false;
+
+        CurrentFood -= amount;
+        UpdateDisplay();
+
+        return true;
+    }
+
     public bool RemoveFood()
     {
         if (CurrentFood <= 0) return false;

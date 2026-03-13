@@ -12,7 +12,7 @@ public class CharacterFood : MonoBehaviour
     private RectTransform starvingText;
 
     private int maxFood = 3;
-    private int currentFood;
+    public int currentFood;
 
     private Color fullColor = Color.red;
     private Color emptyColor = Color.black;

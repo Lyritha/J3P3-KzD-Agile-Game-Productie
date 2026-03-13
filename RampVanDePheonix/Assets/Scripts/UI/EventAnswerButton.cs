@@ -12,6 +12,8 @@ public class EventAnswerButton : MonoBehaviour
     private Event current;
     private EventVisualiser parent;
     CharacterListDisplay selector;
+    LifeboatManager boat;
+    FoodStorage foodstor;
 
     //adding the the
     [SerializeField]
@@ -73,6 +75,8 @@ public class EventAnswerButton : MonoBehaviour
         }
     }
 
+    bool result;
+
     bool CheckSkills()
     {
         // get reference to personage to make rest more readable (and way more optimized)
@@ -83,23 +87,28 @@ public class EventAnswerButton : MonoBehaviour
             switch (skill.skillType)
             {
                 case Skillset.Kapitaal:
-                    if (personage.baseKapitaal >= skill.skillAmountNeeded) return true;
+                    if (personage.baseKapitaal >= skill.skillAmountNeeded) result = true;
+                    else result = false;
                     break;
                 case Skillset.Bouwkunde:
-                    if (personage.baseBouwkunde >= skill.skillAmountNeeded) return true;
+                    if (personage.baseBouwkunde >= skill.skillAmountNeeded) result = true;
+                    else result = false;
                     break;
                 case Skillset.Socialiteit:
-                    if (personage.baseSociaal >= skill.skillAmountNeeded) return true;
+                    if (personage.baseSociaal >= skill.skillAmountNeeded) result = true;
+                    else result = false;
                     break;
                 case Skillset.AanpassingsVermogen:
-                    if (personage.baseAanpassingsvermogen >= skill.skillAmountNeeded) return true;
+                    if (personage.baseAanpassingsvermogen >= skill.skillAmountNeeded) result = true;
+                    else result = false;
                     break;
                 case Skillset.Leervermogen:
-                    if (personage.baseLeervermogen >= skill.skillAmountNeeded) return true;
+                    if (personage.baseLeervermogen >= skill.skillAmountNeeded) result = true;
+                    else result = false;
                     break;
             }
         }
-        return false;
+        return result;
     }
     void ChangeSkills(bool hasSkills)
     {
@@ -131,6 +140,21 @@ public class EventAnswerButton : MonoBehaviour
                     case Skillset.Death:
                         selector.SelectedCharacter.Die("ebola");
                         break;
+                    case Skillset.Reddingsboot:
+                        boat.SaveSelected();
+                        break;
+                    case Skillset.FoodStorage:
+                        if (change.changeAmount < 0) foodstor.TryRemoveFood(change.changeAmount);
+                        else foodstor.TryAddFood(change.changeAmount);
+                        break;
+                    case Skillset.HungerPerPerson:
+                        foreach (var character in selector.Characters)
+                        {
+                            int currentFoodForCheck = character.characterFood.currentFood;
+
+                            if ((currentFoodForCheck += change.changeAmount)! < 0) character.characterFood.currentFood += change.changeAmount;
+                        }
+                        break;
                 }
             }
         }
@@ -157,6 +181,21 @@ public class EventAnswerButton : MonoBehaviour
                         break;
                     case Skillset.Death:
                         selector.SelectedCharacter.Die("ebola");
+                        break;
+                    case Skillset.Reddingsboot:
+                        boat.SaveSelected();
+                        break;
+                    case Skillset.FoodStorage:
+                        if (change.changeAmount < 0) foodstor.TryRemoveFood(change.changeAmount);
+                        else foodstor.TryAddFood(change.changeAmount);
+                        break;
+                    case Skillset.HungerPerPerson:
+                        foreach (var character in selector.Characters)
+                        {
+                            int currentFoodForCheck = character.characterFood.currentFood;
+
+                            if ((currentFoodForCheck += change.changeAmount)! < 0) character.characterFood.currentFood += change.changeAmount;
+                        }
                         break;
                 }
             }
