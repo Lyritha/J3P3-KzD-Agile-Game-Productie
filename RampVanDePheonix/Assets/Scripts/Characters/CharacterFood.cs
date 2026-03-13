@@ -35,7 +35,7 @@ public class CharacterFood : MonoBehaviour
     public void EatFood()
     {
         // when the character runs out of food, 50% chance to die, can be changed to something more complex later
-        bool shouldDie = currentFood <= 0 && Random.value < 0.5f;
+        bool shouldDie = currentFood <= 0;
         if (shouldDie)
         {
             foodText.gameObject.SetActive(false);
