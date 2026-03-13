@@ -30,6 +30,8 @@ public class NextGameManager : MonoBehaviour
     public void StarMenu(Minigame selectedMinigame)
     {
         chosenMinigame = selectedMinigame;
+        nextGameText.text = $"Volgende Minigame: {chosenMinigame.minigameName}";
+
         foreach (Character character in Characters)
         {
             Destroy(character.gameObject);
