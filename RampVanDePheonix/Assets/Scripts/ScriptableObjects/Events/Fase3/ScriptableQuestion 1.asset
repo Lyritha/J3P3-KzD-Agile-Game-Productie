@@ -15,4 +15,58 @@ MonoBehaviour:
   question: 'Je vindt een partner, trouwt en krijgt een handvol kinderen. Je hebt
     je plek in Amerika helemaal gevonden. Je denkt erover na om je familie en vrienden
     te vragen of ze ook de reis naar Amerika willen maken.  '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 2
+    action: Je kent de gevaren, maar besluit toch je familie te vragen en te komen.
+      Om ze te helpen met de reis stuur je ze 2 kapitaal om zeker te weten dat ze
+      de reis overleven.
+    result: 'Je stuurt je familie het kapitaal en ze besluitein om de reis ook te
+      maken. Na nog een lange reis komen hun ook aan in Amerika en sluiten ze zich
+      aan bij jouw boerderij.
+
+
+      Verlies 2 kapitaal, Verdien 3 sociaal.'
+    resultFailed: 'Je hebt niet genoeg kapitaal om te sturen naar je familie, Hierdoor
+      is de reis voor hun een stuk moeilijker. Na een lange en moeilijke reis komt
+      je familie aan in Amerika en sluiten ze zich aan bij jouw boerderij.
+
+
+      Verdien
+      2 sociaal.'
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -2
+    - skillToBeChanged: 3
+      changeAmount: 3
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: 2
+  - skillNeeded: []
+    action: Je kent de gevaren, maar besluit toch je familie te vragen en te komen.
+      Toch laat je je familie zelf de reis betalen.
+    result: "Na lang wachten krijg je eindelijk nieuws over hoe de reis voor jouw
+      familie ging. Het blijkt dat vanwege een te krap budget ze geen ticket konden
+      kopen om naar Amerika te komen en vast kwamen te zitten bij de haven. \n\nVerlies
+      2 sociaal"
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -2
+    changeFailed: []
+  - skillNeeded: []
+    action: Na je eigen ervaringen op de SS Phoenix besluit je toch je familie in
+      Nederland te laten uit angst dat ze de reis niet overleven. Hierdoor mis je
+      wel je familie om je heen
+    result: 'Je wou het niet riskeren om je familie de reis te laten maken. Hierdoor
+      blijft je familie in de Achterhoek en blijf jij alleen bij de nieuwe boerderij.
+
+
+      verlies
+      2 sociaal.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -2
+    changeFailed: []

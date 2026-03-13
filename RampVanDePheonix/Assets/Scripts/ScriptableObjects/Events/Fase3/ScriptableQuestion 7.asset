@@ -14,4 +14,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: Nu je eindelijk in Amerika bent besluit je hier ook een baan te gaan
     zoeken zodat je je familie kan voorzien van eten en onderdak.
-  answers: []
+  answers:
+  - skillNeeded: []
+    action: Je besluit om schrijver worden bij de Sheboygan Nieuwsbode, een Nederlandse
+      krant die in Amerika uitgegeven wordt.
+    result: 'De krant neemt jou aan als schrijver en je bent goed bezig om je eerste
+      krant te schrijven. Na het uitbrengen van de krant is je baas erg tevreden
+      met je werk.
+
+
+      Verdien 1 kapitaal, Verdien 2 leervermogen.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 1
+    - skillToBeChanged: 4
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded: []
+    action: Je besluit timmerman te worden en te helpen met de bouw van nieuwe huizen
+      voor het grote aantal emigranten die het land binnen komen.
+    result: 'Je word aangenomen als timmerman en bent bezig met huizen bouwen voor
+      andere immigranten. Na het bouwen van de huizen krijg je eindelijk je eerste
+      loonstrookje.
+
+
+      Verdien 1 kapitaal, Verdien 2 bouwkunde.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 1
+    - skillToBeChanged: 2
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded: []
+    action: "Je gaat in een simpele \u2018general store\u2019 te werken waar je de
+      huidige bewoners beter leert kennen"
+    result: 'Je word aangenomen bij de winkel en bent bezig met een schap te vullen
+      met melk. Je baas vind dat je goed bezig bent en geeft je een klein beetje
+      extra loon.
+
+
+      Verdien 2 kapitaal.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2
+    changeFailed: []

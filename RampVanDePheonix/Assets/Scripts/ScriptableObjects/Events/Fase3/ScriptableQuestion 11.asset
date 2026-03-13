@@ -14,4 +14,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Je komt een zwerver tegen die aan het bedelen is voor eten. Hij vraagt
     je of je wat kapitaal te besparen hebt voor hem. '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
+    action: Je besluit om de zwerver wat kapitaal te geven zodat hij daarvan eten
+      kan kopen.
+    result: Je overhandigt een deel van je kapitaal. De zwerver kijkt je met ongeloof
+      aan en bedankt je luidkeels, waardoor omstanders het zien.
+    resultFailed: Je had blijkbaar geen geld meer in je tasje, je moet de zwerver
+      met lege handen wegsturen.
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
+    - skillToBeChanged: 1
+      changeAmount: -1
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -1
+    - skillToBeChanged: 4
+      changeAmount: -1
+  - skillNeeded:
+    - skillType: 5
+      skillAmountNeeded: 1
+    action: 'Je besluit om de zwerver wat te eten te geven omdat je hem niet vertrouwt
+      met jouw kapitaal. '
+    result: Je haalt een stevige maaltijd uit je tas en overhandigt deze. De zwerver
+      is oprecht dankbaar voor het directe voedsel en ziet dat je een man van principes
+      bent.
+    resultFailed: Je had geen eten meer, de zwerver gelooft niet dat je niets hebt
+      en denkt dat je hem uitlacht. Hij begint agressief te bedelen en trekt aan
+      je kleren, hij steelt wat van je geld.
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1
+    - skillToBeChanged: 5
+      changeAmount: -1
+    changeFailed:
+    - skillToBeChanged: 1
+      changeAmount: -2
+    - skillToBeChanged: 3
+      changeAmount: -1
+    - skillToBeChanged: 4
+      changeAmount: -1
+  - skillNeeded: []
+    action: 'Je besluit om de zwerver niks te geven omdat je zelf het ook moeilijk
+      hebt op dit moment. '
+    result: Je negeert het verzoek van de zwerver resoluut en loopt met een strak
+      gezicht door. Je laat je niet verleiden tot medelijden of discussie, omdat
+      elke munt of elk stuk eten dat je nu weggeeft, je eigen missie in gevaar brengt.
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -1
+    changeFailed: []

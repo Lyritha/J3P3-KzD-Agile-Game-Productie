@@ -16,4 +16,96 @@ MonoBehaviour:
     in Amerika, je moet alleen nog een cursus doen voor je Amerikaanse burgerschap.
     Hier leer je onder andere de Engelse taal, het volkslied en wat er in de grondwet
     staat. '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 4
+      skillAmountNeeded: 2
+    action: Je probeert de cursus af te ronden zonder extra te leren of om hulp te
+      vragen.
+    result: 'Je doet je best om met je huidige kennis de cursus af te ronden. Uiteindelijk
+      krijg je je resultaat binnen en kom je erachter dat je geslaagd bent!
+
+
+      Verdien
+      2 leervermogen.'
+    resultFailed: 'Je doet je best om met je huidige kennis de cursus af te ronden.
+      Uiteindelijk krijg je je resultaat binnen en kom je erachter dat je niet geslaagd
+      bent. helaas moet je de cursus over een maand opnieuw proberen.
+
+
+      Verlies
+      1 leervermogen.'
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 4
+      changeAmount: -1
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
+    action: Je betaalt een Amerikaan om je bijles te geven voor de cursus.
+    result: 'De Amerikaan geeft je bijles en je komt erachter dat je nog veel moest
+      leren voordat je de cursus zou halen. Uiteindelijk haal je de cursus door de
+      extra bijles dat je genomen hebt.
+
+
+      Verlies 1 kapitaal, Verdien 1 leervermogen.'
+    resultFailed: 'Je hebt niet genoeg kapitaal om de bijles te betalen. Uiteindelijk
+      probeer je toch de cursus af te ronden, maar het lukt je niet om de cursus
+      succesvol af te ronden.
+
+
+      Verlies 1 leervermogen.'
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -1
+    - skillToBeChanged: 4
+      changeAmount: 1
+    changeFailed:
+    - skillToBeChanged: 4
+      changeAmount: -1
+  - skillNeeded:
+    - skillType: 4
+      skillAmountNeeded: 1
+    action: Je besluit goed zelf te studeren en zelfstandig de cursus af te ronden
+    result: 'Je doet je best om nog wat extra te leren voordat je de cursus probeert
+      te halen. Uiteindelijk probeer je de cursus en vanwege het extra leren heb
+      je hem ook daadwerkelijk gehaald!
+
+
+      Verdien 1 leervermogen.'
+    resultFailed: Je doet je best om nog wat extra bij te leren, maar je raakt te
+      snel afgeleid aan andere dingen en bent niet goed genoeg voorbereid voor de
+      cursus. Ja haalt de cursus niet.
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 1
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 3
+    action: Je betaalt een Amerikaan om jou na te doen zodat hij de cursus voor jou
+      kan afmaken
+    result: 'Je betaald een Amerikaan om de cursus in jouw naam te doen. De Amerikaan
+      haalt de cursus in een keer. en bedankt je voor de betaling.
+
+
+      Verlies
+      3 kapitaal, Verdien 1 aanpassingsvermogen.'
+    resultFailed: 'Je hebt niet genoeg kapitaal om de Amerikaan te betalen. Je probeert
+      de cursus zelf af te ronden maar dit is je niet gelukt.
+
+
+      Verlies 2 aanpassingsvermogen,
+      verlies 1 leervermogen.'
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -3
+    - skillToBeChanged: 0
+      changeAmount: 1
+    changeFailed:
+    - skillToBeChanged: 0
+      changeAmount: -2
+    - skillToBeChanged: 4
+      changeAmount: -1

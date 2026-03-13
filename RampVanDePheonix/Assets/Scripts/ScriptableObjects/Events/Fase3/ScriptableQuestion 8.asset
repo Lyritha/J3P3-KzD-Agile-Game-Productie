@@ -14,4 +14,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Je hebt inmiddels een fijne vriendenkring in Amerika die hier al langer
     woont. Je vraagt hen hulp met het opbouwen van je nieuwe leven. '
-  answers: []
+  answers:
+  - skillNeeded: []
+    action: Je vraagt hen om je Engels les te geven.
+    result: 'Je nieuwe vrienden helpen je met de taal beter leren. Hierdoor lukt
+      het je om beter gesprekken te starten met andere Amerikanen.
+
+
+      Verdien
+      1 leervermogen, Verdien 1 sociaal.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 1
+    - skillToBeChanged: 3
+      changeAmount: 1
+    changeFailed: []
+  - skillNeeded: []
+    action: Je vraagt hen bij de bouw van je huis te helpen
+    result: 'Je vrienden vinden het goed om je te helpen met je huis bouwen. Hierdoor
+      krijg je het een stuk sneller af. Je besluit om een feestje te vieren met je
+      nieuwe vrienden.
+
+
+      Verdien 2 bouwkunde, Verdien 1 sociaal.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
+    - skillToBeChanged: 3
+      changeAmount: 1
+    changeFailed: []
+  - skillNeeded: []
+    action: Je vraagt hen wat een goede werkplek is.
+    result: 'Je vrienden wijzen je naar een nieuw bedrijf die huizen bouwt voor immigranten
+      zoals jij. Je besluit om hier te gaan werken en bouwt een nieuwe band met je
+      collegas.
+
+
+      Verdien 2 kapitaal, verdien 1 sociaal'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2
+    - skillToBeChanged: 3
+      changeAmount: 1
+    changeFailed: []

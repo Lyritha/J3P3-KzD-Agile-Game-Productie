@@ -13,6 +13,8 @@ using UnityEngine.UI;
 
 public class UIQuestionManager : MonoBehaviour
 {
+    [SerializeField] GameObject TimerManager;
+
     [SerializeField] GameObject UIcardAnswerPrefab;
     [SerializeField] GameObject UIcardQuestionPrefab;
     [SerializeField] RectTransform UIPointsCardPrefab;
@@ -35,6 +37,7 @@ public class UIQuestionManager : MonoBehaviour
 
     int maxRemoveWord = 3;
     int maxStat = 5;
+    bool EventEnded = false;
 
     List<RectTransform> activeCards;
 
@@ -49,6 +52,13 @@ public class UIQuestionManager : MonoBehaviour
         InitialiseWorld(); //work on this if characters, scenery etc are done
     }
 
+    private void Update()
+    {
+        if (EventEnded == false)
+        {
+            CheckIfTimerIsDone(TimerManager.GetComponent<Timer>());
+        }
+    }
     //read scriptable > create new UI element > create cards.
 
     //gets a random new question
@@ -146,7 +156,7 @@ public class UIQuestionManager : MonoBehaviour
 
     void ChangePoints(int amountToChange)
     {
-        currentAmountOfPoints+= amountToChange;
+        currentAmountOfPoints += amountToChange;
         StartCoroutine(ShowQuickPointChange(amountToChange));
     }
     void EmptyActiveList()
@@ -212,10 +222,34 @@ public class UIQuestionManager : MonoBehaviour
     IEnumerator ActivateNewQuestion()
     {
         //waiting a few seconds after answering
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         NewQuestion();
     }
 
+    void CheckIfTimerIsDone(Timer timerScript)
+    {
+        if (timerScript.amountOfSeconds < 0)
+        {
+
+            EmptyActiveList();
+            print(TellEndScore().ToString());
+            EventEnded = true;
+        }
+    }
+
+    //use this method to recieve the score
+    public int TellEndScore() => CalculateActualSkillPointIncrease(currentAmountOfPoints);
+
+    int CalculateActualSkillPointIncrease(int currentPoints)
+    {
+        int maxPointIncrease = 3;
+        int TargetForMaxPoint = 6;
+
+        float calculatedPoints = (float)((float)currentAmountOfPoints / (float)TargetForMaxPoint) * (float)maxPointIncrease;
+        int actualReturn = (calculatedPoints.RoundToInt()).Clamp(0, maxPointIncrease);
+
+        return actualReturn;
+    }
     IEnumerator ShowQuickPointChange(int amountOfPoints)
     {
         RectTransform pointCard = Instantiate(UIPointsCardPrefab);
@@ -235,7 +269,7 @@ public class UIQuestionManager : MonoBehaviour
             Vector3 currentPos = pointCard.transform.position;
             currentPos.y += 7;
             pointCard.transform.position = currentPos;
-            yield return new WaitForSeconds((secondsActive/amountIterations));
+            yield return new WaitForSeconds((secondsActive / amountIterations));
         }
         GameObject.Destroy(pointCard.gameObject);
     }

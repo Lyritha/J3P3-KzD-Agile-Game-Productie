@@ -12,7 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 2
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Je vestigt je in Wisconsin, een bosrijk gebied. Je koopt een stuk land
-    en moet hard werken om er bouwgrond van te maken. Van de gekapte bomen maak je
-    je uiteindelijke huis. '
-  answers: []
+  question: Je vestigt je in Wisconsin, een bosrijk gebied. Je koopt een stuk land
+    en moet hard werken om er bouwgrond van te maken. Je kan wat extra hout kopen
+    om je huis wat groter te maken.
+  answers:
+  - skillNeeded: []
+    action: Je besluit om geen extra hout te kopen en je houdt je huis redelijk klein.
+    result: 'Na een lange tijd bouwen heb je je uiteindelijk huis gemaakt. Het is
+      niet veel, maar je bent er trots op.
+
+
+      Verdien 2 bouwkunde.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 2
+    action: Je besluit om groots uit te pakken en je koopt wat extra hout om een
+      groter huis te kunnen maken.
+    result: 'Na een lange tijd bouwen is je huis eindelijk afgemaakt. Het duurde
+      lang maar je bent blij met het uiteindelijke resultaat.
+
+
+      Verlies 2 kapitaal,
+      verdien 3 bouwkunde.'
+    resultFailed: 'Je hebt niet genoeg kapitaal om het extra hout te kopen. Je hebt
+      uiteindelijk je huis af, maar je bent wel teleurgesteld over hoe groot het
+      uiteindelijk is geworden.
+
+
+      Verdien 2 bouwkunde.'
+    change:
+    - skillToBeChanged: 2
+      changeAmount: 3
+    changeFailed:
+    - skillToBeChanged: 2
+      changeAmount: 2

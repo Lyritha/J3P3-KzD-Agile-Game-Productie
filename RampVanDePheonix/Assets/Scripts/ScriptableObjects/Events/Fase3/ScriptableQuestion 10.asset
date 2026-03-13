@@ -14,4 +14,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Je hebt geen zin in het leven op het platteland. Je denkt erover na
     om te verhuizen naar Milwaukee of Grand Rapids.  '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
+    action: Je verhuist naar Milwaukee omdat daar een goede school is waar je je
+      studies kan afronden.
+    result: 'Je besluit om richting Milwaukee te gaan om daar je studies af te ronden.
+      Eenmaal aangekomen in Milwaukee betaal je de school om daar verder te kunnen
+      studeren.
+
+
+      Verlies 1 kapitaal, verdien 2 leervermogen.'
+    resultFailed: 'Je besluit om richting Milwaukee te gaan om daar je studies af
+      te ronden. Eenmaal aangekomen in Milwaukee kom je erachter dat je niet genoeg
+      kapitaal hebt om de studies te betalen.
+
+
+      Verlies 2 leervermogen.'
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -1
+    - skillToBeChanged: 4
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 4
+      changeAmount: -2
+  - skillNeeded:
+    - skillType: 2
+      skillAmountNeeded: 2
+    action: Je verhuist naar Grand Rapids omdat je hoopt hier een goede baan in de
+      bouw te vinden.
+    result: 'Je besluit om richting de Grand Rapids te gaan. Eenmaal aangekomen probeer
+      je een goede baan te vinden bij een bouwbedrijf. De eigenaar van het bedrijf
+      vind je bouwkunde vaardigheden goed en neemt je aan.
+
+
+      Verdien 2 kapitaal,
+      verdien 1 bouwkunde.'
+    resultFailed: 'Je besluit om richting de Grand Rapids te gaan. Eenmaal aangekomen
+      probeer je een goede baan te vinden bij een bouwbedrijf. De eigenaar van het
+      bedrijf vind je bouwkunde vaardigheden niet goed genoeg en besluit om je niet
+      aan te nemen.
+
+
+      Verlies 1 bouwkunde.'
+    change:
+    - skillToBeChanged: 1
+      changeAmount: 2
+    - skillToBeChanged: 2
+      changeAmount: 1
+    changeFailed:
+    - skillToBeChanged: 2
+      changeAmount: -1

@@ -37,8 +37,7 @@ public class PhaseManager : MonoBehaviour
                 break;
             case Fases.Amerika:
                 // temp, amerika doesn't exist.
-                SceneManager.LoadScene("EndScreen_Win");
-                //FillList(eventsConfig.amerikaEvents);
+                FillList(eventsConfig.amerikaEvents);
                 break;
             case Fases.EndScreen:
                 SceneManager.LoadScene("EndScreen_Win");

@@ -112,7 +112,7 @@ public class EventVisualiser : MonoBehaviour
                     chosenSprite = Icon_Capital;
                     break;
                 case Skillset.Bouwkunde:
-                    chosenSprite = Icon_Learn;
+                    chosenSprite = Icon_Build;
                     break;
                 case Skillset.AanpassingsVermogen:
                     chosenSprite = Icon_Adaptability;
@@ -121,7 +121,7 @@ public class EventVisualiser : MonoBehaviour
                     chosenSprite = Icon_Learn;
                     break;
                 default:
-                    chosenSprite = Icon_Capital;
+                    chosenSprite = Icon_Question;
                     break;
             }
 

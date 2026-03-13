@@ -14,4 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Je komt een zwerfhond tegen met een gebroken pootje. Je zit erover na
     te denken om hem mee te nemen en zijn poot te verzorgen. '
-  answers: []
+  answers:
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
+    action: Je kiest ervoor om de hond te adopteren en zijn poot te verzorgen bij
+      de dierenarts
+    result: 'Je gaat naar de dierenarts met de hond. Pieter voelt zich een stuk beter. '
+    resultFailed: Je had niet genoeg kapitaal, de dierenarts stuurt je weg. Je probeerde
+      de hond nog te verzorgen maar jammer genoeg is hij dood gegaan...
+    change:
+    - skillToBeChanged: 1
+      changeAmount: -1
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed:
+    - skillToBeChanged: 4
+      changeAmount: -2
+    - skillToBeChanged: 3
+      changeAmount: -1
+  - skillNeeded: []
+    action: Je kiest ervoor om de hond te adopteren en zelf zijn poot te verzorgen.
+    result: Je adopteerd Pieter en je steekt veel energie in het verzorgen van hem,
+      maar jammer genoeg na een maandje van proberen is hij comfortabel dood gegaan
+      in jou armen.
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 1
+    changeFailed: []
+  - skillNeeded: []
+    action: Je besluit om de hond achter te laten en hem over te laten aan zijn lot.
+    result: Je weet niet wat er met de hond is gebeurd na dat je weg was gelopen,
+      maar het is een hoge kans dat hij dood is gegaan.
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -1
+    changeFailed: []

@@ -15,4 +15,34 @@ MonoBehaviour:
   question: 'Je bent je vrouw en zes kinderen verloren. Na de herdenking moet je
     de moeilijke keuze maken om verder te gaan in het leven of vast te blijven hangen
     in het verleden. '
-  answers: []
+  answers:
+  - skillNeeded: []
+    action: Je pakt de draad weer op en vind een leuke vriendengroep waarmee je allerlei
+      Hollandse tradities in stand houdt.
+    result: 'Je gaat iederen avond met je vrienden traditionele hollandse spellen
+      spelen zoals: koekhappen en spijkerpoepen. De pijn van je vrouw en kinderen
+      verliezen is al snel weg door de gezelligheid die je hebt met je vrienden.
+
+
+      Verdien
+      2 sociaal.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: 2
+    changeFailed: []
+  - skillNeeded: []
+    action: Je besluit de dood van je vrouw en je kinderen langer te herdenken en
+      jezelf terug uit de gemeenschap te trekken en meer te focussen op je studies.
+    result: 'Je bllijft je vrouw en kinderen herdenken terwijl je bezig gaat met
+      je studies. Uiteindelijk wanneer je een goed verstand hebt opgebouwd over het
+      amerikaans leven. Ga je verder met je leven zonder je vrouw en kinderen.
+
+
+      Verdien
+      2 leervermogen.'
+    resultFailed: 
+    change:
+    - skillToBeChanged: 4
+      changeAmount: 2
+    changeFailed: []

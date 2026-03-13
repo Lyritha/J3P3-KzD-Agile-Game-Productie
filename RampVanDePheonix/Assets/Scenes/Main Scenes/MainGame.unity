@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3414792127680322957, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3446686558404428956, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -707,6 +711,10 @@ PrefabInstance:
     - target: {fileID: 8545056867422917407, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730262022433556246, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1306,6 +1314,51 @@ MonoBehaviour:
   pheonixForeground: {fileID: 2100000, guid: b5f8fd685dba6814ca4e0c83714a948f, type: 2}
   amerikaBackground: {fileID: 2100000, guid: da4c9240fb97d5040a8846a6109b993d, type: 2}
   amerikaForeground: {fileID: 2100000, guid: b576ed7fc455f864192d89692f734735, type: 2}
+--- !u!1 &838169067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 838169068}
+  - component: {fileID: 838169069}
+  m_Layer: 0
+  m_Name: BoatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &838169068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838169067}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 966.76874, y: 557.1428, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838169069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838169067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7582750d2aa330145b236f62b57bf430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LifeboatManager
+  LifeBoatPassengers: []
 --- !u!1 &863149254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,3 +3476,4 @@ SceneRoots:
   - {fileID: 863149256}
   - {fileID: 1530623481}
   - {fileID: 767755093}
+  - {fileID: 838169068}
