@@ -10,6 +10,7 @@ public class NextGameManager : MonoBehaviour
     [SerializeField] SceneHider sceneHider;
 
     [SerializeField] TMP_Text nextGameText;
+    [SerializeField] RectTransform tutorialRect;
 
     private bool canPlay = false;
     private Minigame chosenMinigame;
@@ -69,5 +70,10 @@ public class NextGameManager : MonoBehaviour
         gameObject.SetActive(false);
         sceneHider.HideMainScene();
         SceneManager.LoadScene(chosenMinigame.sceneName, LoadSceneMode.Additive);
+    }
+
+    public void StartTutorial()
+    {
+        tutorialRect.gameObject.SetActive(true);
     }
 }
