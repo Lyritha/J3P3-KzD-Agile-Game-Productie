@@ -1,6 +1,7 @@
 using MyBox;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BackgroundMovement : MonoBehaviour
 {
@@ -9,11 +10,24 @@ public class BackgroundMovement : MonoBehaviour
     float backgroundImageWidth = 800;
     float foregroundImageWidth = 800;
 
+    float foregroundSpeed = 500;
+    float backgroundSpeed = 250;
+
+
+    [Header("background sprites")]
     [SerializeField] Sprite[] backgroundAchterhoek;
     [SerializeField] Sprite[] backgroundBoat;
     [SerializeField] Sprite[] backgroundAmerica;
-    [SerializeField] GameObject defImageObject;
+
+    [Header("foreground sprites")]
+    [SerializeField] Sprite[] foregroundAchterhoek;
+    [SerializeField] Sprite[] foregroundBoat;
+    [SerializeField] Sprite[] foregroundAmerica;
+
+    [Header("in-scene objects")]
+    [SerializeField] GameObject defaultImageObject;
     [SerializeField] Canvas activeCanvas;
+
     List<GameObject> currentActiveBackgrounds;
     List<GameObject> currentActiveForeGrounds;
 
@@ -23,50 +37,74 @@ public class BackgroundMovement : MonoBehaviour
     int amountOfBackgroundSpawns = 0;
     int amountOfForegroundSpawns = 0;
 
-    int imageOverlap = 5;
-    bool isTraveling = true;
-    Vector3 spawnPosition = new Vector3(-400, (1080 / 2), 0);
+    int imagePixelOverlap = 5;
+    public bool isTraveling = true;
+
+    //default positions are based on 1080 x 1920
+    [SerializeField] Vector3 backgroundSpawnPosition = new Vector3(-400, 540, 0);
+    [SerializeField] Vector3 foregroundSpawnPosition = new Vector3(-400, 270, 0.25f);
+    [SerializeField] private float foregroundOffset = 0;
+
 
     void Start()
     {
-        backgroundImageWidth -= imageOverlap;
+        //scales the spawning position according to the rendering height
+        backgroundSpawnPosition.y = 0;
+        foregroundSpawnPosition.y = foregroundOffset;
+
+
+
+        backgroundSpeed = (foregroundSpeed * 0.5f);
+
+        backgroundImageWidth -= imagePixelOverlap;
+        foregroundImageWidth -= imagePixelOverlap;
+
         currentActiveBackgrounds = new List<GameObject>();
-        AddNewBackground();
+        currentActiveForeGrounds = new List<GameObject>();
+
+        FillScreenOnStart();
         backgroundCount = currentActiveBackgrounds.Count;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        ManageBackgroundItems();
-
+        if (isTraveling)
+        {
+            ManageBackgroundItems();
+            ManagerForegroundItems();
+        }
     }
-
 
     void ManagerForegroundItems()
     {
-        if (currentActiveForeGrounds[foregroundCount-1].transform.position.x > (foregroundImageWidth + spawnPosition.x))
+        if (currentActiveForeGrounds.Count > 0)
         {
-            //AddNewForeground();  >>>>>> rework and check method
-            if (currentActiveForeGrounds.Count > 4)
+            if (currentActiveForeGrounds[foregroundCount - 1].transform.position.x > (foregroundImageWidth + backgroundSpawnPosition.x))
             {
-                //removeLastForeground   >>>>>> rework and check method
+                AddNewForeGround(foregroundSpawnPosition);
+                if (currentActiveForeGrounds.Count > 5)
+                {
+                    RemoveLastForeground();
+                }
             }
+            MoveAllActiveForegroundItems(foregroundSpeed);
         }
-        //MoveAllActiveForegroundItems(500); >>>>> create method for foreground
     }
 
     void ManageBackgroundItems()
     {
-        if (currentActiveBackgrounds[backgroundCount - 1].transform.position.x > (backgroundImageWidth + spawnPosition.x))
+        if (currentActiveBackgrounds.Count > 0)
         {
-            AddNewBackground();
-            if (backgroundCount > 4)
+            if (currentActiveBackgrounds[backgroundCount - 1].transform.position.x > (backgroundImageWidth + backgroundSpawnPosition.x))
             {
-                RemoveLastBackground();
+                AddNewBackground(backgroundSpawnPosition);
+                if (backgroundCount > 5)
+                {
+                    RemoveLastBackground();
+                }
             }
+            MoveAllActiveBackgroundItems(backgroundSpeed);
         }
-        MoveAllActiveBackgroundItems(500);
     }
 
     Sprite SelectBackgroundAccordingToFase(Fases currentFase)
@@ -75,16 +113,16 @@ public class BackgroundMovement : MonoBehaviour
         switch (currentFase)
         {
             case Fases.Achterhoek:
-                RandomBackgroundSprite(backgroundAchterhoek);
+                background = RandomBackgroundSprite(backgroundAchterhoek);
                 break;
             case Fases.Pheonix:
-                RandomBackgroundSprite(backgroundBoat);
+                background = RandomBackgroundSprite(backgroundBoat);
                 break;
             case Fases.Amerika:
-                RandomBackgroundSprite(backgroundAmerica);
+                background = RandomBackgroundSprite(backgroundAmerica);
                 break;
             default:
-                RandomBackgroundSprite(backgroundAchterhoek);
+                background = RandomBackgroundSprite(backgroundAchterhoek);
                 break;
         }
         return background;
@@ -96,56 +134,58 @@ public class BackgroundMovement : MonoBehaviour
         switch (currentFase)
         {
             case Fases.Achterhoek:
-                RandomBackgroundSprite(backgroundAchterhoek);
+                foreground = RandomForegroundSprite(foregroundAchterhoek);
                 break;
             case Fases.Pheonix:
-                RandomBackgroundSprite(backgroundBoat);
+                foreground = RandomForegroundSprite(foregroundBoat);
                 break;
             case Fases.Amerika:
-                RandomBackgroundSprite(backgroundAmerica);
+                foreground = RandomForegroundSprite(foregroundAmerica);
                 break;
             default:
-                RandomBackgroundSprite(backgroundAchterhoek);
+                foreground = RandomForegroundSprite(foregroundAchterhoek);
                 break;
         }
         return foreground;
     }
 
-    void AddNewBackground()
+    void AddNewBackground(Vector3 position)
     {
         Sprite newBackgroundElement = SelectBackgroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
-        GameObject newbackground = Instantiate(defImageObject, activeCanvas.transform);
+        GameObject newbackground = Instantiate(defaultImageObject, activeCanvas.transform);
+        newbackground.GetComponent<Image>().sprite = newBackgroundElement;
 
         if (amountOfBackgroundSpawns % 2 == 0)
         {
-            spawnPosition.z = 0.25f;
+            position.z = 0.25f;
         }
         else
         {
-            spawnPosition.z = 0.00f;
+            position.z = 0.20f;
         }
-        newbackground.transform.position = spawnPosition;
+        newbackground.transform.position = position;
         currentActiveBackgrounds.Add(newbackground);
         backgroundCount = currentActiveBackgrounds.Count;
         amountOfBackgroundSpawns++;
     }
 
-    void AddNewForeGround()
+    void AddNewForeGround(Vector3 position)
     {
-        Sprite newForeGroundSprite = SelectBackgroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
-        GameObject newForeGround = Instantiate(defImageObject, activeCanvas.transform);
+        Sprite newForeGroundSprite = SelectForegroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
+        GameObject newForeGround = Instantiate(defaultImageObject, activeCanvas.transform);
+        newForeGround.GetComponent<Image>().sprite = newForeGroundSprite;
 
         //layers the sprite to prevent z fighting
         if (amountOfForegroundSpawns % 2 == 0)
         {
-            spawnPosition.z = 0.25f;
+            position.z = 0.00f;
         }
         else
         {
-            spawnPosition.z = 0.00f;
+            position.z = 0.10f;
         }
-        newForeGround.transform.position = spawnPosition;
-        currentActiveBackgrounds.Add(newForeGround);
+        newForeGround.transform.position = position;
+        currentActiveForeGrounds.Add(newForeGround);
         foregroundCount = currentActiveForeGrounds.Count;
         amountOfForegroundSpawns++;
     }
@@ -156,6 +196,14 @@ public class BackgroundMovement : MonoBehaviour
         currentActiveBackgrounds.RemoveAt(0);
         Destroy(gameObjectToDestroy);
         backgroundCount = currentActiveBackgrounds.Count;
+    }
+
+    void RemoveLastForeground()
+    {
+        GameObject gameObjectToDestroy = currentActiveForeGrounds[0];
+        currentActiveForeGrounds.RemoveAt(0);
+        Destroy(gameObjectToDestroy);
+        foregroundCount = currentActiveForeGrounds.Count;
     }
 
     Sprite RandomBackgroundSprite(Sprite[] spriteArray)
@@ -177,6 +225,46 @@ public class BackgroundMovement : MonoBehaviour
         {
             float actualDistance = movementSpeed * delta;
             item.transform.position += new Vector3(actualDistance, 0, 0);
+        }
+    }
+
+    void MoveAllActiveForegroundItems(float movementSpeed)
+    {
+        float delta = Time.deltaTime;
+        foreach (GameObject item in currentActiveForeGrounds)
+        {
+            float actualDistance = movementSpeed * delta;
+            item.transform.position += new Vector3(actualDistance, 0, 0);
+        }
+    }
+
+
+    /// <summary>
+    /// this method fills the screen with images on start 
+    /// NOTE: images spawned in this method are from RIGHT to LEFT due to improper removal after an image gets offscreen
+    /// </summary>
+    void FillScreenOnStart()
+    {
+        //placements is from right to left otherwise images get removed incorrectly (0 is not the most right one)
+        float currentBackgroundPos = 2000;
+        float currentForegroundPos = 2000;
+
+        Vector3 backStartPos = backgroundSpawnPosition;
+        Vector3 foreStartPos = foregroundSpawnPosition;
+
+        //had to do it this way because unity start function is retarded 
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 tempVector = new Vector3(currentBackgroundPos, backStartPos.y, backStartPos.z);
+            AddNewBackground(tempVector);
+            currentBackgroundPos -= (backgroundImageWidth - imagePixelOverlap);
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            Vector3 tempVector = new Vector3(currentForegroundPos, foreStartPos.y, foreStartPos.z);
+            AddNewForeGround(tempVector);
+            currentForegroundPos -= (backgroundImageWidth - imagePixelOverlap);
         }
     }
 }

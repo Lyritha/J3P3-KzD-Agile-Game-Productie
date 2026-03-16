@@ -470,8 +470,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 748a438ac0943ed45aae641672ad8beb, type: 3}
   backgroundBoat: []
   backgroundAmerica: []
-  defImageObject: {fileID: 7486462284109310467, guid: 6f4a6c8c7453ecb42a43d52df40704b9, type: 3}
+  foregroundAchterhoek:
+  - {fileID: 21300000, guid: e40c79c8e6d7c2f418fbd250f2ec65da, type: 3}
+  foregroundBoat: []
+  foregroundAmerica:
+  - {fileID: 21300000, guid: 6c95f129410ae1642b26192db7219ff0, type: 3}
+  defaultImageObject: {fileID: 7486462284109310467, guid: 6f4a6c8c7453ecb42a43d52df40704b9, type: 3}
   activeCanvas: {fileID: 546580084}
+  isTraveling: 1
+  backgroundSpawnPosition: {x: -400, y: 540, z: 0}
+  foregroundSpawnPosition: {x: -400, y: 270, z: 0.25}
+  foregroundOffset: 0
 --- !u!4 &1071680048
 Transform:
   m_ObjectHideFlags: 0
