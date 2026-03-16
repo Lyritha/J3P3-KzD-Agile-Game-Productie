@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 425437586}
   - component: {fileID: 425437585}
   m_Layer: 5
-  m_Name: MinigameCanvas (1)
+  m_Name: Minigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,6 +653,7 @@ MonoBehaviour:
   characterPrefab: {fileID: 8293284080978554166, guid: 3e06fe3805de4ac4bbbb0c1b2fc9e1e9, type: 3}
   sceneHider: {fileID: 697106743}
   nextGameText: {fileID: 0}
+  tutorialParent: {fileID: 0}
 --- !u!114 &425437586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,8 +728,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1839892376}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1860,6 +1860,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1022769452}
+  - {fileID: 1839892376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1883,6 +1884,7 @@ MonoBehaviour:
   characterPrefab: {fileID: 8293284080978554166, guid: 3e06fe3805de4ac4bbbb0c1b2fc9e1e9, type: 3}
   sceneHider: {fileID: 697106743}
   nextGameText: {fileID: 0}
+  tutorialParent: {fileID: 0}
 --- !u!1 &1022769451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,18 +2598,18 @@ PrefabInstance:
     - target: {fileID: 276223724488232180, guid: c3758ad6ac4a5c1459a0ba5313a66511, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 425437585}
+      objectReference: {fileID: 1839892378}
     - target: {fileID: 276223724488232180, guid: c3758ad6ac4a5c1459a0ba5313a66511, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 276223724488232180, guid: c3758ad6ac4a5c1459a0ba5313a66511, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: ContinueButton
       objectReference: {fileID: 0}
     - target: {fileID: 276223724488232180, guid: c3758ad6ac4a5c1459a0ba5313a66511, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NextGameManager, Assembly-CSharp
+      value: MinigameFinished, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 276223724488232180, guid: c3758ad6ac4a5c1459a0ba5313a66511, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3478,18 +3480,22 @@ MonoBehaviour:
   faseManager: {fileID: 767755092}
   sceneHider: {fileID: 697106743}
   minigames:
-  - allowedPhase: 4
+  - minigameName: 
+    allowedPhase: 4
     sceneName: Minigame_Building
-    minigameName: 
-  - allowedPhase: 7
+    tutorialPrefab: {fileID: 0}
+  - minigameName: 
+    allowedPhase: 7
     sceneName: Minigame_Fishing
-    minigameName: 
-  - allowedPhase: 6
+    tutorialPrefab: {fileID: 0}
+  - minigameName: 
+    allowedPhase: 6
     sceneName: Minigame_Learning
-    minigameName: 
-  - allowedPhase: 7
+    tutorialPrefab: {fileID: 0}
+  - minigameName: 
+    allowedPhase: 7
     sceneName: Minigame_Social
-    minigameName: 
+    tutorialPrefab: {fileID: 0}
   minigamePauseMenu: {fileID: 1009091008}
 --- !u!1 &1712190459
 GameObject:
@@ -3712,8 +3718,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1839892376}
   - component: {fileID: 1839892377}
+  - component: {fileID: 1839892378}
   m_Layer: 5
-  m_Name: MinigameIntro
+  m_Name: MinigameOutro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3726,7 +3733,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839892375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3735,7 +3742,7 @@ RectTransform:
   - {fileID: 163024544}
   - {fileID: 1831244990}
   - {fileID: 616497951}
-  m_Father: {fileID: 425437589}
+  m_Father: {fileID: 1009091012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3754,6 +3761,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1839892378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839892375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f46d63113070c409ba4adcae3c3f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinigameFinished
+  scoreText: {fileID: 1831244991}
 --- !u!1 &1867318397
 GameObject:
   m_ObjectHideFlags: 0
