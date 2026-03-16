@@ -2258,11 +2258,6 @@ MonoBehaviour:
     sceneName: Minigame_Social
     tutorialPrefab: {fileID: 7454625415996840028, guid: f221f0a4876898248a414a6feeaecf39, type: 3}
   minigamePauseMenu: {fileID: 147693158}
---- !u!224 &1815267396 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9108782295413219311, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
-  m_PrefabInstance: {fileID: 6195846676596607707}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867318397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3589,17 +3584,13 @@ PrefabInstance:
       propertyPath: sceneHider
       value: 
       objectReference: {fileID: 697106743}
-    - target: {fileID: 5841485966185541166, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
-      propertyPath: tutorialParent
-      value: 
-      objectReference: {fileID: 1815267396}
     - target: {fileID: 6072606442509285852, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
       propertyPath: m_Name
       value: MinigameIntro
       objectReference: {fileID: 0}
     - target: {fileID: 6072606442509285852, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7021753097933786979, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
       propertyPath: m_IsActive

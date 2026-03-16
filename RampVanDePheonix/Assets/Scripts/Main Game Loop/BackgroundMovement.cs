@@ -46,8 +46,8 @@ public class BackgroundMovement : MonoBehaviour
     public bool isTraveling = true;
 
     //default positions are based on 1080 x 1920
-    [SerializeField] Vector3 backgroundSpawnPosition = new Vector3(-500, 540, 0);
-    [SerializeField] Vector3 foregroundSpawnPosition = new Vector3(-500, 270, 0.1f);
+    [SerializeField] Vector3 backgroundSpawnPosition = new Vector3(-500, 0, 0);
+    [SerializeField] Vector3 foregroundSpawnPosition = new Vector3(-500, 0, 0.1f);
     [SerializeField] private float foregroundOffset = 0;
 
 
@@ -82,34 +82,55 @@ public class BackgroundMovement : MonoBehaviour
 
     void ManagerForegroundItems()
     {
-        if (currentActiveForeGrounds.Count > 0)
+        if (currentActiveForeGrounds.Count == 0) return;
+
+        GameObject newestForeground = currentActiveForeGrounds[^1];
+        RectTransform newestRect = newestForeground.GetComponent<RectTransform>();
+
+        // Check if the newest background has entered the visible area
+        if (newestRect.anchoredPosition.x > 0)
         {
-            if (currentActiveForeGrounds[foregroundCount - 1].transform.position.x > (foregroundImageWidth + backgroundSpawnPosition.x)-100)
+            // Attach the next background to the right of the newest one
+            // Move new background to the left of the newest one (or right depending on movement direction)
+            Vector3 newPos = newestRect.anchoredPosition;
+            newPos.x -= newestRect.rect.width;
+
+            AddNewForeGround(newPos);
+
+            if (currentActiveForeGrounds.Count > 5)
             {
-                AddNewForeGround(foregroundSpawnPosition);
-                if (currentActiveForeGrounds.Count > 5)
-                {
-                    RemoveLastForeground();
-                }
+                RemoveLastForeground();
             }
-            MoveAllActiveForegroundItems(foregroundSpeed);
         }
+
+        MoveAllActiveForegroundItems(foregroundSpeed);
     }
 
     void ManageBackgroundItems()
     {
-        if (currentActiveBackgrounds.Count > 0)
+        if (currentActiveBackgrounds.Count == 0) return;
+
+        GameObject newestBackground = currentActiveBackgrounds[^1];
+        RectTransform newestRect = newestBackground.GetComponent<RectTransform>();
+
+        // Check if the newest background has entered the visible area
+        if (newestRect.anchoredPosition.x > 0)
         {
-            if (currentActiveBackgrounds[backgroundCount - 1].transform.position.x > (backgroundImageWidth + backgroundSpawnPosition.x))
+            // Attach the next background to the right of the newest one
+            // Move new background to the left of the newest one (or right depending on movement direction)
+            Vector3 newPos = newestRect.anchoredPosition;
+            newPos.x -= newestRect.rect.width;
+
+            AddNewBackground(newPos);
+
+            // Keep pool size limited
+            if (backgroundCount > 5)
             {
-                AddNewBackground(backgroundSpawnPosition);
-                if (backgroundCount > 5)
-                {
-                    RemoveLastBackground();
-                }
+                RemoveLastBackground();
             }
-            MoveAllActiveBackgroundItems(backgroundSpeed);
         }
+
+        MoveAllActiveBackgroundItems(backgroundSpeed);
     }
 
     Sprite SelectBackgroundAccordingToFase(Fases currentFase)
@@ -164,7 +185,9 @@ public class BackgroundMovement : MonoBehaviour
         {
             position.z += 0.20f;
         }
-        newbackground.transform.position = position;
+
+        RectTransform rectTransform = newbackground.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = position;
         currentActiveBackgrounds.Add(newbackground);
         backgroundCount = currentActiveBackgrounds.Count;
         amountOfBackgroundSpawns++;
@@ -181,7 +204,9 @@ public class BackgroundMovement : MonoBehaviour
         {
             position.z += 0.05f;
         }
-        newForeGround.transform.position = position;
+
+        RectTransform rectTransform = newForeGround.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = position;
         currentActiveForeGrounds.Add(newForeGround);
         foregroundCount = currentActiveForeGrounds.Count;
         amountOfForegroundSpawns++;
