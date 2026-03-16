@@ -1,14 +1,15 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PhaseManager : MonoBehaviour
 {
     [SerializeField]
     private PhaseDisplayer display;
-    [SerializeField] 
+    [SerializeField]
     private EventsConfig eventsConfig;
 
+    EventStateManager stateManager;
 
     public Fases CurrentFase { get; private set; }
     public int Progress { get; private set; } = 0;
@@ -20,13 +21,14 @@ public class PhaseManager : MonoBehaviour
 
     private void Start()
     {
-        swapper = FindAnyObjectByType<ParallaxSwapper>();  
-        SwapFase(Fases.Achterhoek); 
+        stateManager = FindAnyObjectByType<EventStateManager>();
+        swapper = FindAnyObjectByType<ParallaxSwapper>();
+        SwapFase(Fases.Achterhoek);
     }
 
     void SwapFase(Fases fase)
     {
-        CurrentFase = fase; 
+        CurrentFase = fase;
         switch (CurrentFase)
         {
             case Fases.Achterhoek:
@@ -44,14 +46,14 @@ public class PhaseManager : MonoBehaviour
                 break;
         }
 
-        display.SetPhase(CurrentFase,10);
+        display.SetPhase(CurrentFase, 10);
         swapper.SetGrounds(CurrentFase);
     }
 
     void FillList(List<Event> incomingEvents)
     {
         currentEvents.Clear();
-        foreach(Event p in incomingEvents)
+        foreach (Event p in incomingEvents)
         {
             currentEvents.Add(p);
         }
@@ -65,6 +67,7 @@ public class PhaseManager : MonoBehaviour
         {
             display.SetPhase(GetNextPhase(CurrentFase), 10);
             SwapFase(GetNextPhase(CurrentFase));
+            stateManager.SetState(State.Lore);
 
             Progress = 0;
         }
@@ -76,7 +79,7 @@ public class PhaseManager : MonoBehaviour
     Fases GetNextPhase(Fases currentPhase)
     {
         if (currentPhase == Fases.Achterhoek) return Fases.Pheonix;
-        if(currentPhase == Fases.Pheonix) return Fases.Amerika;
+        if (currentPhase == Fases.Pheonix) return Fases.Amerika;
         if (CurrentFase == Fases.Amerika) return Fases.EndScreen;
         return Fases.Achterhoek;
     }

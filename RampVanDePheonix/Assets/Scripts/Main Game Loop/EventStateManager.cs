@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-public enum State{
+public enum State
+{
+    Lore,
     Walking,
-    Event, 
+    Event,
     FinishEvent,
     Minigame,
     Exit
@@ -32,6 +33,12 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] protected SceneHider sceneHider;
     [SerializeField] protected List<Minigame> minigames;
     [SerializeField] private GameObject minigamePauseMenu;
+
+    [Header("LoreDropPrefabs")]
+    [SerializeField] GameObject achterhoekLore;
+    [SerializeField] GameObject bootLore;
+    [SerializeField] GameObject amerikaLore;
+    [SerializeField] GameObject lorePosition;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
 
@@ -76,7 +83,7 @@ public class EventStateManager : MonoBehaviour
         }
 
         eventVisualiser.gameObject.SetActive(false);
-        SetState(State.Walking);
+        SetState(State.Lore);
     }
 
     public virtual void SetState(State newState)
@@ -85,6 +92,14 @@ public class EventStateManager : MonoBehaviour
 
         switch (currentState)
         {
+            case State.Lore:
+                Fases currentFase = faseManager.CurrentFase;
+                if (currentFase == Fases.Achterhoek) Instantiate(achterhoekLore,lorePosition.transform);
+                else if (currentFase == Fases.Pheonix) Instantiate(bootLore, lorePosition.transform);
+                else if (currentFase == Fases.Amerika) Instantiate(amerikaLore, lorePosition.transform);
+                //instantiate thing
+                //start voice
+                break;
             case State.Walking:
                 StartCoroutine(WalkingState(2));
                 break;
@@ -129,17 +144,21 @@ public class EventStateManager : MonoBehaviour
     protected void MinigameState()
     {
         if (minigameTriggers.TryGetValue(faseManager.Progress, out Minigame selectedMinigame))
-        { 
+        {
             Debug.Log("startMinigame");
             // menu openen
             // menu.startMenu(selectedMinigame)
             minigamePauseMenu.SetActive(true);
             NextGameManager.Instance.StarMenu(selectedMinigame);
-            
+
             return;
         }
 
-        SetState(State.Walking);
+
+        if (faseManager.Progress != 0)
+        {
+            SetState(State.Walking);
+        }
     }
 
     protected void ExitState()
