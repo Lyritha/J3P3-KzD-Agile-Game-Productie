@@ -2278,7 +2278,7 @@ RectTransform:
   m_GameObject: {fileID: 919884190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1513429456}
@@ -2337,8 +2337,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
-  m_SizeDelta: {x: 652.6986, y: 422.4075}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1070244236
 AudioSource:
@@ -2486,9 +2486,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56218d14e6e1c5642b562e3ddbc40376, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79cb20cf335461c439db83ad97f7fd07, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3013,14 +3013,23 @@ MonoBehaviour:
   faseManager: {fileID: 767755092}
   sceneHider: {fileID: 697106743}
   minigames:
-  - allowedPhase: 4
+  - minigameName: 
+    allowedPhase: 4
     sceneName: Minigame_Building
-  - allowedPhase: 7
+    tutorialPrefab: {fileID: 0}
+  - minigameName: 
+    allowedPhase: 7
     sceneName: Minigame_Fishing
-  - allowedPhase: 6
+    tutorialPrefab: {fileID: 0}
+  - minigameName: 
+    allowedPhase: 6
     sceneName: Minigame_Learning
-  - allowedPhase: 7
+    tutorialPrefab: {fileID: 0}
+  - minigameName: 
+    allowedPhase: 7
     sceneName: Minigame_Social
+    tutorialPrefab: {fileID: 0}
+  minigamePauseMenu: {fileID: 0}
 --- !u!1 &1819509123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7671631066087692561, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
@@ -3253,6 +3262,7 @@ MonoBehaviour:
   characterPrefab: {fileID: -2826254129207186574, guid: ad829af8b094b2d4daf647701d49514b, type: 3}
   characterParent: {fileID: 1971001645}
   capitalDisplay: {fileID: 975773489}
+  SelectedCharacter: {fileID: 0}
 --- !u!1 &1987489418
 GameObject:
   m_ObjectHideFlags: 0
