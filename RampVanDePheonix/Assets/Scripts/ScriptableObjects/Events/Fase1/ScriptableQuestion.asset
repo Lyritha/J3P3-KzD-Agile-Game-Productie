@@ -33,7 +33,7 @@ MonoBehaviour:
     changeFailed: []
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 0
+      skillAmountNeeded: 1
     action: Je besluit je engelstalige boeken te verkopen.
     result: "Het is nu een stuk moeilijker om de engelse taal te leren. \n\nverlies
       1 Leervermogen en krijg 1 Kapitaal. "

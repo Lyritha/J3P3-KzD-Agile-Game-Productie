@@ -10,9 +10,11 @@ public class NextGameManager : MonoBehaviour
     [SerializeField] SceneHider sceneHider;
 
     [SerializeField] TMP_Text nextGameText;
+    [SerializeField] RectTransform tutorialParent;
 
     private bool canPlay = false;
     private Minigame chosenMinigame;
+
     public static NextGameManager Instance { get; private set; }
     public List<Character> Characters { get; private set; } = new();
 
@@ -30,6 +32,8 @@ public class NextGameManager : MonoBehaviour
     public void StarMenu(Minigame selectedMinigame)
     {
         chosenMinigame = selectedMinigame;
+        nextGameText.text = $"Volgende Minigame: {chosenMinigame.minigameName}";
+
         foreach (Character character in Characters)
         {
             Destroy(character.gameObject);
@@ -66,6 +70,13 @@ public class NextGameManager : MonoBehaviour
         if (!canPlay) return;
         gameObject.SetActive(false);
         sceneHider.HideMainScene();
+
         SceneManager.LoadScene(chosenMinigame.sceneName, LoadSceneMode.Additive);
+    }
+
+
+    public void StartTutorial()
+    {
+        Instantiate(chosenMinigame.tutorialPrefab, tutorialParent);
     }
 }

@@ -36,6 +36,12 @@ public class EventAnswerButton : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        foodstor = FindAnyObjectByType<FoodStorage>();
+        boat = FindAnyObjectByType<LifeboatManager>();
+    }
+
     public void TriggerAnswer()
     {
         //check of een personage selected is
