@@ -10,8 +10,13 @@ public class BackgroundMovement : MonoBehaviour
     float backgroundImageWidth = 800;
     float foregroundImageWidth = 800;
 
-    float foregroundSpeed = 500;
+    float foregroundSpeed = 400;
     float backgroundSpeed = 250;
+
+    [SerializeField]
+    private RectTransform backgroundParent;
+    [SerializeField] 
+    private RectTransform foregroundParent;
 
 
     [Header("background sprites")]
@@ -41,8 +46,8 @@ public class BackgroundMovement : MonoBehaviour
     public bool isTraveling = true;
 
     //default positions are based on 1080 x 1920
-    [SerializeField] Vector3 backgroundSpawnPosition = new Vector3(-400, 540, 0);
-    [SerializeField] Vector3 foregroundSpawnPosition = new Vector3(-400, 270, 0.25f);
+    [SerializeField] Vector3 backgroundSpawnPosition = new Vector3(-500, 540, 0);
+    [SerializeField] Vector3 foregroundSpawnPosition = new Vector3(-500, 270, 0.1f);
     [SerializeField] private float foregroundOffset = 0;
 
 
@@ -79,7 +84,7 @@ public class BackgroundMovement : MonoBehaviour
     {
         if (currentActiveForeGrounds.Count > 0)
         {
-            if (currentActiveForeGrounds[foregroundCount - 1].transform.position.x > (foregroundImageWidth + backgroundSpawnPosition.x))
+            if (currentActiveForeGrounds[foregroundCount - 1].transform.position.x > (foregroundImageWidth + backgroundSpawnPosition.x)-100)
             {
                 AddNewForeGround(foregroundSpawnPosition);
                 if (currentActiveForeGrounds.Count > 5)
@@ -113,16 +118,16 @@ public class BackgroundMovement : MonoBehaviour
         switch (currentFase)
         {
             case Fases.Achterhoek:
-                background = RandomBackgroundSprite(backgroundAchterhoek);
+                background = RandomSprite(backgroundAchterhoek);
                 break;
             case Fases.Pheonix:
-                background = RandomBackgroundSprite(backgroundBoat);
+                background = RandomSprite(backgroundBoat);
                 break;
             case Fases.Amerika:
-                background = RandomBackgroundSprite(backgroundAmerica);
+                background = RandomSprite(backgroundAmerica);
                 break;
             default:
-                background = RandomBackgroundSprite(backgroundAchterhoek);
+                background = RandomSprite(backgroundAchterhoek);
                 break;
         }
         return background;
@@ -134,16 +139,16 @@ public class BackgroundMovement : MonoBehaviour
         switch (currentFase)
         {
             case Fases.Achterhoek:
-                foreground = RandomForegroundSprite(foregroundAchterhoek);
+                foreground = RandomSprite(foregroundAchterhoek);
                 break;
             case Fases.Pheonix:
-                foreground = RandomForegroundSprite(foregroundBoat);
+                foreground = RandomSprite(foregroundBoat);
                 break;
             case Fases.Amerika:
-                foreground = RandomForegroundSprite(foregroundAmerica);
+                foreground = RandomSprite(foregroundAmerica);
                 break;
             default:
-                foreground = RandomForegroundSprite(foregroundAchterhoek);
+                foreground = RandomSprite(foregroundAchterhoek);
                 break;
         }
         return foreground;
@@ -152,16 +157,12 @@ public class BackgroundMovement : MonoBehaviour
     void AddNewBackground(Vector3 position)
     {
         Sprite newBackgroundElement = SelectBackgroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
-        GameObject newbackground = Instantiate(defaultImageObject, activeCanvas.transform);
+        GameObject newbackground = Instantiate(defaultImageObject, backgroundParent);
         newbackground.GetComponent<Image>().sprite = newBackgroundElement;
 
         if (amountOfBackgroundSpawns % 2 == 0)
         {
-            position.z = 0.25f;
-        }
-        else
-        {
-            position.z = 0.20f;
+            position.z += 0.20f;
         }
         newbackground.transform.position = position;
         currentActiveBackgrounds.Add(newbackground);
@@ -172,17 +173,13 @@ public class BackgroundMovement : MonoBehaviour
     void AddNewForeGround(Vector3 position)
     {
         Sprite newForeGroundSprite = SelectForegroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
-        GameObject newForeGround = Instantiate(defaultImageObject, activeCanvas.transform);
+        GameObject newForeGround = Instantiate(defaultImageObject, foregroundParent);
         newForeGround.GetComponent<Image>().sprite = newForeGroundSprite;
 
         //layers the sprite to prevent z fighting
         if (amountOfForegroundSpawns % 2 == 0)
         {
-            position.z = 0.00f;
-        }
-        else
-        {
-            position.z = 0.10f;
+            position.z += 0.05f;
         }
         newForeGround.transform.position = position;
         currentActiveForeGrounds.Add(newForeGround);
@@ -206,16 +203,11 @@ public class BackgroundMovement : MonoBehaviour
         foregroundCount = currentActiveForeGrounds.Count;
     }
 
-    Sprite RandomBackgroundSprite(Sprite[] spriteArray)
-    {
-        Random.Range(0, spriteArray.Length);
-        return spriteArray[spriteArray.Length - 1];
-    }
 
-    Sprite RandomForegroundSprite(Sprite[] foregroundSpriteArray)
+    Sprite RandomSprite(Sprite[] spriteArray)
     {
-        Random.Range(0, foregroundSpriteArray.Length);
-        return foregroundSpriteArray[foregroundSpriteArray.Length - 1];
+        int random = Random.Range(0, spriteArray.Length);
+        return spriteArray[random];
     }
 
     void MoveAllActiveBackgroundItems(float movementSpeed)
