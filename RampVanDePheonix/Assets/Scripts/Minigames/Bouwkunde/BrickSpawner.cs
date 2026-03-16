@@ -17,6 +17,8 @@ public class BrickSpawner : MonoBehaviour
 
     [Header("BrickDropping")]
     [SerializeField] GameObject brickPrefab;
+    [SerializeField] private Transform parent;
+
     public bool allowDrop = true;
     void Start()
     {
@@ -35,7 +37,7 @@ public class BrickSpawner : MonoBehaviour
     {
         if (allowDrop)
         {
-            current = Instantiate(brickPrefab);
+            current = Instantiate(brickPrefab, parent);
             current.transform.position = rb.transform.position;
             allowDrop = false;
         }

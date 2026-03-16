@@ -47,6 +47,8 @@ public class MinigameTutorial : MonoBehaviour
         // Show first tutorial step
         if (rectTransforms.Length > 0)
             rectTransforms[currentIndex].gameObject.SetActive(true);
+
+        lastStepButton.interactable = currentIndex > 0;
     }
 
     public void NextStep()
@@ -69,7 +71,7 @@ public class MinigameTutorial : MonoBehaviour
         }
 
         // Button states
-        lastStepButton.gameObject.SetActive(currentIndex > 0);
+        lastStepButton.interactable = currentIndex > 0;
 
         bool isLast = currentIndex == maxIndex;
         nextStepButton.gameObject.SetActive(!isLast);
@@ -78,6 +80,6 @@ public class MinigameTutorial : MonoBehaviour
 
     public void CloseTutorial()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

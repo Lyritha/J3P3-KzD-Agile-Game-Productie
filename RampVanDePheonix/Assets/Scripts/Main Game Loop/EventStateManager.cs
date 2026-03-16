@@ -16,9 +16,10 @@ public enum State{
 [Serializable]
 public struct Minigame
 {
+    public string minigameName;
     public Fases allowedPhase;
     public string sceneName;
-    public string minigameName;
+    public MinigameTutorial tutorialPrefab;
 }
 
 public class EventStateManager : MonoBehaviour
@@ -145,6 +146,25 @@ public class EventStateManager : MonoBehaviour
     protected void ExitState()
     {
         Debug.Log("exit loop");
+    }
+
+
+    [ContextMenu("Load Building")]
+    public void LoadBuilding() => LoadMinigame(0);
+
+    [ContextMenu("Load Fishing")]
+    public void LoadFishing() => LoadMinigame(1);
+
+    [ContextMenu("Load Learning")]
+    public void LoadLearning() => LoadMinigame(2);
+
+    [ContextMenu("Load Social")]
+    public void LoadSocial() => LoadMinigame(3);
+
+    public void LoadMinigame(int index)
+    {
+        minigamePauseMenu.SetActive(true);
+        NextGameManager.Instance.StarMenu(minigames[index]);
     }
 
 }

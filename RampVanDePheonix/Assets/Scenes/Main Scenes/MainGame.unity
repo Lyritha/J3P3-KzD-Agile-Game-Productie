@@ -2241,19 +2241,28 @@ MonoBehaviour:
   faseManager: {fileID: 767755092}
   sceneHider: {fileID: 697106743}
   minigames:
-  - allowedPhase: 4
+  - minigameName: Building
+    allowedPhase: 4
     sceneName: Minigame_Building
-    minigameName: Building
-  - allowedPhase: 7
+    tutorialPrefab: {fileID: 7454625415996840028, guid: 38a9c2e99ec33904995cbdf3c2a1d0eb, type: 3}
+  - minigameName: Fishing
+    allowedPhase: 7
     sceneName: Minigame_Fishing
-    minigameName: Fishing
-  - allowedPhase: 6
+    tutorialPrefab: {fileID: 7454625415996840028, guid: 37f76c96d486d224e9e4f071341ab0df, type: 3}
+  - minigameName: Learning
+    allowedPhase: 6
     sceneName: Minigame_Learning
-    minigameName: Learning
-  - allowedPhase: 7
+    tutorialPrefab: {fileID: 7454625415996840028, guid: 13206e9d0770ccd469d781a0b04469b3, type: 3}
+  - minigameName: Steen papier schaar
+    allowedPhase: 7
     sceneName: Minigame_Social
-    minigameName: Social
+    tutorialPrefab: {fileID: 7454625415996840028, guid: f221f0a4876898248a414a6feeaecf39, type: 3}
   minigamePauseMenu: {fileID: 147693158}
+--- !u!224 &1815267396 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9108782295413219311, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
+  m_PrefabInstance: {fileID: 6195846676596607707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867318397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,6 +3589,10 @@ PrefabInstance:
       propertyPath: sceneHider
       value: 
       objectReference: {fileID: 697106743}
+    - target: {fileID: 5841485966185541166, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
+      propertyPath: tutorialParent
+      value: 
+      objectReference: {fileID: 1815267396}
     - target: {fileID: 6072606442509285852, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
       propertyPath: m_Name
       value: MinigameIntro
@@ -3588,8 +3601,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7021753097933786979, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3835306929622545000, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bc79b241dfc5f64ba397277d1b9823e, type: 3}
