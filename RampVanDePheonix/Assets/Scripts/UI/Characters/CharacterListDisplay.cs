@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -99,8 +98,16 @@ public class CharacterListDisplay : MonoBehaviour
     /// </summary>
     public void ReportCharacterDied()
     {
-        foreach (Character character in Characters)
-            if (character.IsAlive) return;
+        bool isSomeoneAlive = false;
+        for (int i = 0; i < Characters.Count; i++)
+        {
+            Character character = Characters[i];
+
+            if (character.IsAlive) isSomeoneAlive = true;
+            else capitalDisplay.ClearCapitalItem(character.Personage);
+        }
+
+        if (isSomeoneAlive) return;
 
         // show game over screen or something similar here
         Debug.Log("All characters have died. Game Over.");
@@ -115,4 +122,5 @@ public class CharacterListDisplay : MonoBehaviour
 
         Characters.Clear();
     }
+
 }

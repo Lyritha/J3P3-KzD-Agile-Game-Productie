@@ -46,18 +46,18 @@ public class BackgroundMovement : MonoBehaviour
     public bool isTraveling = true;
 
     //default positions are based on 1080 x 1920
-    [SerializeField] Vector3 backgroundSpawnPosition = new Vector3(-500, 540, 0);
-    [SerializeField] Vector3 foregroundSpawnPosition = new Vector3(-500, 270, 0.1f);
+    [SerializeField] Vector3 backgroundSpawnPosition = new Vector3(-500, 0, 0);
+    [SerializeField] Vector3 foregroundSpawnPosition = new Vector3(-500, 0, 0.1f);
     [SerializeField] private float foregroundOffset = 0;
 
+
+    private Fases currentFase;
 
     void Start()
     {
         //scales the spawning position according to the rendering height
         backgroundSpawnPosition.y = 0;
         foregroundSpawnPosition.y = foregroundOffset;
-
-
 
         backgroundSpeed = (foregroundSpeed * 0.5f);
 
@@ -80,36 +80,63 @@ public class BackgroundMovement : MonoBehaviour
         }
     }
 
+    public void SetFase(Fases fase)
+    {
+        currentFase = fase;
+        FillScreenOnStart();
+    }
+
     void ManagerForegroundItems()
     {
-        if (currentActiveForeGrounds.Count > 0)
+        if (currentActiveForeGrounds.Count == 0) return;
+
+        GameObject newestForeground = currentActiveForeGrounds[^1];
+        RectTransform newestRect = newestForeground.GetComponent<RectTransform>();
+
+        // Check if the newest background has entered the visible area
+        if (newestRect.anchoredPosition.x > 0)
         {
-            if (currentActiveForeGrounds[foregroundCount - 1].transform.position.x > (foregroundImageWidth + backgroundSpawnPosition.x)-100)
+            // Attach the next background to the right of the newest one
+            // Move new background to the left of the newest one (or right depending on movement direction)
+            Vector3 newPos = newestRect.anchoredPosition;
+            newPos.x -= newestRect.rect.width;
+
+            AddNewForeGround(newPos);
+
+            if (currentActiveForeGrounds.Count > 5)
             {
-                AddNewForeGround(foregroundSpawnPosition);
-                if (currentActiveForeGrounds.Count > 5)
-                {
-                    RemoveLastForeground();
-                }
+                RemoveLastForeground();
             }
-            MoveAllActiveForegroundItems(foregroundSpeed);
         }
+
+        MoveAllActiveForegroundItems(foregroundSpeed);
     }
 
     void ManageBackgroundItems()
     {
-        if (currentActiveBackgrounds.Count > 0)
+        if (currentActiveBackgrounds.Count == 0) return;
+
+        GameObject newestBackground = currentActiveBackgrounds[^1];
+        RectTransform newestRect = newestBackground.GetComponent<RectTransform>();
+
+        // Check if the newest background has entered the visible area
+        if (newestRect.anchoredPosition.x > 0)
         {
-            if (currentActiveBackgrounds[backgroundCount - 1].transform.position.x > (backgroundImageWidth + backgroundSpawnPosition.x))
+            // Attach the next background to the right of the newest one
+            // Move new background to the left of the newest one (or right depending on movement direction)
+            Vector3 newPos = newestRect.anchoredPosition;
+            newPos.x -= newestRect.rect.width;
+
+            AddNewBackground(newPos);
+
+            // Keep pool size limited
+            if (backgroundCount > 5)
             {
-                AddNewBackground(backgroundSpawnPosition);
-                if (backgroundCount > 5)
-                {
-                    RemoveLastBackground();
-                }
+                RemoveLastBackground();
             }
-            MoveAllActiveBackgroundItems(backgroundSpeed);
         }
+
+        MoveAllActiveBackgroundItems(backgroundSpeed);
     }
 
     Sprite SelectBackgroundAccordingToFase(Fases currentFase)
@@ -156,7 +183,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void AddNewBackground(Vector3 position)
     {
-        Sprite newBackgroundElement = SelectBackgroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
+        Sprite newBackgroundElement = SelectBackgroundAccordingToFase(currentFase); //// zet hier nog de reference naar fasemanager heen
         GameObject newbackground = Instantiate(defaultImageObject, backgroundParent);
         newbackground.GetComponent<Image>().sprite = newBackgroundElement;
 
@@ -164,7 +191,9 @@ public class BackgroundMovement : MonoBehaviour
         {
             position.z += 0.20f;
         }
-        newbackground.transform.position = position;
+
+        RectTransform rectTransform = newbackground.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = position;
         currentActiveBackgrounds.Add(newbackground);
         backgroundCount = currentActiveBackgrounds.Count;
         amountOfBackgroundSpawns++;
@@ -172,7 +201,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void AddNewForeGround(Vector3 position)
     {
-        Sprite newForeGroundSprite = SelectForegroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
+        Sprite newForeGroundSprite = SelectForegroundAccordingToFase(currentFase); //// zet hier nog de reference naar fasemanager heen
         GameObject newForeGround = Instantiate(defaultImageObject, foregroundParent);
         newForeGround.GetComponent<Image>().sprite = newForeGroundSprite;
 
@@ -181,7 +210,9 @@ public class BackgroundMovement : MonoBehaviour
         {
             position.z += 0.05f;
         }
-        newForeGround.transform.position = position;
+
+        RectTransform rectTransform = newForeGround.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = position;
         currentActiveForeGrounds.Add(newForeGround);
         foregroundCount = currentActiveForeGrounds.Count;
         amountOfForegroundSpawns++;
@@ -230,13 +261,28 @@ public class BackgroundMovement : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// this method fills the screen with images on start 
     /// NOTE: images spawned in this method are from RIGHT to LEFT due to improper removal after an image gets offscreen
     /// </summary>
     void FillScreenOnStart()
     {
+        foreach (GameObject obj in currentActiveBackgrounds)
+            Destroy(obj);
+
+        foreach (GameObject obj in currentActiveForeGrounds)
+            Destroy(obj);
+
+        currentActiveBackgrounds.Clear();
+        currentActiveForeGrounds.Clear();
+
+        backgroundCount = 0;
+        foregroundCount = 0;
+        amountOfBackgroundSpawns = 0;
+        amountOfForegroundSpawns = 0;
+
+
+
         //placements is from right to left otherwise images get removed incorrectly (0 is not the most right one)
         float currentBackgroundPos = 2000;
         float currentForegroundPos = 2000;
