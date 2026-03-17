@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 748a438ac0943ed45aae641672ad8beb
+guid: deb9543f202764c43a52e48b2a894556
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5282418927720331305
-    second: Background1_achterhoek_0
+      213: -7004113305550180161
+    second: water_achtergrond_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background1_achterhoek_0
+      name: water_achtergrond_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d70e6209f311b6b0800000000000000
-      internalID: -5282418927720331305
+      spriteID: fb03818de046cce90800000000000000
+      internalID: -7004113305550180161
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Background1_achterhoek_0: -5282418927720331305
+      water_achtergrond_0: -7004113305550180161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

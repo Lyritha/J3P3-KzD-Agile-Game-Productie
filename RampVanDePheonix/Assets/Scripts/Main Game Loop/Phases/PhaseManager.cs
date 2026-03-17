@@ -1,34 +1,32 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class PhaseManager : MonoBehaviour
 {
     [SerializeField]
     private PhaseDisplayer display;
-    [SerializeField]
+    [SerializeField] 
     private EventsConfig eventsConfig;
 
-    EventStateManager stateManager;
 
     public Fases CurrentFase { get; private set; }
     public int Progress { get; private set; } = 0;
     private List<Event> currentEvents = new List<Event>();
 
 
-    ParallaxSwapper swapper;
+    BackgroundMovement movement;
     int maxProgress = 10;
 
     private void Start()
     {
-        stateManager = FindAnyObjectByType<EventStateManager>();
-        swapper = FindAnyObjectByType<ParallaxSwapper>();
-        SwapFase(Fases.Achterhoek);
+        movement = FindAnyObjectByType<BackgroundMovement>();  
+        SwapFase(Fases.Achterhoek); 
     }
 
     void SwapFase(Fases fase)
     {
-        CurrentFase = fase;
+        CurrentFase = fase; 
         switch (CurrentFase)
         {
             case Fases.Achterhoek:
@@ -38,7 +36,6 @@ public class PhaseManager : MonoBehaviour
                 FillList(eventsConfig.pheonixEvents);
                 break;
             case Fases.Amerika:
-                // temp, amerika doesn't exist.
                 FillList(eventsConfig.amerikaEvents);
                 break;
             case Fases.EndScreen:
@@ -46,14 +43,14 @@ public class PhaseManager : MonoBehaviour
                 break;
         }
 
-        display.SetPhase(CurrentFase, 10);
-        swapper.SetGrounds(CurrentFase);
+        display.SetPhase(CurrentFase,10);
+        movement.SetFase(CurrentFase);
     }
 
     void FillList(List<Event> incomingEvents)
     {
         currentEvents.Clear();
-        foreach (Event p in incomingEvents)
+        foreach(Event p in incomingEvents)
         {
             currentEvents.Add(p);
         }
@@ -67,7 +64,6 @@ public class PhaseManager : MonoBehaviour
         {
             display.SetPhase(GetNextPhase(CurrentFase), 10);
             SwapFase(GetNextPhase(CurrentFase));
-            stateManager.SetState(State.Lore);
 
             Progress = 0;
         }
@@ -79,7 +75,7 @@ public class PhaseManager : MonoBehaviour
     Fases GetNextPhase(Fases currentPhase)
     {
         if (currentPhase == Fases.Achterhoek) return Fases.Pheonix;
-        if (currentPhase == Fases.Pheonix) return Fases.Amerika;
+        if(currentPhase == Fases.Pheonix) return Fases.Amerika;
         if (CurrentFase == Fases.Amerika) return Fases.EndScreen;
         return Fases.Achterhoek;
     }
