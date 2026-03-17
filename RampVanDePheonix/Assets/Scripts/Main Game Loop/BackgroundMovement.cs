@@ -51,13 +51,13 @@ public class BackgroundMovement : MonoBehaviour
     [SerializeField] private float foregroundOffset = 0;
 
 
+    private Fases currentFase;
+
     void Start()
     {
         //scales the spawning position according to the rendering height
         backgroundSpawnPosition.y = 0;
         foregroundSpawnPosition.y = foregroundOffset;
-
-
 
         backgroundSpeed = (foregroundSpeed * 0.5f);
 
@@ -78,6 +78,12 @@ public class BackgroundMovement : MonoBehaviour
             ManageBackgroundItems();
             ManagerForegroundItems();
         }
+    }
+
+    public void SetFase(Fases fase)
+    {
+        currentFase = fase;
+        FillScreenOnStart();
     }
 
     void ManagerForegroundItems()
@@ -177,7 +183,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void AddNewBackground(Vector3 position)
     {
-        Sprite newBackgroundElement = SelectBackgroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
+        Sprite newBackgroundElement = SelectBackgroundAccordingToFase(currentFase); //// zet hier nog de reference naar fasemanager heen
         GameObject newbackground = Instantiate(defaultImageObject, backgroundParent);
         newbackground.GetComponent<Image>().sprite = newBackgroundElement;
 
@@ -195,7 +201,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void AddNewForeGround(Vector3 position)
     {
-        Sprite newForeGroundSprite = SelectForegroundAccordingToFase(Fases.Achterhoek); //// zet hier nog de reference naar fasemanager heen
+        Sprite newForeGroundSprite = SelectForegroundAccordingToFase(currentFase); //// zet hier nog de reference naar fasemanager heen
         GameObject newForeGround = Instantiate(defaultImageObject, foregroundParent);
         newForeGround.GetComponent<Image>().sprite = newForeGroundSprite;
 
@@ -255,13 +261,28 @@ public class BackgroundMovement : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// this method fills the screen with images on start 
     /// NOTE: images spawned in this method are from RIGHT to LEFT due to improper removal after an image gets offscreen
     /// </summary>
     void FillScreenOnStart()
     {
+        foreach (GameObject obj in currentActiveBackgrounds)
+            Destroy(obj);
+
+        foreach (GameObject obj in currentActiveForeGrounds)
+            Destroy(obj);
+
+        currentActiveBackgrounds.Clear();
+        currentActiveForeGrounds.Clear();
+
+        backgroundCount = 0;
+        foregroundCount = 0;
+        amountOfBackgroundSpawns = 0;
+        amountOfForegroundSpawns = 0;
+
+
+
         //placements is from right to left otherwise images get removed incorrectly (0 is not the most right one)
         float currentBackgroundPos = 2000;
         float currentForegroundPos = 2000;

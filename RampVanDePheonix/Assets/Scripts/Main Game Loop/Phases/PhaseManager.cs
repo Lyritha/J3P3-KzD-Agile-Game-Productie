@@ -15,12 +15,12 @@ public class PhaseManager : MonoBehaviour
     private List<Event> currentEvents = new List<Event>();
 
 
-    ParallaxSwapper swapper;
+    BackgroundMovement movement;
     int maxProgress = 10;
 
     private void Start()
     {
-        swapper = FindAnyObjectByType<ParallaxSwapper>();  
+        movement = FindAnyObjectByType<BackgroundMovement>();  
         SwapFase(Fases.Achterhoek); 
     }
 
@@ -36,7 +36,6 @@ public class PhaseManager : MonoBehaviour
                 FillList(eventsConfig.pheonixEvents);
                 break;
             case Fases.Amerika:
-                // temp, amerika doesn't exist.
                 FillList(eventsConfig.amerikaEvents);
                 break;
             case Fases.EndScreen:
@@ -45,7 +44,7 @@ public class PhaseManager : MonoBehaviour
         }
 
         display.SetPhase(CurrentFase,10);
-        swapper.SetGrounds(CurrentFase);
+        movement.SetFase(CurrentFase);
     }
 
     void FillList(List<Event> incomingEvents)
