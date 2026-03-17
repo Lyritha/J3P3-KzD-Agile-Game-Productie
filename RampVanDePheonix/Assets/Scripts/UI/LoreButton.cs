@@ -10,6 +10,6 @@ public class LoreButton : MonoBehaviour
     public void ContinueButton()
     {
         stateManager.SetState(State.Walking);
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject.transform.parent.parent.gameObject);
     }
 }

@@ -2288,8 +2288,8 @@ MonoBehaviour:
     tutorialPrefab: {fileID: 7454625415996840028, guid: f221f0a4876898248a414a6feeaecf39, type: 3}
   minigamePauseMenu: {fileID: 147693158}
   achterhoekLore: {fileID: 7482164186307297847, guid: a13c6b71890ea464eb128933f086c62e, type: 3}
-  bootLore: {fileID: 7482164186307297847, guid: 66323eff0ba0dd741b21147603f07b9f, type: 3}
-  amerikaLore: {fileID: 7482164186307297847, guid: 48e156636ffa08b498e10661ed6f4bcf, type: 3}
+  bootLore: {fileID: 7482164186307297847, guid: 99e56334481c220489ae8e132a9c14f4, type: 3}
+  amerikaLore: {fileID: 7482164186307297847, guid: b7a5fabd8d1ef0f44bb670597654aa22, type: 3}
   lorePosition: {fileID: 372497152}
 --- !u!1 &1867318397
 GameObject:
