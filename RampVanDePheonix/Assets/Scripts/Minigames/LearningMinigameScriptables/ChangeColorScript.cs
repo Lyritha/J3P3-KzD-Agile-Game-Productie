@@ -15,7 +15,7 @@ public class ChangeColorScript : MonoBehaviour
         for (int i = 0; i < childCount; i++)
         {
             //Unshits the player
-            if (i < (childCount - 2))
+            if (i < (childCount - 1))
             {
                 //colors the ship brown
                 thisGameObject.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color32(122, 65, 30, 255);
