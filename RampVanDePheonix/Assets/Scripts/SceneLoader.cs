@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] MinigameFinished minigameFinished;
     void Start()
     {
         Timer.OnCountDone += EnterMainGame;
@@ -15,17 +16,6 @@ public class SceneLoader : MonoBehaviour
 
     void EnterMainGame()
     {
-        EventStateManager.Instance.SetState(State.Walking);
-
-        // Get the current scene this script is part of
-        Scene currentScene = gameObject.scene;
-
-        // Show main scene if a SceneHider exists
-        SceneHider sceneHider = FindAnyObjectByType<SceneHider>();
-        if (sceneHider != null) sceneHider.ShowMainScene();
-
-        // Unload it asynchronously
-        SceneManager.UnloadSceneAsync(currentScene);
-
+        minigameFinished.gameObject.SetActive(true);
     }
 }

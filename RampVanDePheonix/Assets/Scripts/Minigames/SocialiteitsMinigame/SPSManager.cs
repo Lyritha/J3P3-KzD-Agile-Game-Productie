@@ -5,6 +5,8 @@ using UnityEngine;
 //SPS staat voor Steen Papier Schaar btw
 public class SPSManager : MonoBehaviour
 {
+    [SerializeField] MinigameFinished minigameFinished;
+
     [SerializeField] private GameObject allPrefabs;
     [SerializeField] private TMP_Text winLoseText;
     [SerializeField] private TMP_Text scoreText;
@@ -111,6 +113,7 @@ public class SPSManager : MonoBehaviour
 
     private void ShowResults()
     {
+        minigameFinished.ShowScore(score);
         scoreText.text = "Score: " + score;
         winLoseText.gameObject.SetActive(true);
         Invoke(nameof(ResetGame), 1);
