@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Capital : MonoBehaviour
 {
@@ -54,5 +56,20 @@ public class Capital : MonoBehaviour
         capitalItemDisplay.Clear();
     }
 
+    public void ClearCapitalItem(Personage personage)
+    {
+        for (int i = 0;i < capitalItemDisplay.Count; i++)
+        {
+            CapitalItemDisplay item = capitalItemDisplay[i];
 
+            bool isSame = item.Character == personage;
+            if (isSame)
+            {
+                Destroy(item.gameObject);
+                capitalItemDisplay.RemoveAt(i);
+            }
+        }
+
+        RefreshUI();
+    }
 }

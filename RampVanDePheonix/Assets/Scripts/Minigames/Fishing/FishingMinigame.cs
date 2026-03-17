@@ -12,6 +12,7 @@ public class FishingMinigame : MonoBehaviour
     [Header("UI")]
     [SerializeField] Slider catchSlider;
     [SerializeField] TMP_Text resultText;
+    [SerializeField] MinigameFinished minigameFinished;
 
     [Header("Score")]
     int score = 0;
@@ -219,13 +220,15 @@ public class FishingMinigame : MonoBehaviour
     {
         gameEnded = true;
 
-        finalScoreText.text = "Final Score: " + score;
+        //finalScoreText.text = "Final Score: " + score;
+        minigameFinished.ShowScore(score);
 
-        endPanel.SetActive(true);
-        mainCanvas.SetActive(false);
-        fishVisual.SetActive(false);
-        catchZoneVisual.SetActive(false);
-        background.SetActive(false);
+        //endPanel.SetActive(true);
+        minigameFinished.gameObject.SetActive(true);
+        //mainCanvas.SetActive(false);
+        //fishVisual.SetActive(false);
+        //catchZoneVisual.SetActive(false);
+        //background.SetActive(false);
     }
 
     public void ReturnToMainGame()

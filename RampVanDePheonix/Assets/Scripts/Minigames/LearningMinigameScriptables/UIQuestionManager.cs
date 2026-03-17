@@ -13,6 +13,8 @@ using UnityEngine.UI;
 
 public class UIQuestionManager : MonoBehaviour
 {
+    [SerializeField] MinigameFinished minigameFinished;
+
     [SerializeField] GameObject TimerManager;
 
     [SerializeField] GameObject UIcardAnswerPrefab;
@@ -56,6 +58,7 @@ public class UIQuestionManager : MonoBehaviour
     {
         if (EventEnded == false)
         {
+            minigameFinished.ShowScore(currentAmountOfPoints);
             CheckIfTimerIsDone(TimerManager.GetComponent<Timer>());
         }
     }
