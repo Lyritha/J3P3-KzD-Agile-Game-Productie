@@ -85,5 +85,7 @@ public class MinigameFinished : MonoBehaviour
                 personage.baseKapitaal += score;
                 break;
         }
+
+        character.Personage.NotifyChanged();
     }
 }
