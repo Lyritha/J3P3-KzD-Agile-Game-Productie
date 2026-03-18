@@ -43,6 +43,7 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] GameObject lorePosition;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
+    public PhaseManager FaseManager { get { return faseManager; } }
 
     protected void Awake()
     {

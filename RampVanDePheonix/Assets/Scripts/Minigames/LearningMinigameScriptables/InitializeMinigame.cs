@@ -8,7 +8,6 @@ public class InitializeMinigame : MonoBehaviour
     [SerializeField] Sprite[] differentEnglishMen;
     [SerializeField] GameObject[] SceneryObjects;
     //0=achterhoek, 1=boat 2=america
-    [SerializeField] Vector3 sceneryObjectsPosition = new Vector3(0, -0.8f, 0);
 
     GameObject player;
     GameObject englishMan;
@@ -18,7 +17,7 @@ public class InitializeMinigame : MonoBehaviour
     {
         player = transform.GetChild(0).gameObject;
         englishMan = transform.GetChild(1).gameObject;
-        //SpawnInScenery();
+        SpawnInScenery(EventStateManager.Instance.FaseManager.CurrentFase);
         ChangeDefaultPlayerSprite(player);
         ChangeDefaultEnglishManSprite(englishMan);
     }
@@ -68,8 +67,9 @@ public class InitializeMinigame : MonoBehaviour
     }
     void InstantiateCorrectScenery(GameObject correctSceneryObject)
     {
-       GameObject newGameObject = Instantiate(correctSceneryObject);
-       newGameObject.transform.position = sceneryObjectsPosition;
+        Vector3 sceneryObjectsPosition = new Vector3(0, 0, 0);
+        GameObject newGameObject = Instantiate(correctSceneryObject);
+        newGameObject.transform.position = sceneryObjectsPosition;
     }
 
 
