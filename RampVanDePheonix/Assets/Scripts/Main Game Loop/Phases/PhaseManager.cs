@@ -6,6 +6,8 @@ public class PhaseManager : MonoBehaviour
 {
     [SerializeField]
     private PhaseDisplayer display;
+    [SerializeField]
+    private EventStateManager stateManager;
     [SerializeField] 
     private EventsConfig eventsConfig;
 
@@ -64,6 +66,7 @@ public class PhaseManager : MonoBehaviour
         {
             display.SetPhase(GetNextPhase(CurrentFase), 10);
             SwapFase(GetNextPhase(CurrentFase));
+            stateManager.SetState(State.Lore);
 
             Progress = 0;
         }
