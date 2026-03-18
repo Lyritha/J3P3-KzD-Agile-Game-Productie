@@ -69,7 +69,6 @@ public class NextGameManager : MonoBehaviour
     public void StartGame()
     {
         if (!canPlay) return;
-        gameObject.SetActive(false);
         sceneHider.HideMainScene();
 
         StartCoroutine(LoadMinigame(chosenMinigame));
@@ -78,10 +77,10 @@ public class NextGameManager : MonoBehaviour
     IEnumerator LoadMinigame(Minigame chosenMinigame)
     {
         AsyncOperation op = SceneManager.LoadSceneAsync(chosenMinigame.sceneName, LoadSceneMode.Additive);
-
-        yield return op; 
+        yield return op;
 
         MinigameFinished.Instance.Init(chosenMinigame);
+        gameObject.SetActive(false);
     }
 
     public void StartTutorial()

@@ -243,7 +243,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void MoveAllActiveBackgroundItems(float movementSpeed)
     {
-        float delta = Time.deltaTime;
+        float delta = Time.fixedDeltaTime;
         foreach (GameObject item in currentActiveBackgrounds)
         {
             float actualDistance = movementSpeed * delta;
@@ -253,7 +253,7 @@ public class BackgroundMovement : MonoBehaviour
 
     void MoveAllActiveForegroundItems(float movementSpeed)
     {
-        float delta = Time.deltaTime;
+        float delta = Time.fixedDeltaTime;
         foreach (GameObject item in currentActiveForeGrounds)
         {
             float actualDistance = movementSpeed * delta;

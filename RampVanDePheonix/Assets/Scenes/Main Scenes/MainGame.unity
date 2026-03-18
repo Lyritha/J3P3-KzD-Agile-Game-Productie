@@ -1343,6 +1343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FaseManager
   display: {fileID: 733408569341122068}
+  stateManager: {fileID: 1530623482}
   eventsConfig: {fileID: 11400000, guid: fa32d8d27b19d864ea2aac510bd226ba, type: 2}
 --- !u!4 &767755093
 Transform:
