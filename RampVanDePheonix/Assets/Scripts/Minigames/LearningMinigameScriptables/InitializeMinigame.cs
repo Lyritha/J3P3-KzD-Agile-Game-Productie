@@ -6,6 +6,9 @@ public class InitializeMinigame : MonoBehaviour
 {
     //the list of different englishman onboard the phoenix
     [SerializeField] Sprite[] differentEnglishMen;
+    [SerializeField] GameObject[] SceneryObjects;
+    //0=achterhoek, 1=boat 2=america
+    [SerializeField] Vector3 sceneryObjectsPosition = new Vector3(0, -0.8f, 0);
 
     GameObject player;
     GameObject englishMan;
@@ -15,10 +18,9 @@ public class InitializeMinigame : MonoBehaviour
     {
         player = transform.GetChild(0).gameObject;
         englishMan = transform.GetChild(1).gameObject;
-
+        //SpawnInScenery();
         ChangeDefaultPlayerSprite(player);
         ChangeDefaultEnglishManSprite(englishMan);
-        //KillMySelf();
     }
     /// <summary>
     /// changes the defaultPlayersprite in the scene
@@ -45,8 +47,31 @@ public class InitializeMinigame : MonoBehaviour
         return personList[randomNum];
     }
 
-    void KillMySelf()
+    void SpawnInScenery(Fases currentFase)
     {
-        Destroy(gameObject.GetComponent<InitializeMinigame>());
+        switch (currentFase)
+        {
+            case Fases.Achterhoek:
+                InstantiateCorrectScenery(SceneryObjects[0]);
+                break;
+            case Fases.Pheonix:
+                InstantiateCorrectScenery(SceneryObjects[1]);
+                break;
+            case Fases.Amerika:
+                InstantiateCorrectScenery(SceneryObjects[2]);
+                break;
+            default:
+                print("COULDNT FIND CORRECT FASE, DEFAULTING RN");
+                InstantiateCorrectScenery(SceneryObjects[0]);
+                break;
+        }
     }
+    void InstantiateCorrectScenery(GameObject correctSceneryObject)
+    {
+       GameObject newGameObject = Instantiate(correctSceneryObject);
+       newGameObject.transform.position = sceneryObjectsPosition;
+    }
+
+
+
 }
