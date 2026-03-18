@@ -21,6 +21,7 @@ public struct Minigame
     public Fases allowedPhase;
     public string sceneName;
     public MinigameTutorial tutorialPrefab;
+    public Skillset rewardedSkill;
 }
 
 public class EventStateManager : MonoBehaviour
@@ -32,7 +33,7 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] protected EventVisualiser eventVisualiser;
     [SerializeField] protected PhaseManager faseManager;
     [SerializeField] protected SceneHider sceneHider;
-    [SerializeField] protected List<Minigame> minigames;
+    [SerializeField] protected MinigameConfig minigameConfig;
     [SerializeField] private GameObject minigamePauseMenu;
 
     [Header("LoreDropPrefabs")]
@@ -57,7 +58,7 @@ public class EventStateManager : MonoBehaviour
     protected void Start()
     {
         minigamePauseMenu.SetActive(false);
-        List<Minigame> allowedMinigames = minigames.FindAll(m => (m.allowedPhase & faseManager.CurrentFase) != 0);
+        List<Minigame> allowedMinigames = minigameConfig.minigames.FindAll(m => (m.allowedPhase & faseManager.CurrentFase) != 0);
         if (allowedMinigames.Count == 0)
         {
             Debug.LogWarning("No minigames available for the current phase.");
@@ -183,7 +184,7 @@ public class EventStateManager : MonoBehaviour
     public void LoadMinigame(int index)
     {
         minigamePauseMenu.SetActive(true);
-        NextGameManager.Instance.StarMenu(minigames[index]);
+        NextGameManager.Instance.StarMenu(minigameConfig.minigames[index]);
     }
 
 }

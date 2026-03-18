@@ -7,22 +7,23 @@ public class MinigameFinished : MonoBehaviour
 {
     public static MinigameFinished Instance;
 
+    public Minigame minigame;
+
     private int score;
     [SerializeField] TMP_Text scoreText;
 
     private void Awake()
     {
-        if (Instance != null)
-        {
+        if (Instance != null && Instance != this)
             Destroy(gameObject);
-        }
 
         Instance = this;
 
     }
 
-    void Start()
+    public void Init(Minigame minigame)
     {
+        this.minigame = minigame;
         gameObject.SetActive(false);
     }
 
@@ -35,6 +36,8 @@ public class MinigameFinished : MonoBehaviour
 
     public void ContinueButton()
     {
+        RewardSkill();
+
         if(EventStateManager.Instance != null)
             EventStateManager.Instance.SetState(State.Walking);
 
@@ -47,5 +50,40 @@ public class MinigameFinished : MonoBehaviour
 
         // Unload it asynchronously
         SceneManager.UnloadSceneAsync(currentScene);
+    }
+
+    public void RewardSkill()
+    {
+        Character character = CharacterListDisplay.Instance.SelectedCharacter;
+        if (character == null ) return;
+
+        Personage personage = character.Personage;
+
+        switch (minigame.rewardedSkill)
+        {
+            case Skillset.Kapitaal:
+                personage.baseKapitaal += score;
+                break;
+
+            case Skillset.Socialiteit:
+                personage.baseSociaal += score;
+                break;
+
+            case Skillset.Bouwkunde:
+                personage.baseBouwkunde += score;
+                break;
+
+            case Skillset.AanpassingsVermogen:
+                personage.baseAanpassingsvermogen += score;
+                break;
+
+            case Skillset.Leervermogen:
+                personage.baseLeervermogen += score;
+                break;
+
+            default:
+                personage.baseKapitaal += score;
+                break;
+        }
     }
 }

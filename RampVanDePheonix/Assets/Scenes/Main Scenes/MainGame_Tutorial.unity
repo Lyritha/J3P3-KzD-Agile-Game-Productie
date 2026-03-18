@@ -1047,6 +1047,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 508061632754415525, guid: a29b6f656dba276439131b2e6feb6761, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1132974372641409891, guid: a29b6f656dba276439131b2e6feb6761, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2153,7 +2157,7 @@ MonoBehaviour:
   - {fileID: 537476434}
   - {fileID: 372497158}
   monoBehavioursToDisable:
-  - {fileID: 0}
+  - {fileID: 2060899430}
 --- !u!1 &741452602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,24 +2766,12 @@ MonoBehaviour:
   eventVisualiser: {fileID: 493967286}
   faseManager: {fileID: 767755092}
   sceneHider: {fileID: 697106743}
-  minigames:
-  - minigameName: 
-    allowedPhase: 4
-    sceneName: Minigame_Building
-    tutorialPrefab: {fileID: 0}
-  - minigameName: 
-    allowedPhase: 7
-    sceneName: Minigame_Fishing
-    tutorialPrefab: {fileID: 0}
-  - minigameName: 
-    allowedPhase: 6
-    sceneName: Minigame_Learning
-    tutorialPrefab: {fileID: 0}
-  - minigameName: 
-    allowedPhase: 7
-    sceneName: Minigame_Social
-    tutorialPrefab: {fileID: 0}
+  minigameConfig: {fileID: 11400000, guid: aaf2174506f56ae4bb4df4eee80e31ec, type: 2}
   minigamePauseMenu: {fileID: 1651090781}
+  achterhoekLore: {fileID: 7482164186307297847, guid: a13c6b71890ea464eb128933f086c62e, type: 3}
+  bootLore: {fileID: 7482164186307297847, guid: 99e56334481c220489ae8e132a9c14f4, type: 3}
+  amerikaLore: {fileID: 7482164186307297847, guid: b7a5fabd8d1ef0f44bb670597654aa22, type: 3}
+  lorePosition: {fileID: 372497152}
 --- !u!1001 &1557302002
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -71,9 +72,17 @@ public class NextGameManager : MonoBehaviour
         gameObject.SetActive(false);
         sceneHider.HideMainScene();
 
-        SceneManager.LoadScene(chosenMinigame.sceneName, LoadSceneMode.Additive);
+        StartCoroutine(LoadMinigame(chosenMinigame));
     }
 
+    IEnumerator LoadMinigame(Minigame chosenMinigame)
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync(chosenMinigame.sceneName, LoadSceneMode.Additive);
+
+        yield return op; 
+
+        MinigameFinished.Instance.Init(chosenMinigame);
+    }
 
     public void StartTutorial()
     {

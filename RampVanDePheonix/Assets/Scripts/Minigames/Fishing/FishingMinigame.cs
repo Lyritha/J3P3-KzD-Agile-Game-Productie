@@ -24,10 +24,6 @@ public class FishingMinigame : MonoBehaviour
     bool gameEnded = false;
     [SerializeField] TMP_Text timerText;
 
-    [Header("End Screen")]
-    [SerializeField] GameObject endPanel;
-    [SerializeField] TMP_Text finalScoreText;
-
     [Header("dingen die op inactive moeten")]
     [SerializeField] GameObject mainCanvas;
     [SerializeField] GameObject fishVisual;
@@ -64,7 +60,6 @@ public class FishingMinigame : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         catchSlider.value = progress;
         SetNewFishTarget();
-        endPanel.SetActive(false);
     }
 
     void Update()
@@ -220,15 +215,8 @@ public class FishingMinigame : MonoBehaviour
     {
         gameEnded = true;
 
-        //finalScoreText.text = "Final Score: " + score;
         minigameFinished.ShowScore(score);
-
-        //endPanel.SetActive(true);
         minigameFinished.gameObject.SetActive(true);
-        //mainCanvas.SetActive(false);
-        //fishVisual.SetActive(false);
-        //catchZoneVisual.SetActive(false);
-        //background.SetActive(false);
     }
 
     public void ReturnToMainGame()

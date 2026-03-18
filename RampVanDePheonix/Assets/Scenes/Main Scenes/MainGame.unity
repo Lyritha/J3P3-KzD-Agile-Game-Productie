@@ -2274,18 +2274,23 @@ MonoBehaviour:
     allowedPhase: 4
     sceneName: Minigame_Building
     tutorialPrefab: {fileID: 7454625415996840028, guid: 38a9c2e99ec33904995cbdf3c2a1d0eb, type: 3}
+    rewardedSkill: 0
   - minigameName: Fishing
     allowedPhase: 7
     sceneName: Minigame_Fishing
     tutorialPrefab: {fileID: 7454625415996840028, guid: 37f76c96d486d224e9e4f071341ab0df, type: 3}
+    rewardedSkill: 0
   - minigameName: Learning
     allowedPhase: 6
     sceneName: Minigame_Learning
     tutorialPrefab: {fileID: 7454625415996840028, guid: 13206e9d0770ccd469d781a0b04469b3, type: 3}
+    rewardedSkill: 0
   - minigameName: Steen papier schaar
     allowedPhase: 7
     sceneName: Minigame_Social
     tutorialPrefab: {fileID: 7454625415996840028, guid: f221f0a4876898248a414a6feeaecf39, type: 3}
+    rewardedSkill: 0
+  minigameConfig: {fileID: 11400000, guid: aaf2174506f56ae4bb4df4eee80e31ec, type: 2}
   minigamePauseMenu: {fileID: 147693158}
   achterhoekLore: {fileID: 7482164186307297847, guid: a13c6b71890ea464eb128933f086c62e, type: 3}
   bootLore: {fileID: 7482164186307297847, guid: 99e56334481c220489ae8e132a9c14f4, type: 3}
