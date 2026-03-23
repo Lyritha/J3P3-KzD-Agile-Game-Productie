@@ -58,6 +58,14 @@ public class EventStateManager : MonoBehaviour
     protected void Start()
     {
         minigamePauseMenu.SetActive(false);
+        eventVisualiser.gameObject.SetActive(false);
+        SetState(State.Lore);
+    }
+
+    private void SetMinigames()
+    {
+        minigameTriggers.Clear();
+
         List<Minigame> allowedMinigames = minigameConfig.minigames.FindAll(m => (m.allowedPhase & faseManager.CurrentFase) != 0);
         if (allowedMinigames.Count == 0)
         {
@@ -83,9 +91,6 @@ public class EventStateManager : MonoBehaviour
             minigameTriggers.Add(triggerPoint, randomMinigame);
             allowedMinigames.RemoveAt(minigameIndex);
         }
-
-        eventVisualiser.gameObject.SetActive(false);
-        SetState(State.Lore);
     }
 
     public virtual void SetState(State newState)
@@ -99,8 +104,7 @@ public class EventStateManager : MonoBehaviour
                 if (currentFase == Fases.Achterhoek) Instantiate(achterhoekLore,lorePosition.transform);
                 else if (currentFase == Fases.Pheonix) Instantiate(bootLore, lorePosition.transform);
                 else if (currentFase == Fases.Amerika) Instantiate(amerikaLore, lorePosition.transform);
-                //instantiate thing
-                //start voice
+                SetMinigames();
                 break;
             case State.Walking:
                 StartCoroutine(WalkingState(30));
