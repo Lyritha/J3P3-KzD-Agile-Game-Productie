@@ -1,29 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class stealing_enemy : MonoBehaviour
 {
     GameObject brendaTarget;
-
-    [SerializeField] GameObject ratPrefab;
-    [SerializeField] bool isSpawner = false;
-    [SerializeField] RectTransform rectTransform;
-
     bool hasStolen;
 
     void Start()
     {
         brendaTarget = FindAnyObjectByType<Player>().gameObject;
-        if (isSpawner)
-        {
-            SpawnThief();
-        }
     }
 
     void FixedUpdate()
     {
-        if (isSpawner) return;
-
-
         Vector2 targetPos;
         if (!hasStolen)
         {
@@ -32,6 +22,7 @@ public class stealing_enemy : MonoBehaviour
         }
         else
         {
+            transform.localScale = new(-1,1,1);
             targetPos = new(-50, 20);
             if (Vector3.Distance(transform.position, targetPos) < 10)
             {
@@ -46,27 +37,14 @@ public class stealing_enemy : MonoBehaviour
             FoodStorage.Instance.RemoveFood();
             hasStolen = true;
         }
-
-        if (hasStolen)
-        {
-
-        }
     }
 
-    public void SpawnThief()
+    public void ClickedRat()
     {
-        Vector2 spawnPos = new Vector2(
-            Random.Range(-100, -20),
-            Random.Range(10, 80)
-        );
-
-        Instantiate(ratPrefab, spawnPos, Quaternion.identity, rectTransform);
-
-        int amount = Random.Range(1, 4);
-
-        for (int i = 0; i < amount; i++)
+        if (hasStolen)
         {
-            Invoke(nameof(SpawnThief), Random.Range(5f, 15f));
+            FoodStorage.Instance.TryAddFood(1);
         }
+        Destroy(gameObject);
     }
 }

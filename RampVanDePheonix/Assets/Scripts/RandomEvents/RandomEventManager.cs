@@ -4,13 +4,15 @@ using UnityEngine.InputSystem.XR;
 
 public class RandomEventManager : MonoBehaviour
 {
-    [SerializeField] stealing_enemy stealingEnemyScript;
+    [SerializeField] GameObject ratPrefab;
+    [SerializeField] RectTransform rectTransform;
+    bool eventhappening;
 
     IEnumerator IntervalTimer()
     {
-        while (true)
+        while (eventhappening)
         {
-            yield return new WaitForSeconds(Random.Range(20f, 40f));
+            yield return new WaitForSeconds(Random.Range(2f, 10f));
             TriggerRandomEvent();
         }
     }
@@ -21,12 +23,39 @@ public class RandomEventManager : MonoBehaviour
 
         if (randomEvent == 0)
         {
-            stealingEnemyScript.SpawnThief();
+            SpawnThief();
         }
     }
 
     private void Start()
     {
+        eventhappening = true;
         StartCoroutine(IntervalTimer());
+    }
+
+    public void StartEventLoop()
+    {
+        eventhappening = true;
+        StartCoroutine(IntervalTimer());
+    }
+
+    public void EndEventLoop()
+    {
+        eventhappening = false;
+    }
+
+    public void SpawnThief()
+    {
+        int amount = Random.Range(1, 4);
+
+        for (int i = 0; i < amount; i++)
+        {
+            Vector2 spawnPos = new Vector2(
+            Random.Range(-100, -20),
+            Random.Range(10, 80)
+        );
+
+            Instantiate(ratPrefab, spawnPos, Quaternion.identity, rectTransform);
+        }
     }
 }
