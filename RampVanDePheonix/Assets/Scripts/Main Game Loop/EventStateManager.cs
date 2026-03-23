@@ -107,7 +107,7 @@ public class EventStateManager : MonoBehaviour
                 SetMinigames();
                 break;
             case State.Walking:
-                StartCoroutine(WalkingState(2));
+                StartCoroutine(WalkingState(30));
                 break;
             case State.Event:
                 EventState();
