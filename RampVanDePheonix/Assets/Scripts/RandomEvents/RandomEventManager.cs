@@ -4,14 +4,29 @@ using UnityEngine.InputSystem.XR;
 
 public class RandomEventManager : MonoBehaviour
 {
-    IEnumerator intervalTimer()
+    [SerializeField] stealing_enemy stealingEnemyScript;
+
+    IEnumerator IntervalTimer()
     {
-        yield return new WaitForSeconds(2);
-        //event logica
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(20f, 40f));
+            TriggerRandomEvent();
+        }
+    }
+
+    void TriggerRandomEvent()
+    {
+        int randomEvent = Random.Range(0, 1);
+
+        if (randomEvent == 0)
+        {
+            stealingEnemyScript.SpawnThief();
+        }
     }
 
     private void Start()
     {
-        StartCoroutine(intervalTimer());
+        StartCoroutine(IntervalTimer());
     }
 }

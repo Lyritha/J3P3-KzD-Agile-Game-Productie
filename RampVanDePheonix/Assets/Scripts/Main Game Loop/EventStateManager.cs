@@ -103,7 +103,7 @@ public class EventStateManager : MonoBehaviour
                 //start voice
                 break;
             case State.Walking:
-                StartCoroutine(WalkingState(2));
+                StartCoroutine(WalkingState(30));
                 break;
             case State.Event:
                 EventState();
