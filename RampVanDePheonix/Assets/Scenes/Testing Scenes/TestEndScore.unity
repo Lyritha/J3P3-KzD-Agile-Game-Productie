@@ -152,7 +152,8 @@ MonoBehaviour:
   UItextPrefab: {fileID: 3247573761190273207, guid: 69f9a2a8a96045943aafd2200873d940, type: 3}
   canvas: {fileID: 718530660}
   ActiveTemporaryUITexts: []
-  nextUIElement: 1
+  nextPlayerStats: 0
+  nextUIElementSet: 0
 --- !u!4 &424421733
 Transform:
   m_ObjectHideFlags: 0
