@@ -33,8 +33,8 @@ public class BackgroundMovement : MonoBehaviour
     [SerializeField] GameObject defaultImageObject;
     [SerializeField] Canvas activeCanvas;
 
-    List<GameObject> currentActiveBackgrounds;
-    List<GameObject> currentActiveForeGrounds;
+    List<GameObject> currentActiveBackgrounds = new();
+    List<GameObject> currentActiveForeGrounds = new();
 
     int backgroundCount = 0;
     int foregroundCount = 0;
