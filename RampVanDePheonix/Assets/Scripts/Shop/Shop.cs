@@ -34,7 +34,15 @@ public class Shop : MonoBehaviour
 
     public void CloseMenu()
     {
-        gameObject.SetActive(false);
+        if (TryGetComponent(out PopupAnim anim))
+        {
+            anim.CloseAnim();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
         EventStateManager.Instance.SetState(State.Minigame);
     }
 }
