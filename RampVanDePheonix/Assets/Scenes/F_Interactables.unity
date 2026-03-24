@@ -2236,6 +2236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEventManager
   ratPrefab: {fileID: 7785288540190953082, guid: a19efe2ffd1b60748bfa9845fa7cae62, type: 3}
+  lootPrefab: {fileID: 4164024329279952493, guid: 0fd4741e9f26ef643bbf76dfb73f8df4, type: 3}
   rectTransform: {fileID: 337845260}
 --- !u!4 &1492704681
 Transform:
