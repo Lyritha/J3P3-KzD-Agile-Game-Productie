@@ -80,7 +80,16 @@ public class EventVisualiser : MonoBehaviour
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (TryGetComponent(out PopupAnim anim))
+        {
+            anim.CloseAnim();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
+
         EventStateManager.Instance.SetState(State.FinishEvent);
     }
 

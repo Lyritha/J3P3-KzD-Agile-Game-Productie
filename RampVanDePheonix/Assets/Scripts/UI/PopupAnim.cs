@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PopupAnim : MonoBehaviour
@@ -8,6 +9,16 @@ public class PopupAnim : MonoBehaviour
     private void OnEnable()
     {
         animator.SetBool("Popup", true);
+    }
+
+    public void CloseAnim()
+    {
+        animator.SetBool("Popup", false);
+    }
+
+    public void Close()
+    {
+        gameObject.SetActive(false);
     }
 
     private void OnDisable()
