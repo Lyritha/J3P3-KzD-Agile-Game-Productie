@@ -32,4 +32,9 @@ public class Shop : MonoBehaviour
         Debug.Log("Bought food");
     }
 
+    public void CloseMenu()
+    {
+        gameObject.SetActive(false);
+        EventStateManager.Instance.SetState(State.Minigame);
+    }
 }

@@ -33,6 +33,7 @@ public class CharacterListDisplay : MonoBehaviour
         for (int i = 0; i < Characters.Count; i++)
         {
             Character otherCharacter = Characters[i];
+
             otherCharacter.SetSelected(false);
 
             NextGameManager manager = FindFirstObjectByType<NextGameManager>();
