@@ -3,10 +3,17 @@ using UnityEngine;
 
 public class Loot_Spawn : MonoBehaviour
 {
+    RectTransform rectTransform;
+
+    public void Init(RectTransform rectTransform)
+    {
+        this.rectTransform = rectTransform;
+    }
+
     void FixedUpdate()
     {
         Vector2 targetPos;
-        targetPos = new(2000, Random.Range(10, 80));
+        targetPos = new(rectTransform.rect.width, Random.Range(10, 80));
 
         transform.position = Vector2.MoveTowards(transform.position, targetPos, 2);
 

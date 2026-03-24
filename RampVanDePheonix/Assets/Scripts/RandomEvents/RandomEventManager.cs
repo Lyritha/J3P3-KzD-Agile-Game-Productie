@@ -65,6 +65,7 @@ public class RandomEventManager : MonoBehaviour
     {
         Vector2 spawnPos = new Vector2(Random.Range(-100, -20), Random.Range(10, 80));
 
-        Instantiate(lootPrefab, spawnPos, Quaternion.identity, rectTransform);
+        GameObject obj = Instantiate(lootPrefab, spawnPos, Quaternion.identity, rectTransform);
+        obj.GetComponent<Loot_Spawn>().Init(rectTransform);
     }
 }
