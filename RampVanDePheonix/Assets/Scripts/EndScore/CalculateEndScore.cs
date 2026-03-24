@@ -1,17 +1,24 @@
+using MyBox;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 public class CalculateEndScore : MonoBehaviour
 {
-
+    [SerializeField] List<Character> fakeCharacters = new List<Character>();
     int mainPointCount = 0;
     [SerializeField] GameObject UItextPrefab;
+    [SerializeField] Canvas canvas;
     //saves the main score
     GameObject mainScoreText;
-    List<GameObject> ActiveTemporaryUITexts = new List<GameObject>();
+    [SerializeField] List<GameObject> ActiveTemporaryUITexts = new List<GameObject>();
     int pointsPerCharacterAlive = 500;
+    [SerializeField] bool nextPlayerStats = false;
+    [SerializeField] bool nextUIElementSet = true;
 
     enum PointClassesNames
     {
@@ -24,7 +31,7 @@ public class CalculateEndScore : MonoBehaviour
 
 
     //dictionary based on classname, points per skillpoint
-    [SerializeField] Dictionary<PointClassesNames, int> PointClasses = new Dictionary<PointClassesNames, int>();
+    Dictionary<PointClassesNames, int> PointClasses = new Dictionary<PointClassesNames, int>();
 
     void Start()
     {
@@ -36,46 +43,66 @@ public class CalculateEndScore : MonoBehaviour
         PointClasses.Add(PointClassesNames.Leervermogen, 100);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    [ContextMenu("testDistribute")]
+    public void TestDistributePoints()
     {
+        List<Character> chars = CharacterListDisplay.Instance.Characters;
+        fakeCharacters.Add(chars[0]);
+        fakeCharacters.Add(chars[1]);
 
+        RemoveAllTemporaryUIElements();
+        StartCoroutine(LoopTroughAlivePlayers(fakeCharacters));
     }
-
-
     /// <summary>
     /// call this method from another script to distribute points according to skillpoints and characters alive
     /// </summary>
-    public void StartDistributingPoints(Character[] players)
-    {
 
+    public void StartDistributingPoints(List<Character> players)
+    {
+        RemoveAllTemporaryUIElements();
+        StartCoroutine(LoopTroughAlivePlayers(players));
     }
 
-    void LoopTroughPlayers(Character[] players)
+    IEnumerator LoopTroughAlivePlayers(List<Character> players)
     {
-        foreach (Character character in players)
+        for (int i = 0; i < players.Count; i++)
         {
+            RemoveAllTemporaryUIElements();
+            Character character = players[i];
             if (character.IsAlive == true)
             {
                 //character is alive, so points can be given for that
                 mainPointCount += pointsPerCharacterAlive;
-                LoopTroughSkills(character);
+                StartCoroutine(LoopTroughSkills(character));
+                yield return new WaitUntil(() => nextPlayerStats == true);
+                print("waituntilCompleted");
+                nextPlayerStats = false;
             }
         }
     }
 
-    void LoopTroughSkills(Character player)
+    IEnumerator LoopTroughSkills(Character player)
     {
         Personage personageObject = player.Personage;
+        PointClassesNames[] pointClassesToList = PointClasses.Keys.ToArray();
 
-        CheckSkill(PointClassesNames.AanpassingsVermogen, personageObject);
-        CheckSkill(PointClassesNames.Bouwkunde, personageObject);
-        CheckSkill(PointClassesNames.Kapitaal, personageObject);
-        CheckSkill(PointClassesNames.Socialiteit, personageObject);
-        CheckSkill(PointClassesNames.Leervermogen, personageObject);
+        for (int i = 0; i < pointClassesToList.Length; i++)
+        {
+            int passNumber = CheckSkill(pointClassesToList[i], personageObject);
+            AddPoints(pointClassesToList[i], passNumber);
+            GameObject newgameObject= PlaceNewScoreUI($"{pointClassesToList[i].ToString()} = {passNumber}");
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return new WaitUntil(() => nextUIElementSet == true);
+        nextUIElementSet = false;
+        print("new ui set");
     }
 
-    void CheckSkill(PointClassesNames pointclass, Personage personageObject)
+    /// <summary>
+    /// checks the amount of skillpoints, multiplies that by the amount of points and adds that to the total point count
+    /// </summary>
+    int CheckSkill(PointClassesNames pointclass, Personage personageObject)
     {
         if (PointClasses.TryGetValue(pointclass, out int value))
         {
@@ -101,28 +128,37 @@ public class CalculateEndScore : MonoBehaviour
                     addPoints = 0;
                     break;
             }
-            AddPoints(pointclass, value);
+            return addPoints;
         }
         else
         {
             print("nameNotFoundInDictionary");
+            return 0;
         }
     }
 
     void AddPoints(PointClassesNames thisName, int value)
     {
-        PlaceNewScoreUI($"{thisName.ToString()} = {value}");
+        mainPointCount += value;
     }
 
-    void PlaceNewScoreUI(string text)
+    GameObject PlaceNewScoreUI(string text)
     {
-        GameObject newUIElement = Instantiate(UItextPrefab);
+        GameObject newUIElement = Instantiate(UItextPrefab, canvas.transform);
+        ActiveTemporaryUITexts.Add(newUIElement);
+        float standardPosition = 300;
+        int offset = (ActiveTemporaryUITexts.Count() * 60);
+        Vector3 correctPosition = new Vector3(0, (standardPosition - offset), 0);
+        //we out here programming this shit
+        newUIElement.transform.localPosition = correctPosition;
         FillScoreUI(newUIElement, text);
+        return newUIElement;
     }
 
-    void FillScoreUI(GameObject uiElement, string text)
+    void FillScoreUI(GameObject uiElement, string newText)
     {
-
+        uiElement.GetComponent<TMP_Text>().text = newText;
+        uiElement.GetComponent<TMP_Text>().color = Color.green;
     }
 
     void RemoveAllTemporaryUIElements()
@@ -132,5 +168,11 @@ public class CalculateEndScore : MonoBehaviour
             GameObject.Destroy(element);
         }
         ActiveTemporaryUITexts.Clear();
+    }
+
+    void RemoveItemTemporaryUIElement(GameObject itemToDelete)
+    {
+        GameObject.Destroy(itemToDelete);
+        ActiveTemporaryUITexts.Remove(itemToDelete);
     }
 }
