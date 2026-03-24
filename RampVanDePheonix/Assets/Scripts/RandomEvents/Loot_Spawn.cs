@@ -19,7 +19,6 @@ public class Loot_Spawn : MonoBehaviour
     public void ClickedLoot()
     {
         int randomValue = Random.Range(0,2);
-        print(randomValue);
 
         if (randomValue == 0)
         {
