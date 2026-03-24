@@ -13,8 +13,11 @@ public class HeightCheck : MonoBehaviour
     [Header("HeightIndicator")]
     [SerializeField] GameObject indicator;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource audio;
+
     public int highestRounded = 0;
-    float highest = 0;
+    Vector3 highest;
 
     void Update()
     {
@@ -24,22 +27,30 @@ public class HeightCheck : MonoBehaviour
 
     void CheckHeight()
     {
-        highest = 0;
+        highest = new(1, 1, 0);
         foreach (GameObject brick in spawnedBricks)
         {
-            if (brick != null && brick.transform.position.y > highest)
+            if (brick != null && brick.transform.position.y > highest.y)
             {
-                highest = brick.transform.position.y;
+                highest = brick.transform.position;
+                PlaySoundEffect(highest.y);
             }                                
         }
 
-        highestRounded = (int)Math.Round(highest);
-        MinigameFinished.Instance.ShowScore(highestRounded);
+        highestRounded = (int)Math.Round(highest.y);
+        if (MinigameFinished.Instance != null) MinigameFinished.Instance.ShowScore(highestRounded);
         heightIndicator.text = Convert.ToString(highestRounded);
     }
 
     void MoveIndicator()
     {
-        indicator.transform.position = new Vector2(0,highest);
+        indicator.transform.position = Vector3.Lerp(indicator.transform.position, new Vector2(0,highest.y), 1f * Time.deltaTime);
+        //indicator.transform.position = new Vector2(0,highest);
+    }
+
+    void PlaySoundEffect(float pitch)
+    {
+        audio.pitch = pitch;
+        audio.Play();
     }
 }
