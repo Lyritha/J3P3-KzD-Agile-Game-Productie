@@ -33,9 +33,11 @@ public class PhaseManager : MonoBehaviour
         {
             case Fases.Achterhoek:
                 FillList(eventsConfig.achterhoekEvents);
+                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
                 break;
             case Fases.Pheonix:
                 FillList(eventsConfig.pheonixEvents);
+                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Pheonix);
                 break;
             case Fases.Amerika:
                 FillList(eventsConfig.amerikaEvents);
@@ -47,6 +49,7 @@ public class PhaseManager : MonoBehaviour
 
         display.SetPhase(CurrentFase,10);
         movement.SetFase(CurrentFase);
+        AudioManager.Instance.SetPhaseMusic(CurrentFase);
     }
 
     void FillList(List<Event> incomingEvents)

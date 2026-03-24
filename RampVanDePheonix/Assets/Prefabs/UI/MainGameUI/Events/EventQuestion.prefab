@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 2543030523580880494}
   - component: {fileID: 5540197578004135817}
   - component: {fileID: 8651575884368563175}
+  - component: {fileID: 4031078883430221694}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -250,6 +251,18 @@ MonoBehaviour:
   m_FlexibleWidth: 0
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!114 &4031078883430221694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915886556472865585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00093d04c6b8a040add82729e98bd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayButtonSound
 --- !u!1 &1164090830324272070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1420,7 @@ GameObject:
   - component: {fileID: 8876357148902379274}
   - component: {fileID: 8516584295457909798}
   - component: {fileID: 6024355188411271178}
+  - component: {fileID: 479005954517587287}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1548,6 +1562,18 @@ MonoBehaviour:
   m_FlexibleWidth: 0
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!114 &479005954517587287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671631066087692561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00093d04c6b8a040add82729e98bd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayButtonSound
 --- !u!1 &7845217699391185548
 GameObject:
   m_ObjectHideFlags: 0
