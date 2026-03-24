@@ -3,21 +3,23 @@ using UnityEngine;
 
 public class Loot_Spawn : MonoBehaviour
 {
-    RectTransform rectTransform;
+    Vector2 targetPos;
 
-    public void Init(RectTransform rectTransform)
+    public void Init(RectTransform parentRect)
     {
-        this.rectTransform = rectTransform;
+        float y = Random.Range(10, 50) - (parentRect.rect.height / 2);
+        float rightEdge = parentRect.rect.width / 2;
+
+        RectTransform rt = (RectTransform)transform;
+        targetPos = new Vector2(rightEdge + rt.rect.width, y);
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        Vector2 targetPos;
-        targetPos = new(rectTransform.rect.width, Random.Range(10, 80));
+        RectTransform rt = (RectTransform)transform;
+        rt.anchoredPosition = Vector2.MoveTowards( rt.anchoredPosition, targetPos, 200f * Time.deltaTime);
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, 2);
-
-        if (Vector3.Distance(transform.position, targetPos) < 10)
+        if (Vector2.Distance(rt.anchoredPosition, targetPos) < 1f)
         {
             Destroy(gameObject);
         }
@@ -25,7 +27,7 @@ public class Loot_Spawn : MonoBehaviour
 
     public void ClickedLoot()
     {
-        int randomValue = Random.Range(0,2);
+        int randomValue = Random.Range(0, 2);
 
         if (randomValue == 0)
         {
