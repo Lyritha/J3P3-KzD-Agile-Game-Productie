@@ -14,10 +14,10 @@ public class Loot_Spawn : MonoBehaviour
         targetPos = new Vector2(rightEdge + rt.rect.width, y);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         RectTransform rt = (RectTransform)transform;
-        rt.anchoredPosition = Vector2.MoveTowards( rt.anchoredPosition, targetPos, 200f * Time.deltaTime);
+        rt.anchoredPosition = Vector2.MoveTowards( rt.anchoredPosition, targetPos, 200f * Time.fixedDeltaTime);
 
         if (Vector2.Distance(rt.anchoredPosition, targetPos) < 1f)
         {
