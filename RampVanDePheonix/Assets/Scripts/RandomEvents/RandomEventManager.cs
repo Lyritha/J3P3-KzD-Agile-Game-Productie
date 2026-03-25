@@ -5,6 +5,7 @@ using UnityEngine.InputSystem.XR;
 public class RandomEventManager : MonoBehaviour
 {
     [SerializeField] GameObject ratPrefab;
+    [SerializeField] GameObject lootPrefab;
     [SerializeField] RectTransform rectTransform;
     bool eventhappening;
 
@@ -19,11 +20,15 @@ public class RandomEventManager : MonoBehaviour
 
     void TriggerRandomEvent()
     {
-        int randomEvent = Random.Range(0, 1);
+        int randomEvent = Random.Range(0, 2);
 
         if (randomEvent == 0)
         {
             SpawnThief();
+        }
+        else if (randomEvent == 1)
+        {
+            SpawnLoot();
         }
     }
 
@@ -50,12 +55,17 @@ public class RandomEventManager : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            Vector2 spawnPos = new Vector2(
-            Random.Range(-100, -20),
-            Random.Range(10, 80)
-        );
+            Vector2 spawnPos = new Vector2(Random.Range(-100, -20), Random.Range(10, 80));
 
             Instantiate(ratPrefab, spawnPos, Quaternion.identity, rectTransform);
         }
+    }
+
+    public void SpawnLoot()
+    {
+        Vector2 spawnPos = new Vector2(Random.Range(-100, -20), Random.Range(10, 80));
+
+        GameObject obj = Instantiate(lootPrefab, spawnPos, Quaternion.identity, rectTransform);
+        obj.GetComponent<Loot_Spawn>().Init(rectTransform);
     }
 }
