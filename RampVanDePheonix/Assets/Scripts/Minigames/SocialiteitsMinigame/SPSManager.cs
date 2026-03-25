@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -23,9 +22,16 @@ public class SPSManager : MonoBehaviour
     private string gameResult;
     public int score;
 
+
+    [Header("Audio")]
+    AudioSource source;
+    [SerializeField] AudioClip correctJingle;
+    [SerializeField] AudioClip incorrectJingle;
+
     void Start()
     {
         score = 0;
+        source = GetComponent<AudioSource>();
         ResetGame();
     }
 
@@ -91,7 +97,7 @@ public class SPSManager : MonoBehaviour
 
     private void AiChooses()
     {
-        randomInt = Random.Range(0,3);
+        randomInt = Random.Range(0, 3);
 
         switch (randomInt)
         {
@@ -112,6 +118,11 @@ public class SPSManager : MonoBehaviour
 
     private void ShowResults()
     {
+        if (gameResult == "Jij Wint!") source.clip = correctJingle;
+        else if (gameResult == "Tegenstander Wint...") source.clip = incorrectJingle;
+
+        if(gameResult != "Gelijkspel.") source.Play();
+
         MinigameFinished.Instance.ShowScore(score);
         scoreText.text = "Score: " + score;
         winLoseTextParent.SetActive(true);
