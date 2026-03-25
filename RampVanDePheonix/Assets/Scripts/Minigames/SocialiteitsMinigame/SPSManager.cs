@@ -7,6 +7,7 @@ public class SPSManager : MonoBehaviour
 {
     [SerializeField] private GameObject allPrefabs;
     [SerializeField] private TMP_Text winLoseText;
+    [SerializeField] private GameObject winLoseTextParent;
     [SerializeField] private TMP_Text scoreText;
 
     [SerializeField] public Animator playerAnimator;
@@ -30,7 +31,7 @@ public class SPSManager : MonoBehaviour
 
     void ResetGame()
     {
-        winLoseText.gameObject.SetActive(false);
+        winLoseTextParent.SetActive(false);
         buttons.SetActive(true);
         playerHand.SetActive(false);
         aiHand.SetActive(false);
@@ -113,7 +114,7 @@ public class SPSManager : MonoBehaviour
     {
         MinigameFinished.Instance.ShowScore(score);
         scoreText.text = "Score: " + score;
-        winLoseText.gameObject.SetActive(true);
+        winLoseTextParent.SetActive(true);
         Invoke(nameof(ResetGame), 1);
     }
 }
