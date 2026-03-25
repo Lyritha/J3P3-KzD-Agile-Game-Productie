@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 8910962891137724445}
   - component: {fileID: 8292468241325343270}
   - component: {fileID: 3470857570460163026}
+  - component: {fileID: 8885150852091425750}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -230,6 +231,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8885150852091425750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760334397093657386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00093d04c6b8a040add82729e98bd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayButtonSound
 --- !u!1 &1141744522744558698
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +395,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1385,6 +1398,7 @@ GameObject:
   - component: {fileID: 2171834693473966041}
   - component: {fileID: 5013863532073110984}
   - component: {fileID: 6693304100429032583}
+  - component: {fileID: 6958223402945061650}
   m_Layer: 5
   m_Name: Terug
   m_TagString: Untagged
@@ -1527,6 +1541,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &6958223402945061650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857010836211222359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00093d04c6b8a040add82729e98bd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayButtonSound
 --- !u!1 &5099446954364708896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1735,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

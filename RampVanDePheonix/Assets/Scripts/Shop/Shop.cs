@@ -32,4 +32,17 @@ public class Shop : MonoBehaviour
         Debug.Log("Bought food");
     }
 
+    public void CloseMenu()
+    {
+        if (TryGetComponent(out PopupAnim anim))
+        {
+            anim.CloseAnim();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
+        EventStateManager.Instance.SetState(State.Minigame);
+    }
 }
