@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,11 +13,10 @@ public class HeightCheck : MonoBehaviour
     [Header("HeightIndicator")]
     [SerializeField] GameObject indicator;
 
-    [Header("Audio")]
-    [SerializeField] AudioSource audio;
 
     public int highestRounded = 0;
     Vector3 highest;
+
 
     void Update()
     {
@@ -33,7 +32,6 @@ public class HeightCheck : MonoBehaviour
             if (brick != null && brick.transform.position.y > highest.y)
             {
                 highest = brick.transform.position;
-                PlaySoundEffect(highest.y);
             }                                
         }
 
@@ -48,9 +46,5 @@ public class HeightCheck : MonoBehaviour
         //indicator.transform.position = new Vector2(0,highest);
     }
 
-    void PlaySoundEffect(float pitch)
-    {
-        audio.pitch = pitch;
-        audio.Play();
-    }
+
 }

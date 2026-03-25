@@ -800,7 +800,6 @@ MonoBehaviour:
   spawnedBricks: []
   heightIndicator: {fileID: 1298978373}
   indicator: {fileID: 481593076}
-  clip: {fileID: 8300000, guid: fa5e5812fd8e92443bfa3ba67ca69a89, type: 3}
   highestRounded: 0
 --- !u!1001 &645085313
 PrefabInstance:
@@ -930,6 +929,7 @@ GameObject:
   - component: {fileID: 754760264}
   - component: {fileID: 754760263}
   - component: {fileID: 754760261}
+  - component: {fileID: 754760265}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1047,6 +1047,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &754760265
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754760260}
+  m_Enabled: 1
 --- !u!1 &952018387
 GameObject:
   m_ObjectHideFlags: 0
