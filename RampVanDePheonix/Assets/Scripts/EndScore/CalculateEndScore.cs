@@ -16,9 +16,16 @@ public class CalculateEndScore : MonoBehaviour
     //saves the main score
     GameObject mainScoreText;
     [SerializeField] List<GameObject> ActiveTemporaryUITexts = new List<GameObject>();
+    [SerializeField] List<GameObject> ActiveScorePerPersonUI = new List<GameObject>();
+    [SerializeField] List<int> ScorePerPerson = new List<int>();
+
+    int currentPerson = 0;
     int pointsPerCharacterAlive = 500;
     [SerializeField] bool nextPlayerStats = false;
     [SerializeField] bool nextUIElementSet = true;
+
+    //spawnPositions
+    int defaultInstantiateXposition = -430;
 
     enum PointClassesNames
     {
@@ -50,6 +57,8 @@ public class CalculateEndScore : MonoBehaviour
         List<Character> chars = CharacterListDisplay.Instance.Characters;
         fakeCharacters.Add(chars[0]);
         fakeCharacters.Add(chars[1]);
+        fakeCharacters.Add(chars[2]);
+        fakeCharacters.Add(chars[3]);
 
         RemoveAllTemporaryUIElements();
         StartCoroutine(LoopTroughAlivePlayers(fakeCharacters));
@@ -72,13 +81,19 @@ public class CalculateEndScore : MonoBehaviour
             Character character = players[i];
             if (character.IsAlive == true)
             {
+                placeScorePerCharacterUI();
                 //character is alive, so points can be given for that
                 mainPointCount += pointsPerCharacterAlive;
                 StartCoroutine(LoopTroughSkills(character));
+                //change nextplayerstat to true to move on to the next person stats
                 yield return new WaitUntil(() => nextPlayerStats == true);
+                //new element can be placed, remove old elements (BUT keep main score)
                 print("waituntilCompleted");
+                RemoveAllTemporaryUIElements();
+                currentPerson++;
                 nextPlayerStats = false;
             }
+
         }
     }
 
@@ -91,12 +106,15 @@ public class CalculateEndScore : MonoBehaviour
         {
             int passNumber = CheckSkill(pointClassesToList[i], personageObject);
             AddPoints(pointClassesToList[i], passNumber);
-            GameObject newgameObject= PlaceNewScoreUI($"{pointClassesToList[i].ToString()} = {passNumber}");
+            GameObject newgameObject = PlaceNewScoreUI($"{pointClassesToList[i].ToString()} = {passNumber}");
             yield return new WaitForSeconds(0.5f);
         }
+
+        //Set nextUIelement to True to complete the scorecount from the current player and move on to the next
         yield return new WaitUntil(() => nextUIElementSet == true);
         nextUIElementSet = false;
         print("new ui set");
+        nextPlayerStats = true;
     }
 
     /// <summary>
@@ -137,18 +155,50 @@ public class CalculateEndScore : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// adds points to the score from current selected character 
+    /// </summary>
     void AddPoints(PointClassesNames thisName, int value)
     {
-        mainPointCount += value;
+        ScorePerPerson[currentPerson] += value;
+        print($"{thisName} adds {value} points");
+        updateScorePerCharacterUI(currentPerson);
     }
+
+    void placeScorePerCharacterUI()
+    {
+        //confirm position before adding new GameObject to the list
+        float standardYPosition = 300f;
+        float stepPerUIperson = 250;
+        float xOffset = (defaultInstantiateXposition + ActiveScorePerPersonUI.Count * stepPerUIperson);
+        GameObject characterScore = Instantiate(UItextPrefab, canvas.transform);
+        ActiveScorePerPersonUI.Add(characterScore);
+
+        Vector3 position = new Vector3(xOffset, standardYPosition, 0);
+        characterScore.transform.localPosition = position;
+        //sets the base score to 0, removing this causes a null reference since no objects otherwise exist in the list
+        ScorePerPerson.Add(0);
+        FillScoreUI(characterScore, ScorePerPerson[currentPerson].ToString());
+    }
+
+    void updateScorePerCharacterUI(int index)
+    {
+        int score = ScorePerPerson[index];
+        ActiveScorePerPersonUI[index].GetComponentInChildren<TMP_Text>().text = score.ToString();
+    }
+
+
 
     GameObject PlaceNewScoreUI(string text)
     {
         GameObject newUIElement = Instantiate(UItextPrefab, canvas.transform);
         ActiveTemporaryUITexts.Add(newUIElement);
-        float standardPosition = 300;
-        int offset = (ActiveTemporaryUITexts.Count() * 60);
-        Vector3 correctPosition = new Vector3(0, (standardPosition - offset), 0);
+        float standardYPosition = 150;
+        float stepPerUIperson = 250;
+        int yOffset = (ActiveTemporaryUITexts.Count() * 60);
+        int xOffset = (defaultInstantiateXposition + ActiveScorePerPersonUI.Count * 300);
+
+        Vector3 correctPosition = new Vector3((defaultInstantiateXposition + xOffset), (standardYPosition - yOffset), 0);
         //we out here programming this shit
         newUIElement.transform.localPosition = correctPosition;
         FillScoreUI(newUIElement, text);
@@ -157,8 +207,8 @@ public class CalculateEndScore : MonoBehaviour
 
     void FillScoreUI(GameObject uiElement, string newText)
     {
-        uiElement.GetComponent<TMP_Text>().text = newText;
-        uiElement.GetComponent<TMP_Text>().color = Color.green;
+        uiElement.GetComponentInChildren<TMP_Text>().text = newText;
+        uiElement.GetComponentInChildren<TMP_Text>().color = Color.green;
     }
 
     void RemoveAllTemporaryUIElements()
