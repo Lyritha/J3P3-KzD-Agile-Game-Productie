@@ -10,6 +10,7 @@ public enum State
     Walking,
     Event,
     FinishEvent,
+    Shop,
     Minigame,
     Exit
 }
@@ -35,12 +36,15 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] protected SceneHider sceneHider;
     [SerializeField] protected MinigameConfig minigameConfig;
     [SerializeField] private GameObject minigamePauseMenu;
+    [SerializeField] private GameObject shopPanel;
 
     [Header("LoreDropPrefabs")]
     [SerializeField] GameObject achterhoekLore;
     [SerializeField] GameObject bootLore;
     [SerializeField] GameObject amerikaLore;
     [SerializeField] GameObject lorePosition;
+
+    [SerializeField] private float walkTimeSecs = 30;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
 
@@ -107,7 +111,10 @@ public class EventStateManager : MonoBehaviour
                 SetMinigames();
                 break;
             case State.Walking:
-                StartCoroutine(WalkingState(30));
+                StartCoroutine(WalkingState(walkTimeSecs));
+                break;
+            case State.Shop:
+                ShopState(); 
                 break;
             case State.Event:
                 EventState();
@@ -142,6 +149,17 @@ public class EventStateManager : MonoBehaviour
         Debug.Log("apply stat changes");
         faseManager.AddProgress();
         CharacterListDisplay.Instance.UpdateCharacters();
+
+        SetState(State.Shop);
+    }
+
+    protected virtual void ShopState()
+    {
+        if (Random.Range(0, 3) == 0)
+        {
+            shopPanel.SetActive(true);
+            return;
+        }
 
         // try to trigger a minigame, if not possible, go back to walking
         SetState(State.Minigame);

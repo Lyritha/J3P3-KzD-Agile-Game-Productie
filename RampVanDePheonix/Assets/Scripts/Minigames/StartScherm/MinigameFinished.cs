@@ -17,7 +17,16 @@ public class MinigameFinished : MonoBehaviour
             Destroy(gameObject);
 
         Instance = this;
+    }
 
+    private void OnEnable()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
     }
 
     public void Init(Minigame minigame)
@@ -35,6 +44,8 @@ public class MinigameFinished : MonoBehaviour
 
     public void ContinueButton()
     {
+
+
         RewardSkill();
 
         if(EventStateManager.Instance != null)
