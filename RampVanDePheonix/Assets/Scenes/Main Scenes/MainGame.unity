@@ -1380,8 +1380,8 @@ MonoBehaviour:
   obstaclePrefab: {fileID: -1737028596864417863, guid: 7f40b386bf848c9419e9e64271531cfa, type: 3}
   lootPrefab: {fileID: 2926943873838278979, guid: 0fd4741e9f26ef643bbf76dfb73f8df4, type: 3}
   rectTransform: {fileID: 853326112}
-  minDelay: 5
-  maxDelay: 15
+  minDelay: 10
+  maxDelay: 20
 --- !u!4 &510504363
 Transform:
   m_ObjectHideFlags: 0

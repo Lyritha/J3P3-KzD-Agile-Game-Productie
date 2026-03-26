@@ -85,7 +85,7 @@ public class RandomEventManager : MonoBehaviour
         
         if (obstacle == null)
         {
-            Vector2 spawnPos = new(-100, 120);
+            Vector2 spawnPos = new(-100, 60);
             Obstacle_Spawn obj = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity, rectTransform);
             obj.Init(this);
         }

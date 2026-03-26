@@ -22,11 +22,11 @@ public class Obstacle_Spawn : MonoBehaviour
         if (!parent.Eventhappening) return;
 
         Vector2 targetPos;
-        targetPos = new((parentRect.rect.width / 100) * 40, (parentRect.rect.height / 100) * 10);
+        targetPos = new((parentRect.rect.width / 100) * 40, (parentRect.rect.height / 100) * 7);
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, 2);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, 7);
 
-        if (Vector2.Distance(transform.position, targetPos) < (parentRect.rect.width / 100) * 7)
+        if (Vector2.Distance(transform.position, targetPos) < (parentRect.rect.width / 100) * 20)
         {
             BackgroundMovement background = FindFirstObjectByType<BackgroundMovement>();
             background.PauseBackground();
