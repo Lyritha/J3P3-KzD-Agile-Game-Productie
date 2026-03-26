@@ -4,9 +4,12 @@ using UnityEngine;
 public class Loot_Spawn : MonoBehaviour
 {
     Vector2 targetPos;
+    RandomEventManager parent;
 
-    public void Init(RectTransform parentRect)
+    public void Init(RectTransform parentRect, RandomEventManager parent)
     {
+        this.parent = parent;
+
         float y = Random.Range(10, 50) - (parentRect.rect.height / 2);
         float rightEdge = parentRect.rect.width / 2;
 
@@ -14,10 +17,12 @@ public class Loot_Spawn : MonoBehaviour
         targetPos = new Vector2(rightEdge + rt.rect.width, y);
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (!parent.Eventhappening) return;
+
         RectTransform rt = (RectTransform)transform;
-        rt.anchoredPosition = Vector2.MoveTowards( rt.anchoredPosition, targetPos, 200f * Time.deltaTime);
+        rt.anchoredPosition = Vector2.MoveTowards( rt.anchoredPosition, targetPos, 300f * Time.fixedDeltaTime);
 
         if (Vector2.Distance(rt.anchoredPosition, targetPos) < 1f)
         {
