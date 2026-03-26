@@ -839,7 +839,6 @@ GameObject:
   - component: {fileID: 754760264}
   - component: {fileID: 754760263}
   - component: {fileID: 754760261}
-  - component: {fileID: 754760265}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -957,14 +956,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &754760265
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754760260}
-  m_Enabled: 1
 --- !u!1 &927980642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,7 +1538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8545056867422917407, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 163.4974
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8545056867422917407, guid: a3668956b0e57f64faf790df9042b30b, type: 3}
       propertyPath: m_LocalPosition.x

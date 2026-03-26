@@ -46,7 +46,7 @@ public class FishingMinigame : MonoBehaviour
     float loseRate = 0.6f;
 
     float barVelocity;
-    float progress = 0.5f;
+    float progress = 0.25f;
 
     float minY = -3f;
     float maxY = 3f;
@@ -54,8 +54,11 @@ public class FishingMinigame : MonoBehaviour
     float fishTargetY;
     float fishTimer;
 
+    AudioSource source;
+
     void Start()
     {
+        source = GetComponent<AudioSource>();
         timer = gameDuration;
         scoreText.text = "Score: " + score.ToString();
         catchSlider.value = progress;
@@ -64,7 +67,11 @@ public class FishingMinigame : MonoBehaviour
 
     void Update()
     {
-        if (gameEnded) return;
+        if (gameEnded)
+        {
+            source.Stop();
+            return;
+        }
 
         UpdateTimer();
         MoveFish();
@@ -157,7 +164,7 @@ public class FishingMinigame : MonoBehaviour
 
     void ResetFishing()
     {
-        progress = 0.5f;
+        progress = 0.25f;
         catchSlider.value = progress;
 
         barVelocity = 0f;
