@@ -15,15 +15,15 @@ public class CalculateEndScore : MonoBehaviour
     [SerializeField] Canvas canvas;
     //saves the main score
     GameObject mainScoreText;
-    [SerializeField] List<GameObject> ActiveTemporaryUITexts = new List<GameObject>();
-    [SerializeField] List<GameObject> ActiveScorePerPersonUI = new List<GameObject>();
-    [SerializeField] List<int> ScorePerPerson = new List<int>();
+    List<GameObject> ActiveTemporaryUITexts = new List<GameObject>();
+    List<GameObject> ActiveScorePerPersonUI = new List<GameObject>();
+    List<int> ScorePerPerson = new List<int>();
 
     int currentPerson = 0;
     int pointsPerCharacterAlive = 500;
     [SerializeField] bool nextPlayerStats = false;
-    [SerializeField] bool nextUIElementSet = false;
-    [SerializeField] bool isBusyDisplaying = false;
+    bool nextUIElementSet = false;
+    bool isBusyDisplaying = false;
 
     //spawnPositions
     int defaultInstantiateXposition = -430;
@@ -51,7 +51,9 @@ public class CalculateEndScore : MonoBehaviour
         PointClasses.Add(PointClassesNames.Leervermogen, 100);
     }
 
-
+    /// <summary>
+    /// this test if the points gets distributed correctly
+    /// </summary>
     [ContextMenu("testDistribute")]
     public void TestDistributePoints()
     {
@@ -72,27 +74,33 @@ public class CalculateEndScore : MonoBehaviour
     /// call this method from another script to distribute points according to skillpoints and characters alive
     /// NOTE: call this methode once and continue with NextPlayer()
     /// </summary>
-
     public void StartDistributingPoints(List<Character> players)
     {
         RemoveAllTemporaryUIElements();
         StartCoroutine(LoopTroughAlivePlayers(players));
     }
 
+    /// <summary>
+    /// Loops trough all players, checks if the player is alive and loops trough the skills from the current character
+    /// </summary>
     IEnumerator LoopTroughAlivePlayers(List<Character> players)
     {
         for (int i = 0; i < players.Count; i++)
         {
+            //removes all UI elements
             RemoveAllTemporaryUIElements();
             Character character = players[i];
             if (character.IsAlive == true)
             {
+                //places a "main" score for the current character
                 placeScorePerCharacterUI();
                 //character is alive, so points can be given for that
                 mainPointCount += pointsPerCharacterAlive;
+                //loops trough the skills from the current character
                 StartCoroutine(LoopTroughSkills(character));
                 //change nextplayerstat to true to move on to the next person stats
                 yield return new WaitUntil(() => nextPlayerStats == true);
+                //after waiting, it prepares for the next player
                 PrepareForNextPlayer();
             }
 
@@ -111,12 +119,20 @@ public class CalculateEndScore : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// prepares the UI screen by removing all temporary items and going to the next person
+    /// </summary>
     void PrepareForNextPlayer()
     {
         RemoveAllTemporaryUIElements();
         currentPerson++;
         nextPlayerStats = false;
     }
+
+    /// <summary>
+    /// method loops trough all the skills from the current player
+    /// method also adds points and places "mini" scores per skillpoint-item
+    /// </summary>
     IEnumerator LoopTroughSkills(Character player)
     {
         isBusyDisplaying = true;
@@ -135,7 +151,7 @@ public class CalculateEndScore : MonoBehaviour
     }
 
     /// <summary>
-    /// checks the amount of skillpoints, multiplies that by the amount of points and adds that to the total point count
+    /// checks the amount of skillpoints, multiplies that by the amount of points and returns that amount (to be added to the characterUIscore)
     /// </summary>
     int CheckSkill(PointClassesNames pointclass, Personage personageObject)
     {
@@ -178,26 +194,43 @@ public class CalculateEndScore : MonoBehaviour
     void AddPoints(PointClassesNames thisName, int value)
     {
         ScorePerPerson[currentPerson] += value;
+        //this is a debug text, can be removed
         print($"{thisName} adds {value} points to {fakeCharacters[currentPerson].Personage.characterName}");
+
+        //updates the "main" score per character
         updateScorePerCharacterUI(currentPerson);
     }
 
+    /// <summary>
+    /// Places a main-score per character
+    /// PS: the "mini" scores (score per skillponts) all gets added up, and placed into this UI element
+    /// </summary>
     void placeScorePerCharacterUI()
     {
         //confirm position before adding new GameObject to the list
         float standardYPosition = 300f;
         float stepPerUIperson = 250;
         float xOffset = (defaultInstantiateXposition + ActiveScorePerPersonUI.Count * stepPerUIperson);
+
+        //instantiates the characterScoreUI
         GameObject characterScore = Instantiate(UItextPrefab, canvas.transform);
+
+        //puts it in the scoreUI per person
         ActiveScorePerPersonUI.Add(characterScore);
 
+        //places it in the correct position
         Vector3 position = new Vector3(xOffset, standardYPosition, 0);
         characterScore.transform.localPosition = position;
         //sets the base score to 0, removing this causes a null reference since no objects otherwise exist in the list
         ScorePerPerson.Add(0);
+        //fills the UI text
         FillScoreUI(characterScore, ScorePerPerson[currentPerson].ToString());
     }
 
+
+    /// <summary>
+    ///  updates the scoreUI based on the current (number) character
+    /// </summary>
     void updateScorePerCharacterUI(int index)
     {
         int score = ScorePerPerson[index];
@@ -205,30 +238,46 @@ public class CalculateEndScore : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    ///  places a new score UI and places it on the correct position
+    ///  after instantiating it calls fillScoreUI to fill the newly made UI element
+    /// </summary>
     GameObject PlaceNewScoreUI(string text)
     {
         float standardYPosition = 200f;
         float stepPerUIperson = 250;
-        //calculates the offset for the UI element,
-        //activescoreperperon -1 because an scoreElement per person already gets instantiated causing misalignment
-        //tldr score per character gets instantiated faster than placenewScoreUI
+            //calculates the offset for the UI element,
+            //activescoreperperon -1 because an scoreElement per person already gets instantiated causing misalignment
+            //tldr score per character gets instantiated faster than placenewScoreUI
         float xOffset = (defaultInstantiateXposition + (ActiveScorePerPersonUI.Count - 1) * stepPerUIperson);
-        int yOffset = (ActiveTemporaryUITexts.Count() * 60);
+        int yOffset = (ActiveTemporaryUITexts.Count() * 75);
+        //instantiating the new UI element
         GameObject newUIElement = Instantiate(UItextPrefab, canvas.transform);
+
+        //puts it in the TempUI list
         ActiveTemporaryUITexts.Add(newUIElement);
+
+        //changes the position - the offsets
         Vector3 position = new Vector3(xOffset, (standardYPosition - yOffset), 0);
         newUIElement.transform.localPosition = position;
+
+        //fills the score with the passed trough text
         FillScoreUI(newUIElement, text);
         return newUIElement;
     }
 
+    /// <summary>
+    /// fills the UI with text (both passed trough)
+    /// </summary>
     void FillScoreUI(GameObject uiElement, string newText)
     {
         uiElement.GetComponentInChildren<TMP_Text>().text = newText;
         uiElement.GetComponentInChildren<TMP_Text>().color = Color.green;
     }
 
+    /// <summary>
+    /// removes all the temporary UI items (such as basic scores)
+    /// </summary>
     void RemoveAllTemporaryUIElements()
     {
         foreach (GameObject element in ActiveTemporaryUITexts)
@@ -238,9 +287,20 @@ public class CalculateEndScore : MonoBehaviour
         ActiveTemporaryUITexts.Clear();
     }
 
+    /// <summary>
+    /// removes a single item from the temporary UI items (such as a basic score)
+    /// </summary>
     void RemoveItemTemporaryUIElement(GameObject itemToDelete)
     {
         GameObject.Destroy(itemToDelete);
         ActiveTemporaryUITexts.Remove(itemToDelete);
+    }
+
+    /// <summary>
+    /// use this method to correctly pass the canvas where the items can be displayed
+    /// </summary>
+    public void SetCanvas(Canvas correctCanvas)
+    {
+        canvas = correctCanvas;
     }
 }
