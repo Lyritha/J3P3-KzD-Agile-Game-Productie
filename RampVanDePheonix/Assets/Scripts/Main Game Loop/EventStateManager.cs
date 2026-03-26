@@ -207,6 +207,8 @@ public class EventStateManager : MonoBehaviour
 
     [ContextMenu("Load Social")]
     public void LoadSocial() => LoadMinigame(3);
+    [ContextMenu("Load Aanpassing")]
+    public void LoadAanpassing() => LoadMinigame(4);
 
     public void LoadMinigame(int index)
     {
