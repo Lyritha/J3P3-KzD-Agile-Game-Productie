@@ -22,7 +22,8 @@ public class CalculateEndScore : MonoBehaviour
     int currentPerson = 0;
     int pointsPerCharacterAlive = 500;
     [SerializeField] bool nextPlayerStats = false;
-    [SerializeField] bool nextUIElementSet = true;
+    [SerializeField] bool nextUIElementSet = false;
+    [SerializeField] bool isBusyDisplaying = false;
 
     //spawnPositions
     int defaultInstantiateXposition = -430;
@@ -61,10 +62,15 @@ public class CalculateEndScore : MonoBehaviour
         fakeCharacters.Add(chars[3]);
 
         RemoveAllTemporaryUIElements();
-        StartCoroutine(LoopTroughAlivePlayers(fakeCharacters));
+        //checks if there is no score on screen yet (has the score already been displayed?)
+        if (ActiveScorePerPersonUI.Count == 0)
+        {
+            StartCoroutine(LoopTroughAlivePlayers(fakeCharacters));
+        }
     }
     /// <summary>
     /// call this method from another script to distribute points according to skillpoints and characters alive
+    /// NOTE: call this methode once and continue with NextPlayer()
     /// </summary>
 
     public void StartDistributingPoints(List<Character> players)
@@ -87,18 +93,33 @@ public class CalculateEndScore : MonoBehaviour
                 StartCoroutine(LoopTroughSkills(character));
                 //change nextplayerstat to true to move on to the next person stats
                 yield return new WaitUntil(() => nextPlayerStats == true);
-                //new element can be placed, remove old elements (BUT keep main score)
-                print("waituntilCompleted");
-                RemoveAllTemporaryUIElements();
-                currentPerson++;
-                nextPlayerStats = false;
+                PrepareForNextPlayer();
             }
 
         }
     }
 
+    /// <summary>
+    /// call this method to continue to next player (for example a button)
+    /// </summary>
+    [ContextMenu("nextPlayer")]
+    public void NextPlayer()
+    {
+        if (isBusyDisplaying == false)
+        {
+            nextPlayerStats = true;
+        }
+    }
+
+    void PrepareForNextPlayer()
+    {
+        RemoveAllTemporaryUIElements();
+        currentPerson++;
+        nextPlayerStats = false;
+    }
     IEnumerator LoopTroughSkills(Character player)
     {
+        isBusyDisplaying = true;
         Personage personageObject = player.Personage;
         PointClassesNames[] pointClassesToList = PointClasses.Keys.ToArray();
 
@@ -109,12 +130,8 @@ public class CalculateEndScore : MonoBehaviour
             GameObject newgameObject = PlaceNewScoreUI($"{pointClassesToList[i].ToString()} = {passNumber}");
             yield return new WaitForSeconds(0.5f);
         }
-
-        //Set nextUIelement to True to complete the scorecount from the current player and move on to the next
-        yield return new WaitUntil(() => nextUIElementSet == true);
+        isBusyDisplaying = false;
         nextUIElementSet = false;
-        print("new ui set");
-        nextPlayerStats = true;
     }
 
     /// <summary>
@@ -161,7 +178,7 @@ public class CalculateEndScore : MonoBehaviour
     void AddPoints(PointClassesNames thisName, int value)
     {
         ScorePerPerson[currentPerson] += value;
-        print($"{thisName} adds {value} points");
+        print($"{thisName} adds {value} points to {fakeCharacters[currentPerson].Personage.characterName}");
         updateScorePerCharacterUI(currentPerson);
     }
 
@@ -191,16 +208,17 @@ public class CalculateEndScore : MonoBehaviour
 
     GameObject PlaceNewScoreUI(string text)
     {
+        float standardYPosition = 200f;
+        float stepPerUIperson = 250;
+        //calculates the offset for the UI element,
+        //activescoreperperon -1 because an scoreElement per person already gets instantiated causing misalignment
+        //tldr score per character gets instantiated faster than placenewScoreUI
+        float xOffset = (defaultInstantiateXposition + (ActiveScorePerPersonUI.Count - 1) * stepPerUIperson);
+        int yOffset = (ActiveTemporaryUITexts.Count() * 60);
         GameObject newUIElement = Instantiate(UItextPrefab, canvas.transform);
         ActiveTemporaryUITexts.Add(newUIElement);
-        float standardYPosition = 150;
-        float stepPerUIperson = 250;
-        int yOffset = (ActiveTemporaryUITexts.Count() * 60);
-        int xOffset = (defaultInstantiateXposition + ActiveScorePerPersonUI.Count * 300);
-
-        Vector3 correctPosition = new Vector3((defaultInstantiateXposition + xOffset), (standardYPosition - yOffset), 0);
-        //we out here programming this shit
-        newUIElement.transform.localPosition = correctPosition;
+        Vector3 position = new Vector3(xOffset, (standardYPosition - yOffset), 0);
+        newUIElement.transform.localPosition = position;
         FillScoreUI(newUIElement, text);
         return newUIElement;
     }
