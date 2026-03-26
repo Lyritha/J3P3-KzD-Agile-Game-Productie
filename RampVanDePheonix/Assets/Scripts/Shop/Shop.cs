@@ -15,19 +15,19 @@ public class Shop : MonoBehaviour
             return;
         }
 
-        if (character.Personage.baseKapitaal <= 0)
+        if (character.Personage.baseKapitaal < foodPrice)
         {
             Debug.Log("Cannot buy food: character has no capital");
             return;
         }
 
-        if (!FoodStorage.Instance.TryAddFood(5))
+        if (!FoodStorage.Instance.TryAddFood(foodGetAmount))
         {
             Debug.Log("Cannot buy food: storage is full");
             return;
         }
 
-        character.Personage.baseKapitaal--;
+        character.Personage.baseKapitaal -= foodPrice;
         character.Personage.NotifyChanged();
         Debug.Log("Bought food");
     }

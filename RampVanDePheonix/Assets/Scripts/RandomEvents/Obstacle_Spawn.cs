@@ -5,26 +5,36 @@ public class Obstacle_Spawn : MonoBehaviour
     int rockHealth;
 
     public bool hasSpawned;
+    public static bool isBlocking;
+    RandomEventManager parent;
+    RectTransform parentRect;
 
-    public void Start()
+    public void Init(RandomEventManager parent)
     {
+        this.parent = parent;
         hasSpawned = true;
-        rockHealth = Random.Range(3,9);
+        rockHealth = Random.Range(3, 9);
+        parentRect = (RectTransform)transform.parent;
     }
 
     private void FixedUpdate()
     {
+        if (!parent.Eventhappening) return;
+
         Vector2 targetPos;
-        targetPos = new(750, 120);
+        targetPos = new((parentRect.rect.width / 100) * 40, (parentRect.rect.height / 100) * 10);
 
         transform.position = Vector2.MoveTowards(transform.position, targetPos, 2);
 
-        if (Vector2.Distance(transform.position, targetPos) < 1f)
+        if (Vector2.Distance(transform.position, targetPos) < (parentRect.rect.width / 100) * 7)
         {
             BackgroundMovement background = FindFirstObjectByType<BackgroundMovement>();
-            BrendaFlip brendaFlip = FindAnyObjectByType<BrendaFlip>();
-            brendaFlip.enabled = false;
-            background.enabled = false;
+            background.PauseBackground();
+        }
+
+        if (Vector2.Distance(transform.position, targetPos) < 1f)
+        {
+            isBlocking = true;
         }
     }
 
@@ -35,9 +45,9 @@ public class Obstacle_Spawn : MonoBehaviour
         if (rockHealth < 0)
         {
             BackgroundMovement background = FindFirstObjectByType<BackgroundMovement>();
-            background.enabled = true;
-            BrendaFlip brendaFlip = FindAnyObjectByType<BrendaFlip>();
-            brendaFlip.enabled = true;
+            background.StartBackground();
+
+            isBlocking = false;
             hasSpawned = false;
             Destroy(gameObject);
         }

@@ -1,20 +1,24 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class RandomEventManager : MonoBehaviour
 {
-    [SerializeField] GameObject ratPrefab;
-    [SerializeField] GameObject obstaclePrefab;
-    [SerializeField] GameObject lootPrefab;
+    [SerializeField] Stealing_enemy ratPrefab;
+    [SerializeField] Obstacle_Spawn obstaclePrefab;
+    [SerializeField] Loot_Spawn lootPrefab;
     [SerializeField] RectTransform rectTransform;
-    bool eventhappening;
+    [SerializeField] float minDelay = 2;
+    [SerializeField] float maxDelay = 10;
+
+    public bool Eventhappening {  get; private set; }
+
+    private Coroutine coroutine;
 
     IEnumerator IntervalTimer()
     {
-        while (eventhappening)
+        while (Eventhappening)
         {
-            yield return new WaitForSeconds(Random.Range(2f, 10f));
+            yield return new WaitForSeconds(Random.Range(minDelay, maxDelay));
             TriggerRandomEvent();
         }
     }
@@ -37,21 +41,21 @@ public class RandomEventManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        eventhappening = true;
-        StartCoroutine(IntervalTimer());
-    }
-
     public void StartEventLoop()
     {
-        eventhappening = true;
-        StartCoroutine(IntervalTimer());
+        Eventhappening = true;
+        coroutine = StartCoroutine(IntervalTimer());
     }
 
     public void EndEventLoop()
     {
-        eventhappening = false;
+        Eventhappening = false;
+
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
     }
 
     public void SpawnThief()
@@ -60,18 +64,19 @@ public class RandomEventManager : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            Vector2 spawnPos = new Vector2(Random.Range(-100, -20), Random.Range(10, 80));
+            Vector2 spawnPos = new(Random.Range(-100, -20), Random.Range(10, 80));
 
-            Instantiate(ratPrefab, spawnPos, Quaternion.identity, rectTransform);
+            Stealing_enemy obj = Instantiate(ratPrefab, spawnPos, Quaternion.identity, rectTransform);
+            obj.Init(this);
         }
     }
 
     public void SpawnLoot()
     {
-        Vector2 spawnPos = new Vector2(Random.Range(-100, -20), Random.Range(10, 80));
+        Vector2 spawnPos = new(Random.Range(-100, -20), Random.Range(10, 80));
 
-        GameObject obj = Instantiate(lootPrefab, spawnPos, Quaternion.identity, rectTransform);
-        obj.GetComponent<Loot_Spawn>().Init(rectTransform);
+        Loot_Spawn obj = Instantiate(lootPrefab, spawnPos, Quaternion.identity, rectTransform);
+        obj.Init(rectTransform, this);
     }
 
     public void SpawnObstacle()
@@ -80,8 +85,9 @@ public class RandomEventManager : MonoBehaviour
         
         if (obstacle == null)
         {
-            Vector2 spawnPos = new Vector2(-100, 120);
-            Instantiate(obstaclePrefab, spawnPos, Quaternion.identity, rectTransform);
+            Vector2 spawnPos = new(-100, 120);
+            Obstacle_Spawn obj = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity, rectTransform);
+            obj.Init(this);
         }
         else return;
 

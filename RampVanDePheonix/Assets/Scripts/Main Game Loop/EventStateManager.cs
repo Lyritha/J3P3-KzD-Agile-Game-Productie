@@ -35,8 +35,10 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] protected PhaseManager faseManager;
     [SerializeField] protected SceneHider sceneHider;
     [SerializeField] protected MinigameConfig minigameConfig;
+    [SerializeField] private RandomEventManager randomEventsManager;
     [SerializeField] private GameObject minigamePauseMenu;
     [SerializeField] private GameObject shopPanel;
+    [SerializeField] private BackgroundMovement background;
 
     [Header("LoreDropPrefabs")]
     [SerializeField] GameObject achterhoekLore;
@@ -133,20 +135,25 @@ public class EventStateManager : MonoBehaviour
 
     protected IEnumerator WalkingState(float waitTime)
     {
+        if (randomEventsManager != null) randomEventsManager.StartEventLoop();
+        background.StartBackground();
         yield return new WaitForSeconds(waitTime);
+        yield return new WaitUntil(() => !Obstacle_Spawn.isBlocking);
         eventVisualiser.gameObject.SetActive(true);
         SetState(State.Event);
     }
 
     protected virtual void EventState()
     {
+        if (randomEventsManager != null) randomEventsManager.EndEventLoop();
+        background.PauseBackground();
+
         Event randomEvent = faseManager.GetRandomEvent();
         eventVisualiser.ShowEvent(randomEvent);
     }
 
     protected virtual void FinishEventState()
     {
-        Debug.Log("apply stat changes");
         faseManager.AddProgress();
         CharacterListDisplay.Instance.UpdateCharacters();
 
@@ -170,8 +177,6 @@ public class EventStateManager : MonoBehaviour
         if (minigameTriggers.TryGetValue(faseManager.Progress, out Minigame selectedMinigame))
         {
             Debug.Log("startMinigame");
-            // menu openen
-            // menu.startMenu(selectedMinigame)
             minigamePauseMenu.SetActive(true);
             NextGameManager.Instance.StarMenu(selectedMinigame);
 

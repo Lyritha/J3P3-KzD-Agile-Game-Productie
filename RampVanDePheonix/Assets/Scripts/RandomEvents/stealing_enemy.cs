@@ -1,24 +1,31 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class stealing_enemy : MonoBehaviour
+public class Stealing_enemy : MonoBehaviour
 {
     GameObject brendaTarget;
     bool hasStolen;
+    RectTransform parentRect;
+    RandomEventManager parent;
 
-    void Start()
+
+    public void Init(RandomEventManager parent)
     {
+        this.parent = parent;
         brendaTarget = FindAnyObjectByType<Player>().gameObject;
+        parentRect = (RectTransform)transform.parent;
     }
 
     void FixedUpdate()
     {
+        if (!parent.Eventhappening) return;
+
         Vector2 targetPos;
         if (!hasStolen)
         {
             targetPos = brendaTarget.transform.position;
-            targetPos.y -= 80;
+            targetPos.y -= (parentRect.rect.height / 100) * 15;
         }
         else
         {
@@ -30,9 +37,9 @@ public class stealing_enemy : MonoBehaviour
             }
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, 2);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, 10);
 
-        if (Vector3.Distance(transform.position,targetPos)<50 && !hasStolen)
+        if (Vector3.Distance(transform.position,targetPos) < 50 && !hasStolen)
         {
             FoodStorage.Instance.RemoveFood();
             hasStolen = true;
