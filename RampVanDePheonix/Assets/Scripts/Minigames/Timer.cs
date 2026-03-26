@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
         amountOfSeconds -= Time.deltaTime;
         if (amountOfSeconds <= 0)
         {
-            OnCountDone();
+            OnCountDone?.Invoke();
         } 
         timerText.text = Convert.ToString(Math.Round(amountOfSeconds));
     }

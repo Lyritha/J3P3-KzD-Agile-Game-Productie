@@ -18,7 +18,6 @@ public class MinigameFinished : MonoBehaviour
             Destroy(gameObject);
 
         Instance = this;
-
     }
 
     public void Init(Minigame minigame)
