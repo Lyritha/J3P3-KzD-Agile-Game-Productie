@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8751542909354619446}
   - component: {fileID: 2926943873838278979}
   m_Layer: 5
-  m_Name: Loot
+  m_Name: Loot_Achterhoek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
