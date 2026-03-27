@@ -46,13 +46,22 @@ public class PhaseManager : MonoBehaviour
                 AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
                 break;
             case Fases.EndScreen:
-                SceneManager.LoadScene("EndScreen_Win");
+                Time.timeScale = 0;
+                SceneManager.LoadScene("EndScreen_Win", LoadSceneMode.Additive);
                 break;
         }
 
         display.SetPhase(CurrentFase,10);
         movement.SetFase(CurrentFase);
     }
+
+
+    [ContextMenu("finish game")]
+    public void FinishGame()
+    {
+        SwapFase(Fases.EndScreen);
+    }
+
 
     void FillList(List<Event> incomingEvents)
     {
