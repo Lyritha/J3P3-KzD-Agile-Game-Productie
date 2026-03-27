@@ -71,6 +71,7 @@ public class NextGameManager : MonoBehaviour
         if (!canPlay) return;
         sceneHider.HideMainScene();
 
+        AudioManager.Instance.SetPhaseMusic(Fases.All, true);
         StartCoroutine(LoadMinigame(chosenMinigame));
     }
 

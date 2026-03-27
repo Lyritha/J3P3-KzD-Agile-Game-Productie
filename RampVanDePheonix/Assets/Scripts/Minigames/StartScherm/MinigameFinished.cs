@@ -45,6 +45,8 @@ public class MinigameFinished : MonoBehaviour
     public void ContinueButton()
     {
         RewardSkill();
+        if (CharacterListDisplay.Instance != null)
+            CharacterListDisplay.Instance.DeselectCharacter();
 
         if(EventStateManager.Instance != null)
             EventStateManager.Instance.SetState(State.Walking);

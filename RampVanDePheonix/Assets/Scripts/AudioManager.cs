@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
     private AudioClip boatMusic;
     [SerializeField]
     private AudioClip amerikaMusic;
+    [SerializeField]
+    private AudioClip minigameMusic;
 
 
     public static AudioManager Instance
@@ -128,20 +130,28 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning($"Looped sound not found: {effect}");
     }
 
-    public void SetPhaseMusic(Fases fase)
+    public void SetPhaseMusic(Fases fase, bool isMinigame = false)
     {
-        musicAudioSource.Stop();
-        musicAudioSource.loop = true;
-
-        musicAudioSource.clip = fase switch
+        AudioClip targetAudioclip;
+        if (isMinigame) targetAudioclip = minigameMusic;
+        else
         {
-            Fases.Achterhoek => achterhoekMusic,
-            Fases.Pheonix => boatMusic,
-            Fases.Amerika => amerikaMusic,
-            _ => null
-        };
+            targetAudioclip = fase switch
+            {
+                Fases.Achterhoek => achterhoekMusic,
+                Fases.Pheonix => boatMusic,
+                Fases.Amerika => amerikaMusic,
+                _ => null
+            };
+        }
 
-        musicAudioSource.Play();
+        if (targetAudioclip != musicAudioSource.clip)
+        {
+            musicAudioSource.Stop();
+            musicAudioSource.loop = true;
+            musicAudioSource.clip = targetAudioclip;
+            musicAudioSource.Play();
+        }
     }
 }
 
@@ -169,5 +179,7 @@ public enum SoundEffects
 public enum LoopedSoundEffects
 {
     Achterhoek,
-    Pheonix
+    Pheonix,
+    Amerika,
+    Minigame,
 }
