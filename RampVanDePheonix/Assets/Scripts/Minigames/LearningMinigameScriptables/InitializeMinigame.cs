@@ -1,3 +1,4 @@
+using MyBox;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,8 +7,11 @@ public class InitializeMinigame : MonoBehaviour
 {
     //the list of different englishman onboard the phoenix
     [SerializeField] Sprite[] differentEnglishMen;
+
     [SerializeField] GameObject[] SceneryObjects;
+    [SerializeField] Sprite[] BackgroundImages;
     //0=achterhoek, 1=boat 2=america
+    [SerializeField] GameObject DefaultBackground;
 
     GameObject player;
     GameObject englishMan;
@@ -26,6 +30,8 @@ public class InitializeMinigame : MonoBehaviour
     /// </summary>
     void ChangeDefaultPlayerSprite(GameObject player)
     {
+        if (CharacterListDisplay.Instance == null) return;
+
         Sprite selected = CharacterListDisplay.Instance.SelectedCharacter.Personage.portrait;
         player.GetComponent<Image>().sprite = selected;
     }
@@ -52,26 +58,35 @@ public class InitializeMinigame : MonoBehaviour
         {
             case Fases.Achterhoek:
                 InstantiateCorrectScenery(SceneryObjects[0]);
+                InstantiateCorrectBackground(BackgroundImages[0]);
+                gameObject.GetComponent<Animator>().enabled = false;
                 break;
             case Fases.Pheonix:
                 InstantiateCorrectScenery(SceneryObjects[1]);
+                InstantiateCorrectBackground(BackgroundImages[1]);
                 break;
             case Fases.Amerika:
                 InstantiateCorrectScenery(SceneryObjects[2]);
+                InstantiateCorrectBackground(BackgroundImages[2]);
+                gameObject.GetComponent<Animator>().enabled = false;
                 break;
             default:
                 print("COULDNT FIND CORRECT FASE, DEFAULTING RN");
                 InstantiateCorrectScenery(SceneryObjects[0]);
+                InstantiateCorrectBackground(BackgroundImages[0]);
+                gameObject.GetComponent<Animator>().enabled = false;
                 break;
         }
     }
     void InstantiateCorrectScenery(GameObject correctSceneryObject)
     {
-        Vector3 sceneryObjectsPosition = new Vector3(0, 0, 0);
         GameObject newGameObject = Instantiate(correctSceneryObject);
-        newGameObject.transform.position = sceneryObjectsPosition;
+        newGameObject.transform.position = new Vector3(0, 0, 0);
     }
 
-
-
+    void InstantiateCorrectBackground(Sprite correctBackgroundSprite)
+    {
+        print("instantiated a background" + correctBackgroundSprite);
+        DefaultBackground.GetComponent<SpriteRenderer>().sprite = correctBackgroundSprite;
+    }
 }
