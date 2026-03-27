@@ -113,6 +113,7 @@ public class EventStateManager : MonoBehaviour
                 SetMinigames();
                 break;
             case State.Walking:
+                AudioManager.Instance.SetPhaseMusic(faseManager.CurrentFase);
                 StartCoroutine(WalkingState(walkTimeSecs));
                 break;
             case State.Shop:
@@ -158,6 +159,21 @@ public class EventStateManager : MonoBehaviour
         CharacterListDisplay.Instance.UpdateCharacters();
 
         SetState(State.Shop);
+    }
+
+
+    [ContextMenu("Lotta progress")]
+    public void AddProgress()
+    {
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
     }
 
     protected virtual void ShopState()

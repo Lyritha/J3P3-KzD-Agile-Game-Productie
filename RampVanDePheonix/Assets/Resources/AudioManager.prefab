@@ -189,9 +189,10 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: b309287ff490b3d42a0dd349ca6b359b, type: 3}
     volume: 0.5
     effect: 0
-  achterhoekMusic: {fileID: 8300000, guid: 3f87d78dcb0c73440b0c92a0225de307, type: 3}
-  boatMusic: {fileID: 8300000, guid: 3f87d78dcb0c73440b0c92a0225de307, type: 3}
-  amerikaMusic: {fileID: 8300000, guid: 3f87d78dcb0c73440b0c92a0225de307, type: 3}
+  achterhoekMusic: {fileID: 8300000, guid: 503171fd5d954ce40a21ec568797c1be, type: 3}
+  boatMusic: {fileID: 8300000, guid: 96aa1114d8537974f990daa20d217761, type: 3}
+  amerikaMusic: {fileID: 8300000, guid: 503171fd5d954ce40a21ec568797c1be, type: 3}
+  minigameMusic: {fileID: 8300000, guid: 3544d63796661aa4ba7d1e70825860be, type: 3}
 --- !u!1 &6455314755963695083
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +238,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 1
   Mute: 0

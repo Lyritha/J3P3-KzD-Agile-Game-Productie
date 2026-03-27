@@ -22,7 +22,7 @@ public class Obstacle_Spawn : MonoBehaviour
         if (!parent.Eventhappening) return;
 
         Vector2 targetPos;
-        targetPos = new((parentRect.rect.width / 100) * 40, (parentRect.rect.height / 100) * 7);
+        targetPos = new((parentRect.rect.width / 100) * 20, (parentRect.rect.height / 100) * 7);
 
         transform.position = Vector2.MoveTowards(transform.position, targetPos, 7);
 
