@@ -9,6 +9,7 @@ public class AanpassingControlls : MonoBehaviour
     [SerializeField] TMP_Text stateText;
     [SerializeField] float drainSpeed = 2f;
 
+    private int score;
     private bool backNForth = false;
 
     private float progressCounter;
@@ -27,6 +28,8 @@ public class AanpassingControlls : MonoBehaviour
             cartImage.rectTransform.anchoredPosition = new Vector2(-425, -10);
             cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
             stateText.text = "Los";
+            score = 3;
+            MinigameFinished.Instance.ShowScore(score);
         }
 
         else if (progressCounter >= 60f)
@@ -34,6 +37,8 @@ public class AanpassingControlls : MonoBehaviour
             cartImage.rectTransform.anchoredPosition = new Vector2(-425, -150);
             cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, -10);
             stateText.text = "Deels los";
+            score = 2;
+            MinigameFinished.Instance.ShowScore(score);
         }
 
         else if (progressCounter >= 30f)
@@ -42,6 +47,8 @@ public class AanpassingControlls : MonoBehaviour
             cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, -15);
      
             stateText.text = "Deels vast";
+            score = 1;
+            MinigameFinished.Instance.ShowScore(score);
         }
 
         else if (progressCounter >= 0f)
@@ -49,6 +56,8 @@ public class AanpassingControlls : MonoBehaviour
             cartImage.rectTransform.anchoredPosition = new Vector2(-425, -250);
             cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, -20);
             stateText.text = "Volledig vast";
+            score = 0;
+            MinigameFinished.Instance.ShowScore(score);
         }
 
 
