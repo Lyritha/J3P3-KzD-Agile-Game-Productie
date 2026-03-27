@@ -15,7 +15,14 @@ public class BrendaFlip : MonoBehaviour
 
     [Header("Idle Movement")]
     [SerializeField] private float sineAmplitude = 50f;
-    [SerializeField] private float sineFrequency = 5f;
+    [SerializeField] private float maxSineFrequency = 5f;
+    [SerializeField] private float wheelSpeed = 100f;
+    private float pauseSpeed = 0.5f;
+    private float currentSineFrequency = 0;
+    private float targetSineFrequency = 0;
+    private float currentWheelSpeed = 0;
+    private float targetWheelSpeed = 0;
+    private float sinePhase = 0f;
 
     [Header("Flip")]
     [SerializeField] private float flipSpeed = 720f;
@@ -23,6 +30,10 @@ public class BrendaFlip : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private RectTransform rect;
+    [SerializeField] private RectTransform wiggleTarget;
+
+    [SerializeField]
+    private RectTransform[] wheels;
 
     private int currentSoundIndex = 0;
     private float lastFlipTime = -10f;
@@ -31,17 +42,44 @@ public class BrendaFlip : MonoBehaviour
     private float rotatedAmount = 0f;
     private Quaternion startRotation;
 
+
     private float baseX;
     private float baseY;
 
     void Start()
     {
-        baseX = rect.anchoredPosition.x;
-        baseY = rect.anchoredPosition.y;
+        baseX = wiggleTarget.anchoredPosition.x;
+        baseY = wiggleTarget.anchoredPosition.y;
     }
+
+    public void StartMoving()
+    {
+        targetSineFrequency = maxSineFrequency;
+        targetWheelSpeed = wheelSpeed;
+    }
+
+    public void StopMoving()
+    {
+        targetSineFrequency = 0;
+        targetWheelSpeed = 0;
+    }
+
+
+
 
     void Update()
     {
+        currentWheelSpeed = Mathf.MoveTowards(
+            currentWheelSpeed,
+            targetWheelSpeed,
+            pauseSpeed * Time.deltaTime * wheelSpeed
+        );
+
+        foreach (RectTransform wheel in wheels)
+        {
+            wheel.Rotate(0, 0, currentWheelSpeed  * Time.deltaTime);
+        }
+
         HandleMovement();
 
         if (Input.GetKeyDown(KeyCode.Space) && !isFlipping)
@@ -54,8 +92,18 @@ public class BrendaFlip : MonoBehaviour
 
     void HandleMovement()
     {
+        // Update frequency
+        currentSineFrequency = Mathf.MoveTowards(
+            currentSineFrequency,
+            targetSineFrequency,
+            pauseSpeed * Time.deltaTime * maxSineFrequency
+        );
+
+        // Advance phase based on current frequency
+        sinePhase += currentSineFrequency * Time.deltaTime;
+
         // Continuous side-to-side sway
-        float x = baseX + Mathf.Sin(Time.time * sineFrequency) * sineAmplitude;
+        float x = baseX + Mathf.Sin(sinePhase) * sineAmplitude;
 
         float y = baseY;
 
@@ -66,7 +114,7 @@ public class BrendaFlip : MonoBehaviour
             y += Mathf.Sin(flipProgress * Mathf.PI) * flipHeight;
         }
 
-        rect.anchoredPosition = new Vector2(x, y);
+        wiggleTarget.anchoredPosition = new Vector2(x, y);
     }
 
     void HandleFlip()
