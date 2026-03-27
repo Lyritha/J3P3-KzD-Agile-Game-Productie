@@ -698,6 +698,7 @@ MonoBehaviour:
   characterDisplay: {fileID: 1617885649708643833}
   characterFood: {fileID: 0}
   borderImage: {fileID: 1987294643385601463}
+  popUpText: {fileID: 7373012214489202102, guid: 8d0ec5511c9883a4fb8ab8de1fcf348b, type: 3}
 --- !u!114 &1617885649708643833
 MonoBehaviour:
   m_ObjectHideFlags: 0
