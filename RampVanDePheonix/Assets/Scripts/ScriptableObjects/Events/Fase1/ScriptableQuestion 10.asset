@@ -48,7 +48,9 @@ MonoBehaviour:
     - skillToBeChanged: 1
       changeAmount: -1
     changeFailed: []
-  - skillNeeded: []
+  - skillNeeded:
+    - skillType: 1
+      skillAmountNeeded: 1
     action: Een Amerikaanse bijbel.
     result: 'Je kiest er voor om een Amerikaanse bijbel te kopen waarin je kan leren
       over het Amerikaans Christelijke leven.

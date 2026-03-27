@@ -10,8 +10,13 @@ public class BackgroundMovement : MonoBehaviour
     float backgroundImageWidth = 800;
     float foregroundImageWidth = 800;
 
-    float foregroundSpeed = 400;
-    float backgroundSpeed = 250;
+    float pauseSpeed = 0.5f;
+    float targetForegroundSpeed;
+    float targetBackgroundSpeed;
+    float baseForegroundSpeed = 400;
+    float baseBackgroundSpeed = 250;
+    float currentForegroundSpeed = 0;
+    float currentBackgroundSpeed = 0;
 
     [SerializeField]
     private RectTransform backgroundParent;
@@ -32,9 +37,10 @@ public class BackgroundMovement : MonoBehaviour
     [Header("in-scene objects")]
     [SerializeField] GameObject defaultImageObject;
     [SerializeField] Canvas activeCanvas;
+    [SerializeField] BrendaFlip brenda;
 
-    List<GameObject> currentActiveBackgrounds;
-    List<GameObject> currentActiveForeGrounds;
+    List<GameObject> currentActiveBackgrounds = new();
+    List<GameObject> currentActiveForeGrounds = new();
 
     int backgroundCount = 0;
     int foregroundCount = 0;
@@ -59,7 +65,7 @@ public class BackgroundMovement : MonoBehaviour
         backgroundSpawnPosition.y = 0;
         foregroundSpawnPosition.y = foregroundOffset;
 
-        backgroundSpeed = (foregroundSpeed * 0.5f);
+        currentBackgroundSpeed = (currentForegroundSpeed * 0.5f);
 
         backgroundImageWidth -= imagePixelOverlap;
         foregroundImageWidth -= imagePixelOverlap;
@@ -69,6 +75,37 @@ public class BackgroundMovement : MonoBehaviour
 
         FillScreenOnStart();
         backgroundCount = currentActiveBackgrounds.Count;
+    }
+
+    [ContextMenu("pause")]
+    public void PauseBackground()
+    {
+        targetForegroundSpeed = 0;
+        targetBackgroundSpeed = 0;
+        brenda.StopMoving();
+    }
+
+    [ContextMenu("start")]
+    public void StartBackground()
+    {
+        targetForegroundSpeed = baseForegroundSpeed;
+        targetBackgroundSpeed = baseBackgroundSpeed;
+        brenda.StartMoving();
+    }
+
+    private void Update()
+    {
+        currentForegroundSpeed = Mathf.MoveTowards(
+            currentForegroundSpeed,
+            targetForegroundSpeed,
+            pauseSpeed * Time.deltaTime * baseForegroundSpeed
+        );
+
+        currentBackgroundSpeed = Mathf.MoveTowards(
+            currentBackgroundSpeed,
+            targetBackgroundSpeed,
+            pauseSpeed * Time.deltaTime * baseBackgroundSpeed
+        );
     }
 
     private void FixedUpdate()
@@ -109,7 +146,7 @@ public class BackgroundMovement : MonoBehaviour
             }
         }
 
-        MoveAllActiveForegroundItems(foregroundSpeed);
+        MoveAllActiveForegroundItems(currentForegroundSpeed);
     }
 
     void ManageBackgroundItems()
@@ -136,7 +173,7 @@ public class BackgroundMovement : MonoBehaviour
             }
         }
 
-        MoveAllActiveBackgroundItems(backgroundSpeed);
+        MoveAllActiveBackgroundItems(currentBackgroundSpeed);
     }
 
     Sprite SelectBackgroundAccordingToFase(Fases currentFase)

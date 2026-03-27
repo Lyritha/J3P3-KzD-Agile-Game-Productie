@@ -71,7 +71,7 @@ public class EventAnswerButton : MonoBehaviour
         foreach (EventVisualiser.IconValue item in iconAndValue)
         {
             GameObject newIcon = Instantiate(defaultImagePrefab);
-            newIcon.transform.parent = requirementPlaceholder.transform;
+            newIcon.transform.SetParent(requirementPlaceholder.transform);
 
             Image newiconImage = newIcon.GetComponent<Image>();
             newiconImage.sprite = item.iconSprite;

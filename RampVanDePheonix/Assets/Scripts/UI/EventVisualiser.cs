@@ -2,11 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine.Rendering;
-using System;
 using System.Collections;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 
 public class EventVisualiser : MonoBehaviour
 {
@@ -37,8 +33,6 @@ public class EventVisualiser : MonoBehaviour
 
     [Header("Object References")]
     [SerializeField] EventAnswerButton answerButtonPrefab;
-
-    Character lastSeenSelectedCharacter;
 
     private Event current;
 
@@ -86,7 +80,16 @@ public class EventVisualiser : MonoBehaviour
 
     public void Hide()
     {
-        gameObject.SetActive(false);
+        if (TryGetComponent(out PopupAnim anim))
+        {
+            anim.CloseAnim();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
+
         EventStateManager.Instance.SetState(State.FinishEvent);
     }
 

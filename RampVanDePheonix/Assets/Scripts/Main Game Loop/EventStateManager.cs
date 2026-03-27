@@ -10,6 +10,7 @@ public enum State
     Walking,
     Event,
     FinishEvent,
+    Shop,
     Minigame,
     Exit
 }
@@ -34,13 +35,18 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] protected PhaseManager faseManager;
     [SerializeField] protected SceneHider sceneHider;
     [SerializeField] protected MinigameConfig minigameConfig;
+    [SerializeField] private RandomEventManager randomEventsManager;
     [SerializeField] private GameObject minigamePauseMenu;
+    [SerializeField] private GameObject shopPanel;
+    [SerializeField] private BackgroundMovement background;
 
     [Header("LoreDropPrefabs")]
     [SerializeField] GameObject achterhoekLore;
     [SerializeField] GameObject bootLore;
     [SerializeField] GameObject amerikaLore;
     [SerializeField] GameObject lorePosition;
+
+    [SerializeField] private float walkTimeSecs = 30;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
     public PhaseManager FaseManager { get { return faseManager; } }
@@ -108,7 +114,11 @@ public class EventStateManager : MonoBehaviour
                 SetMinigames();
                 break;
             case State.Walking:
-                StartCoroutine(WalkingState(2));
+                AudioManager.Instance.SetPhaseMusic(faseManager.CurrentFase);
+                StartCoroutine(WalkingState(walkTimeSecs));
+                break;
+            case State.Shop:
+                ShopState(); 
                 break;
             case State.Event:
                 EventState();
@@ -127,22 +137,53 @@ public class EventStateManager : MonoBehaviour
 
     protected IEnumerator WalkingState(float waitTime)
     {
+        if (randomEventsManager != null) randomEventsManager.StartEventLoop();
+        background.StartBackground();
         yield return new WaitForSeconds(waitTime);
+        yield return new WaitUntil(() => !Obstacle_Spawn.isBlocking);
         eventVisualiser.gameObject.SetActive(true);
         SetState(State.Event);
     }
 
     protected virtual void EventState()
     {
+        if (randomEventsManager != null) randomEventsManager.EndEventLoop();
+        background.PauseBackground();
+
         Event randomEvent = faseManager.GetRandomEvent();
         eventVisualiser.ShowEvent(randomEvent);
     }
 
     protected virtual void FinishEventState()
     {
-        Debug.Log("apply stat changes");
         faseManager.AddProgress();
         CharacterListDisplay.Instance.UpdateCharacters();
+
+        SetState(State.Shop);
+    }
+
+
+    [ContextMenu("Lotta progress")]
+    public void AddProgress()
+    {
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+        faseManager.AddProgress();
+    }
+
+    protected virtual void ShopState()
+    {
+        if (Random.Range(0, 3) == 0)
+        {
+            shopPanel.SetActive(true);
+            return;
+        }
 
         // try to trigger a minigame, if not possible, go back to walking
         SetState(State.Minigame);
@@ -153,8 +194,6 @@ public class EventStateManager : MonoBehaviour
         if (minigameTriggers.TryGetValue(faseManager.Progress, out Minigame selectedMinigame))
         {
             Debug.Log("startMinigame");
-            // menu openen
-            // menu.startMenu(selectedMinigame)
             minigamePauseMenu.SetActive(true);
             NextGameManager.Instance.StarMenu(selectedMinigame);
 
@@ -185,6 +224,8 @@ public class EventStateManager : MonoBehaviour
 
     [ContextMenu("Load Social")]
     public void LoadSocial() => LoadMinigame(3);
+    [ContextMenu("Load Aanpassing")]
+    public void LoadAanpassing() => LoadMinigame(4);
 
     public void LoadMinigame(int index)
     {

@@ -33,12 +33,17 @@ public class PhaseManager : MonoBehaviour
         {
             case Fases.Achterhoek:
                 FillList(eventsConfig.achterhoekEvents);
+                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
                 break;
             case Fases.Pheonix:
                 FillList(eventsConfig.pheonixEvents);
+                AudioManager.Instance.StopLoopingSound(LoopedSoundEffects.Achterhoek);
+                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Pheonix);
                 break;
             case Fases.Amerika:
                 FillList(eventsConfig.amerikaEvents);
+                AudioManager.Instance.StopLoopingSound(LoopedSoundEffects.Pheonix);
+                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
                 break;
             case Fases.EndScreen:
                 SceneManager.LoadScene("EndScreen_Win");

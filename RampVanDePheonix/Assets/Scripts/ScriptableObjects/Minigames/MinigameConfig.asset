@@ -33,3 +33,8 @@ MonoBehaviour:
     sceneName: Minigame_Social
     tutorialPrefab: {fileID: 7454625415996840028, guid: f221f0a4876898248a414a6feeaecf39, type: 3}
     rewardedSkill: 3
+  - minigameName: Kar Redden
+    allowedPhase: 5
+    sceneName: Minigame_Aanpassing
+    tutorialPrefab: {fileID: 7454625415996840028, guid: 0320b8c260219184c938095b173c94fc, type: 3}
+    rewardedSkill: 0
