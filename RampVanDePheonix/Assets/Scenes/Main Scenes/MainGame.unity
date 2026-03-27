@@ -524,7 +524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ik ga weg
+  m_text: Winkel verlaten
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
   m_sharedMaterial: {fileID: 8326081265682717870, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
@@ -1376,9 +1376,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1abbee27bdc7d2429129b49c1848c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomEventManager
-  ratPrefab: {fileID: -9129502048028125800, guid: a19efe2ffd1b60748bfa9845fa7cae62, type: 3}
-  obstaclePrefab: {fileID: -1737028596864417863, guid: 7f40b386bf848c9419e9e64271531cfa, type: 3}
-  lootPrefab: {fileID: 2926943873838278979, guid: 0fd4741e9f26ef643bbf76dfb73f8df4, type: 3}
+  phaseManager: {fileID: 767755092}
+  stealPrefabA: {fileID: -9129502048028125800, guid: a19efe2ffd1b60748bfa9845fa7cae62, type: 3}
+  obstaclePrefabA: {fileID: -1737028596864417863, guid: 7f40b386bf848c9419e9e64271531cfa, type: 3}
+  lootPrefabA: {fileID: 2926943873838278979, guid: 0fd4741e9f26ef643bbf76dfb73f8df4, type: 3}
+  stealPrefabB: {fileID: 0}
+  obstaclePrefabB: {fileID: 0}
+  lootPrefabB: {fileID: 0}
+  stealPrefabAm: {fileID: 0}
+  obstaclePrefabAm: {fileID: 0}
+  lootPrefabAm: {fileID: 0}
   rectTransform: {fileID: 853326112}
   minDelay: 10
   maxDelay: 20
@@ -1391,7 +1398,7 @@ Transform:
   m_GameObject: {fileID: 510504361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 388, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1523,46 +1530,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 882.48096
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 652.48364
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 5595367801802974735, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
@@ -1797,7 +1764,7 @@ Transform:
   m_GameObject: {fileID: 767755091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 199.17831, y: 108.53539, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1829,7 +1796,7 @@ Transform:
   m_GameObject: {fileID: 838169067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 966.76874, y: 557.1428, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1931,7 +1898,7 @@ Transform:
   m_GameObject: {fileID: 863149254}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1075.9272, y: 978.9685, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2226,8 +2193,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340.2, y: -37.5}
-  m_SizeDelta: {x: 359.6, y: 75}
+  m_AnchoredPosition: {x: 302.7, y: -37.5}
+  m_SizeDelta: {x: 284.6, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978674514
 MonoBehaviour:
@@ -3511,7 +3478,7 @@ Transform:
   m_GameObject: {fileID: 1530623479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.83931, y: -7.08234, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3918,8 +3885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 620, y: -37.5}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 582.5, y: -37.5}
+  m_SizeDelta: {x: 275, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787947925
 MonoBehaviour:
@@ -3948,8 +3915,8 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 200
-  m_PreferredHeight: 50
+  m_PreferredWidth: 275
+  m_PreferredHeight: 60
   m_FlexibleWidth: 0
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
@@ -5737,6 +5704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shop
   foodPrice: 1
   foodGetAmount: 5
+  buttonImg: {fileID: 1650868431}
 --- !u!95 &8609931491564175577
 Animator:
   serializedVersion: 7

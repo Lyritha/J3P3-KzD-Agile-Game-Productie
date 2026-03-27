@@ -19,6 +19,16 @@ public class MinigameFinished : MonoBehaviour
         Instance = this;
     }
 
+    private void OnEnable()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
+    }
+
     public void Init(Minigame minigame)
     {
         this.minigame = minigame;

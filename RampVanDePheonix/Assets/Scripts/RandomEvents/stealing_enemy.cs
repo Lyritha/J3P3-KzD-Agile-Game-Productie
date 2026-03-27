@@ -1,6 +1,4 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Stealing_enemy : MonoBehaviour
 {
@@ -15,6 +13,8 @@ public class Stealing_enemy : MonoBehaviour
         this.parent = parent;
         brendaTarget = FindAnyObjectByType<Player>().gameObject;
         parentRect = (RectTransform)transform.parent;
+
+
     }
 
     void FixedUpdate()
