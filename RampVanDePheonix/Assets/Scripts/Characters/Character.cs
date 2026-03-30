@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class Character : MonoBehaviour, IPointerClickHandler
 {
@@ -13,6 +14,8 @@ public class Character : MonoBehaviour, IPointerClickHandler
     public CharacterFood characterFood;
     [SerializeField]
     private Image borderImage;
+    [SerializeField]
+    private GameObject popUpText;
 
     protected CharacterListDisplay parent;
 
@@ -128,5 +131,11 @@ public class Character : MonoBehaviour, IPointerClickHandler
             borderImage.color = Color.Lerp(borderColor, highlightedBorderColor, t);
             yield return null;
         }
+    }
+
+    public void PopUpText(string _text)
+    {
+        GameObject current = Instantiate(popUpText,FindAnyObjectByType<PopUpPosHolder>().gameObject.transform);
+        current.GetComponent<TMP_Text>().text = _text;
     }
 }
