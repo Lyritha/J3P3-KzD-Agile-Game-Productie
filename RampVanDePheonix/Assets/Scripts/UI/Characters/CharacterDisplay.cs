@@ -120,4 +120,13 @@ public class CharacterDisplay : MonoBehaviour
         if (showOnHover != null)
             showOnHover.SetEnabled(false);
     }
+
+    public void HideSafeScreen()
+    {
+        if (safeScreen != null)
+            safeScreen.gameObject.SetActive(false);
+
+        if (showOnHover != null)
+            showOnHover.SetEnabled(true);
+    }
 }

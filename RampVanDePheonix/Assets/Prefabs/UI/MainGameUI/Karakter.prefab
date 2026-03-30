@@ -4977,6 +4977,7 @@ MonoBehaviour:
   characterFood: {fileID: 3129143194288746739}
   borderImage: {fileID: 1987294643385601463}
   popUpText: {fileID: 7373012214489202102, guid: 8d0ec5511c9883a4fb8ab8de1fcf348b, type: 3}
+  buttonSound: {fileID: 3188947861010389573}
 --- !u!114 &1617885649708643833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5182,6 +5183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00093d04c6b8a040add82729e98bd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayButtonSound
+  playOnClick: 1
 --- !u!1 &5511129107425863915
 GameObject:
   m_ObjectHideFlags: 0

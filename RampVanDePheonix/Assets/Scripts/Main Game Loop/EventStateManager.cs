@@ -65,7 +65,6 @@ public class EventStateManager : MonoBehaviour
     {
         minigamePauseMenu.SetActive(false);
         eventVisualiser.gameObject.SetActive(false);
-        SetState(State.Lore);
     }
 
     private void SetMinigames()
