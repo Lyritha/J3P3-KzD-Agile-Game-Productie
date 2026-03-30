@@ -15,12 +15,13 @@ MonoBehaviour:
   id: 2
   characterName: Berend Willem
   baseKapitaal: 0
-  baseBouwkunde: 1
-  baseLeervermogen: 0
+  baseBouwkunde: 2
+  baseLeervermogen: 1
   baseSociaal: 1
   baseAanpassingsvermogen: 0
   woonplaats: Winterswijk
   beroep: Boerenzoon
+  description: 
   loreDrop: "Je bent een vrolijke jongen die goed voor zijn zusje Janna Aleida zorgt.
     Je werkt hard en je vindt alles dat met het boerenleven te maken heeft leuk.
     Je mag \xE9\xE9n stuk gereedschap meenemen, anders wordt de tas te zwaar. Je

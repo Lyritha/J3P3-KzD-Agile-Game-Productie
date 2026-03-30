@@ -1,4 +1,3 @@
-using MyBox;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +19,7 @@ public class BackgroundMovement : MonoBehaviour
 
     [SerializeField]
     private RectTransform backgroundParent;
-    [SerializeField] 
+    [SerializeField]
     private RectTransform foregroundParent;
 
 
@@ -38,6 +37,10 @@ public class BackgroundMovement : MonoBehaviour
     [SerializeField] GameObject defaultImageObject;
     [SerializeField] Canvas activeCanvas;
     [SerializeField] BrendaFlip brenda;
+
+    [SerializeField] GameObject boatPlayer;
+    [SerializeField] GameObject brendaPlayer;
+
 
     List<GameObject> currentActiveBackgrounds = new();
     List<GameObject> currentActiveForeGrounds = new();
@@ -120,6 +123,16 @@ public class BackgroundMovement : MonoBehaviour
     public void SetFase(Fases fase)
     {
         currentFase = fase;
+        if (currentFase == Fases.Pheonix)
+        {
+            boatPlayer.SetActive(true);
+            brendaPlayer.SetActive(false);
+        }
+        else
+        {
+            boatPlayer.SetActive(false);
+            brendaPlayer.SetActive(true);
+        }
         FillScreenOnStart();
     }
 
