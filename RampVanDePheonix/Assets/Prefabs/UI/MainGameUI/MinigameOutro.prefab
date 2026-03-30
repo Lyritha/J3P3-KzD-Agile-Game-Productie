@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -263,6 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f46d63113070c409ba4adcae3c3f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameFinished
+  minigame:
+    minigameName: 
+    allowedPhase: 0
+    sceneName: 
+    tutorialPrefab: {fileID: 0}
+    rewardedSkill: 0
   scoreText: {fileID: 4458939540633194631}
 --- !u!1 &8902734836629611181
 GameObject:

@@ -18,7 +18,7 @@ public class ShowCharacters : MonoBehaviour
         Characters.Clear();
 
         CharacterListDisplay display = CharacterListDisplay.Instance;
-        display.DeselectCharacter();
+        if (display != null) display.DeselectCharacter();
 
 
         foreach (Character character in display.Characters)
