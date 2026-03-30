@@ -13,6 +13,10 @@ public class InitializeMinigame : MonoBehaviour
     //0=achterhoek, 1=boat 2=america
     [SerializeField] GameObject DefaultBackground;
 
+
+    GameObject currentScenery;
+    Sprite currentBackground;
+
     GameObject player;
     GameObject englishMan;
 
@@ -82,11 +86,18 @@ public class InitializeMinigame : MonoBehaviour
     {
         GameObject newGameObject = Instantiate(correctSceneryObject);
         newGameObject.transform.position = new Vector3(0, 0, -0.2f);
+        currentScenery = newGameObject;
     }
 
     void InstantiateCorrectBackground(Sprite correctBackgroundSprite)
     {
         print("instantiated a background" + correctBackgroundSprite);
         DefaultBackground.GetComponent<SpriteRenderer>().sprite = correctBackgroundSprite;
+        currentBackground = correctBackgroundSprite;
+    }
+
+    public void RecheckScenery()
+    {
+        SpawnInScenery(EventStateManager.Instance.FaseManager.CurrentFase);
     }
 }

@@ -25,11 +25,17 @@ public class UIQuestionManager : MonoBehaviour
     [SerializeField] RectTransform answerPanel;
     [SerializeField] RectTransform questionParent;
     [SerializeField] RectTransform answerParent;
+    [SerializeField] GameObject initializerGameObject;
 
     BaseScriptable[] questionsForBoat;
     BaseScriptable[] questionsForAmerica;
+    BaseScriptable[] questionsForAchterhoek;
+
+
+    InitializeMinigame initialiser;
+
     BaseScriptable currentQuestion;
-    public Fases currentFase = Fases.Boat;
+    PhaseManager phaseManager;
 
     int currentAmountOfPoints = 0;
     int amountOfPointsPerQuestion = 1;
@@ -46,9 +52,11 @@ public class UIQuestionManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
+        initialiser = initializerGameObject.GetComponent<InitializeMinigame>();
         AmountOfPointsText.text = currentAmountOfPoints.ToString();
         questionsForBoat = Resources.LoadAll<BaseScriptable>("FaseBoatQuestions");
         questionsForAmerica = Resources.LoadAll<BaseScriptable>("FaseAmericaQuestions");
+        questionsForAchterhoek = Resources.LoadAll<BaseScriptable>("FaseAchterhoekQuestions");
         activeCards = new List<RectTransform>();
         NewQuestion(0);
         InitialiseWorld(); //work on this if characters, scenery etc are done
@@ -67,29 +75,37 @@ public class UIQuestionManager : MonoBehaviour
     //gets a random new question
     void NewQuestion()
     {
-        switch (currentFase)
+        switch (EventStateManager.Instance.FaseManager.CurrentFase)
         {
-            case Fases.Boat:
+            case Fases.Achterhoek:
+                ReadNewScriptable(questionsForAchterhoek);
+                break;
+            case Fases.Pheonix:
                 ReadNewScriptable(questionsForBoat);
                 break;
-            case Fases.America:
+            case Fases.Amerika:
                 ReadNewScriptable(questionsForAmerica);
                 break;
         }
+        initialiser.RecheckScenery();
         EmptyActiveList();
         SpawnNewCards(currentQuestion);
     }
     //get a chosen new question (not random)
     void NewQuestion(int questionNumber)
     {
-        switch (currentFase)
+        switch (EventStateManager.Instance.FaseManager.CurrentFase)
         {
-            case Fases.Boat:
+            case Fases.Achterhoek:
+                ReadNewScriptable(questionsForAchterhoek, questionNumber);
+                break;
+            case Fases.Pheonix:
                 ReadNewScriptable(questionsForBoat, questionNumber);
                 break;
-            case Fases.America:
+            case Fases.Amerika:
                 ReadNewScriptable(questionsForAmerica, questionNumber);
                 break;
+
         }
         EmptyActiveList();
         SpawnNewCards(currentQuestion);
@@ -179,12 +195,18 @@ public class UIQuestionManager : MonoBehaviour
         questionGameObject.GetComponentInChildren<TMP_Text>().text = answer.anAnswer;
         activeCards.Add(questionGameObject);
     }
-    public enum Fases
-    {
-        Boat,
-        America
-    }
+    //public enum Fases
+   // {
+    //    Achterhoek,
+   //     Boat,
+   //     America
+  //  }
 
+
+    /// <summary>
+    /// replaces some words with "*" 
+    /// METHOD DOES NOT WORK IF STRING IS ONLY 1 WORD
+    /// </summary>
     string ReplaceWords(string question, int playerLearnStat)
     {
         string endString = "";
@@ -279,9 +301,7 @@ public class UIQuestionManager : MonoBehaviour
 
     void InitialiseWorld()
     {
-        //set background
-        //set characters
-        //get fase (america or boat)
+        
     }
 }
 

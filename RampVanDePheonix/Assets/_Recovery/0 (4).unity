@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 872740084}
   - component: {fileID: 872740085}
   m_Layer: 5
-  m_Name: initialiserGameObject
+  m_Name: cHAACTERmANAGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1203,7 +1203,6 @@ MonoBehaviour:
   answerPanel: {fileID: 908284955}
   questionParent: {fileID: 751593931}
   answerParent: {fileID: 697563174}
-  initializerGameObject: {fileID: 872740082}
   currentFase: 0
   testPlayerStat: 3
 --- !u!4 &934889358
