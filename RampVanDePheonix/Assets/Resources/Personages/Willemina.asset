@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Personage
   id: 4
   characterName: Willemina
-  baseKapitaal: 0
+  baseKapitaal: 1
   baseBouwkunde: 0
-  baseLeervermogen: 0
+  baseLeervermogen: 1
   baseSociaal: 2
   baseAanpassingsvermogen: 0
   woonplaats: Winterswijk
   beroep: Werkte als voedvrouw
+  description: 
   loreDrop: Je werk als vroedvrouw doe je allang niet meer. Je helpt mee in het huishouden
     van Aaltje. Zij besluit met haar gezin naar Amerika te vertrekken. Je gaat mee.
     Op je oude dag wil je er nog steeds het beste van maken, avonturen en uitdagingen
