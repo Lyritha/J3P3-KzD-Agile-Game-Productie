@@ -120,8 +120,6 @@ public class EventAnswerButton : MonoBehaviour
     {
         Personage personage = selector.SelectedCharacter.Personage;
 
-
-
         if (hasSkills)
         {
             foreach (var change in current.answers[answerIndex].change)
@@ -130,18 +128,23 @@ public class EventAnswerButton : MonoBehaviour
                 {
                     case Skillset.Kapitaal:
                         personage.baseKapitaal += change.changeAmount;
+                        selector.SelectedCharacter.PopUpText(personage.characterName + " Kapitaal " + change.changeAmount);
                         break;
                     case Skillset.Bouwkunde:
                         personage.baseBouwkunde += change.changeAmount;
+                        selector.SelectedCharacter.PopUpText(personage.characterName + " Bouwkunde " + change.changeAmount);
                         break;
                     case Skillset.Socialiteit:
                         personage.baseSociaal += change.changeAmount;
+                        selector.SelectedCharacter.PopUpText(personage.characterName + " Socialiteit " + change.changeAmount);
                         break;
                     case Skillset.AanpassingsVermogen:
                         personage.baseAanpassingsvermogen += change.changeAmount;
+                        selector.SelectedCharacter.PopUpText(personage.characterName + " Aanpassingsvermogen " + change.changeAmount);
                         break;
                     case Skillset.Leervermogen:
                         personage.baseLeervermogen += change.changeAmount;
+                        selector.SelectedCharacter.PopUpText(personage.characterName + " Leervermogen " + change.changeAmount);
                         break;
                     case Skillset.Death:
                         selector.SelectedCharacter.Die("ebola");

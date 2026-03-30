@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class AanpassingControlls : MonoBehaviour
 {
-    [SerializeField] Image cartImage;
+    [SerializeField] RectTransform cartImage;
     [SerializeField] TMP_Text progressText;
     [SerializeField] TMP_Text stateText;
     [SerializeField] float drainSpeed = 2f;
@@ -25,8 +25,8 @@ public class AanpassingControlls : MonoBehaviour
 
         if (progressCounter >= 90f)
         {
-            cartImage.rectTransform.anchoredPosition = new Vector2(-425, -10);
-            cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, 0);
+            cartImage.anchoredPosition = new Vector2(-425, -90);
+            cartImage.rotation = Quaternion.Euler(0, 0, 0);
             stateText.text = "Los";
             score = 3;
             MinigameFinished.Instance.ShowScore(score);
@@ -34,8 +34,8 @@ public class AanpassingControlls : MonoBehaviour
 
         else if (progressCounter >= 60f)
         {
-            cartImage.rectTransform.anchoredPosition = new Vector2(-425, -150);
-            cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, -10);
+            cartImage.anchoredPosition = new Vector2(-425, -150);
+            cartImage.rotation = Quaternion.Euler(0, 0, -10);
             stateText.text = "Deels los";
             score = 2;
             MinigameFinished.Instance.ShowScore(score);
@@ -43,8 +43,8 @@ public class AanpassingControlls : MonoBehaviour
 
         else if (progressCounter >= 30f)
         {
-            cartImage.rectTransform.anchoredPosition = new Vector2(-425, -200);
-            cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, -15);
+            cartImage.anchoredPosition = new Vector2(-425, -200);
+            cartImage.rotation = Quaternion.Euler(0, 0, -15);
      
             stateText.text = "Deels vast";
             score = 1;
@@ -53,8 +53,8 @@ public class AanpassingControlls : MonoBehaviour
 
         else if (progressCounter >= 0f)
         {
-            cartImage.rectTransform.anchoredPosition = new Vector2(-425, -250);
-            cartImage.rectTransform.rotation = Quaternion.Euler(0, 0, -20);
+            cartImage.anchoredPosition = new Vector2(-425, -250);
+            cartImage.rotation = Quaternion.Euler(0, 0, -20);
             stateText.text = "Volledig vast";
             score = 0;
             MinigameFinished.Instance.ShowScore(score);
