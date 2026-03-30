@@ -140,6 +140,7 @@ public class EventStateManager : MonoBehaviour
         background.StartBackground();
         yield return new WaitForSeconds(waitTime);
         yield return new WaitUntil(() => !Obstacle_Spawn.isBlocking);
+        if (currentState != State.Walking) yield break;
         eventVisualiser.gameObject.SetActive(true);
         SetState(State.Event);
     }
@@ -208,6 +209,7 @@ public class EventStateManager : MonoBehaviour
 
     protected void ExitState()
     {
+        if (randomEventsManager != null) randomEventsManager.EndEventLoop();
         Debug.Log("exit loop");
     }
 

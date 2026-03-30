@@ -1,25 +1,44 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
     private AudioMixer mixer;
+    [SerializeField]
+    private SceneHider hider;
 
     [SerializeField]
     private CanvasGroup pauseUI;
+
     [SerializeField]
-    private CanvasGroup uiToHide;
+    private Slider musicVolume;
+    [SerializeField]
+    private Slider effectsVolume;
+
+    private void Start()
+    {
+        if (mixer.GetFloat("MusicVolume", out float dB))
+        {
+            float linear = Mathf.Pow(10f, dB / 20f);
+            musicVolume.value = linear;
+        }
+
+        if (mixer.GetFloat("EffectsVolume", out float dBEffects))
+        {
+            float linear = Mathf.Pow(10f, dBEffects / 20f);
+            effectsVolume.value = linear;
+        }
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (pauseUI.alpha > 0)
-                CloseMenu();
-            else
-                OpenMenu();
+            if (pauseUI.alpha > 0) CloseMenu();
+            else OpenMenu();
         }
     }
 
@@ -39,23 +58,26 @@ public class PauseMenu : MonoBehaviour
 
     public void ToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Main Menu");
     }
 
     public void OpenMenu()
     {
-        Time.timeScale = 0f; // Pause the game
+        if (hider.IsHidden) return;
+
+        Time.timeScale = 0f;
 
         SetCanvasGroup(pauseUI, true);
-        SetCanvasGroup(uiToHide, false);
+        hider.HideMainScene(false);
     }
 
     public void CloseMenu()
     {
-        Time.timeScale = 1f; // Resume the game
+        Time.timeScale = 1f;
 
         SetCanvasGroup(pauseUI, false);
-        SetCanvasGroup(uiToHide, true);
+        hider.ShowMainScene();
     }
 
 
