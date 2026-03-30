@@ -108,13 +108,27 @@ public class CharacterListDisplay : MonoBehaviour
             else capitalDisplay.ClearCapitalItem(character.Personage);
         }
 
-        if (isSomeoneAlive) return;
+        if (isSomeoneAlive)
+        {
+            ReportCharacterStateChanged();
+            return;
+        }
 
         // show game over screen or something similar here
         Debug.Log("All characters have died. Game Over.");
         SceneManager.LoadScene("EndScreen_Lose");
     }
 
+    public void ReportCharacterStateChanged()
+    {
+        PhaseManager faseManager = FindFirstObjectByType<PhaseManager>();
+        if (faseManager.CurrentFase == Fases.Pheonix && Characters.TrueForAll(c => !c.IsSelectable))
+        {
+            faseManager.SwapFase(Fases.Amerika);
+            foreach (Character character in Characters)
+                character.UnSafe();
+        }
+    }
 
     protected void ClearCharacters()
     {

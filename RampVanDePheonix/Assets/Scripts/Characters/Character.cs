@@ -16,6 +16,8 @@ public class Character : MonoBehaviour, IPointerClickHandler
     private Image borderImage;
     [SerializeField]
     private GameObject popUpText;
+    [SerializeField]
+    private PlayButtonSound buttonSound;
 
     protected CharacterListDisplay parent;
 
@@ -40,19 +42,13 @@ public class Character : MonoBehaviour, IPointerClickHandler
     }
     public void Initialize(Personage personage, bool isAlive, bool isOnLifeBoat)
     {
-        if (characterFood != null)
-            characterFood.Initialize(this);
+        if (characterFood != null) characterFood.Initialize(this);
 
         this.Personage = personage;
         this.parent = CharacterListDisplay.Instance;
 
-        if (isOnLifeBoat)
-            Safe();
-
-        if (!isAlive)
-        {
-            Die();
-        }
+        if (isOnLifeBoat) Safe();
+        if (!isAlive) Die();
 
         characterDisplay.SetUI(personage);
 
@@ -67,6 +63,9 @@ public class Character : MonoBehaviour, IPointerClickHandler
 
     [ContextMenu("take m out back and shoot 'm")]
     public void Die() => Die("No reason given");
+
+    [ContextMenu("I feel safe")]
+    public void Safe() => Safe("No reason given");
 
     public void Die(string reason = "No reason given")
     {
@@ -83,10 +82,18 @@ public class Character : MonoBehaviour, IPointerClickHandler
         Debug.Log($"Character {Personage.characterName} has been saved. Reason: {reason}");
         characterDisplay.ShowSafeScreen();
         ToggleSelected(true, false);
+        parent.ReportCharacterStateChanged();
+    }
+
+    public void UnSafe(string reason = "No reason given")
+    {
+        IsOnLifeBoat = false;
+        characterDisplay.HideSafeScreen();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        buttonSound.playOnClick = IsSelectable;
         if (!IsSelectable) return;
 
         // avoid toggling character if you can give them food.
