@@ -91,7 +91,7 @@ public class CharacterListDisplay : MonoBehaviour
     public void UpdateCharacters()
     {
         foreach (Character character in Characters)
-            if (character.IsAlive) character.UpdateCharacterState();
+            if (character.IsSelectable) character.UpdateCharacterState();
     }
 
     /// <summary>

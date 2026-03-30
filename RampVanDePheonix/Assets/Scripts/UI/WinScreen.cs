@@ -58,7 +58,6 @@ public class WinScreen : MonoBehaviour
                 break;
 
             case 2:
-                Time.timeScale = 1;
                 SceneManager.LoadScene("Main Menu");
                 break;
         }

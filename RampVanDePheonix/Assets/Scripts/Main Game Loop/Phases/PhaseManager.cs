@@ -46,7 +46,9 @@ public class PhaseManager : MonoBehaviour
                 AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
                 break;
             case Fases.EndScreen:
-                Time.timeScale = 0;
+
+                stateManager.SetState(State.Exit);
+                FindFirstObjectByType<SceneHider>().HideMainScene();
                 SceneManager.LoadScene("EndScreen_Win", LoadSceneMode.Additive);
                 break;
         }

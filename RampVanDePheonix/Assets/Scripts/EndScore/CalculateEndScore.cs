@@ -92,6 +92,7 @@ public class CalculateEndScore : MonoBehaviour
                 StartCoroutine(LoopTroughSkills(character));
                 //change nextplayerstat to true to move on to the next person stats
                 yield return new WaitUntil(() => nextPlayerStats == true);
+                yield return new WaitForSecondsRealtime(1f);
                 //after waiting, it prepares for the next player
                 PrepareForNextPlayer();
             }
@@ -124,7 +125,7 @@ public class CalculateEndScore : MonoBehaviour
             AddPoints(pointClassesToList[i], passNumber);
             PlaceNewScoreUI($"{pointClassesToList[i]}: {passNumber}");
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
         }
 
         nextPlayerStats = true;

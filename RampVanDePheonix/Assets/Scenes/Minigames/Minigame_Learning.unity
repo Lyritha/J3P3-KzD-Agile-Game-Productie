@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79c2352a56fdc284292cc58de642afa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIQuestionManager
-  minigameFinished: {fileID: 0}
+  minigameFinished: {fileID: 404626906}
   TimerManager: {fileID: 1492592698}
   UIcardAnswerPrefab: {fileID: 7203897453414407234, guid: 5800c53126d337e4fbfff47897edbdfa, type: 3}
   UIcardQuestionPrefab: {fileID: 7203897453414407234, guid: 0a31cf340585009469371d2bf91513f7, type: 3}
