@@ -81,7 +81,7 @@ public class InitializeMinigame : MonoBehaviour
     void InstantiateCorrectScenery(GameObject correctSceneryObject)
     {
         GameObject newGameObject = Instantiate(correctSceneryObject);
-        newGameObject.transform.position = new Vector3(0, 0, 0);
+        newGameObject.transform.position = new Vector3(0, 0, -0.2f);
     }
 
     void InstantiateCorrectBackground(Sprite correctBackgroundSprite)

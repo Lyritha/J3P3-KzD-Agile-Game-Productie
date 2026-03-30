@@ -409,6 +409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinigameOutro
       objectReference: {fileID: 0}
+    - target: {fileID: 2777883061717876874, guid: 643e9aa62ea939d43a21e9b83ebaf191, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6215211515059572558, guid: 643e9aa62ea939d43a21e9b83ebaf191, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
