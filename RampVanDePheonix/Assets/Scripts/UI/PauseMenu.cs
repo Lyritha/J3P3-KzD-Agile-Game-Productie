@@ -64,12 +64,12 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenMenu()
     {
-        if (hider.IsHidden) return;
+        if(hider != null) if (hider.IsHidden) return;
 
         Time.timeScale = 0f;
 
         SetCanvasGroup(pauseUI, true);
-        hider.HideMainScene(false);
+        if (hider != null) hider.HideMainScene(false);
     }
 
     public void CloseMenu()
@@ -77,7 +77,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
 
         SetCanvasGroup(pauseUI, false);
-        hider.ShowMainScene();
+        if (hider != null) hider.ShowMainScene();
     }
 
 
