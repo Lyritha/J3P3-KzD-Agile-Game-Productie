@@ -1,3 +1,4 @@
+using MyBox;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -138,4 +139,15 @@ public class CharacterListDisplay : MonoBehaviour
         Characters.Clear();
     }
 
+
+    public void CheckCharacterSafe()
+    {
+        foreach(Character character in Characters)
+        {
+            if (!character.IsOnLifeBoat)
+            {
+                character.Die("burn");
+            }
+        }
+    }
 }

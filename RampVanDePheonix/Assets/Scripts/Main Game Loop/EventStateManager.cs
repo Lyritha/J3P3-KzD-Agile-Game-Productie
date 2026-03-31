@@ -117,7 +117,7 @@ public class EventStateManager : MonoBehaviour
                 StartCoroutine(WalkingState(walkTimeSecs));
                 break;
             case State.Shop:
-                ShopState(); 
+                if(faseManager.CurrentFase != Fases.Pheonix) ShopState(); 
                 break;
             case State.Event:
                 EventState();
