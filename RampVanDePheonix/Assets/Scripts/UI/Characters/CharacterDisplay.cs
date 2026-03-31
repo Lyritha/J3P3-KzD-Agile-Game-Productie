@@ -129,4 +129,5 @@ public class CharacterDisplay : MonoBehaviour
         if (showOnHover != null)
             showOnHover.SetEnabled(true);
     }
+
 }

@@ -44,6 +44,8 @@ public class PhaseManager : MonoBehaviour
                 break;
             case Fases.Amerika:
                 FillList(eventsConfig.amerikaEvents);
+
+
                 AudioManager.Instance.StopLoopingSound(LoopedSoundEffects.Pheonix);
                 AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
                 break;
