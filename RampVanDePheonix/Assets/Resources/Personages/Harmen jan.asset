@@ -16,11 +16,12 @@ MonoBehaviour:
   characterName: Harmen Jan
   baseKapitaal: 0
   baseBouwkunde: 0
-  baseLeervermogen: 0
-  baseSociaal: 0
-  baseAanpassingsvermogen: 0
+  baseLeervermogen: 1
+  baseSociaal: 1
+  baseAanpassingsvermogen: 2
   woonplaats: Neede
   beroep: Werkloos
+  description: 
   loreDrop: Geen geld en weinig eten, het leven in Nederland vind je verschrikkelijk.
     Je bent een trouwe kerkganger en met behulp van de gemeenschap kun je een bootticket
     naar Amerika kopen. Kun je ze hier ooit voor bedanken?

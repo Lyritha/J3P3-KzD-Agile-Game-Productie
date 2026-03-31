@@ -26,8 +26,10 @@ public class PhaseManager : MonoBehaviour
         SwapFase(Fases.Achterhoek); 
     }
 
-    void SwapFase(Fases fase)
+    public void SwapFase(Fases fase)
     {
+        Progress = 0;
+
         CurrentFase = fase; 
         switch (CurrentFase)
         {
@@ -55,6 +57,7 @@ public class PhaseManager : MonoBehaviour
 
         display.SetPhase(CurrentFase,10);
         movement.SetFase(CurrentFase);
+        stateManager.SetState(State.Lore);
     }
 
 
@@ -80,15 +83,12 @@ public class PhaseManager : MonoBehaviour
 
         if (Progress >= maxProgress)
         {
-            display.SetPhase(GetNextPhase(CurrentFase), 10);
-            SwapFase(GetNextPhase(CurrentFase));
-            stateManager.SetState(State.Lore);
-
-            Progress = 0;
+            Fases nextFase = GetNextPhase(CurrentFase);
+            display.SetPhase(nextFase, 10);
+            SwapFase(nextFase);
         }
 
         display.IncrementProgress();
-        //UPDATE UI
     }
 
     Fases GetNextPhase(Fases currentPhase)

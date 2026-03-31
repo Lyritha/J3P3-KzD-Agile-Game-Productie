@@ -1,9 +1,10 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using System;
 
 public class AanpassingControlls : MonoBehaviour
 {
+    [SerializeField] Timer timer;
     [SerializeField] RectTransform cartImage;
     [SerializeField] TMP_Text progressText;
     [SerializeField] TMP_Text stateText;
@@ -22,8 +23,13 @@ public class AanpassingControlls : MonoBehaviour
 
     void Update()
     {
+        if (progressCounter >= 99f)
+        {
+            timer.amountOfSeconds = 0f;
+            print("FUCKSFJISUHDFSHAFSD");
+        }
 
-        if (progressCounter >= 90f)
+        else if (progressCounter >= 90f)
         {
             cartImage.anchoredPosition = new Vector2(-425, -90);
             cartImage.rotation = Quaternion.Euler(0, 0, 0);
@@ -37,7 +43,8 @@ public class AanpassingControlls : MonoBehaviour
             cartImage.anchoredPosition = new Vector2(-425, -150);
             cartImage.rotation = Quaternion.Euler(0, 0, -10);
             stateText.text = "Deels los";
-            score = 2;
+            System.Console.Beep();
+            score = 2; ;
             MinigameFinished.Instance.ShowScore(score);
         }
 

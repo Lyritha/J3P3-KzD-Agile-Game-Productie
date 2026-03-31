@@ -48,7 +48,5 @@ MonoBehaviour:
     action: 'Bij nader inzien hoef ik niet echt iets te verkopen. '
     result: Je verkoopt niks en krijgt hierbij ook geen extra geld.
     resultFailed: 
-    change:
-    - skillToBeChanged: 1
-      changeAmount: 0
+    change: []
     changeFailed: []

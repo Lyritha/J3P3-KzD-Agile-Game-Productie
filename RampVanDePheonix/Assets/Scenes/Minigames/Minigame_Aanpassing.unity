@@ -751,6 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701c180a9e7a0584cb1f87a27a9e9535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AanpassingControlls
+  timer: {fileID: 954339720}
   cartImage: {fileID: 1120313760}
   progressText: {fileID: 1895709874}
   stateText: {fileID: 354890762}

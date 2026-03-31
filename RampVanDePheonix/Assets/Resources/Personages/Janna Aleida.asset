@@ -16,11 +16,12 @@ MonoBehaviour:
   characterName: Janna Aleida
   baseKapitaal: 0
   baseBouwkunde: 0
-  baseLeervermogen: 0
+  baseLeervermogen: 2
   baseSociaal: 1
-  baseAanpassingsvermogen: 0
+  baseAanpassingsvermogen: 1
   woonplaats: Winterswijk
   beroep: Boerendochter
+  description: 
   loreDrop: Jouw vader zei dat je jezelf groot moet houden en dankbaar moet zijn.
     voor deze kans. Je hebt je ouders achtergelaten in Nederland en reist met jouw
     tante Janna en broer Berend Willem naar Amerika. Je bent bang, verdrietig en

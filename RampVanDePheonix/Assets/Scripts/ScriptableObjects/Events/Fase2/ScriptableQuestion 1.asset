@@ -12,23 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 1
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Eenmaal aangekomen in New York ben je nog niet op je eindbestemming.
-    Om je weg te vervolgen moet je geld verdienen en een baan is lastig te vinden.  '
+  question: Je word gepest door andere reizigers op de boot.  Je kan een vertrouwd
+    persoon vertellen over het pesten of je kan het gepest doornemen.
   answers:
-  - skillNeeded: []
-    action: 'Je vindt via vrienden een goede deal. '
-    result: 'Je maakt vrienden en sluit een deal. Je verdient 5 sociaal, 5 kapitaal '
-    change:
-    - skillToBeChanged: 1
-      changeAmount: 5
-    - skillToBeChanged: 3
-      changeAmount: 5
   - skillNeeded:
-    - skillType: 2
-      skillAmountNeeded: 5
-    action: '(Bouwkunde > 5?)  Vind tijdelijk werk in de haven. '
-    result: 'Het werk is zwaar, maar verdient goed. Je verdient 5 kapitaal, maar
-      verliest 5 honger. '
-    change:
+    - skillType: 3
+      skillAmountNeeded: 2
+    action: Je probeert een vertrouwd persoon te vertellen over het pestgedrag.
+    result: De persoon helpt je met de pesters confronteren. Na een lang gesprek
+      met de pesters zijn ze bij een conclusie gekomen. De pesters gaan gelukkig
+      stoppen met je pesten en je kan veilig de reis verder maken.
+    resultFailed: 'De persoon helpt je met de pesters confronteren. Na een lang gesprek
+      met de pesters zijn ze bij een conclusie gekomen. De pesters gaan jammer genoeg
+      niet stoppen met je pesten en je leven word alleen maar zwaarder tijdens de
+      reis. ze stelen ook wat geld van je.
+
+
+'
+    change: []
+    changeFailed:
+    - skillToBeChanged: 3
+      changeAmount: -2
     - skillToBeChanged: 1
-      changeAmount: 5
+      changeAmount: -1
+  - skillNeeded: []
+    action: Je probeert je te verstoppen van de pesters.
+    result: Je verstopt je in een afgelegen kamer van de boot. Uiteindelijk vinden
+      de pesters je en word het pesten niet beter. De reis word hierdoor alleen maar
+      erger.
+    resultFailed: 
+    change:
+    - skillToBeChanged: 3
+      changeAmount: -2
+    changeFailed: []
