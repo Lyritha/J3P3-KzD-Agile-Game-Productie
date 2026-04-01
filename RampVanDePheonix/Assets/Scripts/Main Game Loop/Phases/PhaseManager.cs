@@ -46,7 +46,7 @@ public class PhaseManager : MonoBehaviour
                 if (fase != CurrentFase) CharacterListDisplay.Instance.KillAllUnsafe();
 
                 AudioManager.Instance.StopLoopingSound(LoopedSoundEffects.Pheonix);
-                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
+                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Amerika);
                 break;
             case Fases.EndScreen:
 

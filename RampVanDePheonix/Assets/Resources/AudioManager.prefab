@@ -180,11 +180,14 @@ MonoBehaviour:
   musicAudioSource: {fileID: 5668938181965058548}
   loopedSoundEffects:
   - clip: {fileID: 8300000, guid: b5d79fbea94ae1e4486d9db1203cd165, type: 3}
-    volume: 0.2
+    volume: 0.7
     effect: 0
   - clip: {fileID: 8300000, guid: b1272d5a13665774f8f64487e2f06097, type: 3}
-    volume: 0.2
+    volume: 0.7
     effect: 1
+  - clip: {fileID: 8300000, guid: 33c455f881378814eb3d369f50788d31, type: 3}
+    volume: 0.7
+    effect: 2
   soundEffects:
   - clip: {fileID: 8300000, guid: b309287ff490b3d42a0dd349ca6b359b, type: 3}
     volume: 0.5
