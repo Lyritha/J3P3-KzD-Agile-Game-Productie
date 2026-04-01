@@ -819,7 +819,7 @@ Transform:
   m_GameObject: {fileID: 493320740}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01601863, y: -0.024048328, z: 0}
+  m_LocalPosition: {x: 0.01601863, y: 0.5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1049,10 +1049,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InitializeMinigame
   differentEnglishMen:
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
+  - {fileID: -5237074582503671387, guid: fd5f4ab6232ec65468876d133a945336, type: 3}
+  - {fileID: 21300000, guid: 5690c414e961e384b84bad33caa18520, type: 3}
+  - {fileID: 8861480726252175340, guid: 4a113a4b07970a14da6e55d8f445c75f, type: 3}
+  - {fileID: 21300000, guid: 37482b5a0a496e446a9c7c780480572a, type: 3}
   SceneryObjects:
   - {fileID: 5431999724250913459, guid: fc0ff3b7db4a93e4b94daa17a22de92a, type: 3}
   - {fileID: 5431999724250913459, guid: 143a812118d89574c8bdbe145b75a4d9, type: 3}
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   BackgroundImages:
   - {fileID: 21300000, guid: dd4c89413508da643a43e6b830e18753, type: 3}
   - {fileID: 21300000, guid: deb9543f202764c43a52e48b2a894556, type: 3}
-  - {fileID: 21300000, guid: 26ac90c586947dd418f7bc394876149f, type: 3}
+  - {fileID: 21300000, guid: dd4c89413508da643a43e6b830e18753, type: 3}
   DefaultBackground: {fileID: 493320740}
 --- !u!1 &908284954
 GameObject:

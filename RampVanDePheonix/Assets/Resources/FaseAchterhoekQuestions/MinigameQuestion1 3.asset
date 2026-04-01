@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a0a6f5685910d842ab82b0440caa272, type: 3}
-  m_Name: MinigameQuestion1 1
+  m_Name: MinigameQuestion1 3
   m_EditorClassIdentifier: Assembly-CSharp::BaseScriptable
-  AmericanManSays: where do you live?
+  AmericanManSays: what is your life like?
   allAnswers:
-  - anAnswer: im from the Achterhoek
+  - anAnswer: im living a very luxurious life
+    isCorrect: 0
+  - anAnswer: we dont have much to spend, sometimes we dont eat
     isCorrect: 1
-  - anAnswer: i am frum back uhh corner
+  - anAnswer: im spending most of my time on youtube shorts
     isCorrect: 0
-  - anAnswer: i think yes
-    isCorrect: 0
-  - anAnswer: im alive yes
+  - anAnswer: probably yes
     isCorrect: 0

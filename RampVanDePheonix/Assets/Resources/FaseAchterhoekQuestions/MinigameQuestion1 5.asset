@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a0a6f5685910d842ab82b0440caa272, type: 3}
-  m_Name: MinigameQuestion1 1
+  m_Name: MinigameQuestion1 5
   m_EditorClassIdentifier: Assembly-CSharp::BaseScriptable
-  AmericanManSays: where do you live?
+  AmericanManSays: what do you do all day?
   allAnswers:
-  - anAnswer: im from the Achterhoek
+  - anAnswer: im stealing from people to feed myself
+    isCorrect: 0
+  - anAnswer: i work long days for very small pay
     isCorrect: 1
-  - anAnswer: i am frum back uhh corner
-    isCorrect: 0
-  - anAnswer: i think yes
-    isCorrect: 0
-  - anAnswer: im alive yes
+  - anAnswer: i usually just rest at home
     isCorrect: 0
