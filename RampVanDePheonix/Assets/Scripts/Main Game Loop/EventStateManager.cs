@@ -101,6 +101,7 @@ public class EventStateManager : MonoBehaviour
 
     public virtual void SetState(State newState)
     {
+        Debug.Log($"State changed from {currentState} to {newState}");
         currentState = newState;
 
         switch (currentState)
@@ -110,6 +111,9 @@ public class EventStateManager : MonoBehaviour
                 if (currentFase == Fases.Achterhoek) Instantiate(achterhoekLore,lorePosition.transform);
                 else if (currentFase == Fases.Pheonix) Instantiate(bootLore, lorePosition.transform);
                 else if (currentFase == Fases.Amerika) Instantiate(amerikaLore, lorePosition.transform);
+
+                // if lore is shown, assume phase got switched or smthn
+                if (randomEventsManager != null) randomEventsManager.ClearAllEvents();
                 SetMinigames();
                 break;
             case State.Walking:
@@ -117,7 +121,7 @@ public class EventStateManager : MonoBehaviour
                 StartCoroutine(WalkingState(walkTimeSecs));
                 break;
             case State.Shop:
-                if(faseManager.CurrentFase != Fases.Pheonix) ShopState(); 
+                ShopState(); 
                 break;
             case State.Event:
                 EventState();
@@ -179,7 +183,7 @@ public class EventStateManager : MonoBehaviour
 
     protected virtual void ShopState()
     {
-        if (Random.Range(0, 3) == 0)
+        if (faseManager.CurrentFase != Fases.Pheonix && faseManager.Progress != 0 && Random.Range(0, 3) == 0)
         {
             shopPanel.SetActive(true);
             return;

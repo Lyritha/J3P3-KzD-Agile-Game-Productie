@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomEventManager : MonoBehaviour
@@ -26,6 +28,10 @@ public class RandomEventManager : MonoBehaviour
     [SerializeField] float maxDelay = 10;
 
     public bool Eventhappening {  get; private set; }
+
+    private List<Stealing_enemy> activeEnemies = new List<Stealing_enemy>();
+    private List<Obstacle_Spawn> activeObstacles = new List<Obstacle_Spawn>();
+    private List<Loot_Spawn> activeLoots = new List<Loot_Spawn>();
 
     private Coroutine coroutine;
 
@@ -93,9 +99,9 @@ public class RandomEventManager : MonoBehaviour
 
             Stealing_enemy obj = Instantiate(enemy, spawnPos, Quaternion.identity, rectTransform);
             obj.Init(this);
+            activeEnemies.Add(obj);
         }
     }
-
     public void SpawnLoot()
     {
         Vector2 spawnPos = new(Random.Range(-100, -20), Random.Range(10, 80));
@@ -110,8 +116,8 @@ public class RandomEventManager : MonoBehaviour
 
         Loot_Spawn obj = Instantiate(loot, spawnPos, Quaternion.identity, rectTransform);
         obj.Init(rectTransform, this);
+        activeLoots.Add(obj);
     }
-
     public void SpawnObstacle()
     {
         Obstacle_Spawn obstacle = FindAnyObjectByType<Obstacle_Spawn>();
@@ -128,5 +134,29 @@ public class RandomEventManager : MonoBehaviour
         Vector2 spawnPos = new(-100, 60);
         Obstacle_Spawn obj = Instantiate(obstacleSpawn, spawnPos, Quaternion.identity, rectTransform);
         obj.Init(this);
+        activeObstacles.Add(obj);
+    }
+
+    public void ClearAllEvents()
+    {
+        foreach (Stealing_enemy enemy in activeEnemies)
+        {
+            if (enemy != null) Destroy(enemy.gameObject);
+        }
+
+        foreach (Obstacle_Spawn obstacle in activeObstacles)
+        {
+            if (obstacle != null) obstacle.RemoveRock();
+        }
+
+        foreach (Loot_Spawn loot in activeLoots)
+        {
+            if (loot != null) Destroy(loot.gameObject);
+        }
+
+        activeEnemies.Clear();
+        activeObstacles.Clear();
+        activeLoots.Clear();
+
     }
 }
