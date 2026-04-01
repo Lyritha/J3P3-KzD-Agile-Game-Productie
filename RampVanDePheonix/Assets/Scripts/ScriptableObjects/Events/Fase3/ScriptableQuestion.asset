@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Geef de bandieten wat kapitaal om ze weg te krijgen.
     result: 'Je geeft de bandieten de kapitaal waar ze om vragen. De bandieten nemen
       je geld af en lopen weg.
@@ -32,13 +32,13 @@ MonoBehaviour:
       dood.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     changeFailed:
     - skillToBeChanged: 7
       changeAmount: 0
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Probeer weg te rennen van de bandieten.
     result: 'Je probeert snel met de kar weg te rennen van de bandieten. Een van
       de bandieten zit nog recht achter je, maar hij struikelt over een struik en

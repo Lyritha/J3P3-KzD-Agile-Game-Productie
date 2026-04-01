@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Geef hem wat geld
     result: 'verlies 1 Kapitaal en verdien 2 Socialiteit. '
     resultFailed: 'Je hebt zelf ook geen kapitaal.
@@ -29,7 +29,7 @@ MonoBehaviour:
       Verdien 1 kapitaal.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     - skillToBeChanged: 3
       changeAmount: 2
     changeFailed:

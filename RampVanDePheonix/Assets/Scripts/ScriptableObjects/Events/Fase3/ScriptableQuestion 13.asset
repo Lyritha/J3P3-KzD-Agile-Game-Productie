@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je kiest ervoor om de hond te adopteren en zijn poot te verzorgen bij
       de dierenarts
     result: 'Je gaat naar de dierenarts met de hond. Pieter voelt zich een stuk beter. '
@@ -25,7 +25,7 @@ MonoBehaviour:
       de hond nog te verzorgen maar jammer genoeg is hij dood gegaan...
     change:
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     - skillToBeChanged: 3
       changeAmount: 2
     changeFailed:

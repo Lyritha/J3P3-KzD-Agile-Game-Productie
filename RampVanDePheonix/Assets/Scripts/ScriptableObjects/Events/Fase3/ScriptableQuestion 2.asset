@@ -30,7 +30,7 @@ MonoBehaviour:
     changeFailed: []
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je besluit om groots uit te pakken en je koopt wat extra hout om een
       groter huis te kunnen maken.
     result: 'Na een lange tijd bouwen is je huis eindelijk afgemaakt. Het duurde
@@ -48,6 +48,8 @@ MonoBehaviour:
     change:
     - skillToBeChanged: 2
       changeAmount: 3
+    - skillToBeChanged: 1
+      changeAmount: -3
     changeFailed:
     - skillToBeChanged: 2
       changeAmount: 2

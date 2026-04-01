@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je besluit om extra kapitaal uit te geven om meer eten te kopen
     result: Je hebt genoeg kapitaal om het eten te halen bij de markt, je hebt je
       voorraad mooi opgevuld.
@@ -25,7 +25,7 @@ MonoBehaviour:
       opgeslagen voedsel van vorige oogst is ook bedorven gegaan.
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     - skillToBeChanged: 5
       changeAmount: 5
     changeFailed:
@@ -33,7 +33,7 @@ MonoBehaviour:
       changeAmount: -2
   - skillNeeded:
     - skillType: 5
-      skillAmountNeeded: 5
+      skillAmountNeeded: 6
     action: Je waagt het erop dat je genoeg voorraad hebt om de winter te overleven
       en probeert het te doen met de voorraad die je nu hebt.
     result: Je had genoeg voorraad om de winter te overleven, iedereen heeft meer
@@ -42,7 +42,7 @@ MonoBehaviour:
       het overige eten netjes te verdelen, maar eidereen is wel zeer hongerig geworden.
     change:
     - skillToBeChanged: 5
-      changeAmount: -5
+      changeAmount: -6
     changeFailed:
     - skillToBeChanged: 5
       changeAmount: -5
