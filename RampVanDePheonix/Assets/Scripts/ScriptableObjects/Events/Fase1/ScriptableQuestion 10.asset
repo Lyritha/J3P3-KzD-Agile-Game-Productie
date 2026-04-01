@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Een Encyclopedia
     result: "Je kiest een encyclopedia om jouw kennis over het nieuwe leven te verbeteren.
       \n\nVerdien 2 leervermogen, verlies 1 kapitaal."
@@ -28,11 +28,11 @@ MonoBehaviour:
     - skillToBeChanged: 4
       changeAmount: 2
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     changeFailed: []
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Een boek over houtbewerking
     result: 'Je kiest voor een boek over houtbewerking in de hoop dat dit jouw bouwkunde
       vaardigheden verbeterd.
@@ -46,11 +46,11 @@ MonoBehaviour:
     - skillToBeChanged: 2
       changeAmount: 2
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     changeFailed: []
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Een Amerikaanse bijbel.
     result: 'Je kiest er voor om een Amerikaanse bijbel te kopen waarin je kan leren
       over het Amerikaans Christelijke leven.
@@ -65,5 +65,5 @@ MonoBehaviour:
     - skillToBeChanged: 0
       changeAmount: 2
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     changeFailed: []

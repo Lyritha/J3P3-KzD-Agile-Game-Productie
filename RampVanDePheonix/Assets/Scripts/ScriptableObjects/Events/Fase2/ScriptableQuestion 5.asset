@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Koop medicijnen van de kapitein.
     result: 'Je koopt medicijnen van de kapitein en geeft ze aan de vrouw. Ze bedankt
       je voor de hulp en geeft je een hamer die eerst van haar overleden man was.
@@ -33,7 +33,7 @@ MonoBehaviour:
       Verlies 2 sociaal.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     - skillToBeChanged: 3
       changeAmount: 2
     - skillToBeChanged: 2
@@ -43,7 +43,7 @@ MonoBehaviour:
       changeAmount: -2
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je probeert de vrouw zo goed mogelijk te helpen zonder medicijnen
     result: 'Dankzij jouw hulp overleefd de vrouw de ziekte. De vrouw bedankt jou
       door je wat extra kapitaal te geven.

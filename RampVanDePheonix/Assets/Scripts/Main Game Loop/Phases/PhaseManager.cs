@@ -30,8 +30,7 @@ public class PhaseManager : MonoBehaviour
     {
         Progress = 0;
 
-        CurrentFase = fase; 
-        switch (CurrentFase)
+        switch (fase)
         {
             case Fases.Achterhoek:
                 FillList(eventsConfig.achterhoekEvents);
@@ -44,10 +43,10 @@ public class PhaseManager : MonoBehaviour
                 break;
             case Fases.Amerika:
                 FillList(eventsConfig.amerikaEvents);
-
+                if (fase != CurrentFase) CharacterListDisplay.Instance.KillAllUnsafe();
 
                 AudioManager.Instance.StopLoopingSound(LoopedSoundEffects.Pheonix);
-                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
+                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Amerika);
                 break;
             case Fases.EndScreen:
 
@@ -57,6 +56,7 @@ public class PhaseManager : MonoBehaviour
                 break;
         }
 
+        CurrentFase = fase; 
         display.SetPhase(CurrentFase,10);
         movement.SetFase(CurrentFase);
         stateManager.SetState(State.Lore);

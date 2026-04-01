@@ -15,9 +15,9 @@ MonoBehaviour:
   id: 7
   characterName: Wilma
   baseKapitaal: 1
-  baseBouwkunde: 2
+  baseBouwkunde: 0
   baseLeervermogen: 1
-  baseSociaal: 0
+  baseSociaal: 2
   baseAanpassingsvermogen: 0
   woonplaats: Wierden-Enter
   beroep: Wever

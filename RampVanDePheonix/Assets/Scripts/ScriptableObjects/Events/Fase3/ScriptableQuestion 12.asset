@@ -18,7 +18,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je besluit om de Amerikanen die je huis in brand hebben gestoken op te
       zoeken en aan te spreken.
     result: Ze beloven de schade te vergoeden of helpen met reparaties.
@@ -44,9 +44,9 @@ MonoBehaviour:
     changeFailed: []
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 4
+      skillAmountNeeded: 5
     - skillType: 2
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je eist wraak en besluit de Amerikanen op te zoeken en tot recht te brengen.
       Je komt erachter waar ze wonen en hebt de lucifer klaarstaan.
     result: Je blokkeert de uitgangen stil van buitenaf en gooit de brandende lucifer

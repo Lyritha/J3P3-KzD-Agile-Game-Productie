@@ -18,7 +18,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je kent de gevaren, maar besluit toch je familie te vragen en te komen.
       Om ze te helpen met de reis stuur je ze 2 kapitaal om zeker te weten dat ze
       de reis overleven.
@@ -37,7 +37,7 @@ MonoBehaviour:
       2 sociaal.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     - skillToBeChanged: 3
       changeAmount: 3
     changeFailed:

@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Probeer het water in te springen om he tkind uit het water te halen.
     result: 'Je springt het water in en pakt het kind. Een paar andere reizigers
       op de boot helpen je terug de boot op. Je hebt het kind succesvol gered.
@@ -39,7 +39,7 @@ MonoBehaviour:
       changeAmount: 0
   - skillNeeded:
     - skillType: 0
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: 'Probeer het kind met een touw of plank te bereiken '
     result: 'Je gooit een touw naar beneden om het kind te proberen te helpen. Het
       lukt het kind om het touw te pakken, en een paar andere reizigers helpen je

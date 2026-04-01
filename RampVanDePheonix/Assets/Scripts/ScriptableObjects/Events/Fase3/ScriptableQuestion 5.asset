@@ -19,7 +19,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je probeert de cursus af te ronden zonder extra te leren of om hulp te
       vragen.
     result: 'Je doet je best om met je huidige kennis de cursus af te ronden. Uiteindelijk
@@ -43,7 +43,7 @@ MonoBehaviour:
       changeAmount: -1
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je betaalt een Amerikaan om je bijles te geven voor de cursus.
     result: 'De Amerikaan geeft je bijles en je komt erachter dat je nog veel moest
       leren voordat je de cursus zou halen. Uiteindelijk haal je de cursus door de
@@ -59,7 +59,7 @@ MonoBehaviour:
       Verlies 1 leervermogen.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     - skillToBeChanged: 4
       changeAmount: 1
     changeFailed:
@@ -67,7 +67,7 @@ MonoBehaviour:
       changeAmount: -1
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je besluit goed zelf te studeren en zelfstandig de cursus af te ronden
     result: 'Je doet je best om nog wat extra te leren voordat je de cursus probeert
       te halen. Uiteindelijk probeer je de cursus en vanwege het extra leren heb
@@ -84,7 +84,7 @@ MonoBehaviour:
     changeFailed: []
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 3
+      skillAmountNeeded: 4
     action: Je betaalt een Amerikaan om jou na te doen zodat hij de cursus voor jou
       kan afmaken
     result: 'Je betaald een Amerikaan om de cursus in jouw naam te doen. De Amerikaan
@@ -101,7 +101,7 @@ MonoBehaviour:
       verlies 1 leervermogen.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -3
+      changeAmount: -4
     - skillToBeChanged: 0
       changeAmount: 1
     changeFailed:

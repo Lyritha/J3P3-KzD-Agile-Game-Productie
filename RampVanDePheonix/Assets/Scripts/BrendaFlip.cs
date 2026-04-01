@@ -23,6 +23,7 @@ public class BrendaFlip : MonoBehaviour
     private float currentWheelSpeed = 0;
     private float targetWheelSpeed = 0;
     private float sinePhase = 0f;
+    Animator animator;
 
     [Header("Flip")]
     [SerializeField] private float flipSpeed = 720f;
@@ -50,18 +51,24 @@ public class BrendaFlip : MonoBehaviour
     {
         baseX = wiggleTarget.anchoredPosition.x;
         baseY = wiggleTarget.anchoredPosition.y;
+
+        animator = GetComponent<Animator>();
     }
 
     public void StartMoving()
     {
         targetSineFrequency = maxSineFrequency;
         targetWheelSpeed = wheelSpeed;
+
+        animator.enabled = true;
     }
 
     public void StopMoving()
     {
         targetSineFrequency = 0;
         targetWheelSpeed = 0;
+
+        animator.enabled = false;
     }
 
 
