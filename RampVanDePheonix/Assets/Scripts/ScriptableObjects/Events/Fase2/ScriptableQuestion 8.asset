@@ -18,7 +18,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 3
-      skillAmountNeeded: 3
+      skillAmountNeeded: 4
     action: Overleg met de andere reizigers dat het plekje voor jou is.
     result: 'De andere reizigers zijn het eens met je dat jij de laatste plek verdient.
 
@@ -40,7 +40,7 @@ MonoBehaviour:
       changeAmount: 0
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 3
+      skillAmountNeeded: 4
     action: Je betaald de andere reizigers om jou de laatste plek te geven op de
       veiligheidsboot.
     result: 'De andere reizigers nemen het geld aan en geven jou de laatste plek
@@ -58,6 +58,8 @@ MonoBehaviour:
     change:
     - skillToBeChanged: 8
       changeAmount: 0
+    - skillToBeChanged: 1
+      changeAmount: -4
     changeFailed:
     - skillToBeChanged: 7
       changeAmount: 0

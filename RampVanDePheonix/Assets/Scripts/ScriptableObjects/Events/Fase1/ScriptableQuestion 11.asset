@@ -30,7 +30,7 @@ MonoBehaviour:
     changeFailed: []
   - skillNeeded:
     - skillType: 3
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Probeer voor te kruipen om eerder aan de beurt te komen.
     result: 'Het is je gelukt om voor te kruipen! je komt aan bij de slager en er
       ligt nog genoeg goed vlees om uit te kiezen. Helaas ben je alleen je portemonnee
@@ -56,7 +56,7 @@ MonoBehaviour:
       changeAmount: -1
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Probeer anderen in de rij om te kopen om jou voor te laten
     result: 'Het is je succesvol gelukt om mensen om te kopen en je bent voorin de
       rij aangekomen. de slager merkte dit en stuurt je uit zijn slagerij.
@@ -68,7 +68,7 @@ MonoBehaviour:
       persoon die je probeerde om te kopen lacht je uit en je besluit om weg te lopen.
     change:
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     - skillToBeChanged: 3
       changeAmount: -1
     changeFailed: []

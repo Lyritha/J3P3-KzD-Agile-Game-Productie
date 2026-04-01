@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Natuurlijk! Ik zou graag willen helpen
     result: 'De dominee bedankt je voor je gift en verantwoord je dat jouw gift goed
       gebruikt gaat worden en totaal niet in zijn eigen zak gedrukt word.
@@ -29,13 +29,13 @@ MonoBehaviour:
       aan en loopt langzaam weg.
     change:
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     - skillToBeChanged: 3
       changeAmount: 2
     changeFailed: []
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: 'Voor een extra gift krijg je ook nog een bijbel erbij! '
     result: 'De dominee bedankt je en verteld je dat je bijbel binnen 3 tot 5 werkdagen
       bezorgd word. Helaas ben je dan al op reis en ben je dus niet thuis om hem
@@ -51,7 +51,7 @@ MonoBehaviour:
       1 leervermogen'
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     - skillToBeChanged: 3
       changeAmount: 2
     changeFailed:

@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Ja klinkt wel gezellig, ook al zijn de drankjes wel wat prijzig
     result: 'Je vrienden waarderen het erg. Je bent alleen ook wat geld kwijt.
 
@@ -31,7 +31,7 @@ MonoBehaviour:
       Verlies 2 socialiteit.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     - skillToBeChanged: 3
       changeAmount: 2
     changeFailed:

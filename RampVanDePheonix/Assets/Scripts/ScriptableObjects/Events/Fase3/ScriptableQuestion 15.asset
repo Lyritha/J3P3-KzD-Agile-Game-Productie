@@ -17,22 +17,22 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je gaat naar de dokter om het gif te stoppen.
     result: Uiteindelijk lukt het maar het kost je wel veel kapitaal.
     resultFailed: Je had geen genoeg geld om naar de dokter te gaan. Je gaat dood
       aan het gif.
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     changeFailed:
     - skillToBeChanged: 7
       changeAmount: 0
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 2
-    - skillType: 0
       skillAmountNeeded: 3
+    - skillType: 0
+      skillAmountNeeded: 4
     action: Je doet een poging om het zelf op te lossen door het gif eruit te zuigen
       in de hoop dat je jezelf kan redden.
     result: Het is je gelukt! met genoeg te zuigen heb je al het gif uit je lichaam

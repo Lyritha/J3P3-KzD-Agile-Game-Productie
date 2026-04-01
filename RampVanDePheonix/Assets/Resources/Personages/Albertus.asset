@@ -16,11 +16,12 @@ MonoBehaviour:
   characterName: Albertus
   baseKapitaal: 1
   baseBouwkunde: 0
-  baseLeervermogen: 0
+  baseLeervermogen: 1
   baseSociaal: 2
   baseAanpassingsvermogen: 0
   woonplaats: Ommen
   beroep: Dominee
+  description: 
   loreDrop: Samen met een groep gelovigen emigreerde Albertus, als voorganger, naar
     Amerika. In Michigan stichtte hij het stadje Holland.
   portrait: {fileID: 21300000, guid: 7d4c8777d7496ed45a1bd319fac85a96, type: 3}

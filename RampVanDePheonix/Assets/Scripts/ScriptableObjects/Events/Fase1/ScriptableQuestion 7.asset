@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je gaat wat extra gereedschap kopen als voorbereiding
     result: "Je besluit om alvast wat extra gereedschap te kopen om jouw boerderij
       te verbeteren. \n\nVerlies 1 kapitaal, Verdien 1 bouwkunde"
@@ -30,7 +30,7 @@ MonoBehaviour:
     - skillToBeChanged: 2
       changeAmount: 2
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     changeFailed:
     - skillToBeChanged: 3
       changeAmount: -1

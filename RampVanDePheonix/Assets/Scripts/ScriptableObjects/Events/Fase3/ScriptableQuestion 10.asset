@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je verhuist naar Milwaukee omdat daar een goede school is waar je je
       studies kan afronden.
     result: 'Je besluit om richting Milwaukee te gaan om daar je studies af te ronden.
@@ -34,7 +34,7 @@ MonoBehaviour:
       Verlies 2 leervermogen.'
     change:
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     - skillToBeChanged: 4
       changeAmount: 2
     changeFailed:
@@ -42,7 +42,7 @@ MonoBehaviour:
       changeAmount: -2
   - skillNeeded:
     - skillType: 2
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je verhuist naar Grand Rapids omdat je hoopt hier een goede baan in de
       bouw te vinden.
     result: 'Je besluit om richting de Grand Rapids te gaan. Eenmaal aangekomen probeer

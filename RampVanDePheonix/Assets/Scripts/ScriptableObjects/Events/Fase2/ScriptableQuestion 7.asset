@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 3
+      skillAmountNeeded: 4
     action: Je betaald de kaptein zodat je veilig op de reddingsboot zit.
     result: 'Je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid
       punten verdienen. '
@@ -26,11 +26,11 @@ MonoBehaviour:
     - skillToBeChanged: 8
       changeAmount: 0
     - skillToBeChanged: 1
-      changeAmount: -3
+      changeAmount: -4
     changeFailed: []
   - skillNeeded:
     - skillType: 3
-      skillAmountNeeded: 3
+      skillAmountNeeded: 4
     action: Probeer de kapitein te overtuigen om je een plek te geven
     result: 'De haalt de kapitein over om je een plek te geven op de veiligheidsboot
       je karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid punten

@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 2
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je besluit om je gereedschapskist te verkopen.
     result: 'Je hoopt om in Amerika een nieuwe gereedschapskist te kunnen krijgen.
 
@@ -33,7 +33,7 @@ MonoBehaviour:
     changeFailed: []
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Je besluit je engelstalige boeken te verkopen.
     result: "Het is nu een stuk moeilijker om de engelse taal te leren. \n\nverlies
       1 Leervermogen en krijg 1 Kapitaal. "
