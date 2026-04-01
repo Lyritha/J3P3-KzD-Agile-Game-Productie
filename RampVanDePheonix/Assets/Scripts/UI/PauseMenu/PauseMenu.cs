@@ -7,11 +7,9 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
     private AudioMixer mixer;
-    [SerializeField]
-    private SceneHider hider;
 
     [SerializeField]
-    private CanvasGroup pauseUI;
+    protected CanvasGroup pauseUI;
 
     [SerializeField]
     private Slider musicVolume;
@@ -62,26 +60,16 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void OpenMenu()
+    public virtual void OpenMenu()
     {
-        if (hider.IsHidden) return;
-
-        Time.timeScale = 0f;
-
-        SetCanvasGroup(pauseUI, true);
-        hider.HideMainScene(false);
     }
 
-    public void CloseMenu()
+    public virtual void CloseMenu()
     {
-        Time.timeScale = 1f;
-
-        SetCanvasGroup(pauseUI, false);
-        hider.ShowMainScene();
     }
 
 
-    private void SetCanvasGroup(CanvasGroup group ,bool state)
+    protected void SetCanvasGroup(CanvasGroup group ,bool state)
     {
         if (group == null) return;
 
