@@ -193,7 +193,7 @@ public class EventVisualiser : MonoBehaviour
         else
         {
             characterImage.sprite = Icon_Question;
-            characterName.text = "Kies een Character";
+            characterName.text = "Kies een karakter";
         }
 
     }
