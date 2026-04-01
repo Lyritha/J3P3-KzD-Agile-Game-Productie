@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777883061717876874, guid: 643e9aa62ea939d43a21e9b83ebaf191, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6215211515059572558, guid: 643e9aa62ea939d43a21e9b83ebaf191, type: 3}
       propertyPath: m_Pivot.x
@@ -799,7 +799,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -807,7 +807,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &493320742
@@ -859,7 +859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95, y: 206}
+  m_AnchoredPosition: {x: 2, y: 206}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &697563175
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 872740084}
   - component: {fileID: 872740085}
   m_Layer: 5
-  m_Name: initialiserGameObject
+  m_Name: cHAACTERmANAGER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,17 +1049,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InitializeMinigame
   differentEnglishMen:
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
-  - {fileID: -9116524295972960539, guid: 2dee5124fac0d344e948c5ca52b359d6, type: 3}
+  - {fileID: 21300000, guid: 42ba33e8f15c5e04ca963d3445cd09ed, type: 3}
+  - {fileID: 21300000, guid: 568a841ce3760b8489961459d165ddb6, type: 3}
+  - {fileID: 21300000, guid: 83af14ca75fc5054e942721a49335f87, type: 3}
+  - {fileID: 4046083201049109079, guid: 33bc92bffe0f79749b6e6ccda8de64a3, type: 3}
   SceneryObjects:
   - {fileID: 5431999724250913459, guid: fc0ff3b7db4a93e4b94daa17a22de92a, type: 3}
   - {fileID: 5431999724250913459, guid: 143a812118d89574c8bdbe145b75a4d9, type: 3}
   - {fileID: 5431999724250913459, guid: ace338d188828474c9de659e975eef26, type: 3}
   BackgroundImages:
   - {fileID: 21300000, guid: dd4c89413508da643a43e6b830e18753, type: 3}
-  - {fileID: 21300000, guid: deb9543f202764c43a52e48b2a894556, type: 3}
+  - {fileID: 4046083201049109079, guid: 33bc92bffe0f79749b6e6ccda8de64a3, type: 3}
   - {fileID: 21300000, guid: 26ac90c586947dd418f7bc394876149f, type: 3}
   DefaultBackground: {fileID: 493320740}
 --- !u!1 &908284954
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   answerPanel: {fileID: 908284955}
   questionParent: {fileID: 751593931}
   answerParent: {fileID: 697563174}
-  initializerGameObject: {fileID: 872740082}
+  currentFase: 0
   testPlayerStat: 3
 --- !u!4 &934889358
 Transform:
@@ -1252,10 +1252,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 410414282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -550, y: 0}
-  m_SizeDelta: {x: 1100, y: 141}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1398535540
 MonoBehaviour:
@@ -1288,8 +1288,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1306,8 +1306,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 128
+  m_fontSizeBase: 128
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 417.3479, y: 0, z: 0, w: 19.830688}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

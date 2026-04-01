@@ -109,6 +109,20 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning($"Looped sound not found: {effect}");
     }
 
+    public void StopAllLoopingSounds()
+    {
+        foreach (AudioSource audioSource in loopingAudioSources.Values)
+        {
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+                Destroy(audioSource.gameObject);
+            }
+        }
+
+        loopingAudioSources.Clear();
+    }
+
     public void StopLoopingSound(LoopedSoundEffects effect)
     {
         foreach (LoopedSoundEffect sound in loopedSoundEffects)
@@ -151,6 +165,15 @@ public class AudioManager : MonoBehaviour
             musicAudioSource.loop = true;
             musicAudioSource.clip = targetAudioclip;
             musicAudioSource.Play();
+        }
+    }
+
+    public void StopMusic()
+    {
+        if (musicAudioSource.isPlaying)
+        {
+            musicAudioSource.Stop();
+            musicAudioSource.clip = null;
         }
     }
 }

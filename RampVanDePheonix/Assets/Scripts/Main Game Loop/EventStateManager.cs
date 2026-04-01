@@ -49,6 +49,7 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] private float walkTimeSecs = 30;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
+    public PhaseManager FaseManager { get { return faseManager; } }
 
     protected void Awake()
     {

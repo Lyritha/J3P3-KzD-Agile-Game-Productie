@@ -4926,6 +4926,7 @@ GameObject:
   - component: {fileID: 5879667019179832663}
   - component: {fileID: 3873350239673119541}
   - component: {fileID: 6836361878350064253}
+  - component: {fileID: 4138036410642284451}
   m_Layer: 5
   m_Name: KarakterTut
   m_TagString: Untagged
@@ -4977,6 +4978,8 @@ MonoBehaviour:
   characterDisplay: {fileID: 1617885649708643833}
   characterFood: {fileID: 3129143194288746739}
   borderImage: {fileID: 1987294643385601463}
+  popUpText: {fileID: 7373012214489202102, guid: 8d0ec5511c9883a4fb8ab8de1fcf348b, type: 3}
+  buttonSound: {fileID: 4138036410642284451}
 --- !u!114 &1617885649708643833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5027,6 +5030,7 @@ MonoBehaviour:
   - {fileID: 1087767673434913978}
   foodText: {fileID: 7440389140646326448}
   starvingText: {fileID: 6231095997697499655}
+  currentFood: 0
 --- !u!222 &4441969112870837958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5219,6 +5223,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4138036410642284451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468825232485569848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00093d04c6b8a040add82729e98bd6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayButtonSound
+  playOnClick: 1
 --- !u!1 &5511129107425863915
 GameObject:
   m_ObjectHideFlags: 0
