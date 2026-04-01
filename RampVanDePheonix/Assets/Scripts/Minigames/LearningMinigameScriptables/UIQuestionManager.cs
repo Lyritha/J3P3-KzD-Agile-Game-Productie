@@ -53,13 +53,12 @@ public class UIQuestionManager : MonoBehaviour
     private void Awake()
     {
         initialiser = initializerGameObject.GetComponent<InitializeMinigame>();
-        AmountOfPointsText.text = currentAmountOfPoints.ToString();
+        SetTextToCanvas(currentAmountOfPoints);
         questionsForBoat = Resources.LoadAll<BaseScriptable>("FaseBoatQuestions");
         questionsForAmerica = Resources.LoadAll<BaseScriptable>("FaseAmericaQuestions");
         questionsForAchterhoek = Resources.LoadAll<BaseScriptable>("FaseAchterhoekQuestions");
         activeCards = new List<RectTransform>();
         NewQuestion(0);
-        InitialiseWorld(); //work on this if characters, scenery etc are done
     }
 
     private void Update()
@@ -195,12 +194,6 @@ public class UIQuestionManager : MonoBehaviour
         questionGameObject.GetComponentInChildren<TMP_Text>().text = answer.anAnswer;
         activeCards.Add(questionGameObject);
     }
-    //public enum Fases
-   // {
-    //    Achterhoek,
-   //     Boat,
-   //     America
-  //  }
 
 
     /// <summary>
@@ -240,14 +233,14 @@ public class UIQuestionManager : MonoBehaviour
 
     void SetTextToCanvas(int currentPoints)
     {
-        string extraText = $"je hebt nu {currentAmountOfPoints} punten";
+        string extraText = $"score: {currentAmountOfPoints}";
         AmountOfPointsText.text = extraText;
     }
 
     IEnumerator ActivateNewQuestion()
     {
         //waiting a few seconds after answering
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         NewQuestion();
     }
 
@@ -297,11 +290,6 @@ public class UIQuestionManager : MonoBehaviour
             yield return new WaitForSeconds((secondsActive / amountIterations));
         }
         GameObject.Destroy(pointCard.gameObject);
-    }
-
-    void InitialiseWorld()
-    {
-        
     }
 }
 
