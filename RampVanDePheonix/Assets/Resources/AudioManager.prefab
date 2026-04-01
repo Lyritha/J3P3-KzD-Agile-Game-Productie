@@ -191,7 +191,7 @@ MonoBehaviour:
     effect: 0
   achterhoekMusic: {fileID: 8300000, guid: 503171fd5d954ce40a21ec568797c1be, type: 3}
   boatMusic: {fileID: 8300000, guid: 96aa1114d8537974f990daa20d217761, type: 3}
-  amerikaMusic: {fileID: 8300000, guid: 503171fd5d954ce40a21ec568797c1be, type: 3}
+  amerikaMusic: {fileID: 8300000, guid: 045c68b4246290446b3a461ecc091466, type: 3}
   minigameMusic: {fileID: 8300000, guid: 3544d63796661aa4ba7d1e70825860be, type: 3}
 --- !u!1 &6455314755963695083
 GameObject:
