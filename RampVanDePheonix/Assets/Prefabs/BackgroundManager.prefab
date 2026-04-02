@@ -52,8 +52,9 @@ MonoBehaviour:
   backgroundBoat:
   - {fileID: 21300000, guid: deb9543f202764c43a52e48b2a894556, type: 3}
   backgroundAmerica:
-  - {fileID: 21300000, guid: 76ffa11d40dd12f4091a9a428a575843, type: 3}
-  - {fileID: 21300000, guid: 748a438ac0943ed45aae641672ad8beb, type: 3}
+  - {fileID: 21300000, guid: abab4fbab203a1d428071c35a21df527, type: 3}
+  - {fileID: 21300000, guid: 1b749ed731d207f4ba3be1c173580242, type: 3}
+  - {fileID: 21300000, guid: c367b8e35c7742d4da1b33d7179a447d, type: 3}
   foregroundAchterhoek:
   - {fileID: 21300000, guid: e40c79c8e6d7c2f418fbd250f2ec65da, type: 3}
   foregroundBoat:
@@ -63,6 +64,8 @@ MonoBehaviour:
   defaultImageObject: {fileID: 7486462284109310467, guid: 6f4a6c8c7453ecb42a43d52df40704b9, type: 3}
   activeCanvas: {fileID: 0}
   brenda: {fileID: 0}
+  boatPlayer: {fileID: 0}
+  brendaPlayer: {fileID: 0}
   isTraveling: 1
   backgroundSpawnPosition: {x: -2000, y: 0, z: 0}
   foregroundSpawnPosition: {x: -2000, y: 0, z: 0}

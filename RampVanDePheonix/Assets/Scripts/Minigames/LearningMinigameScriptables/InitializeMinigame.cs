@@ -18,6 +18,8 @@ public class InitializeMinigame : MonoBehaviour
     GameObject player;
     GameObject englishMan;
 
+    GameObject activeThing;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -85,6 +87,7 @@ public class InitializeMinigame : MonoBehaviour
     {
         GameObject newGameObject = Instantiate(correctSceneryObject, backgroundParent.transform);
         newGameObject.transform.position = new Vector3(0, 0, -0.2f);
+        activeThing = newGameObject;
     }
 
     void SetCorrectBackground(Sprite correctBackgroundSprite)
@@ -95,6 +98,7 @@ public class InitializeMinigame : MonoBehaviour
 
     public void RecheckScenery()
     {
-        SpawnInScenery(EventStateManager.Instance.FaseManager.CurrentFase);
+        if (activeThing == null)
+            SpawnInScenery(EventStateManager.Instance.FaseManager.CurrentFase);
     }
 }
