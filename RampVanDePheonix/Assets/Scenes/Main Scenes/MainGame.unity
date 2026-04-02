@@ -3288,7 +3288,8 @@ MonoBehaviour:
   bootLore: {fileID: 7482164186307297847, guid: 99e56334481c220489ae8e132a9c14f4, type: 3}
   amerikaLore: {fileID: 7482164186307297847, guid: b7a5fabd8d1ef0f44bb670597654aa22, type: 3}
   lorePosition: {fileID: 372497152}
-  walkTimeSecs: 30
+  walkTimeSecsMin: 10
+  walkTimeSecsMax: 20
 --- !u!1 &1650868427
 GameObject:
   m_ObjectHideFlags: 0

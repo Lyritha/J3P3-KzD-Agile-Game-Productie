@@ -46,7 +46,8 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] GameObject amerikaLore;
     [SerializeField] GameObject lorePosition;
 
-    [SerializeField] private float walkTimeSecs = 30;
+    [SerializeField] private float walkTimeSecsMin = 20;
+    [SerializeField] private float walkTimeSecsMax = 30;
     private Coroutine walkingCoroutine;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
@@ -121,6 +122,7 @@ public class EventStateManager : MonoBehaviour
                 AudioManager.Instance.SetPhaseMusic(faseManager.CurrentFase);
 
                 if (walkingCoroutine != null) StopCoroutine(walkingCoroutine);
+                float walkTimeSecs = Random.Range(walkTimeSecsMin, walkTimeSecsMax);
                 walkingCoroutine = StartCoroutine(WalkingState(walkTimeSecs));
                 break;
             case State.Shop:
