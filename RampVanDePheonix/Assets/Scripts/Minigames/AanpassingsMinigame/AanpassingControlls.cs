@@ -26,7 +26,6 @@ public class AanpassingControlls : MonoBehaviour
         if (progressCounter >= 99f)
         {
             timer.amountOfSeconds = 0f;
-            print("FUCKSFJISUHDFSHAFSD");
         }
 
         else if (progressCounter >= 90f)
