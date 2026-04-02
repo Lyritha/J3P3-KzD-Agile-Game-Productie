@@ -47,6 +47,7 @@ public class EventStateManager : MonoBehaviour
     [SerializeField] GameObject lorePosition;
 
     [SerializeField] private float walkTimeSecs = 30;
+    private Coroutine walkingCoroutine;
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
     public PhaseManager FaseManager { get { return faseManager; } }
@@ -118,7 +119,9 @@ public class EventStateManager : MonoBehaviour
                 break;
             case State.Walking:
                 AudioManager.Instance.SetPhaseMusic(faseManager.CurrentFase);
-                StartCoroutine(WalkingState(walkTimeSecs));
+
+                if (walkingCoroutine != null) StopCoroutine(walkingCoroutine);
+                walkingCoroutine = StartCoroutine(WalkingState(walkTimeSecs));
                 break;
             case State.Shop:
                 ShopState(); 
@@ -144,7 +147,10 @@ public class EventStateManager : MonoBehaviour
         background.StartBackground();
         yield return new WaitForSeconds(waitTime);
         yield return new WaitUntil(() => !Obstacle_Spawn.isBlocking);
+
+        // assume if state changed we no longer wanna do this stuff.
         if (currentState != State.Walking) yield break;
+
         eventVisualiser.gameObject.SetActive(true);
         SetState(State.Event);
     }
