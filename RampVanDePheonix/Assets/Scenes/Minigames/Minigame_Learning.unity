@@ -1378,11 +1378,11 @@ MonoBehaviour:
   SceneryObjects:
   - {fileID: 5431999724250913459, guid: fc0ff3b7db4a93e4b94daa17a22de92a, type: 3}
   - {fileID: 5431999724250913459, guid: 143a812118d89574c8bdbe145b75a4d9, type: 3}
-  - {fileID: 5431999724250913459, guid: ace338d188828474c9de659e975eef26, type: 3}
+  - {fileID: 5431999724250913459, guid: fc0ff3b7db4a93e4b94daa17a22de92a, type: 3}
   BackgroundImages:
   - {fileID: 21300000, guid: dd4c89413508da643a43e6b830e18753, type: 3}
   - {fileID: 21300000, guid: deb9543f202764c43a52e48b2a894556, type: 3}
-  - {fileID: 21300000, guid: dd4c89413508da643a43e6b830e18753, type: 3}
+  - {fileID: 21300000, guid: abab4fbab203a1d428071c35a21df527, type: 3}
   DefaultBackground: {fileID: 493320740}
   backgroundParent: {fileID: 622266269}
 --- !u!1 &908284954
