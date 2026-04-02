@@ -6,6 +6,8 @@ public class Obstacle_Spawn : MonoBehaviour
 
     public bool hasSpawned;
     public static bool isBlocking;
+    private bool startedBlocking;
+
     RandomEventManager parent;
     RectTransform parentRect;
 
@@ -30,6 +32,7 @@ public class Obstacle_Spawn : MonoBehaviour
         {
             BackgroundMovement background = FindFirstObjectByType<BackgroundMovement>();
             background.PauseBackground();
+            startedBlocking = true;
         }
 
         if (Vector2.Distance(transform.position, targetPos) < 1f)
@@ -43,13 +46,20 @@ public class Obstacle_Spawn : MonoBehaviour
         rockHealth--;
 
         if (rockHealth < 0)
+            RemoveRock();
+    }
+
+    public void RemoveRock()
+    {
+        if (startedBlocking)
         {
             BackgroundMovement background = FindFirstObjectByType<BackgroundMovement>();
             background.StartBackground();
-
-            isBlocking = false;
-            hasSpawned = false;
-            Destroy(gameObject);
         }
+
+        startedBlocking = false;
+        isBlocking = false;
+        hasSpawned = false;
+        Destroy(gameObject);
     }
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 3
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Je probeert een vertrouwd persoon te vertellen over het pestgedrag.
     result: De persoon helpt je met de pesters confronteren. Na een lang gesprek
       met de pesters zijn ze bij een conclusie gekomen. De pesters gaan gelukkig

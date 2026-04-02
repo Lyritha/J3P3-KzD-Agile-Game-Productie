@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 4
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Onderzoek welk eten nog eetbaar is.
     result: 'Je komt erachter dat een groot deel van het eten nog wel eetbaar is.
       Dit hou je apart en neem je mee voor je eigen voorraad.
@@ -38,7 +38,7 @@ MonoBehaviour:
       changeAmount: -2
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 2
+      skillAmountNeeded: 3
     action: Koop eten vanuit de kapitein zijn voorraad.
     result: 'Je koopt wat eten van de kapitein en voegt het toe aan je eigen etensvoorraad.
 
@@ -49,7 +49,7 @@ MonoBehaviour:
       je huidige etensvoorraad niet bedorven is geraakt.
     change:
     - skillToBeChanged: 1
-      changeAmount: -2
+      changeAmount: -3
     - skillToBeChanged: 6
       changeAmount: 2
     changeFailed: []

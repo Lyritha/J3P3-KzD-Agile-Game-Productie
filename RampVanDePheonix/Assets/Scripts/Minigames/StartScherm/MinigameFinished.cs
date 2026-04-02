@@ -68,6 +68,7 @@ public class MinigameFinished : MonoBehaviour
         if (character == null ) return;
 
         Personage personage = character.Personage;
+        if (score <= 0) return;
 
         switch (minigame.rewardedSkill)
         {

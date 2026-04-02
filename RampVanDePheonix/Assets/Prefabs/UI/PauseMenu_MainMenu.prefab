@@ -32,6 +32,66 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 766495688028149463, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9124149619553150344}
+    - target: {fileID: 766495688028149463, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAmbianceVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 766495688028149463, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuMainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075891362070461357, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075891362070461357, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075891362070461357, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075891362070461357, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075891362070461357, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075891362070461357, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129497433600009160, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129497433600009160, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129497433600009160, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129497433600009160, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129497433600009160, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129497433600009160, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1141744522744558698, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
       propertyPath: m_Name
       value: PauseMenu_MainMenu
@@ -176,6 +236,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6302245049511338138, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302245049511338138, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6753465635448386427, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -187,6 +255,30 @@ PrefabInstance:
     - target: {fileID: 6753465635448386427, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PauseMenuMainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895278295681912676, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895278295681912676, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895278295681912676, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895278295681912676, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895278295681912676, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895278295681912676, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7534586304085117749, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -397,4 +489,16 @@ MonoBehaviour:
   pauseUI: {fileID: 2007476678975818805}
   musicVolume: {fileID: 3319333041628713475}
   effectsVolume: {fileID: 4224507375258924884}
+  ambianceVolume: {fileID: 7906761708791616248}
   otherToHide: {fileID: 0}
+--- !u!114 &7906761708791616248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 766495688028149463, guid: 3d3f942b44922a145baa7d28a0aa72b9, type: 3}
+  m_PrefabInstance: {fileID: 7429063779501343791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider

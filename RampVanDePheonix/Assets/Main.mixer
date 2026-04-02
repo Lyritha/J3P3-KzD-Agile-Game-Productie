@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-6488453512541739753
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 031271eb4bb8f2c40afe1417e9e3fa2c
+  m_EffectName: Attenuation
+  m_MixLevel: 712278fa08f3a4c449958dbf77fe1e51
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-3348277326147183745
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -15,6 +29,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 2905352824079420725}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-1818806118173837202
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ambiance
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 7e02b9de97b153a4ab8a5a56a3a96b0b
+  m_Children: []
+  m_Volume: 117b97d79945c0945a104c9b909bdf3e
+  m_Pitch: 2eb98f5cc748b8b4bbe5f048d2b6230a
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6488453512541739753}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -35,6 +68,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 117b97d79945c0945a104c9b909bdf3e
+    name: AmbianceVolume
   - guid: 02733b2dec55fae4a80cc8591fe1eebc
     name: EffectsVolume
   - guid: 94c0c01406f172947bd4fd44033e483f
@@ -44,6 +79,7 @@ AudioMixerController:
     - 761ec49ba9c40a3478f8be4248704743
     - dfd9eb193718755449e2f4bb869cbb23
     - 2a0e2c3a6b507564d800f6313cbd4ae4
+    - 7e02b9de97b153a4ab8a5a56a3a96b0b
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -58,6 +94,7 @@ AudioMixerGroupController:
   m_GroupID: 761ec49ba9c40a3478f8be4248704743
   m_Children:
   - {fileID: 5491164539554704211}
+  - {fileID: -1818806118173837202}
   - {fileID: -3348277326147183745}
   m_Volume: 106e8c48998e7c243ac901899b70fb3d
   m_Pitch: 75087011b4dabaa4abe511d84d1b1397

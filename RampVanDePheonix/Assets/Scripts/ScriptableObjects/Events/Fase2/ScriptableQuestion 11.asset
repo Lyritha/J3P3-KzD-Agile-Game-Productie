@@ -37,14 +37,14 @@ MonoBehaviour:
     changeFailed: []
   - skillNeeded:
     - skillType: 1
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: 'Je sluit je aan bij de bemanning in de kroeg. '
     result: 'Je doet leuk mee met de bemanning en drinkt wat mee. Je verliest 1 kapitaal,
       je verdient 2 sociaal. '
     resultFailed: 
     change:
     - skillToBeChanged: 1
-      changeAmount: -1
+      changeAmount: -2
     - skillToBeChanged: 3
       changeAmount: 2
     changeFailed: []

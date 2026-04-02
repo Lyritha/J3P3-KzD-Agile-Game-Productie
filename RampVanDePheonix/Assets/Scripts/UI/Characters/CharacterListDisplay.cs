@@ -124,11 +124,7 @@ public class CharacterListDisplay : MonoBehaviour
     {
         PhaseManager faseManager = FindFirstObjectByType<PhaseManager>();
         if (faseManager.CurrentFase == Fases.Pheonix && Characters.TrueForAll(c => !c.IsSelectable))
-        {
             faseManager.SwapFase(Fases.Amerika);
-            foreach (Character character in Characters)
-                character.UnSafe();
-        }
     }
 
     protected void ClearCharacters()
@@ -140,14 +136,17 @@ public class CharacterListDisplay : MonoBehaviour
     }
 
 
-    public void CheckCharacterSafe()
+    public void KillAllUnsafe()
     {
         foreach(Character character in Characters)
         {
             if (!character.IsOnLifeBoat)
             {
                 character.Die("burn");
+                continue;
             }
+
+            character.UnSafe("reset UI");
         }
     }
 }

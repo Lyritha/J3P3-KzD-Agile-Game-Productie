@@ -13,9 +13,7 @@ public class InitializeMinigame : MonoBehaviour
     //0=achterhoek, 1=boat 2=america
     [SerializeField] GameObject DefaultBackground;
 
-
-    GameObject currentScenery;
-    Sprite currentBackground;
+    [SerializeField] private GameObject backgroundParent;
 
     GameObject player;
     GameObject englishMan;
@@ -25,6 +23,7 @@ public class InitializeMinigame : MonoBehaviour
     {
         player = transform.GetChild(0).gameObject;
         englishMan = transform.GetChild(1).gameObject;
+
         SpawnInScenery(EventStateManager.Instance.FaseManager.CurrentFase);
         ChangeDefaultPlayerSprite(player);
         ChangeDefaultEnglishManSprite(englishMan);
@@ -62,38 +61,36 @@ public class InitializeMinigame : MonoBehaviour
         {
             case Fases.Achterhoek:
                 InstantiateCorrectScenery(SceneryObjects[0]);
-                InstantiateCorrectBackground(BackgroundImages[0]);
+                SetCorrectBackground(BackgroundImages[0]);
                 gameObject.GetComponent<Animator>().enabled = false;
                 break;
             case Fases.Pheonix:
                 InstantiateCorrectScenery(SceneryObjects[1]);
-                InstantiateCorrectBackground(BackgroundImages[1]);
+                SetCorrectBackground(BackgroundImages[1]);
                 break;
             case Fases.Amerika:
                 InstantiateCorrectScenery(SceneryObjects[2]);
-                InstantiateCorrectBackground(BackgroundImages[2]);
+                SetCorrectBackground(BackgroundImages[2]);
                 gameObject.GetComponent<Animator>().enabled = false;
                 break;
             default:
                 print("COULDNT FIND CORRECT FASE, DEFAULTING RN");
                 InstantiateCorrectScenery(SceneryObjects[0]);
-                InstantiateCorrectBackground(BackgroundImages[0]);
+                SetCorrectBackground(BackgroundImages[0]);
                 gameObject.GetComponent<Animator>().enabled = false;
                 break;
         }
     }
     void InstantiateCorrectScenery(GameObject correctSceneryObject)
     {
-        GameObject newGameObject = Instantiate(correctSceneryObject);
+        GameObject newGameObject = Instantiate(correctSceneryObject, backgroundParent.transform);
         newGameObject.transform.position = new Vector3(0, 0, -0.2f);
-        currentScenery = newGameObject;
     }
 
-    void InstantiateCorrectBackground(Sprite correctBackgroundSprite)
+    void SetCorrectBackground(Sprite correctBackgroundSprite)
     {
         print("instantiated a background" + correctBackgroundSprite);
         DefaultBackground.GetComponent<SpriteRenderer>().sprite = correctBackgroundSprite;
-        currentBackground = correctBackgroundSprite;
     }
 
     public void RecheckScenery()

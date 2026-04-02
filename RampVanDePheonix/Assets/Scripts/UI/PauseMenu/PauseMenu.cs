@@ -15,6 +15,8 @@ public class PauseMenu : MonoBehaviour
     private Slider musicVolume;
     [SerializeField]
     private Slider effectsVolume;
+    [SerializeField]
+    private Slider ambianceVolume;
 
     private void Start()
     {
@@ -28,6 +30,12 @@ public class PauseMenu : MonoBehaviour
         {
             float linear = Mathf.Pow(10f, dBEffects / 20f);
             effectsVolume.value = linear;
+        }
+
+        if (mixer.GetFloat("AmbianceVolume", out float dbAmbiance))
+        {
+            float linear = Mathf.Pow(10f, dbAmbiance / 20f);
+            ambianceVolume.value = linear;
         }
     }
 
@@ -52,6 +60,13 @@ public class PauseMenu : MonoBehaviour
         volume = Mathf.Clamp(volume, 0.0001f, 1f);
         float dB = Mathf.Log10(volume) * 20;
         mixer.SetFloat("EffectsVolume", dB);
+    }
+
+    public void SetAmbianceVolume(float volume)
+    {
+        volume = Mathf.Clamp(volume, 0.0001f, 1f);
+        float dB = Mathf.Log10(volume) * 20;
+        mixer.SetFloat("AmbianceVolume", dB);
     }
 
     public void ToMainMenu()

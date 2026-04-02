@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0a6f5685910d842ab82b0440caa272, type: 3}
+  m_Name: MinigameQuestion1 5
+  m_EditorClassIdentifier: Assembly-CSharp::BaseScriptable
+  AmericanManSays: what do you do all day?
+  allAnswers:
+  - anAnswer: im stealing from people to feed myself
+    isCorrect: 0
+  - anAnswer: i work long days for very small pay
+    isCorrect: 1
+  - anAnswer: i usually just rest at home
+    isCorrect: 0

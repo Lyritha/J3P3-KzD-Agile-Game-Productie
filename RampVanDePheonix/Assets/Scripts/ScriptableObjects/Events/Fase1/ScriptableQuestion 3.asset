@@ -17,7 +17,7 @@ MonoBehaviour:
   answers:
   - skillNeeded:
     - skillType: 3
-      skillAmountNeeded: 1
+      skillAmountNeeded: 2
     action: Bedelen bij vrienden, familie en in het dorp
     result: 'Je familie vind het goed om je wat geld te geven voor eten.
 

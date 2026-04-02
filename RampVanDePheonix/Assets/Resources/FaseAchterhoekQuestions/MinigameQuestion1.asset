@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0a6f5685910d842ab82b0440caa272, type: 3}
   m_Name: MinigameQuestion1
   m_EditorClassIdentifier: Assembly-CSharp::BaseScriptable
-  AmericanManSays: testquestionAchterhoek huh
+  AmericanManSays: why do you want to immigrate to America?
   allAnswers:
-  - anAnswer: test1
+  - anAnswer: im not really sure
     isCorrect: 0
-  - anAnswer: six seven
+  - anAnswer: there is a better life waiting for me there
     isCorrect: 1
-  - anAnswer: okay
+  - anAnswer: im not a big fan of cheese
+    isCorrect: 0
+  - anAnswer: uhhh uhmm
     isCorrect: 0
