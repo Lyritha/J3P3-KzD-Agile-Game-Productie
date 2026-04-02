@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2d809b13ecc762b4e85789653eca93fb
+guid: 863e52e9337d86c42a72d2c22d41b8a5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4397039548973672200
-    second: RockSteenPapier2_0
+      213: 8418643939654671077
+    second: carB_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RockSteenPapier2_0
+      name: carB_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1629
-        height: 916
+        width: 1897
+        height: 1062
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f89414a3d39af2c0800000000000000
-      internalID: -4397039548973672200
+      spriteID: 5ea9c992f0805d470800000000000000
+      internalID: 8418643939654671077
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RockSteenPapier2_0: -4397039548973672200
+      carB_0: 8418643939654671077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

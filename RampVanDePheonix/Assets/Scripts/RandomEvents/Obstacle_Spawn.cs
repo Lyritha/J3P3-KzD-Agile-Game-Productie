@@ -47,7 +47,6 @@ public class Obstacle_Spawn : MonoBehaviour
 
         if (rockHealth < 0)
             RemoveRock();
-            RemoveRock();
     }
 
     public void RemoveRock()
