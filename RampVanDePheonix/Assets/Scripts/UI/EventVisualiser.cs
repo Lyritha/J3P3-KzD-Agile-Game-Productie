@@ -78,7 +78,7 @@ public class EventVisualiser : MonoBehaviour
         ToggleUI(2);
     }
 
-    public void Hide()
+    public void Hide(bool goToNextEvent = true)
     {
         if (TryGetComponent(out PopupAnim anim))
         {
@@ -90,7 +90,7 @@ public class EventVisualiser : MonoBehaviour
         }
 
 
-        EventStateManager.Instance.SetState(State.FinishEvent);
+        if (goToNextEvent) EventStateManager.Instance.SetState(State.FinishEvent);
     }
 
     /// <summary>

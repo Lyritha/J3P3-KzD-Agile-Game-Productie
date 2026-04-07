@@ -122,9 +122,11 @@ public class CharacterListDisplay : MonoBehaviour
 
     public void ReportCharacterStateChanged()
     {
-        PhaseManager faseManager = FindFirstObjectByType<PhaseManager>();
-        if (faseManager.CurrentFase == Fases.Pheonix && Characters.TrueForAll(c => !c.IsSelectable))
-            faseManager.SwapFase(Fases.Amerika);
+        if (Characters.TrueForAll(c => !c.IsSelectable))
+        {
+            PhaseManager faseManager = FindFirstObjectByType<PhaseManager>();
+            if (faseManager.CurrentFase == Fases.Pheonix) faseManager.SwapFase(Fases.Amerika);
+        }
     }
 
     protected void ClearCharacters()
