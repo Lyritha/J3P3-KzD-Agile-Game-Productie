@@ -50,6 +50,6 @@ MonoBehaviour:
     change:
     - skillToBeChanged: 1
       changeAmount: -3
-    - skillToBeChanged: 6
+    - skillToBeChanged: 5
       changeAmount: 2
     changeFailed: []
