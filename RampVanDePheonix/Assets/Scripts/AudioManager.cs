@@ -87,6 +87,8 @@ public class AudioManager : MonoBehaviour
 
     public void AddLoopingSound(LoopedSoundEffects effect)
     {
+        OnScreenDebug.Instance.Print($"Adding looped sound: {effect}");
+
         foreach (LoopedSoundEffect sound in loopedSoundEffects)
         {
             if (sound.effect == effect)
@@ -106,7 +108,7 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-        Debug.LogWarning($"Looped sound not found: {effect}");
+        OnScreenDebug.Instance.Print($"Looped sound not found: {effect}");
     }
 
     public void StopAllLoopingSounds()
