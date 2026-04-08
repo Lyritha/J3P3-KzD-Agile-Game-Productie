@@ -120,6 +120,7 @@ public class EventStateManager : MonoBehaviour
                 break;
             case State.Walking:
                 AudioManager.Instance.SetPhaseMusic(faseManager.CurrentFase);
+                AudioManager.Instance.SetPhaseAmbiance(faseManager.CurrentFase);
 
                 if (walkingCoroutine != null) StopCoroutine(walkingCoroutine);
                 float walkTimeSecs = Random.Range(walkTimeSecsMin, walkTimeSecsMax);

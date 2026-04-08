@@ -140,11 +140,13 @@ public class CharacterListDisplay : MonoBehaviour
     {
         foreach(Character character in Characters)
         {
+            // disabled for now, balancing ig
+            /*
             if (!character.IsOnLifeBoat)
             {
                 character.Die("burn");
                 continue;
-            }
+            }*/
 
             character.UnSafe("reset UI");
         }

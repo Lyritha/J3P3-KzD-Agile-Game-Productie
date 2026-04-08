@@ -6,15 +6,13 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager _instance;
 
-    [SerializeField]
-    private AudioSource loopAudioSourcePrefab;
-
 
     [SerializeField]
     private AudioSource singleShotSource;
     [SerializeField] 
     private AudioSource musicAudioSource;
-    private readonly Dictionary<AudioClip, AudioSource> loopingAudioSources = new();
+    [SerializeField]
+    private AudioSource ambientAudioSource;
 
 
     [SerializeField]
@@ -22,6 +20,13 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private SoundEffect[] soundEffects;
+
+    [SerializeField]
+    private AudioClip achterhoekAmbiance;
+    [SerializeField]
+    private AudioClip boatAmbiance;
+    [SerializeField]
+    private AudioClip amerikaAmbiance;
 
     [SerializeField]
     private AudioClip achterhoekMusic;
@@ -85,65 +90,34 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning($"Sound effect not found: {effect}");
     }
 
-    public void AddLoopingSound(LoopedSoundEffects effect)
+    public void SetPhaseAmbiance(Fases fase)
     {
-        OnScreenDebug.Instance.Print($"Adding looped sound: {effect}");
+        AudioClip targetAudioclip;
 
-        foreach (LoopedSoundEffect sound in loopedSoundEffects)
+        targetAudioclip = fase switch
         {
-            if (sound.effect == effect)
-            {
-                // do not play the same clip twice
-                if (loopingAudioSources.ContainsKey(sound.clip)) return;
+            Fases.Achterhoek => achterhoekAmbiance,
+            Fases.Pheonix => boatAmbiance,
+            Fases.Amerika => amerikaAmbiance,
+            _ => null
+        };
 
-                AudioSource audioSource = Instantiate(loopAudioSourcePrefab, transform);
-                audioSource.gameObject.name = $"looped player: {sound.clip.name}";
-                audioSource.clip = sound.clip;
-                audioSource.loop = true;
-                audioSource.volume = sound.volume;
-
-                loopingAudioSources.Add(sound.clip, audioSource);
-                audioSource.Play();
-                return;
-            }
+        if (targetAudioclip != ambientAudioSource.clip)
+        {
+            ambientAudioSource.Stop();
+            ambientAudioSource.loop = true;
+            ambientAudioSource.clip = targetAudioclip;
+            ambientAudioSource.Play();
         }
-
-        OnScreenDebug.Instance.Print($"Looped sound not found: {effect}");
     }
 
-    public void StopAllLoopingSounds()
+    public void StopAmbiance()
     {
-        foreach (AudioSource audioSource in loopingAudioSources.Values)
+        if (ambientAudioSource.isPlaying)
         {
-            if (audioSource != null)
-            {
-                audioSource.Stop();
-                Destroy(audioSource.gameObject);
-            }
+            ambientAudioSource.Stop();
+            ambientAudioSource.clip = null;
         }
-
-        loopingAudioSources.Clear();
-    }
-
-    public void StopLoopingSound(LoopedSoundEffects effect)
-    {
-        foreach (LoopedSoundEffect sound in loopedSoundEffects)
-        {
-            if (sound.effect == effect)
-            {
-                if (sound.clip == null) return;
-
-                if (loopingAudioSources.TryGetValue(sound.clip, out AudioSource audioSource))
-                {
-                    audioSource.Stop();
-                    Destroy(audioSource.gameObject);
-                    loopingAudioSources.Remove(sound.clip);
-                }
-                return;
-            }
-        }
-
-        Debug.LogWarning($"Looped sound not found: {effect}");
     }
 
     public void SetPhaseMusic(Fases fase, bool isMinigame = false)
