@@ -21,6 +21,7 @@ MonoBehaviour:
     action: Je doet je best om de kar zelf te repareren.
     result: 'Je hebt je innerlijke timmerman naar buiten gehaald en de kar gerepareerd.
 
+
       Verdien
       1 bouwkunde.'
     resultFailed: Het is je niet gelukt om de kar te repareren. Gelukkig vond een

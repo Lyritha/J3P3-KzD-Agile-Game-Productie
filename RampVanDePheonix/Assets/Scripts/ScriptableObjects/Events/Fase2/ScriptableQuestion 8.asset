@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 8
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: " Vol is vol, er zijn veel te weinig reddingsboten en er is nog maar
-    \xE9\xE9n plekje over in de boot. Jij en een paar andere reizigers proberen het
-    laatste plekje te bemachtigen"
+  question: " Er zijn veel te weinig reddingsboten en er is nog maar \xE9\xE9n plekje
+    over in de boot. Jij en een paar andere reizigers proberen het laatste plekje
+    te bemachtigen."
   answers:
   - skillNeeded:
     - skillType: 3
@@ -26,7 +26,7 @@ MonoBehaviour:
       Je
       karakter is veilig, deze kan geen acties meer uitvoeren of vaardigheid punten
       verdienen. '
-    resultFailed: 'De andere reizigers zijn het niet eens met je. Er breekt een gevecht
+    resultFailed: 'De andere reizigers zijn het niet met je eens. Er breekt een gevecht
       uit en uiteindelijk word je van de boot af gegooid door een andere reiziger.
 
 
@@ -41,7 +41,7 @@ MonoBehaviour:
   - skillNeeded:
     - skillType: 1
       skillAmountNeeded: 4
-    action: Je betaald de andere reizigers om jou de laatste plek te geven op de
+    action: Je betaalt de andere reizigers om jou de laatste plek te geven op de
       veiligheidsboot.
     result: 'De andere reizigers nemen het geld aan en geven jou de laatste plek
       op de reddingsboot.

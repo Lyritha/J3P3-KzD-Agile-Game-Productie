@@ -17,9 +17,9 @@ MonoBehaviour:
     hem helpt.
   answers:
   - skillNeeded: []
-    action: Je accepteerd het werk en helpt de melkboer met zijn melk dragen.
+    action: Je accepteert het werk en helpt de melkboer met zijn melk dragen.
     result: 'De melkboer bedankt je voor je hulp met het dragen van zijn melk. Hij
-      betaald je gunstig voor de moeite en wenst je een fijne reis.
+      betaalt je gunstig voor de moeite en wenst je een fijne reis.
 
 
       Verdien

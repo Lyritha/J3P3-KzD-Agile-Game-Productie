@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 12
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: Je verveelt je op het schip... neem je de tijd om engels te leren? of
+  question: Je verveelt je op het schip... neem je de tijd om engels te leren? Of
     ga je bezig met wat bouwkundige boeken lezen
   answers:
   - skillNeeded: []

@@ -18,9 +18,9 @@ MonoBehaviour:
   - skillNeeded:
     - skillType: 3
       skillAmountNeeded: 3
-    action: Je probeert je best te doen om je familie te overtuigen
-    result: Het is je gelukt om ze te overtuigen! Ze komen mee naar de reis en helpen
-      met het betalen!.
+    action: Je doet je best te doen om je familie te overtuigen
+    result: Het is je gelukt om ze te overtuigen! Ze komen mee op reis en helpen
+      met betalen!
     resultFailed: Helaas hebben ze besloten om in de achterhoek te blijven. Je laat
       je familie achter in de Achterhoek.
     change:

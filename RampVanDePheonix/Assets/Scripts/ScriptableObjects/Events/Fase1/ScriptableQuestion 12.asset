@@ -25,7 +25,7 @@ MonoBehaviour:
 
       Verlies
       2 kapitaal, verdien 2 voedselvoorraad'
-    resultFailed: Je hebt niet genoeg geld om het eten te kopen.  Je hoopt dat het
+    resultFailed: Je hebt niet genoeg geld om het eten te kopen. Je hoopt dat het
       volgende dorp een betere prijs heeft voor het eten.
     change:
     - skillToBeChanged: 1
@@ -42,8 +42,8 @@ MonoBehaviour:
 
 
       Verdien 2 etensvoorraad, verdien 2 aanpassingsvermogen.'
-    resultFailed: 'het lukt je niet om het dier te jagen. Het dier steelt wat eten
-      van je en rent snel weg.
+    resultFailed: 'Het lukt je niet om het dier te jagen. Het dier steelt wat van
+      je eten en rent snel weg.
 
 
       Verlies 1 etensvoorraad, verlies 1 aanpassingsvermogen.'

@@ -19,11 +19,10 @@ MonoBehaviour:
     - skillType: 3
       skillAmountNeeded: 2
     action: Bedelen bij vrienden, familie en in het dorp
-    result: 'Je familie vind het goed om je wat geld te geven voor eten.
+    result: 'Je familie geeft je wat geld voor eten.
 
 
-      Verdien
-      1 kapitaal'
+      Verdien 1 kapitaal'
     resultFailed: Je familie vind dat je zelf de reis moet betalen en geeft je geen
       kapitaal.
     change:
@@ -35,7 +34,7 @@ MonoBehaviour:
       skillAmountNeeded: 2
     - skillType: 2
       skillAmountNeeded: 1
-    action: Inbreken bij je buurman en eten stelen
+    action: Inbreken bij je buurman om kapitaal te stelen
     result: "Het is je gelukt om in te breken! Je pakt zijn geld en rent de deur
       uit!. \n\nVerden 3 kapitaal."
     resultFailed: Je probeerde in te breken, maar de buurman was thuis. Hij gooit

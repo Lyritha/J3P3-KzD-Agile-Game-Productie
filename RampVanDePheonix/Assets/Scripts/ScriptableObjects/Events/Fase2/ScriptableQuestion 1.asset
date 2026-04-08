@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 1
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: Je word gepest door andere reizigers op de boot.  Je kan een vertrouwd
+  question: Je word gepest door andere reizigers op de boot. Je kan een vertrouwd
     persoon vertellen over het pesten of je kan het gepest doornemen.
   answers:
   - skillNeeded:
@@ -22,10 +22,9 @@ MonoBehaviour:
     result: De persoon helpt je met de pesters confronteren. Na een lang gesprek
       met de pesters zijn ze bij een conclusie gekomen. De pesters gaan gelukkig
       stoppen met je pesten en je kan veilig de reis verder maken.
-    resultFailed: 'De persoon helpt je met de pesters confronteren. Na een lang gesprek
-      met de pesters zijn ze bij een conclusie gekomen. De pesters gaan jammer genoeg
-      niet stoppen met je pesten en je leven word alleen maar zwaarder tijdens de
-      reis. ze stelen ook wat geld van je.
+    resultFailed: 'De persoon helpt je met de pesters confronteren. Dit helpt alleen
+      niet en de pesters gaan gewoon door met het lastig vallen, je leven word alleen
+      maar zwaarder tijdens de reis. Ze stelen ook wat geld van je.
 
 
 '
