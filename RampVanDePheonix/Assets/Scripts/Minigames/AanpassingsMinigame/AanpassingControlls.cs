@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using System;
+using System.Security.Cryptography;
 
 public class AanpassingControlls : MonoBehaviour
 {
@@ -9,7 +10,12 @@ public class AanpassingControlls : MonoBehaviour
     [SerializeField] TMP_Text progressText;
     [SerializeField] TMP_Text stateText;
     [SerializeField] float drainSpeed = 2f;
+    [SerializeField] int penalty = 10;
 
+    [SerializeField] AudioClip incorrectJingle;
+    AudioSource source;
+
+    private bool canInput = true;
     private int score;
     private bool backNForth = false;
 
@@ -17,6 +23,9 @@ public class AanpassingControlls : MonoBehaviour
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
+        source.clip = incorrectJingle;
+        MinigameFinished.Instance.ShowScore(100);
         progressCounter = 0f;
         backNForth = false;
     }
@@ -25,6 +34,7 @@ public class AanpassingControlls : MonoBehaviour
     {
         if (progressCounter >= 99f)
         {
+            canInput = false;
             timer.amountOfSeconds = 0f;
         }
 
@@ -69,9 +79,15 @@ public class AanpassingControlls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
+            if (!canInput)
+            {
+                return;
+            }
+
             if (!backNForth)
             {
-                progressCounter -= 10;
+                source.Play();
+                progressCounter -= penalty;
             }
             else
             {
@@ -82,9 +98,14 @@ public class AanpassingControlls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            if (!canInput)
+            {
+                return;
+            }
             if (backNForth)
             {
-                progressCounter -= 10;
+                source.Play();
+                progressCounter -= penalty;
             }
             else
             {
