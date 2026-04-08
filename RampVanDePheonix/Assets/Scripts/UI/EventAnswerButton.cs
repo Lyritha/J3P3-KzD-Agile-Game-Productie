@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,9 +17,13 @@ public class EventAnswerButton : MonoBehaviour
     FoodStorage foodstor;
 
     //adding the the
+    [SerializeField] 
+    Image imageding;
     [SerializeField]
     GameObject requirementPlaceholder;
     [SerializeField] GameObject defaultImagePrefab;
+
+    bool canTriggerButtonChangeColor = true;
 
     public void Initialize(string answer, int index, Event currentEvent, EventVisualiser parent, EventVisualiser.IconValue[] iconValuePair)
     {
@@ -57,7 +62,10 @@ public class EventAnswerButton : MonoBehaviour
                 ChangeSkills(true);
             }
         }
-
+        else
+        {
+            StartCoroutine(TemporaryChangeBackgroundColor(Color.red, 1f));
+        }
     }
 
 
@@ -222,5 +230,22 @@ public class EventAnswerButton : MonoBehaviour
         if (personage.baseSociaal < 0) personage.baseSociaal = 0;
         if (personage.baseAanpassingsvermogen < 0) personage.baseAanpassingsvermogen = 0;
         if (personage.baseLeervermogen < 0) personage.baseLeervermogen = 0;
+    }
+
+
+    IEnumerator TemporaryChangeBackgroundColor(Color changeToColor, float seconds)
+    {
+        int changeAmount = 7;
+        canTriggerButtonChangeColor = false;
+        //dont question it pls
+        Color originalColor = imageding.color;
+        for (int i = 0; i < changeAmount; i++)
+        {
+            imageding.color = i % 2 == 0 ? changeToColor : originalColor;
+            yield return new WaitForSeconds(seconds / changeAmount);
+        }
+        imageding.color = originalColor;
+        canTriggerButtonChangeColor = true;
+        yield return new WaitForSeconds(0.1f);
     }
 }

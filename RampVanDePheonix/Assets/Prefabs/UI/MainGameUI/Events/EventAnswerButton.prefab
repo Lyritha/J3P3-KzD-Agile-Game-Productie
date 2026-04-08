@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   answerText: {fileID: 3463403053597800257}
   answerIndex: 0
+  imageding: {fileID: 2366975166142186845}
   requirementPlaceholder: {fileID: 9137016614360827177}
   defaultImagePrefab: {fileID: 2260276344855350708, guid: c3395c5f232c1d9419d12abe9f36b0ef, type: 3}
 --- !u!114 &1025410192091831351
@@ -447,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00093d04c6b8a040add82729e98bd6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayButtonSound
+  playOnClick: 1
 --- !u!1 &9137016614360827177
 GameObject:
   m_ObjectHideFlags: 0

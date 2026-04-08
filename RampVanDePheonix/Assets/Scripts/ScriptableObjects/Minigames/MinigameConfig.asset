@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: MinigameConfig
   m_EditorClassIdentifier: Assembly-CSharp::MinigameConfig
   minigames:
-  - minigameName: Building
+  - minigameName: Muur bouwen
     allowedPhase: 4
     sceneName: Minigame_Building
     tutorialPrefab: {fileID: 7454625415996840028, guid: 38a9c2e99ec33904995cbdf3c2a1d0eb, type: 3}
     rewardedSkill: 2
-  - minigameName: Fishing
+  - minigameName: Vissen
     allowedPhase: 7
     sceneName: Minigame_Fishing
     tutorialPrefab: {fileID: 7454625415996840028, guid: 37f76c96d486d224e9e4f071341ab0df, type: 3}
     rewardedSkill: 1
-  - minigameName: Learning
+  - minigameName: Engels oefenen
     allowedPhase: 6
     sceneName: Minigame_Learning
     tutorialPrefab: {fileID: 7454625415996840028, guid: 13206e9d0770ccd469d781a0b04469b3, type: 3}
     rewardedSkill: 4
-  - minigameName: Steen papier schaar
+  - minigameName: Steen, papier, schaar
     allowedPhase: 7
     sceneName: Minigame_Social
     tutorialPrefab: {fileID: 7454625415996840028, guid: f221f0a4876898248a414a6feeaecf39, type: 3}
     rewardedSkill: 3
-  - minigameName: Kar Redden
+  - minigameName: Kar duwen
     allowedPhase: 5
     sceneName: Minigame_Aanpassing
     tutorialPrefab: {fileID: 7454625415996840028, guid: 0320b8c260219184c938095b173c94fc, type: 3}

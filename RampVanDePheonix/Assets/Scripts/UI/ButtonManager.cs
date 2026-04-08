@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
     // lazy way of clearing all music and sound effects when going to the main menu.
     private void Start()
     {
-        AudioManager.Instance.StopAllLoopingSounds();
+        AudioManager.Instance.StopAmbiance();
         AudioManager.Instance.StopMusic();
     }
 

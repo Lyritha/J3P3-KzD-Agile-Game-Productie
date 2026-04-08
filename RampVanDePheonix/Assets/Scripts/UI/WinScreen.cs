@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WinScreen : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class WinScreen : MonoBehaviour
 
     [SerializeField]
     private TMP_Text buttonText;
+    [SerializeField]
+    private Button button;
 
     [SerializeField]
     private RectTransform loreRect;
@@ -48,6 +51,7 @@ public class WinScreen : MonoBehaviour
         {
             case 0:
                 endScore.ShowStats();
+                ToggleButton(false);
                 buttonText.text = $"Verder";
                 break;
 
@@ -64,4 +68,6 @@ public class WinScreen : MonoBehaviour
 
         screen++;
     }
+
+    public void ToggleButton(bool active) => button.interactable = active;
 }

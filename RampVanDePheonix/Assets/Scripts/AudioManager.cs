@@ -6,24 +6,25 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager _instance;
 
-    [SerializeField]
-    private AudioSource loopAudioSourcePrefab;
 
-
-    [SerializeField]
+    [SerializeField, Header("Sources")]
     private AudioSource singleShotSource;
     [SerializeField] 
     private AudioSource musicAudioSource;
-    private readonly Dictionary<AudioClip, AudioSource> loopingAudioSources = new();
-
-
     [SerializeField]
-    private LoopedSoundEffect[] loopedSoundEffects;
+    private AudioSource ambientAudioSource;
 
     [SerializeField]
     private SoundEffect[] soundEffects;
 
+    [SerializeField, Header("Ambiance")]
+    private AudioClip achterhoekAmbiance;
     [SerializeField]
+    private AudioClip boatAmbiance;
+    [SerializeField]
+    private AudioClip amerikaAmbiance;
+
+    [SerializeField, Header("Music")]
     private AudioClip achterhoekMusic;
     [SerializeField]
     private AudioClip boatMusic;
@@ -85,63 +86,34 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning($"Sound effect not found: {effect}");
     }
 
-    public void AddLoopingSound(LoopedSoundEffects effect)
+    public void SetPhaseAmbiance(Fases fase)
     {
-        foreach (LoopedSoundEffect sound in loopedSoundEffects)
+        AudioClip targetAudioclip;
+
+        targetAudioclip = fase switch
         {
-            if (sound.effect == effect)
-            {
-                // do not play the same clip twice
-                if (loopingAudioSources.ContainsKey(sound.clip)) return;
+            Fases.Achterhoek => achterhoekAmbiance,
+            Fases.Pheonix => boatAmbiance,
+            Fases.Amerika => amerikaAmbiance,
+            _ => null
+        };
 
-                AudioSource audioSource = Instantiate(loopAudioSourcePrefab, transform);
-                audioSource.gameObject.name = $"looped player: {sound.clip.name}";
-                audioSource.clip = sound.clip;
-                audioSource.loop = true;
-                audioSource.volume = sound.volume;
-
-                loopingAudioSources.Add(sound.clip, audioSource);
-                audioSource.Play();
-                return;
-            }
+        if (targetAudioclip != ambientAudioSource.clip)
+        {
+            ambientAudioSource.Stop();
+            ambientAudioSource.loop = true;
+            ambientAudioSource.clip = targetAudioclip;
+            ambientAudioSource.Play();
         }
-
-        Debug.LogWarning($"Looped sound not found: {effect}");
     }
 
-    public void StopAllLoopingSounds()
+    public void StopAmbiance()
     {
-        foreach (AudioSource audioSource in loopingAudioSources.Values)
+        if (ambientAudioSource.isPlaying)
         {
-            if (audioSource != null)
-            {
-                audioSource.Stop();
-                Destroy(audioSource.gameObject);
-            }
+            ambientAudioSource.Stop();
+            ambientAudioSource.clip = null;
         }
-
-        loopingAudioSources.Clear();
-    }
-
-    public void StopLoopingSound(LoopedSoundEffects effect)
-    {
-        foreach (LoopedSoundEffect sound in loopedSoundEffects)
-        {
-            if (sound.effect == effect)
-            {
-                if (sound.clip == null) return;
-
-                if (loopingAudioSources.TryGetValue(sound.clip, out AudioSource audioSource))
-                {
-                    audioSource.Stop();
-                    Destroy(audioSource.gameObject);
-                    loopingAudioSources.Remove(sound.clip);
-                }
-                return;
-            }
-        }
-
-        Debug.LogWarning($"Looped sound not found: {effect}");
     }
 
     public void SetPhaseMusic(Fases fase, bool isMinigame = false)
@@ -186,23 +158,7 @@ public struct SoundEffect
     public SoundEffects effect;
 }
 
-[Serializable]
-public struct LoopedSoundEffect
-{
-    public AudioClip clip;
-    public float volume;
-    public LoopedSoundEffects effect;
-}
-
 public enum SoundEffects
 {
     button
-}
-
-public enum LoopedSoundEffects
-{
-    Achterhoek,
-    Pheonix,
-    Amerika,
-    Minigame,
 }

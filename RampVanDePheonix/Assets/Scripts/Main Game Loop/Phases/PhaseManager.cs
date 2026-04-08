@@ -29,24 +29,18 @@ public class PhaseManager : MonoBehaviour
     public void SwapFase(Fases fase)
     {
         Progress = 0;
-
         switch (fase)
         {
             case Fases.Achterhoek:
                 FillList(eventsConfig.achterhoekEvents);
-                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Achterhoek);
                 break;
             case Fases.Pheonix:
                 FillList(eventsConfig.pheonixEvents);
-                AudioManager.Instance.StopLoopingSound(LoopedSoundEffects.Achterhoek);
-                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Pheonix);
                 break;
             case Fases.Amerika:
                 FillList(eventsConfig.amerikaEvents);
                 if (fase != CurrentFase) CharacterListDisplay.Instance.KillAllUnsafe();
-
-                AudioManager.Instance.StopLoopingSound(LoopedSoundEffects.Pheonix);
-                AudioManager.Instance.AddLoopingSound(LoopedSoundEffects.Amerika);
+                
                 break;
             case Fases.EndScreen:
 

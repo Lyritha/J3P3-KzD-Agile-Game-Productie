@@ -12,7 +12,7 @@ public class EventVisualiser : MonoBehaviour
     [SerializeField] Sprite Icon_Social;
     [SerializeField] Sprite Icon_Capital;
     [SerializeField] Sprite Icon_Question;
-    bool canTriggerButtonChangeColor = true;
+    [SerializeField] Sprite Icon_Food;
 
     [Header("Vraag")]
     [SerializeField] GameObject questionParent;
@@ -53,21 +53,12 @@ public class EventVisualiser : MonoBehaviour
     // builds the button ui
     public void ShowActions()
     {
-        if (CharacterListDisplay.Instance.SelectedCharacter == null)
-        {
-            if (canTriggerButtonChangeColor)
-            {
-                StartCoroutine(TemporaryChangeBackgroundColor(Color.red, 0.5f));
-            }
-            return;
-        }
-
         ToggleUI(1);
 
         for (int i = 0; i < current.answers.Length; i++)
         {
             EventAnswerButton currentObject = Instantiate(answerButtonPrefab, answerParent.transform);
-            List<IconValue> IconValuePairs = AddSkillIcon(currentObject, current.answers[i], current);
+            List<IconValue> IconValuePairs = AddSkillIcon(currentObject, current.answers[i]);
             currentObject.Initialize(current.answers[i].action, i, current, this, IconValuePairs.ToArray());
             currentButtons.Add(currentObject);
         }
@@ -96,7 +87,7 @@ public class EventVisualiser : MonoBehaviour
     /// <summary>
     /// method that creates the pair (icon and value) needed for the answer its reading
     /// </summary>
-    private List<IconValue> AddSkillIcon(EventAnswerButton thisButton, Answer currentAnwer, Event eventthing)
+    private List<IconValue> AddSkillIcon(EventAnswerButton thisButton, Answer currentAnwer)
     {
         List<IconValue> pairs = new List<IconValue>();
 
@@ -122,6 +113,9 @@ public class EventVisualiser : MonoBehaviour
                     break;
                 case Skillset.Leervermogen:
                     chosenSprite = Icon_Learn;
+                    break;
+                case Skillset.FoodStorage:
+                    chosenSprite = Icon_Food;
                     break;
                 default:
                     chosenSprite = Icon_Question;
@@ -208,31 +202,6 @@ public class EventVisualiser : MonoBehaviour
         {
             PlaceSelectedCharacterOnCanvas(null);
         }
-    }
-
-    IEnumerator TemporaryChangeBackgroundColor(Color changeToColor, float seconds)
-    {
-        int changeAmount = 7;
-        canTriggerButtonChangeColor = false;
-        //dont question it pls
-        Button buttonTest = questionParent.GetComponentInChildren<Button>();
-        Image imageding = buttonTest.GetComponent<Image>();
-        Color originalColor = imageding.color;
-        for (int i = 0; i < changeAmount; i++)
-        {
-            if (i % 2 == 0)
-            {
-                imageding.color = changeToColor;
-            }
-            else
-            {
-                imageding.color = originalColor;
-            }
-            yield return new WaitForSeconds(seconds / changeAmount);
-        }
-        imageding.color = originalColor;
-        canTriggerButtonChangeColor = true;
-        yield return new WaitForSeconds(0.1f);
     }
 }
 

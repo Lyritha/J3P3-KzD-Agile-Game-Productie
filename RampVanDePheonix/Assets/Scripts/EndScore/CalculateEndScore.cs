@@ -65,7 +65,6 @@ public class CalculateEndScore : MonoBehaviour
         List<Character> chars = CharacterListDisplay.Instance.Characters;
         characters.AddRange(chars);
 
-        RemoveAllTemporaryUIElements();
         //checks if there is no score on screen yet (has the score already been displayed?)
 
         if (ActiveScorePerPersonUI.Count == 0)
@@ -79,13 +78,13 @@ public class CalculateEndScore : MonoBehaviour
     {
         for (int i = 0; i < players.Count; i++)
         {
-            //removes all UI elements
-            RemoveAllTemporaryUIElements();
+            PlaceScorePerCharacterUI(i);
+
             Character character = players[i];
             if (character.IsAlive == true)
             {
                 //places a "main" score for the current character
-                PlaceScorePerCharacterUI(i);
+
                 //character is alive, so points can be given for that
                 mainPointCount += pointsPerCharacterAlive;
                 //loops trough the skills from the current character
@@ -94,20 +93,17 @@ public class CalculateEndScore : MonoBehaviour
                 yield return new WaitUntil(() => nextPlayerStats == true);
                 yield return new WaitForSecondsRealtime(1f);
                 //after waiting, it prepares for the next player
-                PrepareForNextPlayer();
+            }
+            else
+            {
+                nextUIElementSet = false;
             }
 
+            currentPerson++;
+            nextPlayerStats = false;
         }
-    }
 
-    /// <summary>
-    /// prepares the UI screen by removing all temporary items and going to the next person
-    /// </summary>
-    void PrepareForNextPlayer()
-    {
-        RemoveAllTemporaryUIElements();
-        currentPerson++;
-        nextPlayerStats = false;
+        winscreen.ToggleButton(true);
     }
 
     /// <summary>
@@ -139,8 +135,7 @@ public class CalculateEndScore : MonoBehaviour
     {
         if (PointClasses.TryGetValue(pointclass, out int value))
         {
-            int addPoints = 0;
-            addPoints = pointclass switch
+            int addPoints = pointclass switch
             {
                 PointClassesNames.AanpassingsVermogen => (personageObject.baseAanpassingsvermogen * value),
                 PointClassesNames.Bouwkunde => (personageObject.baseBouwkunde * value),
@@ -168,7 +163,7 @@ public class CalculateEndScore : MonoBehaviour
         winscreen.UpdateScore(totalPoints);
 
         //this is a debug text, can be removed
-        print($"{thisName} adds {value} points to {characters[currentPerson].Personage.characterName}");
+        //print($"{thisName} adds {value} points to {characters[currentPerson].Personage.characterName}");
 
         //updates the "main" score per character
         UpdateScorePerCharacterUI(currentPerson);
@@ -198,7 +193,9 @@ public class CalculateEndScore : MonoBehaviour
         ScorePerPerson.Add(0);
         //fills the UI text
 
-        characterScore.GetComponentInChildren<TMP_Text>().text = ScorePerPerson[currentPerson].ToString();
+        TMP_Text text = characterScore.GetComponentInChildren<TMP_Text>();
+        text.text = ScorePerPerson[currentPerson].ToString();
+        text.fontSize = 36;
     }
 
 
@@ -210,7 +207,6 @@ public class CalculateEndScore : MonoBehaviour
         int score = ScorePerPerson[index];
         TMP_Text text = ActiveScorePerPersonUI[index].GetComponentInChildren<TMP_Text>();
         text.text = score.ToString();
-        text.fontSize = 36;
     }
 
 
@@ -241,17 +237,5 @@ public class CalculateEndScore : MonoBehaviour
         //fills the score with the passed trough text
         newUIElement.GetComponentInChildren<TMP_Text>().text = text;
         return newUIElement;
-    }
-
-    /// <summary>
-    /// removes all the temporary UI items (such as basic scores)
-    /// </summary>
-    void RemoveAllTemporaryUIElements()
-    {
-        foreach (GameObject element in ActiveTemporaryUITexts)
-        {
-            //Destroy(element);
-        }
-        //  ActiveTemporaryUITexts.Clear();
     }
 }
