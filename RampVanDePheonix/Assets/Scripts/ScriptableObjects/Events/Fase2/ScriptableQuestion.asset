@@ -22,7 +22,7 @@ MonoBehaviour:
     action: 'Spring in het water om het vuur te ontsnappen. '
     result: Je springt in het water om het vuur te ontsnappen. Wanneer het vuur is
       uitgebrand word je nog op het nippertje uit het water gehaald voordat je doodvriest.
-    resultFailed: 'Je sprint in het water om het vuur te ontsnappen. Nadat het vuur
+    resultFailed: 'Je springt in het water om het vuur te ontsnappen. Nadat het vuur
       is uitgebrand lukt het je niet meer om terug op de boot te komen.
 
 

@@ -45,7 +45,7 @@ MonoBehaviour:
     - skillType: 4
       skillAmountNeeded: 3
     action: Je probeert de vrouw zo goed mogelijk te helpen zonder medicijnen
-    result: 'Dankzij jouw hulp overleefd de vrouw de ziekte. De vrouw bedankt jou
+    result: 'Dankzij jouw hulp overleeft de vrouw de ziekte. De vrouw bedankt jou
       door je wat extra kapitaal te geven.
 
 
@@ -72,8 +72,8 @@ MonoBehaviour:
       changeAmount: -1
   - skillNeeded: []
     action: Je wacht het uit en hoopt dat het beter gaat met de vrouw.
-    result: 'De vrouw overleid uiteindelijk aan de ziekte. De sfeer ligt voor de
-      rest van de reis heel laag.
+    result: 'De vrouw overleid uiteindelijk aan de ziekte. De sfeer is voor de rest
+      van de reis heel grimmig.
 
 
       Verlies 2 sociaal'

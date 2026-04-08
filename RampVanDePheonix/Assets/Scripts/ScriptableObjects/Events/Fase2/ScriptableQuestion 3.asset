@@ -20,7 +20,7 @@ MonoBehaviour:
       skillAmountNeeded: 3
     action: Probeer het kind te helpen.
     result: 'Je doet je best met je gelimiteerde kennis om de kinderen te helpen.
-      Uiteindelijk is het je gelukt om de kinderen te redden. een  paar ouders van
+      Uiteindelijk is het je gelukt om de kinderen te redden. Een paar ouders van
       de kinderen geven je wat geld voor je hulp.
 
 
@@ -46,8 +46,8 @@ MonoBehaviour:
     - skillType: 1
       skillAmountNeeded: 3
     action: De kapitein heeft wat medicijen maar ze kosten aardig veel geld.
-    result: 'Je koopt medicijnen voor de kinderen. er waren alleen niet genoeg medicijnen
-      voor alle kinderen. een paar van de kinderen hebben de ziekte niet overleeft.
+    result: 'Je koopt medicijnen voor de kinderen. Er waren alleen niet genoeg medicijnen
+      voor alle kinderen. Een paar van de kinderen hebben de ziekte niet overleeft.
       De ouders van de overlevende kinderen bedanken je erg.
 
 
@@ -72,9 +72,7 @@ MonoBehaviour:
     result: 'Je hoopte dat de ziekte voorbij zou gaan maar helaas bleven de kinderen
       ziek. De kinderen hebben het niet overleefd.
 
-
-      een kind uit jouw party
-      gaat dood. (nog niet werkend)'
+'
     resultFailed: 
     change: []
     changeFailed: []

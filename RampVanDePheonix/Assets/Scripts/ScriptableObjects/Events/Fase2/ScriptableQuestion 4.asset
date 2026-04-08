@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 4
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: "Een hevige storm slaat toe tijdens de overtocht. E\xE9n kind van een
-    andere groep wordt overboord gegooid. "
+  question: 'Een hevige storm slaat toe tijdens de overtocht. Een kind van een andere
+    groep wordt overboord gegooid. '
   answers:
   - skillNeeded:
     - skillType: 0
       skillAmountNeeded: 3
-    action: Probeer het water in te springen om he tkind uit het water te halen.
+    action: Probeer het water in te springen om het kind uit het water te halen.
     result: 'Je springt het water in en pakt het kind. Een paar andere reizigers
       op de boot helpen je terug de boot op. Je hebt het kind succesvol gered.
 
@@ -49,7 +49,7 @@ MonoBehaviour:
       Verdien 2 sociaal.'
     resultFailed: 'Je gooit een touw naar beneden om te proberen het kind terug te
       trekken. Helaas mis je het touw en raak je het kind op hun hoofd, dit drukt
-      ze onderwater en komen ze niet meer boven water.
+      het kind onderwater en het kind komt niet meer boven.
 
 
       Verlies 2 sociaal.'
@@ -62,8 +62,8 @@ MonoBehaviour:
   - skillNeeded: []
     action: Je doet niks en wacht het af.
     result: 'Je ziet een paar andere reizigers hun best doen om het kind terug het
-      schip op te halen. Een van die reizigers vallen ook in het water. Geen van
-      hun overleeft.
+      schip op te halen. Een van die reizigers valt ook in het water. Geen van hun
+      overleeft.
 
 
       Verlies 2 sociaal. Verlies 2 aanpassingsvermogen.'

@@ -1277,12 +1277,12 @@ MonoBehaviour:
   stealPrefabB: {fileID: -9129502048028125800, guid: 0aa834b964be9284e97f44edf2b80dbb, type: 3}
   obstaclePrefabB: {fileID: -1737028596864417863, guid: 6ee80ee383ac09e48b4b6b9f387e9364, type: 3}
   lootPrefabB: {fileID: 2926943873838278979, guid: af4d54c364bf77f4f91d2300c4d47dd9, type: 3}
-  stealPrefabAm: {fileID: -9129502048028125800, guid: a19efe2ffd1b60748bfa9845fa7cae62, type: 3}
+  stealPrefabAm: {fileID: -9129502048028125800, guid: bce250c9e0f98c144a3e00ab89b6f805, type: 3}
   obstaclePrefabAm: {fileID: -1737028596864417863, guid: 7f40b386bf848c9419e9e64271531cfa, type: 3}
   lootPrefabAm: {fileID: 2926943873838278979, guid: 0fd4741e9f26ef643bbf76dfb73f8df4, type: 3}
   rectTransform: {fileID: 853326112}
-  minDelay: 10
-  maxDelay: 20
+  minDelay: 5
+  maxDelay: 15
 --- !u!4 &510504363
 Transform:
   m_ObjectHideFlags: 0

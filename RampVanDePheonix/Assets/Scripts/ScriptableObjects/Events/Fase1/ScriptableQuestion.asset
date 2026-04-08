@@ -19,7 +19,7 @@ MonoBehaviour:
     - skillType: 2
       skillAmountNeeded: 2
     action: Je besluit om je gereedschapskist te verkopen.
-    result: 'Je hoopt om in Amerika een nieuwe gereedschapskist te kunnen krijgen.
+    result: 'Je hoopt in Amerika een nieuwe gereedschapskist te kunnen krijgen.
 
 
       verlies

@@ -19,8 +19,8 @@ MonoBehaviour:
   answers:
   - skillNeeded: []
     action: 'Je meldt aan de kapitein dat de bemanning dronken is. '
-    result: 'De kapitein is je dankbaar en wilt je belonen, maar de bemanning niet.
-      Je verdient 2 kapitaal, verliest 2 sociaal. '
+    result: "De kapitein is je dankbaar en wilt je belonen, maar de bemanning niet.
+      \n\nJe verdient 2 kapitaal, verliest 2 sociaal. "
     resultFailed: 
     change:
     - skillToBeChanged: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
   - skillNeeded: []
     action: 'Je vertrouwt op de kapitein en wacht af.     '
     result: Je vertrouwt dat de bemanning gewoon weer goed aan het werk gaat hierna.
-      Er gebeurt niets. en de boot gaat verder.
+      Er gebeurt niets en de boot gaat verder.
     resultFailed: 
     change: []
     changeFailed: []

@@ -16,8 +16,8 @@ MonoBehaviour:
     of de plek over te laten aan een zwangere vrouw die haar man onderweg is verloren.
   answers:
   - skillNeeded: []
-    action: je kiest ervoor om jezelf veilig te zetten.
-    result: 'De kapitein wijst je naar je plek op de reddingsboot. de zwangere vrouw
+    action: Je kiest ervoor om jezelf veilig te zetten.
+    result: 'De kapitein wijst je naar je plek op de reddingsboot. De zwangere vrouw
       struikelt van de trap af en gaat dood.
 
 

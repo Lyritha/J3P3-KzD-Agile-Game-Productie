@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ScriptableQuestion 14
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
   question: 'Voordat je weggaat maak je nog een rondje rondom het dorp waar je bent
-    opgegroeid, velen gaan je missen, een oude vriend geeft je nog een kleine keus
+    opgegroeid, velen gaan je missen, een oude vriend geeft je nog een kleine keuze
     voor een cadeau. '
   answers:
   - skillNeeded: []

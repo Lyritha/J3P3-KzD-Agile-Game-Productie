@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f24b34962421844ad543408636ad0f, type: 3}
   m_Name: ScriptableQuestion 1
   m_EditorClassIdentifier: Assembly-CSharp::QuestionScriptable
-  question: 'Je buurman is ook van plan om de reis te naar Amerika te starten, hij
-    heeft niet genoeg ruimte om al zijn spul mee te nemen, hij geeft je een optie
-    om wat gratis spullen te krijgen. '
+  question: Je buurman is ook van plan om de reis te naar Amerika te starten, hij
+    heeft niet genoeg ruimte om al zijn spullen mee te nemen, hij vraagt je of jij
+    behoefte hebt aan wat van zijn spullen.
   answers:
   - skillNeeded: []
     action: Je kiest voor wat oude engelstalige boeken.
@@ -22,7 +22,7 @@ MonoBehaviour:
       met de taal te leren.
 
 
-      krijg 2 Leervermogen. '
+      Krijg 2 Leervermogen. '
     resultFailed: 
     change:
     - skillToBeChanged: 4

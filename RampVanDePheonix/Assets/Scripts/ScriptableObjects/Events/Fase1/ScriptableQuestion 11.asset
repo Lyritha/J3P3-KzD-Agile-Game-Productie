@@ -65,7 +65,7 @@ MonoBehaviour:
       Verlies
       1 kapitaal, verlies 1 sociaal'
     resultFailed: Je probeerd iemand om te kopen, maar je hebt geen kapitaal. de
-      persoon die je probeerde om te kopen lacht je uit en je besluit om weg te lopen.
+      persoon die je probeert om te kopen lacht je uit en je besluit om weg te lopen.
     change:
     - skillToBeChanged: 1
       changeAmount: -2

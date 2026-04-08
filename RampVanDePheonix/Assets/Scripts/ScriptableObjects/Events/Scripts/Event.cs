@@ -19,6 +19,7 @@ public struct Answer
 {
     public SkillNeededForAnswer[] skillNeeded;
     //an action that the player can choose
+    [TextArea]
     public string action;
     //the result of the chosen action
     [TextArea]

@@ -52,6 +52,11 @@ public class NextGameManager : MonoBehaviour
             Characters.Add(newCharacter);
             newCharacter.Initialize(character.Personage, character.IsAlive, character.IsOnLifeBoat);
         }
+
+        bool completedThisMinigameTutorial = PlayerPrefs.GetInt(chosenMinigame.sceneName + "_TutorialCompleted", 0) == 1;
+        if (!completedThisMinigameTutorial) StartTutorial();
+
+        PlayerPrefs.SetInt(chosenMinigame.sceneName + "_TutorialCompleted", 1);
     }
 
     public void UpdateSelected(int index, bool isSelected)

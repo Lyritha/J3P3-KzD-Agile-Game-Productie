@@ -44,7 +44,7 @@ MonoBehaviour:
       uiteindelijk is geworden.
 
 
-      Verdien 2 bouwkunde.'
+      Verdien 1 bouwkunde.'
     change:
     - skillToBeChanged: 2
       changeAmount: 3
@@ -52,4 +52,4 @@ MonoBehaviour:
       changeAmount: -3
     changeFailed:
     - skillToBeChanged: 2
-      changeAmount: 2
+      changeAmount: 1
