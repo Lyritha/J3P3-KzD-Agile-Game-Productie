@@ -14,7 +14,11 @@ public class ButtonManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("MainGame");
+        bool tutorialCompleted = PlayerPrefs.GetInt("MainTutorialCompleted", 0) == 1;
+        string sceneToLoad = tutorialCompleted ? "MainGame" : "MainGame_Tutorial";
+        PlayerPrefs.SetInt("MainTutorialCompleted", 1);
+
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void Tutorial()
