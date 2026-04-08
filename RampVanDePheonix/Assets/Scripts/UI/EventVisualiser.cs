@@ -12,6 +12,7 @@ public class EventVisualiser : MonoBehaviour
     [SerializeField] Sprite Icon_Social;
     [SerializeField] Sprite Icon_Capital;
     [SerializeField] Sprite Icon_Question;
+    [SerializeField] Sprite Icon_Food;
 
     [Header("Vraag")]
     [SerializeField] GameObject questionParent;
@@ -112,6 +113,9 @@ public class EventVisualiser : MonoBehaviour
                     break;
                 case Skillset.Leervermogen:
                     chosenSprite = Icon_Learn;
+                    break;
+                case Skillset.FoodStorage:
+                    chosenSprite = Icon_Food;
                     break;
                 default:
                     chosenSprite = Icon_Question;

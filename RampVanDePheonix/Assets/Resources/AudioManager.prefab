@@ -179,23 +179,13 @@ MonoBehaviour:
   singleShotSource: {fileID: 3371337925381650255}
   musicAudioSource: {fileID: 5668938181965058548}
   ambientAudioSource: {fileID: 254142170009046235}
-  loopedSoundEffects:
-  - clip: {fileID: 8300000, guid: b5d79fbea94ae1e4486d9db1203cd165, type: 3}
-    volume: 0.7
-    effect: 0
-  - clip: {fileID: 8300000, guid: b1272d5a13665774f8f64487e2f06097, type: 3}
-    volume: 0.7
-    effect: 1
-  - clip: {fileID: 8300000, guid: 33c455f881378814eb3d369f50788d31, type: 3}
-    volume: 0.7
-    effect: 2
   soundEffects:
   - clip: {fileID: 8300000, guid: b309287ff490b3d42a0dd349ca6b359b, type: 3}
     volume: 0.5
     effect: 0
   achterhoekAmbiance: {fileID: 8300000, guid: b5d79fbea94ae1e4486d9db1203cd165, type: 3}
   boatAmbiance: {fileID: 8300000, guid: b1272d5a13665774f8f64487e2f06097, type: 3}
-  amerikaAmbiance: {fileID: 8300000, guid: 33c455f881378814eb3d369f50788d31, type: 3}
+  amerikaAmbiance: {fileID: 8300000, guid: 3d8f83d62118bb84abac0abf455a9104, type: 3}
   achterhoekMusic: {fileID: 8300000, guid: 503171fd5d954ce40a21ec568797c1be, type: 3}
   boatMusic: {fileID: 8300000, guid: 96aa1114d8537974f990daa20d217761, type: 3}
   amerikaMusic: {fileID: 8300000, guid: 045c68b4246290446b3a461ecc091466, type: 3}
