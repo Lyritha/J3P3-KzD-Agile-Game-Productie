@@ -1,5 +1,6 @@
 using MyBox;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -47,7 +48,7 @@ public class CharacterListDisplay : MonoBehaviour
     // Handle setting the selected character
     public void SetSelectedCharacter(Character character)
     {
-        for(int i = 0; i < Characters.Count; i++)
+        for (int i = 0; i < Characters.Count; i++)
         {
             Character otherCharacter = Characters[i];
             bool isSelected = character != null && otherCharacter.Personage == character.Personage;
@@ -140,17 +141,16 @@ public class CharacterListDisplay : MonoBehaviour
 
     public void KillAllUnsafe()
     {
-        foreach(Character character in Characters)
+        if (Characters.Any(c => c.IsOnLifeBoat))
         {
-            // disabled for now, balancing ig
-            /*
-            if (!character.IsOnLifeBoat)
-            {
-                character.Die("burn");
-                continue;
-            }*/
-
-            character.UnSafe("reset UI");
+            foreach (Character character in Characters) character.UnSafe("reset UI");
+            return;
         }
+
+        List<Character> shuffled = new(Characters);
+        shuffled.Shuffle();
+
+        int peopleToKill = Random.Range(2, 4);
+        for (int i = 0; i < peopleToKill; i++) shuffled[i].Die("burn");
     }
 }

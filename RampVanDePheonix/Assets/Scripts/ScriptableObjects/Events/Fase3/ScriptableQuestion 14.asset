@@ -39,7 +39,7 @@ MonoBehaviour:
     result: Je had genoeg voorraad om de winter te overleven, iedereen heeft meer
       dan genoeg kunnen eten.
     resultFailed: Je had niet genoeg eten op voorraad, Je hebt je best gedaan om
-      het overige eten netjes te verdelen, maar eidereen is wel zeer hongerig geworden.
+      het overige eten netjes te verdelen, maar iedereen is wel zeer hongerig geworden.
     change:
     - skillToBeChanged: 5
       changeAmount: -6

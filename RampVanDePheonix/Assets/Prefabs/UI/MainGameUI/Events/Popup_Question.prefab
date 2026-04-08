@@ -939,6 +939,7 @@ MonoBehaviour:
   Icon_Social: {fileID: 21300000, guid: 446138d8f45095241a1cf709ccab0746, type: 3}
   Icon_Capital: {fileID: 21300000, guid: 7066b407ea751234782c2724837dd77d, type: 3}
   Icon_Question: {fileID: 21300000, guid: baf71a59c466a944cb7692c6b4262e7f, type: 3}
+  Icon_Food: {fileID: 21300000, guid: 8222322a0293efd4ca89c9c56538bdd9, type: 3}
   questionParent: {fileID: 7845217699391185548}
   questionInfo: {fileID: 3414792127680322957}
   answerParent: {fileID: 1164090830324272070}

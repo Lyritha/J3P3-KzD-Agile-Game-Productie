@@ -114,6 +114,9 @@ public class EventStateManager : MonoBehaviour
                 else if (currentFase == Fases.Pheonix) Instantiate(bootLore, lorePosition.transform);
                 else if (currentFase == Fases.Amerika) Instantiate(amerikaLore, lorePosition.transform);
 
+                AudioManager.Instance.SetPhaseMusic(faseManager.CurrentFase);
+                AudioManager.Instance.SetPhaseAmbiance(faseManager.CurrentFase);
+
                 // if lore is shown, assume phase got switched or smthn
                 if (randomEventsManager != null) randomEventsManager.ClearAllEvents();
                 SetMinigames();
@@ -188,17 +191,21 @@ public class EventStateManager : MonoBehaviour
         faseManager.AddProgress();
         faseManager.AddProgress();
         faseManager.AddProgress();
+        faseManager.AddProgress();
     }
 
     protected virtual void ShopState()
     {
-        if (faseManager.CurrentFase != Fases.Pheonix && faseManager.Progress != 0 && Random.Range(0, 3) == 0)
+        bool isPhoenix = faseManager.CurrentFase == Fases.Pheonix;
+        bool isBlockedProgress = faseManager.Progress == 0 || faseManager.Progress == 10;
+        bool rollShop = Random.Range(0f, 3.33f) < 1f;
+
+        if (!isPhoenix && !isBlockedProgress && rollShop)
         {
             shopPanel.SetActive(true);
             return;
         }
 
-        // try to trigger a minigame, if not possible, go back to walking
         SetState(State.Minigame);
     }
 

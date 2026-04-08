@@ -89,40 +89,32 @@ public class EventAnswerButton : MonoBehaviour
         }
     }
 
-    bool result;
+
 
     bool CheckSkills()
     {
         // get reference to personage to make rest more readable (and way more optimized)
         Personage personage = selector.SelectedCharacter.Personage;
 
-        foreach (var skill in current.answers[answerIndex].skillNeeded)
+        foreach (SkillNeededForAnswer skill in current.answers[answerIndex].skillNeeded)
         {
-            switch (skill.skillType)
+            int value = skill.skillType switch
             {
-                case Skillset.Kapitaal:
-                    if (personage.baseKapitaal >= skill.skillAmountNeeded) result = true;
-                    else result = false;
-                    break;
-                case Skillset.Bouwkunde:
-                    if (personage.baseBouwkunde >= skill.skillAmountNeeded) result = true;
-                    else result = false;
-                    break;
-                case Skillset.Socialiteit:
-                    if (personage.baseSociaal >= skill.skillAmountNeeded) result = true;
-                    else result = false;
-                    break;
-                case Skillset.AanpassingsVermogen:
-                    if (personage.baseAanpassingsvermogen >= skill.skillAmountNeeded) result = true;
-                    else result = false;
-                    break;
-                case Skillset.Leervermogen:
-                    if (personage.baseLeervermogen >= skill.skillAmountNeeded) result = true;
-                    else result = false;
-                    break;
-            }
+                Skillset.Kapitaal => personage.baseKapitaal,
+                Skillset.Bouwkunde => personage.baseBouwkunde,
+                Skillset.Socialiteit => personage.baseSociaal,
+                Skillset.AanpassingsVermogen => personage.baseAanpassingsvermogen,
+                Skillset.Leervermogen => personage.baseLeervermogen,
+                Skillset.FoodStorage => foodstor.CurrentFood,
+                _ => 0
+            };
+
+            // if any value is too low, the full check fails.
+            if (value < skill.skillAmountNeeded) return false;
         }
-        return result;
+
+        // if able to pass all checks, assume it is successful and return true
+        return true;
     }
     void ChangeSkills(bool hasSkills)
     {
