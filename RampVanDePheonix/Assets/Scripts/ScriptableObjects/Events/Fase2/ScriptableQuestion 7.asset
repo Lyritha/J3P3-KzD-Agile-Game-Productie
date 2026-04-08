@@ -23,10 +23,10 @@ MonoBehaviour:
       punten verdienen. '
     resultFailed: Je hebt niet genoeg kapitaal om je karakter veilig te stellen.
     change:
-    - skillToBeChanged: 8
-      changeAmount: 0
     - skillToBeChanged: 1
       changeAmount: -4
+    - skillToBeChanged: 8
+      changeAmount: 0
     changeFailed: []
   - skillNeeded:
     - skillType: 3

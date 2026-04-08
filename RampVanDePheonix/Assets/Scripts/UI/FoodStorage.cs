@@ -58,8 +58,7 @@ public class FoodStorage : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public bool TryAddFood(int amount)
     {
         if (CurrentFood >= MaxFood) return false;
-
-        CurrentFood += amount;
+        CurrentFood = Mathf.Min(CurrentFood + amount, MaxFood);
         UpdateDisplay();
 
         return true;

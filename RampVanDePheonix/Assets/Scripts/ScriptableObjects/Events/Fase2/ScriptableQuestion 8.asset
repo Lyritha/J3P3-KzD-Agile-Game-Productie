@@ -56,10 +56,10 @@ MonoBehaviour:
 
       Je karakter gaat dood'
     change:
-    - skillToBeChanged: 8
-      changeAmount: 0
     - skillToBeChanged: 1
       changeAmount: -4
+    - skillToBeChanged: 8
+      changeAmount: 0
     changeFailed:
     - skillToBeChanged: 7
       changeAmount: 0

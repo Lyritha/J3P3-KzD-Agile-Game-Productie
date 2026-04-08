@@ -50,6 +50,10 @@ public class PhaseManager : MonoBehaviour
                 break;
         }
 
+        // hide visualiser when swapping fase, otherwise it will show the event of the previous fase
+        EventVisualiser visualiser = FindFirstObjectByType<EventVisualiser>();
+        if (visualiser != null) visualiser.Hide(false);
+
         CurrentFase = fase; 
         display.SetPhase(CurrentFase,10);
         movement.SetFase(CurrentFase);
