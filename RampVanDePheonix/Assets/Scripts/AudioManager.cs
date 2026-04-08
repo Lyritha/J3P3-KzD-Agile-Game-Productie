@@ -7,28 +7,24 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
 
 
-    [SerializeField]
+    [SerializeField, Header("Sources")]
     private AudioSource singleShotSource;
     [SerializeField] 
     private AudioSource musicAudioSource;
     [SerializeField]
     private AudioSource ambientAudioSource;
 
-
-    [SerializeField]
-    private LoopedSoundEffect[] loopedSoundEffects;
-
     [SerializeField]
     private SoundEffect[] soundEffects;
 
-    [SerializeField]
+    [SerializeField, Header("Ambiance")]
     private AudioClip achterhoekAmbiance;
     [SerializeField]
     private AudioClip boatAmbiance;
     [SerializeField]
     private AudioClip amerikaAmbiance;
 
-    [SerializeField]
+    [SerializeField, Header("Music")]
     private AudioClip achterhoekMusic;
     [SerializeField]
     private AudioClip boatMusic;
@@ -162,23 +158,7 @@ public struct SoundEffect
     public SoundEffects effect;
 }
 
-[Serializable]
-public struct LoopedSoundEffect
-{
-    public AudioClip clip;
-    public float volume;
-    public LoopedSoundEffects effect;
-}
-
 public enum SoundEffects
 {
     button
-}
-
-public enum LoopedSoundEffects
-{
-    Achterhoek,
-    Pheonix,
-    Amerika,
-    Minigame,
 }
