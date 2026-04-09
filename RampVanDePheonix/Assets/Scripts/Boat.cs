@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Boat : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] randomSounds;
+    [SerializeField] private AudioSource audioSource;
+
     [Header("Idle Movement")]
     [SerializeField] private float sineAmplitude = 50f;
     [SerializeField] private float maxSineFrequency = 5f;
@@ -16,6 +20,8 @@ public class Boat : MonoBehaviour
     private float baseX;
     private float baseY;
     private float baseRot;
+
+    private bool isTooting = false;
 
     void Start()
     {
@@ -39,7 +45,21 @@ public class Boat : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && !isTooting)
+        {
+            AudioClip randomSound = randomSounds[Random.Range(0, randomSounds.Length)];
+            audioSource.PlayOneShot(randomSound);
+
+            isTooting = true;
+            Invoke(nameof(ResetToot), randomSound.length);
+        }
+
         HandleMovement();
+    }
+
+    private void ResetToot()
+    {
+        isTooting = false;
     }
 
     void HandleMovement()
