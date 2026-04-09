@@ -62,6 +62,11 @@ public class PhaseDisplayer : MonoBehaviour
         phaseProgress = 0;
 
         SetPhaseInfo(phase);
+
+        if (progressRoutine != null)
+            StopCoroutine(progressRoutine);
+
+        progressRoutine = StartCoroutine(AnimateProgress(phaseProgress));
     }
 
     private void SetPhaseInfo(Fases phase)

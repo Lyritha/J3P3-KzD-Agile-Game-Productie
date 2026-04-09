@@ -1834,6 +1834,7 @@ MonoBehaviour:
   minigame: {fileID: 1166791996}
   foregroundMonobehaviors:
   - {fileID: 1525090343}
+  - {fileID: 76563454}
 --- !u!1 &741452602
 GameObject:
   m_ObjectHideFlags: 0
