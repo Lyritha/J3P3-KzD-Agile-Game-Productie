@@ -52,6 +52,7 @@ public class EventStateManager : MonoBehaviour
 
     protected Dictionary<int, Minigame> minigameTriggers = new();
     public PhaseManager FaseManager { get { return faseManager; } }
+    private List<Event> previousEvents = new List<Event>();
 
     protected void Awake()
     {
@@ -162,7 +163,6 @@ public class EventStateManager : MonoBehaviour
     }
 
 
-    public List<Event> previousEvents = new List<Event>();
     protected virtual void EventState()
     {
         if (randomEventsManager != null) randomEventsManager.EndEventLoop();
