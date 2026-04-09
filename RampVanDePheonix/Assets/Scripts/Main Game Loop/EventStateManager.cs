@@ -162,7 +162,7 @@ public class EventStateManager : MonoBehaviour
     }
 
 
-    List<Event> previousEvents = new List<Event>();
+    public List<Event> previousEvents = new List<Event>();
     protected virtual void EventState()
     {
         if (randomEventsManager != null) randomEventsManager.EndEventLoop();
@@ -175,6 +175,7 @@ public class EventStateManager : MonoBehaviour
         } while (previousEvents.Contains(randomEvent));
 
         eventVisualiser.ShowEvent(randomEvent);
+        previousEvents.Add(randomEvent);
     }
 
     public void ResetPreviousEvents()
