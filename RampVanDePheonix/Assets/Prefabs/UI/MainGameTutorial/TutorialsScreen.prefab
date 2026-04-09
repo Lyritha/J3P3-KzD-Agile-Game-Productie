@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 373.5, y: -89.61}
-  m_SizeDelta: {x: 747, y: 179.22}
+  m_AnchoredPosition: {x: 292.5, y: -35.63}
+  m_SizeDelta: {x: 585, y: 71.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9115125454087683572
 CanvasRenderer:
@@ -67,8 +67,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Hier zie je al je karakters, je kan ze selecteren door op deze te klikken.
-    \n\nJe kan de vaardigheden van een karakter zien door je muis er over heen te
-    gaan.\n\n"
+    \n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
   m_sharedMaterial: {fileID: 8326081265682717870, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
@@ -6852,8 +6851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 393.5, y: -109.61}
-  m_SizeDelta: {x: 747, y: 179.22}
+  m_AnchoredPosition: {x: 312.5, y: -55.63}
+  m_SizeDelta: {x: 585, y: 71.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8767410970467116054
 MonoBehaviour:
@@ -12006,7 +12005,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -120, y: -30.5}
-  m_SizeDelta: {x: 787, y: 224.1}
+  m_SizeDelta: {x: 625, y: 125}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6609894022042097699
 CanvasRenderer:
