@@ -153,7 +153,7 @@ public class EventAnswerButton : MonoBehaviour
                         boat.SaveSelected();
                         break;
                     case Skillset.FoodStorage:
-                        if (change.changeAmount < 0) foodstor.TryRemoveFood(change.changeAmount);
+                        if (change.changeAmount < 0) foodstor.TryRemoveFood(change.changeAmount * -1);
                         else foodstor.TryAddFood(change.changeAmount);
                         break;
                     case Skillset.HungerPerPerson:
