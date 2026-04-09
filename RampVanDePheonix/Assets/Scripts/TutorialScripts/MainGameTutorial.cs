@@ -37,15 +37,11 @@ public class MainGameTutorial : MonoBehaviour
     /// <param name="stepName"></param>
     public void NextStep(string stepName, bool openNextStep = true)
     {
-        Debug.Log(stepName + " Ended");
-
         if (stepName != currentStep.stepName) return;
         NextStep(openNextStep);
     }
     public void NextStep(bool openNextStep = true)
     {
-        Debug.Log("end step");
-
         EndCurrentStep();
 
         stepIndex++;

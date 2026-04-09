@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class RandomEventManager : MonoBehaviour
 {
-    [SerializeField] PhaseManager phaseManager;
+    [SerializeField] protected PhaseManager phaseManager;
 
     [Header("Achterhoek evenementen")]
-    [SerializeField] Stealing_enemy stealPrefabA;
-    [SerializeField] Obstacle_Spawn obstaclePrefabA;
-    [SerializeField] Loot_Spawn lootPrefabA;
+    [SerializeField] protected Stealing_enemy stealPrefabA;
+    [SerializeField] protected Obstacle_Spawn obstaclePrefabA;
+    [SerializeField] protected Loot_Spawn lootPrefabA;
 
     [Header("Boot evenementen")]
     [SerializeField] Stealing_enemy stealPrefabB;
@@ -23,11 +23,11 @@ public class RandomEventManager : MonoBehaviour
     [SerializeField] Loot_Spawn lootPrefabAm;
 
     [Header("Spawn settings")]
-    [SerializeField] RectTransform rectTransform;
+    [SerializeField] protected RectTransform rectTransform;
     [SerializeField] float minDelay = 2;
     [SerializeField] float maxDelay = 10;
 
-    public bool Eventhappening {  get; private set; }
+    public bool Eventhappening;
 
     private List<Stealing_enemy> activeEnemies = new List<Stealing_enemy>();
     private List<Obstacle_Spawn> activeObstacles = new List<Obstacle_Spawn>();
@@ -64,13 +64,13 @@ public class RandomEventManager : MonoBehaviour
         }
     }
 
-    public void StartEventLoop()
+    public virtual void StartEventLoop()
     {
         Eventhappening = true;
         coroutine = StartCoroutine(IntervalTimer());
     }
 
-    public void EndEventLoop()
+    public virtual void EndEventLoop()
     {
         Eventhappening = false;
 
@@ -81,7 +81,7 @@ public class RandomEventManager : MonoBehaviour
         }
     }
 
-    public void SpawnThief()
+    public virtual void SpawnThief()
     {
         int amount = Random.Range(1, 4);
 
@@ -102,7 +102,7 @@ public class RandomEventManager : MonoBehaviour
             activeEnemies.Add(obj);
         }
     }
-    public void SpawnLoot()
+    public virtual void SpawnLoot()
     {
         Vector2 spawnPos = new(Random.Range(-100, -20), Random.Range(10, 80));
 
@@ -118,7 +118,7 @@ public class RandomEventManager : MonoBehaviour
         obj.Init(rectTransform, this);
         activeLoots.Add(obj);
     }
-    public void SpawnObstacle()
+    public virtual void SpawnObstacle()
     {
         Obstacle_Spawn obstacle = FindAnyObjectByType<Obstacle_Spawn>();
         if (obstacle != null) return;

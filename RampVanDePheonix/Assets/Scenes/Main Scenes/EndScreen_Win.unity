@@ -1163,7 +1163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Je hebt het overleeft!
+  m_text: Je hebt het overleefd!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
   m_sharedMaterial: {fileID: 8326081265682717870, guid: 1a29a03a002cf8549af272ff12acad57, type: 2}
