@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 76563453}
+  - component: {fileID: 76563454}
   m_Layer: 5
   m_Name: Boat
   m_TagString: Untagged
@@ -152,9 +153,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 406, y: -172}
+  m_AnchoredPosition: {x: 406, y: -188}
   m_SizeDelta: {x: 828.29, y: 828.29}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &76563454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76563452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18f987fae02fd3469a96ff258ed9ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boat
+  sineAmplitude: 15
+  maxSineFrequency: 1
+  wiggleTarget: {fileID: 76563453}
 --- !u!1 &86223215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1299,7 @@ MonoBehaviour:
   rectTransform: {fileID: 853326112}
   minDelay: 5
   maxDelay: 15
+  Eventhappening: 0
 --- !u!4 &510504363
 Transform:
   m_ObjectHideFlags: 0
@@ -1629,6 +1646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackgroundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8362543562646508141, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
+      propertyPath: boat
+      value: 
+      objectReference: {fileID: 76563454}
     - target: {fileID: 8362543562646508141, guid: e04b72ef4443ba84c8e52ddca9b54b69, type: 3}
       propertyPath: brenda
       value: 

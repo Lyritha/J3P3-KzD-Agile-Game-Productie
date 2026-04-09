@@ -36,6 +36,8 @@ public class BackgroundMovement : MonoBehaviour
     [Header("in-scene objects")]
     [SerializeField] GameObject defaultImageObject;
     [SerializeField] Canvas activeCanvas;
+
+    [SerializeField] Boat boat;
     [SerializeField] BrendaFlip brenda;
 
     [SerializeField] GameObject boatPlayer;
@@ -86,6 +88,7 @@ public class BackgroundMovement : MonoBehaviour
         targetForegroundSpeed = 0;
         targetBackgroundSpeed = 0;
         brenda.StopMoving();
+        boat.StopMoving();
     }
 
     [ContextMenu("start")]
@@ -94,6 +97,7 @@ public class BackgroundMovement : MonoBehaviour
         targetForegroundSpeed = baseForegroundSpeed;
         targetBackgroundSpeed = baseBackgroundSpeed;
         brenda.StartMoving();
+        boat.StartMoving();
     }
 
     private void Update()
