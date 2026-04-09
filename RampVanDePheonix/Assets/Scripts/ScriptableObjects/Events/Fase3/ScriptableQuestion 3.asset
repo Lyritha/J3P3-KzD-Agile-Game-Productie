@@ -47,6 +47,6 @@ MonoBehaviour:
       er minder budget om eten te kopen. \n\nVerlies 1 etensvoorraad."
     resultFailed: 
     change:
-    - skillToBeChanged: 6
+    - skillToBeChanged: 5
       changeAmount: -1
     changeFailed: []
