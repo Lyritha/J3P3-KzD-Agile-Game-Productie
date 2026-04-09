@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18f987fae02fd3469a96ff258ed9ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boat
-  sineAmplitude: 15
+  sineAmplitude: 10
   maxSineFrequency: 1
   wiggleTarget: {fileID: 76563453}
 --- !u!1 &86223215
