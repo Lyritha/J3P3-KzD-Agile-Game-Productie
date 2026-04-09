@@ -161,13 +161,25 @@ public class EventStateManager : MonoBehaviour
         SetState(State.Event);
     }
 
+
+    List<Event> previousEvents = new List<Event>();
     protected virtual void EventState()
     {
         if (randomEventsManager != null) randomEventsManager.EndEventLoop();
         background.PauseBackground();
+        Event randomEvent;
+        do
+        {
+            randomEvent = faseManager.GetRandomEvent();
 
-        Event randomEvent = faseManager.GetRandomEvent();
+        } while (previousEvents.Contains(randomEvent));
+
         eventVisualiser.ShowEvent(randomEvent);
+    }
+
+    public void ResetPreviousEvents()
+    {
+        previousEvents.Clear();
     }
 
     protected virtual void FinishEventState()

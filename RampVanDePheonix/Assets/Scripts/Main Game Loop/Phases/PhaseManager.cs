@@ -16,6 +16,8 @@ public class PhaseManager : MonoBehaviour
     public int Progress { get; private set; } = 0;
     private List<Event> currentEvents = new List<Event>();
 
+    
+
 
     BackgroundMovement movement;
     int maxProgress = 10;
@@ -54,6 +56,7 @@ public class PhaseManager : MonoBehaviour
         EventVisualiser visualiser = FindFirstObjectByType<EventVisualiser>();
         if (visualiser != null) visualiser.Hide(false);
 
+        stateManager.ResetPreviousEvents();
         CurrentFase = fase; 
         display.SetPhase(CurrentFase,10);
         movement.SetFase(CurrentFase);
