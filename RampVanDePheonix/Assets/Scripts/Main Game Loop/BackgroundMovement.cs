@@ -87,8 +87,8 @@ public class BackgroundMovement : MonoBehaviour
     {
         targetForegroundSpeed = 0;
         targetBackgroundSpeed = 0;
-        brenda.StopMoving();
-        boat.StopMoving();
+        if(brenda != null) brenda.StopMoving();
+        if(boat != null) boat.StopMoving();
     }
 
     [ContextMenu("start")]
@@ -96,8 +96,8 @@ public class BackgroundMovement : MonoBehaviour
     {
         targetForegroundSpeed = baseForegroundSpeed;
         targetBackgroundSpeed = baseBackgroundSpeed;
-        brenda.StartMoving();
-        boat.StartMoving();
+        if(brenda != null) brenda.StartMoving();
+        if (boat != null) boat.StartMoving();
     }
 
     private void Update()
